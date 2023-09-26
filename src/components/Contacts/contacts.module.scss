@@ -1,0 +1,101 @@
+.root {
+background-color: #151515;
+  position: relative;
+  background-image: url("../../app/media/images/contacts/bg.svg");
+  background-repeat: no-repeat;
+  background-position: right top;
+
+  .row {
+  max-width: 1150px;
+    padding: 130px 0 0 0;
+    display: grid;
+    column-gap: 20px;
+    grid-template-areas:
+           'contacts form'
+           'contactInfo form';
+    grid-template-columns: 1fr 1fr;
+    @media screen and (max-width: 768px){
+      padding: 10px 0 0 0;
+      align-self: center;
+      grid-template-columns: 1fr ;
+      grid-template-areas:
+           'contacts'
+           'form'
+           'contactInfo';
+    }
+  }
+
+
+  .topInfo {
+    grid-area: contacts;
+    max-width: 470px;
+
+    .title {
+      color: #F1F0E7;
+      font-size: 60px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 110%;
+    }
+
+    .subtitle {
+      padding-top: 36px;
+      color: #F1F0E7;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 200;
+      line-height: 130%;
+    }
+
+    @media screen and (max-width: 1024px){
+      .title {
+        font-size: 54px;
+      }
+
+      .subtitle {
+        font-size: 26px;
+      }
+    }
+    @media screen and (max-width: 768px){
+      .title {
+        font-size: 48px;
+      }
+
+      .subtitle {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .bottomInfo {
+    grid-area: contactInfo;
+    align-self: end;
+    color: #F1F0E7;
+    font-size: 24px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    max-width: 470px;
+
+    a {
+      color: #F1F0E7;
+    }
+    p {
+
+    }
+    @media screen and (max-width: 1024px){
+      font-size: 22px;
+    }
+    @media screen and (max-width: 768px){
+      padding-top: 80px;
+    }
+  }
+
+  .columnRight {
+    grid-area: form;
+  }
+  @media screen and (max-width: 768px){
+    background-image: none;
+  }
+}
+
