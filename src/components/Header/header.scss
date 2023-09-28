@@ -47,5 +47,34 @@
 //  display: none!important;
 //}
 
+.liWithImg {
+  padding-left: 36px;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    left: 0;
+    top: -5px;
+  }
+}
+
+header{
+  @media screen and (max-width:768px){
+    padding: 25px 0!important;
+  }
+}
+
+.basket {
+  &:before {
+    content: url("../../app/media/images/basket.svg");
+  }
+}
+
+.account {
+  &:before {
+    content: url("../../app/media/images/userGolden.svg");
+  }
+}
+
 
 

@@ -1,6 +1,13 @@
 import React from 'react';
 import Image from "next/image";
 
+// styles
+
+import * as styles from "./aboutUsHome.module.scss";
+
+// assets
+import comma from "../../app//media/images/comma.svg";
+
 const mockData = [
     {
         id: 1,
@@ -54,14 +61,24 @@ const AboutUsHome = () => {
         <section className={styles.root}>
             <div className={styles.row}>
                 <div className={`${styles.column} ${styles.fixed}`}>
-
+                    <div className={styles.content}>
+                        <p className={styles.title}>
+                            Что говорят наши ученики
+                        </p>
+                        <p className={styles.text}>
+                            Наши участники разделяют свой опыт и впечатления от прохождения курсов фармацевтики и медицины.
+                        </p>
+                        <p className={styles.subtext}>
+                            Отзывы участников наших курсов:
+                        </p>
+                    </div>
                 </div>
                 <div className={`${styles.column} ${styles.scrollable}`}>
                     {mockData.map(el =>
-                        <div key={el.id}>
-                            <Image src={} alt={}/>
+                        <div className={styles.content} key={el.id}>
+                            <Image src={comma} alt={'img'}/>
                             <p className={styles.comment}>{el.commentary}</p>
-                            <p className={styles.comment}>{el.author}</p>
+                            <p className={styles.author}>{el.author}</p>
                         </div>
                     )}
                 </div>

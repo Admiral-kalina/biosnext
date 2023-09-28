@@ -2,7 +2,6 @@
 import React from 'react';
 
 // libraries
-import {Image} from "antd/lib";
 
 // components
 import Container from "../Container/Container";
@@ -16,6 +15,7 @@ import arrowUpRight from "../../app/media/images/arrowUpRight.svg"
 // styles
 import * as styles from "./services.module.scss";
 import Link from "next/link";
+import Image from "next/image";
 
 const ServicesComponent = () => {
     return (

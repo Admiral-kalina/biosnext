@@ -119,24 +119,7 @@
 
   /*choose-records*/
 
-  .all-records {
-    margin-right: 28px !important;
-    border-radius: 22px !important;
-    border: 1px solid rgba(255, 255, 255, 0.40);
-    color: rgba(255, 255, 255, 0.40);
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 200;
-  }
 
-  .my-records {
-    border-radius: 22px !important;
-    border: 1px solid rgba(255, 255, 255, 0.40);
-    color: rgba(255, 255, 255, 0.40);
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 200;
-  }
 
   /*///////////*/
 
@@ -178,6 +161,86 @@
 
   .rbc-row-bg {
     column-gap: 7px;
+  }
+
+
+  .records_block{
+    button{
+      border: 1px solid rgba(255, 255, 255, 0.40);
+      color: rgba(255, 255, 255, 0.40);
+      border-radius: 22px ;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 200;
+      &:hover{
+        border: 1px solid #F1B434;
+        color: #F1B434;
+        background: transparent;
+      }
+      &:active{
+        background: transparent;
+      }
+      &:focus{
+        background: transparent;
+        outline: none;
+      }
+    }
+
+    .all-records {
+      margin-right: 28px !important;
+    }
+
+    .my-records {
+
+    }
+    .record{
+    }
+    .activeRecord{
+      border: 1px solid #F1B434;
+      color: #F1B434;
+
+    }
+  }
+  @media screen and (max-width: 1024px){
+    .rbc-calendar {
+      padding: 0 7px 0 0;
+      height: 1000px;
+    }
+    .rbc-toolbar {
+      margin: 0 auto 0 40px;
+
+    }
+    .rbc-calendar {
+      width: 1060px ;
+    }
+    .rbc-month-view {
+      column-gap: 16px;
+      border: none !important;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .rbc-month-header {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .rbc-row-content {
+      height: 100%;
+
+      .rbc-row {
+        height: 100%;
+        max-height: 100%;
+        flex-direction: column;
+      }
+    }
+
+    .rbc-row-bg {
+      row-gap: 16px;
+      display: flex !important;
+      flex-direction: column !important;
+
+    }
   }
 }
 

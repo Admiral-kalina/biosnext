@@ -154,9 +154,29 @@
 
 .experienceHome{
   background: #F1F0E7;
+  position: relative;
+  z-index: 0;
+
   .experience__wrapper_home{
-    padding: 206px 0 167px;
+    padding: 206px 25px 167px;
     max-width: 1590px;
     margin: 0 auto;
+  }
+  .experience__title{
+    max-width: 320px;
+  }
+  @media screen and (max-width: 1024px){
+    .experience__wrapper_home{
+      padding: 100px 25px 80px;
+    }
+  }
+
+  @media screen and (max-width: 768px){
+
+    .experience__wrapper_home{
+      padding: 25px 20px 70px;
+      background: linear-gradient(90deg, rgba(255, 230, 114,0.4) -30%, rgb(255, 255, 255) 82%) ;
+
+    }
   }
 }

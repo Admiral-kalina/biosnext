@@ -19,13 +19,13 @@ const events = [
         'allDay': true,
         'start': new Date(2023, 8, 18),
         'end': new Date(2023, 8, 18),
-        'editionData': 'zalupa'
+        'editionData': 'asdf'
     },
     {
         'title': 'Long Event',
         'start': new Date(2023, 8, 20),
         'end': new Date(2023, 8, 20),
-        'editionData': 'zalupa'
+        'editionData': 'fasd'
     },
 ]
 

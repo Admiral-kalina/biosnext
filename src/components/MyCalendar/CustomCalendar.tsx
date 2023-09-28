@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState} from "react";
 
 
 export interface ICustomTooolbarProps {
@@ -28,6 +29,8 @@ export const views = {
 };
 
 const CustomToolbar = (props) => {
+    const [isAllPosts, setIsAllPosts] = useState(true)
+
     function navigate(action) {
         props.onNavigate(action);
     }
@@ -53,12 +56,17 @@ const CustomToolbar = (props) => {
         }
     }
 
+    const handleClick = (bool:boolean) => {
+        setIsAllPosts(bool)
+    }
+
+
     return (
         <div className="rbc-toolbar">
             <span className='back_block'>
                 <button className='back'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 24 26" fill="none"><path
-                    d="M18 1L6 13L18 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                        d="M18 1L6 13L18 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
                    <span className='back-text'> Назад</span>
                 </button>
             </span>
@@ -78,8 +86,8 @@ const CustomToolbar = (props) => {
                 </button>
             </span>
             <span className="records_block">
-                <button className='all-records'>Все</button>
-                <button className='my-records'>Только мои</button>
+                <button onClick={() => handleClick(true)} className={`${isAllPosts ? "activeRecord" : ""} all-records`}>Все</button>
+                <button onClick={() => handleClick(false)} className={`${isAllPosts ? "" : "activeRecord"} my-records`}>Только мои</button>
             </span>
         </div>
     );

@@ -40,7 +40,6 @@ const MiddleLayout = ({children}) => {
 
     return(
         <>
-            <Header/>
             {children}
         </>
     )

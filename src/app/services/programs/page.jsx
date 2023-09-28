@@ -10,9 +10,7 @@ const ServicesProgramsList = () => {
     return (
         <div>
             <Header/>
-
-           <Programs/>
-
+            <Programs/>
             <Footer/>
         </div>
     );
