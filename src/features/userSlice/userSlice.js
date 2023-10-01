@@ -7,7 +7,6 @@ const languageFromStorage = typeof window !== 'undefined' ? localStorage.getItem
 const coursesFromStorage = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('coursesList')) || [] : [];
 
 
-
 export const fetchUserCourses = createAsyncThunk(
     'courses/fetchCoursesByLanguage',
 
@@ -39,6 +38,10 @@ const initialState = {
             programs: [],
             webinars: [],
         },
+        basket: {
+            programs: [],
+            webinars: [],
+        },
     },
     isLoading: false,
     error: null,
@@ -59,7 +62,11 @@ const userSlice = createSlice({
         removeUserCurse(state) {
             state.user.coursesList = []
             localStorage.setItem('coursesList', JSON.stringify([]))
-        }
+        },
+        addBasketProgram(state){
+
+        },
+
     },
     extraReducers: (builder) => {
         builder.addCase(fetchUserCourses.pending, (state) => {
@@ -73,8 +80,6 @@ const userSlice = createSlice({
 
             state.user.courses.programs = programs;
             state.user.courses.webinars = webinars;
-
-
 
         })
         builder.addCase(fetchUserCourses.rejected, (state, action) => {

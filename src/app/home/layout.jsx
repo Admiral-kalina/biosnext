@@ -14,7 +14,7 @@ export default function HomeLayout({children}) {
         <section>
             <Header type={'cabinet'}/>
             <div style={{background: "#151515"}}>
-                <Container>
+                <Container sizeZero={true}>
                     <Home/>
                 </Container>
                 <Routes>
@@ -54,8 +54,6 @@ export default function HomeLayout({children}) {
                         </div>
                     }/>
                 </Routes>
-
-
             </div>
             <Footer location='home'/>
         </section>

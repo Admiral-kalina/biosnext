@@ -10,7 +10,7 @@ import {fetchUserCourses} from "@/features/userSlice/userSlice";
 import {fetchCourses} from "@/features/coursesSlice/coursesSlice";
 import Header from "@/components/Header/Header";
 
-
+import "../i18n"
 
 export default function RootLayout({children}) {
 

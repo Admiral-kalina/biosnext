@@ -4,7 +4,6 @@ import React from 'react';
 import * as styles from "./container.module.scss";
 
 const Container = ({children, sizeZero}) => {
-    console.log('sizeZero',sizeZero)
     return (
         <div className={styles.container}>
             <div

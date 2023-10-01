@@ -53,12 +53,12 @@ export default function Home() {
                                <p>
                                </p>
                                <nav>
-                                   {/*<a href="#" className="btn btn-yellow">Записаться</a>*/}
+                                   <a href="#" className="btn btn-yellow">Записаться</a>
 
-                                   {/*<div className="btn btn-transparent">*/}
-                                   {/*    <a href="#">Наш Календарь</a>*/}
-                                   {/*    <a href="#"><i className="icon-arrow-right"></i></a>*/}
-                                   {/*</div>*/}
+                                   <div className="btn btn-transparent">
+                                       <a href="#">Наш Календарь</a>
+                                       <a href="#"><i className="icon-arrow-right"></i></a>
+                                   </div>
                                </nav>
                            </section>
                        </div>
@@ -88,7 +88,7 @@ export default function Home() {
                                </div>
                            </div>
                            <div className="advantages__btn">
-                               {/*<a href="#" className="btn btn-yellow">Записаться</a>*/}
+                               <a href="#" className="btn btn-yellow">Записаться</a>
                            </div>
                        </section>
                    </div>
@@ -137,93 +137,93 @@ export default function Home() {
                    </div>
 
                    <div className="experience__btn">
-                       {/*<a href="#" className="btn btn-yellow">Записаться</a>*/}
+                       <a href="#" className="btn btn-yellow">Записаться</a>
                    </div>
 
-                   {/*<div className="container d-block-md">*/}
-                   {/*  <section className="feedback__wrapper">*/}
-                   {/*    <div className="feedback__wrapper--header">*/}
-                   {/*      <h2 className="experience__title">*/}
-                   {/*        Что говорят о нас наши ученики*/}
-                   {/*      </h2>*/}
-                   {/*      <p className="experience__text">*/}
-                   {/*        Наши участники разделяют свой опыт и впечатления от*/}
-                   {/*        прохождения курсов фармацевтики и медицины. Отзывы участников*/}
-                   {/*        наших курсов:*/}
-                   {/*      </p>*/}
-                   {/*    </div>*/}
-                   {/*    <div className="feedback__wrapper--footer">*/}
-                   {/*      <div className="feedback__items">*/}
-                   {/*        <div className="feedback__card">*/}
-                   {/*          <div className="feedback__card--img">*/}
-                   {/*            <img src={icon4} alt="icon"/>*/}
-                   {/*          </div>*/}
-                   {/*          <div className="feedback__card--descr">*/}
-                   {/*            <p>*/}
-                   {/*              Невероятное погружение в мир фармацевтики! Курс позволил*/}
-                   {/*              мне разгадать тайны создания лекарств и научил*/}
-                   {/*              анализировать составы. Очень информативно!*/}
-                   {/*            </p>*/}
-                   {/*            <div className="feedback__card--line"></div>*/}
-                   {/*            <div className="feedback__card--name">*/}
-                   {/*              <p>- Анна С.</p>*/}
-                   {/*            </div>*/}
-                   {/*          </div>*/}
-                   {/*        </div>*/}
+                   <div className="container d-block-md">
+                     <section className="feedback__wrapper">
+                       <div className="feedback__wrapper--header">
+                         <h2 className="experience__title">
+                           Что говорят о нас наши ученики
+                         </h2>
+                         <p className="experience__text">
+                           Наши участники разделяют свой опыт и впечатления от
+                           прохождения курсов фармацевтики и медицины. Отзывы участников
+                           наших курсов:
+                         </p>
+                       </div>
+                       <div className="feedback__wrapper--footer">
+                         <div className="feedback__items">
+                           <div className="feedback__card">
+                             <div className="feedback__card--img">
+                               <img src={icon4} alt="icon"/>
+                             </div>
+                             <div className="feedback__card--descr">
+                               <p>
+                                 Невероятное погружение в мир фармацевтики! Курс позволил
+                                 мне разгадать тайны создания лекарств и научил
+                                 анализировать составы. Очень информативно!
+                               </p>
+                               <div className="feedback__card--line"></div>
+                               <div className="feedback__card--name">
+                                 <p>- Анна С.</p>
+                               </div>
+                             </div>
+                           </div>
 
-                   {/*        <div className="feedback__card">*/}
-                   {/*          <div className="feedback__card--img">*/}
-                   {/*            <img src={icon4} alt="icon"/>*/}
-                   {/*          </div>*/}
-                   {/*          <div className="feedback__card--descr">*/}
-                   {/*            <p>*/}
-                   {/*              Теперь могу с уверенностью определять заболевания и*/}
-                   {/*              выбирать наилучшие методы лечения. Благодарю компанию за*/}
-                   {/*              этот опыт!*/}
-                   {/*            </p>*/}
-                   {/*            <div className="feedback__card--line"></div>*/}
-                   {/*            <div className="feedback__card--name">*/}
-                   {/*              <p>- Дмитрий П.</p>*/}
-                   {/*            </div>*/}
-                   {/*          </div>*/}
-                   {/*        </div>*/}
+                           <div className="feedback__card">
+                             <div className="feedback__card--img">
+                               <img src={icon4} alt="icon"/>
+                             </div>
+                             <div className="feedback__card--descr">
+                               <p>
+                                 Теперь могу с уверенностью определять заболевания и
+                                 выбирать наилучшие методы лечения. Благодарю компанию за
+                                 этот опыт!
+                               </p>
+                               <div className="feedback__card--line"></div>
+                               <div className="feedback__card--name">
+                                 <p>- Дмитрий П.</p>
+                               </div>
+                             </div>
+                           </div>
 
-                   {/*        <div className="feedback__card">*/}
-                   {/*          <div className="feedback__card--img">*/}
-                   {/*            <img src={icon4} alt="icon"/>*/}
-                   {/*          </div>*/}
-                   {/*          <div className="feedback__card--descr">*/}
-                   {/*            <p>*/}
-                   {/*              Курс открыл глаза на последние технологии и тенденции. Я*/}
-                   {/*              готов к применению передовых методов в своей практике.*/}
-                   {/*            </p>*/}
-                   {/*            <div className="feedback__card--line"></div>*/}
-                   {/*            <div className="feedback__card--name">*/}
-                   {/*              <p>- Екатерина М.</p>*/}
-                   {/*            </div>*/}
-                   {/*          </div>*/}
-                   {/*        </div>*/}
+                           <div className="feedback__card">
+                             <div className="feedback__card--img">
+                               <img src={icon4} alt="icon"/>
+                             </div>
+                             <div className="feedback__card--descr">
+                               <p>
+                                 Курс открыл глаза на последние технологии и тенденции. Я
+                                 готов к применению передовых методов в своей практике.
+                               </p>
+                               <div className="feedback__card--line"></div>
+                               <div className="feedback__card--name">
+                                 <p>- Екатерина М.</p>
+                               </div>
+                             </div>
+                           </div>
 
-                   {/*        <div className="feedback__card">*/}
-                   {/*          <div className="feedback__card--img">*/}
-                   {/*            <img src={icon4} alt="icon"/>*/}
-                   {/*          </div>*/}
-                   {/*          <div className="feedback__card--descr">*/}
-                   {/*            <p>*/}
-                   {/*              Очень впечатлён содержанием курса. Узнал о процессах*/}
-                   {/*              разработки лекарств, которые раньше казались мне*/}
-                   {/*              непонятными.*/}
-                   {/*            </p>*/}
-                   {/*            <div className="feedback__card--line"></div>*/}
-                   {/*            <div className="feedback__card--name">*/}
-                   {/*              <p>- Алексей К.</p>*/}
-                   {/*            </div>*/}
-                   {/*          </div>*/}
-                   {/*        </div>*/}
-                   {/*      </div>*/}
-                   {/*    </div>*/}
-                   {/*  </section>*/}
-                   {/*</div>*/}
+                           <div className="feedback__card">
+                             <div className="feedback__card--img">
+                               <img src={icon4} alt="icon"/>
+                             </div>
+                             <div className="feedback__card--descr">
+                               <p>
+                                 Очень впечатлён содержанием курса. Узнал о процессах
+                                 разработки лекарств, которые раньше казались мне
+                                 непонятными.
+                               </p>
+                               <div className="feedback__card--line"></div>
+                               <div className="feedback__card--name">
+                                 <p>- Алексей К.</p>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </section>
+                   </div>
                </article>
 
                <article className="training">
@@ -275,7 +275,7 @@ export default function Home() {
                                                Наша главная цель это обеспечение потребностей рынка лучшими специалистами в своей области. Мы делаем это, обучая специалистов инновационным концепциям, которые они могут получить только у практикующих экспертов.
                                            </p>
                                        </div>
-                                       {/*<a href="#" className="btn btn-yellow">Записаться</a>*/}
+                                       <a href="#" className="btn btn-yellow">Записаться</a>
                                    </div>
                                </div>
                            </div>

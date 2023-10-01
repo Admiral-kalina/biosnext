@@ -102,8 +102,8 @@ const Header = ({type}) => {
         body.style.overflow = "unset";
         body.style.width = "auto";
         body.style.position = "unset";
-        ;
-        setBurgerState(false)
+
+        setBurgerState(false);
     }
 
     return (
@@ -125,7 +125,7 @@ const Header = ({type}) => {
                     </Link>
                 </div>
 
-                <nav  className={`header__nav ${type === 'cabinet' ? 'hidden':''}`}>
+                <nav className={`header__nav ${type === 'cabinet' ? 'hidden' : ''}`}>
                     <ul>
                         <li><Link className={`text-uppercase ${endpoint === 'aboutCompany' ? 'active' : ''}`}
                                   href={'/aboutCompany'}>о компании</Link></li>
@@ -152,7 +152,7 @@ const Header = ({type}) => {
                             <li>
                                 <Link
                                     className=""
-                                    href={'/basket'}
+                                    href={type === 'cabinet' ? '/basket#cabinet' : '/basket'}
                                 >
                                     <Image src={basket} alt={'basket'}/>
                                 </Link>
@@ -189,8 +189,9 @@ const Header = ({type}) => {
 
 
                 <div className={`header__mobile ${burgerState ? 'active' : ''}`}>
-                    <ul className="nav-menu__mobile">
-                        <li className={type === 'cabinet' ? 'hidden':''} onClick={handleMobileClick}>
+
+                    <ul className={`${type === 'cabinet' ? 'nav-menu__mobile_cabinet' : ''} nav-menu__mobile`}>
+                        <li className={type === 'cabinet' ? 'hidden' : ''} onClick={handleMobileClick}>
                             <Link
                                 className={`text-uppercase ${endpoint === '' ? 'active' : ''}`}
                                 href={'/'}
@@ -198,7 +199,7 @@ const Header = ({type}) => {
                                 главная
                             </Link>
                         </li>
-                        <li className={type === 'cabinet' ? 'hidden':''} onClick={handleMobileClick}>
+                        <li className={type === 'cabinet' ? 'hidden' : ''} onClick={handleMobileClick}>
                             <Link
                                 className={`text-uppercase ${endpoint === 'aboutCompany' ? 'active' : ''}`}
                                 href={'/aboutCompany'}
@@ -206,7 +207,7 @@ const Header = ({type}) => {
                                 о компании
                             </Link>
                         </li>
-                        <li className={type === 'cabinet' ? 'hidden':''} onClick={handleMobileClick}>
+                        <li className={type === 'cabinet' ? 'hidden' : ''} onClick={handleMobileClick}>
                             <Link
                                 className={`text-uppercase ${endpoint === 'services' ? 'active' : ''}`}
                                 href={'/services'}
@@ -214,7 +215,7 @@ const Header = ({type}) => {
                                 услуги
                             </Link>
                         </li>
-                        <li className={type === 'cabinet' ? 'hidden':''} onClick={handleMobileClick}>
+                        <li className={type === 'cabinet' ? 'hidden' : ''} onClick={handleMobileClick}>
                             <Link
                                 className={`text-uppercase ${endpoint === 'activities' ? 'active' : ''}`}
                                 href={'/activities'}
@@ -222,7 +223,7 @@ const Header = ({type}) => {
                                 мероприятия
                             </Link>
                         </li>
-                        <li className={type === 'cabinet' ? 'hidden':''} onClick={handleMobileClick}>
+                        <li className={type === 'cabinet' ? 'hidden' : ''} onClick={handleMobileClick}>
                             <Link
                                 className={`text-uppercase ${endpoint === 'contacts' ? 'active' : ''}`}
                                 href={'/contacts'}
@@ -230,7 +231,8 @@ const Header = ({type}) => {
                                 контакты
                             </Link>
                         </li>
-                        <li className={`${type === 'cabinet' ? 'hidden':''} liWithImg basket`}  onClick={handleMobileClick}>
+                        <li className={`${type === 'cabinet' ? 'hidden' : ''} liWithImg basket`}
+                            onClick={handleMobileClick}>
 
                             <Link
                                 className={`text-uppercase ${endpoint === 'basket' ? 'active' : ''}`}
@@ -239,7 +241,8 @@ const Header = ({type}) => {
                                 Корзина
                             </Link>
                         </li>
-                        <li className={`${type === 'cabinet' ? 'hidden':''} liWithImg account`}  onClick={handleMobileClick}>
+                        <li className={`${type === 'cabinet' ? 'hidden' : ''} liWithImg account`}
+                            onClick={handleMobileClick}>
                             <Link
                                 className={`text-uppercase ${endpoint === 'home' ? 'active' : ''}`}
                                 href={'/home'}
@@ -249,48 +252,71 @@ const Header = ({type}) => {
                         </li>
 
 
-                       <>
-                           <li className={`nav-menu__mobile--block ${type === 'cabinet'?'nav-menu__mobile--block-cabinet':''}`}>
-                               <ul className="nav-menu__mobile--lang">
-                                   <li>
-                                       <a href="#">RU</a>
-                                   </li>
-                                   <li>
-                                       <a href="#">ENG</a>
-                                   </li>
-                                   <li>
-                                       <a href="#"
-                                          className="active">
-                                           УКР
-                                       </a>
-                                   </li>
-                               </ul>
-                               <ul>
-                                   <li>
-                                       выйти
-                                   </li>
-                               </ul>
-                               <ul className="nav-menu__mobile--info">
-                                   <li>
-                                       <a href="tel:+38 (095) 382-92-64">+380 95 382 9264</a>
-                                   </li>
-                                   <li className="nav-menu__mobile--info--social">
-                                       <Link href={'/'}><Image src={icon12} alt="phone"/></Link>
-                                       <Link href={'/'}><Image src={icon13} alt="viber"/></Link>
-                                       <Link href={'/'}><Image src={icon14} alt="telegram"/></Link>
-                                   </li>
-                                   <li className="nav-menu__mobile--info--place">
-                                       <p>01033, місто Київ, ВУЛИЦЯ ТАРАСІВСЬКА, будинок 4-А, офіс 7</p>
-                                   </li>
-                                   <li className="nav-menu__mobile--info--social-bottom">
-                                       <Link href={'/'}><Image src={icon5} alt="mail"/></Link>
-                                       <Link href={'/'}><Image src={icon6} alt="youtube"/></Link>
-                                       <Link href={'/'}><Image src={icon7} alt="linkedin"/></Link>
-                                       <Link href={'/'}><Image src={icon8} alt="facebook"/></Link>
-                                   </li>
-                               </ul>
-                           </li>
-                       </>
+                        <>
+                            <li className={`nav-menu__mobile--block ${type === 'cabinet' ? 'nav-menu__mobile--block-cabinet' : ''}`}>
+                                <ul className="nav-menu__mobile--lang">
+
+                                    <li className={selectedLanguage.value === 'ru' ? 'active' : ''}>
+                                        <button onClick={() => handleLanguageChange(
+                                            {
+                                                value: 'ru',
+                                                label: 'ru',
+                                            }
+                                        )}
+                                        >
+                                            RU
+                                        </button>
+                                    </li>
+                                    <li className={selectedLanguage.value === 'en' ? 'active' : ''}>
+                                        <button onClick={() => handleLanguageChange(
+                                            {
+                                                value: 'en',
+                                                label: 'en',
+                                            }
+                                        )}
+                                        >
+                                            ENG
+                                        </button>
+                                    </li>
+                                    <li className={selectedLanguage.value === 'ua' ? 'active' : ''}>
+                                        <button onClick={() => handleLanguageChange(
+                                            {
+                                                value: 'ua',
+                                                label: 'ua',
+                                            }
+                                        )}
+                                        >
+                                            УКР
+                                        </button>
+                                    </li>
+
+                                </ul>
+                                <ul className={`nav-menu__mobile--exit ${type === 'cabinet' ? '' : 'hidden'}`}>
+                                    <li>
+                                        выйти
+                                    </li>
+                                </ul>
+                                <ul className="nav-menu__mobile--info">
+                                    <li>
+                                        <a href="tel:+38 (095) 382-92-64">+380 95 382 9264</a>
+                                    </li>
+                                    <li className="nav-menu__mobile--info--social">
+                                        <Link href={'/'}><Image src={icon12} alt="phone"/></Link>
+                                        <Link href={'/'}><Image src={icon13} alt="viber"/></Link>
+                                        <Link href={'/'}><Image src={icon14} alt="telegram"/></Link>
+                                    </li>
+                                    <li className="nav-menu__mobile--info--place">
+                                        <p>01033, місто Київ, ВУЛИЦЯ ТАРАСІВСЬКА, будинок 4-А, офіс 7</p>
+                                    </li>
+                                    <li className="nav-menu__mobile--info--social-bottom">
+                                        <Link href={'/'}><Image src={icon5} alt="mail"/></Link>
+                                        <Link href={'/'}><Image src={icon6} alt="youtube"/></Link>
+                                        <Link href={'/'}><Image src={icon7} alt="linkedin"/></Link>
+                                        <Link href={'/'}><Image src={icon8} alt="facebook"/></Link>
+                                    </li>
+                                </ul>
+                            </li>
+                        </>
                     </ul>
                 </div>
 

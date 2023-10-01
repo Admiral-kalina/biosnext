@@ -1,16 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 // styles
 import * as styles from "./programElement.module.scss"
 import MyButton from "../../UI/MyButton/MyButton";
 import WebinarListHome from "../../Webinars/WebinarListHome/WebinarListHome";
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
 
 const ProgramElementDescriptionHome = ({program}) => {
     console.log('PP', program)
+    const dispatch = useDispatch();
+
+
+
     if (!program){
         return <div>Loading</div>
     }
+
+    const handleClick = () => {
+        dispatch()
+    }
+
     console.log('PROGRAM', program)
     return (
         <div className={styles.root}>
@@ -42,7 +52,7 @@ const ProgramElementDescriptionHome = ({program}) => {
                     </div>
                     <div className={`${styles.programBottom} ${styles.showOnMobile}`}>
                         <p className={styles.price}>{program.price} $</p>
-                        <MyButton transparent>Купить Программу</MyButton>
+                        <MyButton onClick={handleClick} transparent>Купить Программу</MyButton>
                     </div>
                 </div>
             </div>
