@@ -14,6 +14,10 @@ import "../i18n"
 
 export default function RootLayout({children}) {
 
+    if (typeof window !== "object") {
+        return
+    }
+
     return (
         <html lang="en">
         <body suppressHydrationWarning={true}>
