@@ -74,9 +74,9 @@ const children = (text) => {
         <div className="collapse_content">
             <span>Критерии уровня:</span>
 
-            {text.map(el =>
-                <p>{el}</p>
-            )}
+            {/*{text.map(el =>*/}
+            {/*    < p>{el}</p>*/}
+            {/*)}*/}
         </div>
     )
 }

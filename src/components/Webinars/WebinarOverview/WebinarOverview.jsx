@@ -52,6 +52,7 @@ export const WebinarOverview = ({context}) => {
                         <p className={`${styles.title} text60`}>Описание</p>
                         <div className={styles.content}>
                             <p className={styles.contentTitle}>
+                                {/* eslint-disable-next-line react/no-unescaped-entities */}
                                 Вебинар "Аспекты Фармаконадзора" представляет собой обзор ключевых аспектов и основных понятий в области фармаконадзора. Она может быть полезной для студентов медицинских, фармацевтических, исследовательских и связанных с здравоохранением направлений.
                             </p>
                             <WebinarDescription/>

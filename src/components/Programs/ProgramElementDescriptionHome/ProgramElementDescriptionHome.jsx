@@ -12,8 +12,7 @@ const ProgramElementDescriptionHome = ({program}) => {
     const dispatch = useDispatch();
 
 
-
-    if (!program){
+    if (!program) {
         return <div>Loading</div>
     }
 
@@ -25,7 +24,7 @@ const ProgramElementDescriptionHome = ({program}) => {
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
-                <Link  to={'/home/programs/#programs'}>
+                <Link to={'/home/programs/#programs'}>
                     <p className={styles.back}>Назад к программе</p>
                 </Link>
                 <div className={styles.row}>
@@ -36,11 +35,10 @@ const ProgramElementDescriptionHome = ({program}) => {
                         <div className={styles.programTop}>
                             <p className={styles.section}>Программа</p>
                             <p className={styles.name}>{program.name}</p>
-                            <p className={styles.date}> <span>Начало:</span> {program.start}</p>
-                            <p className={styles.webinarCount}> <span>Вебинаров:</span> {program.webinarsCount}</p>
+                            <p className={styles.date}><span>Начало:</span> {program.start}</p>
+                            <p className={styles.webinarCount}><span>Вебинаров:</span> {program.webinarsCount}</p>
                         </div>
-                        {/*{program.isAcquired?*/}
-                        {false?
+                        {program.isAcquired ?
                             <></>
                             :
                             <div className={`${styles.programBottom} ${styles.hideOnMobile}`}>
@@ -50,10 +48,14 @@ const ProgramElementDescriptionHome = ({program}) => {
                         }
 
                     </div>
-                    <div className={`${styles.programBottom} ${styles.showOnMobile}`}>
-                        <p className={styles.price}>{program.price} $</p>
-                        <MyButton onClick={handleClick} transparent>Купить Программу</MyButton>
-                    </div>
+                    {program.isAcquired ?
+                        <></>
+                        :
+                        <div className={`${styles.programBottom} ${styles.showOnMobile}`}>
+                            <p className={styles.price}>{program.price} $</p>
+                            <MyButton onClick={handleClick} transparent>Купить Программу</MyButton>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

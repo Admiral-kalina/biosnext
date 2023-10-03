@@ -15,7 +15,7 @@ import "../i18n"
 export default function RootLayout({children}) {
 
     if (typeof window !== "object") {
-        return
+        return null
     }
 
     return (

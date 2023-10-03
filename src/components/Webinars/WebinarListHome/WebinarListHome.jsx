@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 const WebinarListHome = ({webinars, isWebinarHome}) => {
 
 
-    console.log('SD', webinars)
+    console.log('CHECK2', webinars)
 
     return (
 

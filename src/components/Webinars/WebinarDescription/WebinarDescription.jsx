@@ -27,8 +27,8 @@ const WebinarDescription = ({type}) => {
             <ReactMarkdown
                 className={type === 'program' ? styles.program : styles.description}
                 remarkPlugins={[gfm]}
-                children={markDown}
-            />
+
+            >{markDown}</ReactMarkdown>
         </div>
     );
 };

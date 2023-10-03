@@ -27,7 +27,7 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
         route = `/home/${hashString}?#${hashString}`
     }
 
-    console.log('BAZZ2route', hashString)
+    console.log('HOME1',webinar)
 
     return (
         <div className={styles.root}>
@@ -50,6 +50,7 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
                             <p className={styles.time}>30 минут</p>
                             <p className={styles.time}>11:30</p>
                         </div>
+                        {/* eslint-disable-next-line react/no-unescaped-entities */}
                         <p className={styles.text}>Вебинар "Аспекты Фармаконадзора" представляет собой обзор ключевых
                             аспектов и основных понятий в области фармаконадзора. Она может быть полезной для студентов
                             медицинских, фармацевтических, исследовательских и связанных с здравоохранением
