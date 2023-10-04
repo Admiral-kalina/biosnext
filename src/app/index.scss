@@ -35,18 +35,19 @@
     &--top {
       position: relative;
       display: block;
-      padding: 100px 0 50px;
-
+      padding-top: 250px;
+      padding-bottom: 80px;
       width: 100%;
       background-image: url('media/images/bg-bottom.png');
       background-size: cover;
 
       @include media-breakpoint-up(lg) {
-        padding: 100px 0 50px;
+        padding-top: 460px;
+        padding-bottom: 270px;
       }
 
       @include media-breakpoint-up(xxl) {
-        padding: 180px 0 100px;
+        padding-top: 540px;
       }
     }
 
@@ -149,6 +150,8 @@
     }
   }
 }
+
+
 
 /// Expirionce
 

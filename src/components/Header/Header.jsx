@@ -36,7 +36,6 @@ const Header = ({type}) => {
     useEffect(() => {
 
         if (burgerState) {
-            console.log('TY', burgerState)
 
         }
 

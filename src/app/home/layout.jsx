@@ -8,8 +8,12 @@ import "../index.scss"
 import {Route, Routes} from "react-router-dom";
 import * as styles from "@/components/Home/home.module.scss";
 import AboutUsHome from "@/components/aboutUsHome/aboutUsHome";
+import {useEffect} from "react";
 
 export default function HomeLayout({children}) {
+    useEffect(() => {
+        document.body.style = 'background: rgb(21, 21, 21);';
+    })
     return (
         <section>
             <Header type={'cabinet'}/>

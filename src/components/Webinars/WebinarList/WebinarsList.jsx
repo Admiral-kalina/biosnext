@@ -6,7 +6,6 @@ import Link from "next/link";
 
 
 export const WebinarsList = ({webinars, isWebinarHome}) => {
-    console.log('PROGRAM', webinars)
     return (
         <>
             {webinars.map(webinar =>

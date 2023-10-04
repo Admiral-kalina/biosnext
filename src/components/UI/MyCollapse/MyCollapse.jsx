@@ -49,7 +49,6 @@
 //
 // const MyCollapse = () => {
 //     const onChange = (key) => {
-//         console.log(key);
 //     };
 //     return (<div className="collapse">
 //             <Collapse items={items}  onChange={onChange}/>
@@ -120,7 +119,6 @@ const items = [
 
 const MyCollapse = () => {
     const onChange = (key) => {
-        console.log(key);
     };
     return (<div className="collapse">
             <Collapse items={items}  onChange={onChange}/>

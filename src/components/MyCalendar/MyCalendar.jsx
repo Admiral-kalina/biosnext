@@ -30,7 +30,6 @@ const events = [
 ]
 
 const CustomEvent = ({event}) => {
-    console.log("prr", event)
     return (
         <div className="event_element">
 
@@ -43,7 +42,6 @@ const CustomEvent = ({event}) => {
 const MyCalendar = ({general}) => {
     moment.locale("ua");
     const ref = useRef()
-    console.log(ref)
 
     return (
         <div className={styles.gridCalendar}>

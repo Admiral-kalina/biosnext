@@ -6,14 +6,16 @@ import {Link} from "react-router-dom";
 
 
 const WebinarListHome = ({webinars, isWebinarHome}) => {
+    console.log('WEBINARS', webinars)
+    let withoutAttributes = true;
 
-
-    console.log('CHECK2', webinars)
+    if (webinars[0]?.attributes && !isWebinarHome){
+        withoutAttributes = false;
+    }
 
     return (
-
             <>
-                {isWebinarHome?
+                {withoutAttributes?
                     <>
                         {webinars.map(webinar =>
                             <div key={webinar.id} className={`${styles.column} ${styles.columnHome}`}>

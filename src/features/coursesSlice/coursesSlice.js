@@ -21,7 +21,6 @@ export const fetchCourses = createAsyncThunk(
     'courses/fetchCourses',
     async (language = 'ru') => {
         const programsList = await strapiApi.get(`/api/courses?populate=*&locale*`)
-        console.log('QQ1', programsList)
 
 
 

@@ -8,7 +8,6 @@ import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 
 const ProgramElementDescriptionHome = ({program}) => {
-    console.log('PP', program)
     const dispatch = useDispatch();
 
 
@@ -20,7 +19,6 @@ const ProgramElementDescriptionHome = ({program}) => {
         dispatch()
     }
 
-    console.log('PROGRAM', program)
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
@@ -29,7 +27,7 @@ const ProgramElementDescriptionHome = ({program}) => {
                 </Link>
                 <div className={styles.row}>
                     <div className={styles.webinarsList}>
-                        <WebinarListHome webinars={program.webbinarrs.data} isWebinarHome={false}/>
+                        <WebinarListHome webinars={program.webbinarrs.data}/>
                     </div>
                     <div className={styles.program}>
                         <div className={styles.programTop}>

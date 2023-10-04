@@ -44,7 +44,6 @@ const Home = ({context}) => {
     const location = useLocation()
     const previousRoute = usePreviousRoute();
 
-    console.log('Bazz1', previousRoute)
 
     const {language} = useSelector(store => store.user.user);
     const user = useSelector(store => store.user);
@@ -54,6 +53,7 @@ const Home = ({context}) => {
     const programSearch = Number(searchParams.get('program'));
     const webinarSearch = Number(searchParams.get('webinar'));
 
+    console.log('globalCourses', globalCourses)
 
     if (user.isLoading && globalCourses.isLoading) {
         return (
@@ -65,19 +65,22 @@ const Home = ({context}) => {
     const globalProgram = globalCourses.courses.programs;
     const globalWebinars = globalCourses.courses.webinars;
 
+    console.log('step1',globalProgram,globalWebinars)
+
     const globalProgramsByLanguage = findObjectsByLanguage(globalProgram, language, false,globalWebinars);
     const globalWebinarsByLanguage = findObjectsByLanguage(globalWebinars, language, false, );
 
     const userProgram = user.user.courses.programs;
     const userWebinars = user.user.courses.webinars;
+
+    console.log('step2',userProgram,userWebinars)
     const userWebinarsByLanguage = findObjectsByLanguage(userWebinars, language, true );
     const userProgramsByLanguage = findObjectsByLanguage(userProgram, language, true ,globalWebinars);
 
-    // console.log('RIP', userWebinarsByLanguage)
+
+    console.log('step3', userProgramsByLanguage)
 
 
-    console.log('FF PROGRAMS', userProgramsByLanguage)
-    // console.log('FF WEBINARS', globalWebinarsByLanguage)
 
     let programElement
 
@@ -90,15 +93,8 @@ const Home = ({context}) => {
     }
 
 
-
-    console.log('PROP', context, location)
-
-    console.log('BAZA', location)
     const hashString = location.hash.substring(1)
 
-    console.log('PROP', user)
-    console.log('PROP', user)
-    console.log('Rout', previousRoute)
 
     return (
 
@@ -110,7 +106,6 @@ const Home = ({context}) => {
                         className={`
                         ${styles.block} 
                         ${hashString === nav.path ? styles.active : ''}
-              
                         `}>
                         <Link to={`/home/${nav.path}/#${nav.path}`}>
                             <div className={styles.blockElement}>
@@ -130,10 +125,8 @@ const Home = ({context}) => {
 
             <div className={styles.gridContent}>
                 <div className={styles.contentWrapper}>
-
                     <Routes>
                         <Route path='/home/schedule/' element={<MyCalendar/>}/>
-
                         <Route path='/home/webinars/' element={
                             <div className={styles.webinarsRow}>
                                 <div className={styles.column}>
@@ -192,7 +185,6 @@ const Home = ({context}) => {
                 </div>
             </div>
         </div>
-
     );
 };
 

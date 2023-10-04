@@ -101,7 +101,7 @@ const Activities = () => {
                </div>
             </div>
             <div className={styles.individualForm}>
-                <IndividualForm type='individual'/>
+                <IndividualForm isWhite={true} type='individual'/>
             </div>
         </div>
     );

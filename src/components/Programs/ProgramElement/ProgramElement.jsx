@@ -9,7 +9,6 @@ import Link from "next/link";
 
 
 const ProgramElement = ({programs}) => {
-    console.log('SOME',programs)
     return (
         <>
             {programs.map(program =>

@@ -11,6 +11,7 @@ const groupUserWebinars = (programs, webinars, language) => {
         if (attributes.locale === language) {
 
             matchingObjects.push({id:webinarId,...attributes});
+
         }
 
         if (attributes.localizations && attributes.localizations.data) {
@@ -22,7 +23,7 @@ const groupUserWebinars = (programs, webinars, language) => {
             });
         }
     })
-
+    console.log('MATCH', matchingObjects)
     return {
         data: matchingObjects
     }
@@ -32,8 +33,9 @@ const groupUserWebinars = (programs, webinars, language) => {
 export const findObjectsByLanguage = (jsonResponse, language, isUserData, webinars) => {
     const matchingObjects = [];
 ///////
-    if (webinars) {
-
+    console.log("Language",language)
+    if(language === "ua"){
+        language = 'uk'
     }
 
     jsonResponse.forEach(item => {
@@ -51,7 +53,6 @@ export const findObjectsByLanguage = (jsonResponse, language, isUserData, webina
         let webbinarrs
         if (webinars) {
             webbinarrs = groupUserWebinars(attributes, webinars, language)
-
         }
 
         if (attributes.locale === language) {
@@ -68,5 +69,10 @@ export const findObjectsByLanguage = (jsonResponse, language, isUserData, webina
             });
         }
     });
+
+    if (webinars) {
+        console.log('WVV', matchingObjects)
+    }
+
     return matchingObjects;
 };

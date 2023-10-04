@@ -23,12 +23,11 @@ const Phone = ({field, form, ...props}) => {
     );
 };
 
-const ContactForm = ({type}) => {
+const ContactForm = ({type, isWhite}) => {
     const errorObj = {}
 
     const handleSend = (e, values) => {
         e.preventDefault()
-        console.log('tRRIIIGEGR', e.target)
         // emailjs.sendForm('service_unn8rcc', 'template_3s6yn4c', e.target,'aX38vukXce76LEtYE')
         toast.success("successfully!", {
             hideProgressBar: true,
@@ -74,7 +73,11 @@ const ContactForm = ({type}) => {
                       /* and other goodies */
                   }) => (
                     <form
-                        className={`form ${type === 'individual' ? 'form_individual' : ''}`}
+                        className={`
+                        form 
+                        ${type === 'individual' ? 'form_individual' : ''}
+                        ${isWhite? 'form_white': ''}
+                        `}
                         onSubmit={(event) => handleSend(event, values)}
                     >
                         <div className="formContainer">

@@ -14,9 +14,9 @@ import "../i18n"
 
 export default function RootLayout({children}) {
 
-    if (typeof window !== "object") {
-        return null
-    }
+    // if (typeof window !== "object") {
+    //     return null
+    // }
 
     return (
         <html lang="en">

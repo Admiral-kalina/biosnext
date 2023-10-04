@@ -12,7 +12,6 @@ import Image from "next/image";
 
 
 const ProgramElement = ({programs}) => {
-    console.log('SOME',programs)
     return (
         <>
 

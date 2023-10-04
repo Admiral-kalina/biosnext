@@ -5,7 +5,7 @@ import ContactForm from "../ContactForm/ContactForm";
 import * as styles from "./individualForm.module.scss"
 import Container from "../../Container/Container";
 
-const IndividualForm = ({type}) => {
+const IndividualForm = ({type, isWhite}) => {
     return (
         <div className={styles.root}>
                <div className={styles.content}>
@@ -16,7 +16,7 @@ const IndividualForm = ({type}) => {
                            <p className={styles.subtext}>Заполните, пожалуйста, форму обратной связи и укажите желаемую тему вебинара или название программы, а мы подберем для Вас оптимальный состав специалиста и удобный формат.</p>
                        </div>
                        <div className={styles.column}>
-                           <ContactForm type={type}/>
+                           <ContactForm isWhite={isWhite} type={type}/>
                        </div>
                    </div>
                </div>

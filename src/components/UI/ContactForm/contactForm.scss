@@ -93,4 +93,19 @@
       margin: 0 auto;
     }
   }
+  .form_white{
+    input {
+      color: rgba(32, 32, 32, 0.40);
+      border: 1px solid #202020;
+      backdrop-filter: blur(3px);
+      background-color: #F1F0E7;
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active{
+        -webkit-box-shadow: 0 0 0 45px #F1F0E7 inset !important;
+        -webkit-text-fill-color: red;
+      }
+    }
+  }
 }

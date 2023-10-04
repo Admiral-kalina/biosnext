@@ -30,12 +30,10 @@ const Login = () => {
 
     const handleLogin = async (event, values) => {
         event.preventDefault()
-        console.log(values)
         const url = `http://localhost:1337/api/auth/local`;
         try {
             if (values.login && values.password) {
                 const {data} = await axios.post(url, values);
-                console.log(data)
                 if (data.jwt) {
                     storeUser(data);
                     toast.success("Logged in successfully!", {

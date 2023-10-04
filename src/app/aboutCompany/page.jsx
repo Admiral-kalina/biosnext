@@ -6,7 +6,7 @@ import Header from "@/components/Header/Header";
 const AboutCompanyPage = () => {
     return (
         <div className={` page about-page`}>
-            <Header/>
+
             <AboutCompany/>
         </div>
     );

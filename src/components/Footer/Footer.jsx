@@ -5,7 +5,8 @@ import icon5 from "src/app/media/images/icon/icon5.svg"
 import icon6 from "src/app/media/images/icon/icon6.svg"
 import icon7 from "src/app/media/images/icon/icon7.svg"
 import icon8 from "src/app/media/images/icon/icon8.svg"
-import {Image} from "antd";
+import Image from "next/image";
+
 
 const Footer = ({location}) => {
 

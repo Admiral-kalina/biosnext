@@ -124,7 +124,7 @@ export const ProgramOverview = () => {
 
             </Container>
             <div className={styles.individualForm}>
-                <IndividualForm type='individual'/>
+                <IndividualForm isWhite={true} type='individual'/>
             </div>
         </div>
     )

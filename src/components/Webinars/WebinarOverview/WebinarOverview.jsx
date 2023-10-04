@@ -17,7 +17,6 @@ import Image from "next/image";
 
 export const WebinarOverview = ({context}) => {
 
-    console.log(context)
     return (
         <div>
             <Container>

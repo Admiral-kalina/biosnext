@@ -11,7 +11,6 @@ import {Link} from "react-router-dom";
 
 
 const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
-    console.log('BAZZ2', hashString, previousRoute)
     if (!webinar) {
         return <div>Loading</div>
     }
@@ -27,7 +26,6 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
         route = `/home/${hashString}?#${hashString}`
     }
 
-    console.log('HOME1',webinar)
 
     return (
         <div className={styles.root}>

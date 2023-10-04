@@ -8,7 +8,6 @@ import Webinars from "@/components/Webinars/Webinars";
 
 
 const ServicesWebinarsList = (props) => {
-    console.log('WS', props, 'WS')
     return (
         <div>
             <Header/>
