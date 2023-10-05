@@ -27,6 +27,7 @@ import {useEffect, useRef, useState} from "react";
 import {useTranslation} from "react-i18next";
 import Image from "next/image";
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 
 export default function Home() {
@@ -284,6 +285,7 @@ export default function Home() {
                </article>
            </div>
        </main>
+       <Footer/>
    </div>
   )
 }

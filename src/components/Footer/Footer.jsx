@@ -5,7 +5,11 @@ import icon5 from "src/app/media/images/icon/icon5.svg"
 import icon6 from "src/app/media/images/icon/icon6.svg"
 import icon7 from "src/app/media/images/icon/icon7.svg"
 import icon8 from "src/app/media/images/icon/icon8.svg"
+import icon12 from "../../app/media/images/icon/icon12.svg";
+import icon13 from "../../app/media/images/icon/icon13.svg";
+import icon14 from "../../app/media/images/icon/icon14.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 
 const Footer = ({location}) => {
@@ -15,9 +19,14 @@ const Footer = ({location}) => {
             <div className="container d-block-md">
                 <div className="footer__wrapper">
                     <div className="footer__contacts">
-                        <a href="tel:+38 (616) 566-58-96">+38 (616) 566-58-96</a>
-                        <p>01033, город Киев, Улица Тарасовская, дом 4-А, офис 7
-                        </p>
+                        <a href="tel:+38 (095) 382-92-64">+380 95 382 9264</a>
+                        <div className="footer__social_left">
+                            <Link href={'/'}><Image src={icon12} alt="phone"/></Link>
+                            <Link href={'/'}><Image src={icon13} alt="viber"/></Link>
+                            <Link href={'/'}><Image src={icon14} alt="telegram"/></Link>
+                        </div>
+                        <p>01033, город Киев, Улица Тарасовская, дом 4-А, офис 7</p>
+
                         <div className="footer__mail">
                             <a href="mailto:info@bioinnova.com.ua">info@bioinnova.com.ua</a>
                         </div>
@@ -34,6 +43,10 @@ const Footer = ({location}) => {
                         <div className="footer__copyright">
                             © all rights reserved
                         </div>
+                        <div className="footer__mail">
+                            <a href="mailto:info@bioinnova.com.ua">info@bioinnova.com.ua</a>
+                        </div>
+
                     </div>
 
                     <div className="footer__end">
