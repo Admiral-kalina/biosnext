@@ -7,11 +7,9 @@ const languageFromStorage = typeof window !== 'undefined' ? localStorage.getItem
 const coursesFromStorage = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('coursesList')) || [] : [];
 
 
-export const fetchUserCourses = createAsyncThunk(
-    'courses/fetchCoursesByLanguage',
-
-    async () => {
+export const fetchUserCourses = createAsyncThunk('courses/fetchCoursesByLanguage', async (language = languageFromStorage) => {
         const userResponse = await strapiApi.get(`/api/users/2?populate=*`)
+
 
         const userProgramsIds = userResponse.data.courses.map(course => course.id)
         let userPrograms;
@@ -25,8 +23,13 @@ export const fetchUserCourses = createAsyncThunk(
             (data) => userWebinars = data,
         );
 
+        const globalWebinars = await strapiApi.get(`/api/webbinarrs?populate=*&locale*`)
 
-        return {userPrograms, userWebinars}
+        const userProgramsByLanguage = findObjectsByLanguage(userPrograms, language, true, globalWebinars.data.data);
+        const userWebinarsByLanguage = findObjectsByLanguage(userWebinars, language, true);
+
+
+        return {userPrograms, userWebinars, userProgramsByLanguage, userWebinarsByLanguage}
     }
 )
 
@@ -35,6 +38,10 @@ const initialState = {
     user: {
         language: languageFromStorage,
         courses: {
+            programs: [],
+            webinars: [],
+        },
+        userCoursesByLanguage: {
             programs: [],
             webinars: [],
         },
@@ -51,6 +58,12 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
+
+        changeUserCoursesLanguage(state, action) {
+            const {programs, webinars, language, globalWebinars} = action.payload;
+            state.user.userCoursesByLanguage.programs = findObjectsByLanguage(programs, language, true, globalWebinars);
+            state.user.userCoursesByLanguage.webinars = findObjectsByLanguage(webinars, language, true);
+        },
         changeUserLanguage(state, action) {
             state.user.language = action.payload
             localStorage.setItem('language', action.payload)
@@ -63,7 +76,7 @@ const userSlice = createSlice({
             state.user.coursesList = []
             localStorage.setItem('coursesList', JSON.stringify([]))
         },
-        addBasketProgram(state){
+        addBasketProgram(state) {
 
         },
 
@@ -77,9 +90,14 @@ const userSlice = createSlice({
 
             const programs = action.payload.userPrograms;
             const webinars = action.payload.userWebinars;
+            const userProgramsByLanguage = action.payload.userProgramsByLanguage;
+            const userWebinarsByLanguage = action.payload.userWebinarsByLanguage;
+
 
             state.user.courses.programs = programs;
             state.user.courses.webinars = webinars;
+            state.user.userCoursesByLanguage.programs = userProgramsByLanguage;
+            state.user.userCoursesByLanguage.webinars = userWebinarsByLanguage;
 
         })
         builder.addCase(fetchUserCourses.rejected, (state, action) => {
@@ -89,5 +107,5 @@ const userSlice = createSlice({
     },
 })
 
-export const {changeUserLanguage, addUserCurse, removeUserCurse} = userSlice.actions
+export const {changeUserLanguage, addUserCurse, removeUserCurse, changeUserCoursesLanguage} = userSlice.actions
 export default userSlice.reducer

@@ -6,7 +6,6 @@ import {Link} from "react-router-dom";
 
 
 const WebinarListHome = ({webinars, isWebinarHome}) => {
-    console.log('WEBINARS', webinars)
     let withoutAttributes = true;
 
     if (webinars[0]?.attributes && !isWebinarHome){

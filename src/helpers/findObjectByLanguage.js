@@ -1,29 +1,24 @@
 const groupUserWebinars = (programs, webinars, language) => {
     const userWebinarIds = programs.webbinarrs.data.map(webinar => webinar.id)
-
     const userProgramWebinars = webinars.filter((item) => userWebinarIds.includes(item.id))
 
     let matchingObjects = []
     userProgramWebinars.forEach(webinar => {
-        console.log('VV', webinar)
         const webinarId = webinar.id
         let attributes = webinar.attributes
         if (attributes.locale === language) {
-
-            matchingObjects.push({id:webinarId,...attributes});
-
+            matchingObjects.push({id: webinarId, ...attributes});
         }
 
         if (attributes.localizations && attributes.localizations.data) {
 
             attributes.localizations.data.forEach(localization => {
                 if (localization.attributes.locale === language) {
-                    matchingObjects.push({id:webinarId,...localization.attributes});
+                    matchingObjects.push({id: webinarId, ...localization.attributes});
                 }
             });
         }
     })
-    console.log('MATCH', matchingObjects)
     return {
         data: matchingObjects
     }
@@ -33,8 +28,7 @@ const groupUserWebinars = (programs, webinars, language) => {
 export const findObjectsByLanguage = (jsonResponse, language, isUserData, webinars) => {
     const matchingObjects = [];
 ///////
-    console.log("Language",language)
-    if(language === "ua"){
+    if (language === "ua") {
         language = 'uk'
     }
 

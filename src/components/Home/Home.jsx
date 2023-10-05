@@ -1,99 +1,81 @@
 "use client"
+import React from "react";
+import {useSelector} from "react-redux";
+import {Link, Route, Routes, useLocation, useSearchParams} from "react-router-dom";
+import Image from "next/image";
 
-import React, {useEffect, useState} from "react";
-import {userData} from "../../helpers/userData";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchUserCourses} from "../../features/userSlice/userSlice";
-import Container from "../Container/Container";
+// helpers
+import {createProgramElement} from "@/helpers/createProgramElement";
+import {usePreviousRoute} from "@/hooks/usePreviousRoute";
+
+// components
+import AboutUsHome from "@/components/aboutUsHome/aboutUsHome";
+import WebinarOverviewHome from "../Webinars/WebinarOverviewHome/WebinarOverviewHome";
+import ProgramElementDescriptionHome from "@/components/Programs/ProgramElementDescriptionHome/ProgramElementDescriptionHome";
+import WebinarListHome from "../Webinars/WebinarListHome/WebinarListHome";
+import ProgramsListHome from "../Programs/ProgramsListHome/ProgramsListHome";
+import MyCalendar from "../MyCalendar/MyCalendar";
 
 // styles
-
 import * as styles from "./home.module.scss";
+
 // assets
 import union from "../../app/media/images/home/union.svg";
-
 import laptop from "src/app/media/images/home/laptop.svg";
 import schedule from "src/app/media/images/home/schedule.svg"
 import about from "src/app/media/images/home/about.svg";
-import MyCalendar from "../MyCalendar/MyCalendar";
-import {Link, Route, Routes, useLocation, useSearchParams, useNavigate} from "react-router-dom";
-
-import Programs from "../Programs/Programs";
-import {ProgramsList} from "../Programs/ProgramsList/ProgramsList";
-import {WebinarsList} from "../Webinars/WebinarList/WebinarsList";
-import ProgramsListHome from "../Programs/ProgramsListHome/ProgramsListHome";
-import ProgramElementDescriptionHome from "../Programs/ProgramElementDescriptionHome/ProgramElementDescriptionHome";
-import WebinarOverviewHome from "../Webinars/WebinarOverviewHome/WebinarOverviewHome";
-import WebinarListHome from "../Webinars/WebinarListHome/WebinarListHome";
-import {findObjectsByLanguage} from "@/helpers/findObjectByLanguage";
-import {createProgramElement} from "@/helpers/createProgramElement";
-import Image from "next/image";
-import {usePreviousRoute} from "@/hooks/usePreviousRoute";
-import AboutUsHome from "@/components/aboutUsHome/aboutUsHome";
 
 
 const navs = [
-    {description: 'Вебинары', path: 'webinars', img: union},
-    {description: 'программы', path: 'programs', img: laptop},
-    {description: 'расписание', path: 'schedule', img: schedule},
-    {description: 'о нас', path: 'about-us', img: about},
+    {id: 0, description: 'Вебинары', path: 'webinars', img: union},
+    {id: 1, description: 'программы', path: 'programs', img: laptop},
+    {id: 2, description: 'расписание', path: 'schedule', img: schedule},
+    {id: 3, description: 'о нас', path: 'about-us', img: about},
 ]
+
 
 const Home = ({context}) => {
     const [searchParams] = useSearchParams();
     const location = useLocation()
     const previousRoute = usePreviousRoute();
 
-
-    const {language} = useSelector(store => store.user.user);
     const user = useSelector(store => store.user);
     const globalCourses = useSelector(store => store.courses);
-
 
     const programSearch = Number(searchParams.get('program'));
     const webinarSearch = Number(searchParams.get('webinar'));
 
-    console.log('globalCourses', globalCourses)
+    const hashString = location.hash.substring(1)
 
-    if (user.isLoading && globalCourses.isLoading) {
-        return (
-            <div>loading</div>
-        )
+    const isLoading = user.isLoading && globalCourses.isLoading;
+
+    if (isLoading) {
+        return <div>loading</div>
     }
 
+    const globalProgramsByLanguage = globalCourses.globalCoursesByLanguage.programs;
+    const globalWebinarsByLanguage = globalCourses.globalCoursesByLanguage.webinars;
 
-    const globalProgram = globalCourses.courses.programs;
-    const globalWebinars = globalCourses.courses.webinars;
-
-    console.log('step1',globalProgram,globalWebinars)
-
-    const globalProgramsByLanguage = findObjectsByLanguage(globalProgram, language, false,globalWebinars);
-    const globalWebinarsByLanguage = findObjectsByLanguage(globalWebinars, language, false, );
-
-    const userProgram = user.user.courses.programs;
-    const userWebinars = user.user.courses.webinars;
-
-    console.log('step2',userProgram,userWebinars)
-    const userWebinarsByLanguage = findObjectsByLanguage(userWebinars, language, true );
-    const userProgramsByLanguage = findObjectsByLanguage(userProgram, language, true ,globalWebinars);
-
-
-    console.log('step3', userProgramsByLanguage)
-
-
+    const userWebinarsByLanguage = user.user.userCoursesByLanguage.webinars;
+    const userProgramsByLanguage = user.user.userCoursesByLanguage.programs;
 
     let programElement
 
     if (programSearch && userProgramsByLanguage.length && globalProgramsByLanguage.length) {
-        programElement = createProgramElement(globalProgramsByLanguage, userProgramsByLanguage, programSearch)
+        programElement = createProgramElement(
+            globalProgramsByLanguage,
+            userProgramsByLanguage,
+            programSearch
+        )
     }
 
     if (webinarSearch && userWebinarsByLanguage.length && globalWebinarsByLanguage.length) {
-        programElement = createProgramElement(globalWebinarsByLanguage, userWebinarsByLanguage, webinarSearch)
+        programElement = createProgramElement(
+            globalWebinarsByLanguage,
+            userWebinarsByLanguage,
+            webinarSearch
+        )
     }
-
-
-    const hashString = location.hash.substring(1)
 
 
     return (
@@ -147,7 +129,8 @@ const Home = ({context}) => {
 
                         <Route path='/home/webinars/webinar/' element={
                             <>
-                                <WebinarOverviewHome webinar={programElement} hashString={hashString} previousRoute={previousRoute}/>
+                                <WebinarOverviewHome webinar={programElement} hashString={hashString}
+                                                     previousRoute={previousRoute}/>
                             </>
 
                         }/>
@@ -170,7 +153,8 @@ const Home = ({context}) => {
                         <Route path='/home/programs/program/webinar' element={
 
                             <div className={styles.programDescriptioRow}>
-                                <WebinarOverviewHome previousRoute={previousRoute} hashString={hashString}  webinar={programElement}/>
+                                <WebinarOverviewHome previousRoute={previousRoute} hashString={hashString}
+                                                     webinar={programElement}/>
                             </div>
                         }/>
 

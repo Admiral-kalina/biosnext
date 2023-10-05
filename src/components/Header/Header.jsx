@@ -6,7 +6,7 @@ import {Select} from 'antd';
 import i18n from "i18next";
 import Image from "next/image"
 import {useDispatch, useSelector} from "react-redux";
-import {changeUserLanguage} from "@/features/userSlice/userSlice";
+import {changeUserCoursesLanguage, changeUserLanguage} from "@/features/userSlice/userSlice";
 
 
 // assets
@@ -24,15 +24,17 @@ import basket from "../../app/media/images/basket.svg";
 // styles
 import "./header.scss";
 import Link from "next/link";
+import {changeGlobalCoursesByLanguage, changeGlobalCoursesLanguage} from "@/features/coursesSlice/coursesSlice";
 
 
 const Header = ({type}) => {
     const {language} = useSelector(store => store.user.user)
+    const globalCourses = useSelector(store => store.courses.courses);
+    const user = useSelector(store => store.user.user.courses);
     const [burgerState, setBurgerState] = useState(false)
     const [endpoint, setEndpoint] = useState('')
     const [isScrolled, setIsScrolled] = useState(false)
     const [selectedLanguage, setSelectedLanguage] = useState({value: language, label: language});
-
     useEffect(() => {
 
         if (burgerState) {
@@ -74,6 +76,19 @@ const Header = ({type}) => {
     const handleLanguageChange = ({label, value}) => {
         setSelectedLanguage({label, value})
         dispatch(changeUserLanguage(label))
+        const globalPayload = {
+            programs: globalCourses.programs,
+            webinars: globalCourses.webinars,
+            language : label
+        }
+        const userPayload = {
+            programs: user.programs,
+            webinars: user.webinars,
+            language : label,
+            globalWebinars:globalCourses.webinars,
+        }
+        dispatch(changeGlobalCoursesLanguage(globalPayload))
+        dispatch(changeUserCoursesLanguage(userPayload))
         i18n.changeLanguage(label)
     }
 
