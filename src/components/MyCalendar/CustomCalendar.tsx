@@ -32,29 +32,13 @@ const CustomToolbar = (props) => {
     const [isAllPosts, setIsAllPosts] = useState(true)
 
     function navigate(action) {
+        const nextDate = new Date(props.date.getFullYear(), props.date.getMonth() + 1)
+        const previosDate = new Date(props.date.getFullYear(), props.date.getMonth() - 1)
+        props.setDate(action === "NEXT"? nextDate : previosDate)
         props.onNavigate(action);
     }
 
-    function viewItem(view) {
-        props.onViewChange(view);
-    }
 
-    function viewNamesGroup(messages) {
-        const viewNames = props.views;
-        const view = props.view;
-
-        if (viewNames.length > 1) {
-            return viewNames.map((name) => (
-                <button
-                    type="button"
-                    key={name}
-
-                    onClick={viewItem.bind(null, name)}>
-
-                </button>
-            ));
-        }
-    }
 
     const handleClick = (bool:boolean) => {
         setIsAllPosts(bool)

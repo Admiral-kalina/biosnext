@@ -1,7 +1,14 @@
 .calendar {
+
   .rbc-calendar {
     padding: 0 7px 0 30px;
-    height: 1000px;
+    min-width: 1300px;
+    height: 1600px;
+  }
+  .rbc-toolbar .rbc-toolbar-label {
+    color: white;
+    text-transform: capitalize;
+    font-weight: 200;
   }
 
   .rbc-calendar::-webkit-scrollbar-track {
@@ -13,7 +20,10 @@
   .rbc-date-cell {
     text-align: left;
     color: #F5B335;
-    padding: 12px 0 0 13px;
+    font-weight: 300;
+    padding: 12px 0 0 17px;
+    position: relative;
+    z-index: 2  ;
   }
 
   .rbc-toolbar {
@@ -96,7 +106,6 @@
   }
 
   .back-text {
-    font-family: Inter;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -125,6 +134,11 @@
 
   .rbc-header {
     border: none !important;
+    color: rgba(241, 240, 231, 0.30);
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 300;
+    text-transform: capitalize;
   }
 
   .rbc-month-view {
@@ -204,7 +218,7 @@
   @media screen and (max-width: 1024px){
     .rbc-calendar {
       padding: 0 7px 0 0;
-      height: 1000px;
+      height: 1100px;
     }
     .rbc-toolbar {
       margin: 0 auto 0 40px;
@@ -287,7 +301,7 @@
   @media screen and (max-width: 768px){
     .rbc-calendar {
       padding: 0 7px 0 0;
-      height: 1000px;
+      height: 1100px;
     }
     .rbc-toolbar {
       margin: 0 auto 0 40px;
@@ -342,10 +356,16 @@
   }
   .rbc-event{
     height: 100%;
+    background: transparent;
+
+  }
+  .rbc-event:focus, .rbc-day-slot .rbc-background-event:focus {
+    outline: none;
   }
 
   .rbc-event-content{
     height: 100%;
+    margin-top: - 21px;
   }
 
   .event_element{
