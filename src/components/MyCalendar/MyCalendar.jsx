@@ -1,7 +1,8 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {Calendar, momentLocalizer} from 'react-big-calendar'
 import moment from 'moment'
 
+import Event from "./components/Event"
 
 // styles
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -13,48 +14,42 @@ import 'moment/locale/ru'
 
 const localizer = momentLocalizer(moment)
 
-const events = [
-    {
-        'title': 'All Day Event very long title',
-        'allDay': true,
-        'start': new Date(2023, 8, 18),
-        'end': new Date(2023, 8, 18),
-        'editionData': 'asdf'
-    },
-    {
-        'title': 'Long Event',
-        'start': new Date(2023, 8, 20),
-        'end': new Date(2023, 8, 20),
-        'editionData': 'fasd'
-    },
-]
+const MyCalendar = ({general, programs = []}) => {
+    const [date, setDate] = useState(new Date());
 
-const CustomEvent = ({event}) => {
-    return (
-        <div className="event_element">
-
-            {event.editionData}
-            {/*{event.title}asdfasdf*/}
-        </div>
-    )
-}
-
-const MyCalendar = ({general}) => {
     moment.locale("ua");
     const ref = useRef()
+
+    const events = programs
+        .reduce((acc, curr) => acc.concat(curr.webbinarrs?.data || []), [])
+        .map(item => ({
+            ...item.attributes,
+            start: new Date(),
+            end: new Date(),
+            programLink: "https://codesandbox.io/s/react-big-calendar-example-lrwm4?file=/events.js",
+            eventLink: "https://google.com",
+            topic: "Фармалкология",
+            type: "Вебинар",
+            price: 500
+        }));
 
     return (
         <div className={styles.gridCalendar}>
             <div className={`calendar ${general ? 'generalCalendar' : ''}`}>
                 <Calendar
+                    selectable
+                    steps={60}
+                    date={date}
+                    resourceIdAccessor="resourceId"
+                    resourceTitleAccessor="resourceTitle"
                     ref={ref}
                     events={events}
                     localizer={localizer}
                     startAccessor="start"
                     endAccessor="end"
                     components={{
-                        event: CustomEvent,
-                        toolbar: CustomToolbar,
+                        event: Event,
+                        toolbar: props => <CustomToolbar {...props} setDate={setDate} date={date}/>,
                     }}
                 />
             </div>

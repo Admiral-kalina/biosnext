@@ -34,7 +34,7 @@ const navs = [
 ]
 
 
-const Home = ({context}) => {
+const Home = () => {
     const [searchParams] = useSearchParams();
     const location = useLocation()
     const previousRoute = usePreviousRoute();
@@ -108,7 +108,7 @@ const Home = ({context}) => {
             <div className={styles.gridContent}>
                 <div className={styles.contentWrapper}>
                     <Routes>
-                        <Route path='/home/schedule/' element={<MyCalendar/>}/>
+                        <Route path='/home/schedule/' element={<MyCalendar programs={userProgramsByLanguage}/>}/>
                         <Route path='/home/webinars/' element={
                             <div className={styles.webinarsRow}>
                                 <div className={styles.column}>
