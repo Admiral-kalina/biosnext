@@ -1,12 +1,16 @@
 'use client'
 import React from 'react';
+import Image from "next/image";
+import Link from "next/link";
+
+//components
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
+
+//styles
+import  "./aboutCompany.scss"
 
 //asset
-import aboutBgBottom from "../../app/media/images/about/about-bg-bottom.png";
-import aboutBgBottomMobile from "../../app/media/images/about/about-bg-bottom-mobile.png";
-import aboutBgTop from "../../app/media/images/about/about-bg-top.png";
-import aboutBgTopMobile from "../../app/media/images/about/about-bg-top-mobile.png";
-
 import aboutBgMiddle from "../../app/media/images/about/about-bg-middle.png";
 import aboutBgMiddleMobile from "../../app/media/images/about/about-bg-middle-mobile.png";
 import aboutBgMiddleLines from "../../app/media/images/about/about-bg-middle-lines.png";
@@ -14,11 +18,6 @@ import aboutBgMiddleLinesMobile from "../../app/media/images/about/about-bg-midd
 import checkIcon from "../../app/media/images/check.svg"
 import icon10 from "../../app/media/images/icon/icon10.svg";
 import icon11 from "../../app/media/images/icon/icon11.svg";
-import  "./aboutCompany.scss"
-import {Link} from "react-router-dom";
-import Image from "next/image";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
 
 
 const AboutCompany = () => {
@@ -222,7 +221,7 @@ const AboutCompany = () => {
                            </div>
 
 
-                           <Link to='/contacts' className="btn btn-yellow">Записаться</Link>
+                           <Link className="btn btn-yellow" href={'/contacts'}>Записаться</Link>
                        </div>
                    </div>
                </article>

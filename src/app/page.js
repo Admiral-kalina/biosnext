@@ -1,33 +1,29 @@
 "use client"
 import * as React from "react"
+import {useTranslation} from "react-i18next";
+import Image from "next/image";
+import Link from "next/link";
 
+// components
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
-import bgTop from "../../public/media/img/bg-top.png"
-import bgTopMobile from "../../public/media/img/bg-top-mobile.png"
-import acrew from "../../public/media/svg/acrew.svg"
-import miro from "../../public/media/svg/miro.svg"
-import loom from "../../public/media/svg/loom.svg"
-import icon from "../../public/media/svg/icon.svg"
-import airbnb from "../../public/media/svg/airbnb.svg"
+// styles
+import "./index.scss"
 
+// assets
+import bgTop from "../../public/media/img/bg-top.png";
+import bgTopMobile from "../../public/media/img/bg-top-mobile.png";
+import goldenArrow from "./media/images/arrowGolden.svg";
 import icon1 from "./media/images/icon/icon1.svg";
 import icon2 from "./media/images/icon/icon2.svg";
 import icon3 from "./media/images/icon/icon3.svg";
 import icon4 from "./media/images/icon/icon4.svg";
-import icon5 from "./media/images/icon/icon5.svg";
-
-import logo1 from "./media/images/icon/logo1.svg"
-import logo2 from "./media/images/icon/logo2.svg"
-import logo3 from "./media/images/icon/logo3.svg"
-import logo4 from "./media/images/icon/logo4.svg"
-import logo5 from "./media/images/icon/logo5.svg"
-
-import "./index.scss"
-import {useEffect, useRef, useState} from "react";
-import {useTranslation} from "react-i18next";
-import Image from "next/image";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
+import logo1 from "./media/images/icon/logo1.svg";
+import logo2 from "./media/images/icon/logo2.svg";
+import logo3 from "./media/images/icon/logo3.svg";
+import logo4 from "./media/images/icon/logo4.svg";
+import logo5 from "./media/images/icon/logo5.svg";
 
 
 export default function Home() {
@@ -54,11 +50,11 @@ export default function Home() {
                                <p>
                                </p>
                                <nav>
-                                   <a href="#" className="btn btn-yellow">Записаться</a>
+                                   <Link className="btn btn-yellow" href={'/contacts'}>Записаться</Link>
 
                                    <div className="btn btn-transparent">
-                                       <a href="#">Наш Календарь</a>
-                                       <a href="#"><i className="icon-arrow-right"></i></a>
+                                       <Link href={'/activities'}>Наш Календарь</Link>
+                                       <Link href={'/activities'}><Image src={goldenArrow} alt={'arrow'}/></Link>
                                    </div>
                                </nav>
                            </section>
@@ -89,7 +85,7 @@ export default function Home() {
                                </div>
                            </div>
                            <div className="advantages__btn">
-                               <a href="#" className="btn btn-yellow">Записаться</a>
+                               <Link className="btn btn-yellow" href={'/contacts'}>Записаться</Link>
                            </div>
                        </section>
                    </div>
@@ -138,7 +134,7 @@ export default function Home() {
                    </div>
 
                    <div className="experience__btn">
-                       <a href="#" className="btn btn-yellow">Записаться</a>
+                       <Link className="btn btn-yellow" href={'/contacts'}>Записаться</Link>
                    </div>
 
                    <div className="container d-block-md">
@@ -157,7 +153,7 @@ export default function Home() {
                          <div className="feedback__items">
                            <div className="feedback__card">
                              <div className="feedback__card--img">
-                               <img src={icon4} alt="icon"/>
+                               <Image src={icon4} alt="icon"/>
                              </div>
                              <div className="feedback__card--descr">
                                <p>
@@ -174,7 +170,7 @@ export default function Home() {
 
                            <div className="feedback__card">
                              <div className="feedback__card--img">
-                               <img src={icon4} alt="icon"/>
+                               <Image src={icon4} alt="icon"/>
                              </div>
                              <div className="feedback__card--descr">
                                <p>
@@ -191,7 +187,7 @@ export default function Home() {
 
                            <div className="feedback__card">
                              <div className="feedback__card--img">
-                               <img src={icon4} alt="icon"/>
+                               <Image src={icon4} alt="icon"/>
                              </div>
                              <div className="feedback__card--descr">
                                <p>
@@ -207,7 +203,7 @@ export default function Home() {
 
                            <div className="feedback__card">
                              <div className="feedback__card--img">
-                               <img src={icon4} alt="icon"/>
+                               <Image src={icon4} alt="icon"/>
                              </div>
                              <div className="feedback__card--descr">
                                <p>
@@ -276,7 +272,7 @@ export default function Home() {
                                                Наша главная цель это обеспечение потребностей рынка лучшими специалистами в своей области. Мы делаем это, обучая специалистов инновационным концепциям, которые они могут получить только у практикующих экспертов.
                                            </p>
                                        </div>
-                                       <a href="#" className="btn btn-yellow">Записаться</a>
+                                       <Link className="btn btn-yellow" href={'/contacts'}>Записаться</Link>
                                    </div>
                                </div>
                            </div>
