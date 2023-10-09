@@ -86,7 +86,7 @@ const mockWebinars = [
 const Activities = () => {
     return (
         <div className={styles.root}>
-            <Container>
+            <Container sizeZero>
                 <p className={`${styles.title} text60`}>Мероприятия</p>
                 <div className={styles.calendar}>
                     <MyCalendar general={true}/>
