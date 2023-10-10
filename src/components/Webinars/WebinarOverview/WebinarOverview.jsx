@@ -13,14 +13,36 @@ import logo from "../../../app/media/images/webinar/logo.png"
 import IndividualForm from "../../UI/IndividualForm/IndividualForm";
 import WebinarDescription from "../WebinarDescription/WebinarDescription";
 import Image from "next/image";
+import Link from "next/link";
+import { useParams } from 'next/navigation'
+import { useRouter } from 'next/router';
 
 
 export const WebinarOverview = ({context}) => {
+    const [hash, setHash] = useState('');
 
+    useEffect(() => {
+        // Assuming you're running in a browser context
+        const currentHash = window.location.hash;
+        setHash(currentHash ? currentHash.substring(1).split('=')[1] : '');  // Remove '#' from the beginning
+    }, []);
+    console.log('HASH', hash)
     return (
         <div>
-            <Container>
+            <Container sizeZero>
+
                 <div className={styles.rootOverview}>
+                    <div className={`${styles.back} back_group`}>
+                        <Link href={'/services'} className="back back_white">Услуги</Link>
+                        {hash ?
+                            <>
+                                <Link href={'/services/programs'} className="back back_white">Программы обучения</Link>
+                                <Link href={`/services/programs/${hash}`} className="back ">Программа</Link>
+                            </>
+                            :
+                            <Link href={'/services'} className="back">Вебинары</Link>
+                        }
+                    </div>
                     <div className={styles.overviewRow}>
                         <Image className={styles.image} src={logo} alt=""/>
                         <div className={styles.description}>
@@ -46,29 +68,31 @@ export const WebinarOverview = ({context}) => {
                         </div>
                     </div>
                 </div>
-                <div className={styles.descriptionBlock}>
-                    <div className={styles.row}>
-                        <p className={`${styles.title} text60`}>Описание</p>
-                        <div className={styles.content}>
-                            <p className={styles.contentTitle}>
-                                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                Вебинар "Аспекты Фармаконадзора" представляет собой обзор ключевых аспектов и основных понятий в области фармаконадзора. Она может быть полезной для студентов медицинских, фармацевтических, исследовательских и связанных с здравоохранением направлений.
-                            </p>
-                            <WebinarDescription/>
-                        </div>
-
-                    </div>
-                    <div className={`${styles.row} ${styles.rowProgram}`}>
-                        <p className={`${styles.title} text60`}>Программа</p>
-                        <div className={styles.content}>
-                            <WebinarDescription type="program"/>
-                        </div>
-                    </div>
-                </div>
             </Container>
+                <div className={styles.descriptionBlock}>
+                 <div className={styles.descriptionContainer}>
+                     <div className={styles.row}>
+                         <p className={`${styles.title} text60`}>Описание</p>
+                         <div className={styles.content}>
+                             <p className={styles.contentTitle}>
+                                 {/* eslint-disable-next-line react/no-unescaped-entities */}
+                                 Вебинар "Аспекты Фармаконадзора" представляет собой обзор ключевых аспектов и основных понятий в области фармаконадзора. Она может быть полезной для студентов медицинских, фармацевтических, исследовательских и связанных с здравоохранением направлений.
+                             </p>
+                             <WebinarDescription/>
+                         </div>
+
+                     </div>
+                     <div className={`${styles.row} ${styles.rowProgram}`}>
+                         <p className={`${styles.title} text60`}>Программа</p>
+                         <div className={styles.content}>
+                             <WebinarDescription type="program"/>
+                         </div>
+                     </div>
+                 </div>
+                </div>
 
             <div >
-                <IndividualForm type='individual'/>
+                <IndividualForm isWhite type='individual'/>
             </div>
         </div>
     )

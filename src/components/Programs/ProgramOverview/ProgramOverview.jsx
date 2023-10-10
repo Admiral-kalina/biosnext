@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Container from "../../Container/Container";
 import * as styles from "./programOverview.module.scss";
 import logo from "../../../app/media/images/webinar/logo.png";
@@ -7,6 +7,9 @@ import {WebinarsList} from "../../Webinars/WebinarList/WebinarsList";
 import MyCollapse from "../../UI/MyCollapse/MyCollapse";
 import ContactForm from "../../UI/ContactForm/ContactForm";
 import IndividualForm from "../../UI/IndividualForm/IndividualForm";
+import Link from "next/link";
+import {findObjectById} from "@/helpers/findObjectById";
+import { useRouter } from 'next/navigation';
 
 
 const mockWebinars = [
@@ -84,24 +87,44 @@ const mockWebinars = [
     }
 ]
 
-export const ProgramOverview = () => {
+export const ProgramOverview = ({programs}) => {
+    const [program, setProgram] = useState(null)
+
+    useEffect(() =>{
+        const search = +window.location.pathname.split('/')[3];
+        console.log('PR1',programs,search)
+        console.log('PR2', findObjectById(programs,search))
+        setProgram(findObjectById(programs,search))
+    },[programs])
+
+
+    console.log('PR',programs)
+
+    if(!program){
+
+        return (
+            <p>Loading</p>
+        )
+    }
+    console.log('PR',programs)
+
     return (
         <div className={styles.rootOverview}>
             <Container>
-
+              <div className={`${styles.back} back_group`}>
+                  <Link href={'/services'} className="back back_white">Услуги</Link>
+                  <Link href={'/services/programs'} className="back">Программы обучения</Link>
+              </div>
                 <div className={styles.hero}>
                     <div className={styles.overviewRow}>
 
                         {/*<img className={styles.image} src={logo} alt=""/>*/}
                         <div className={styles.description}>
-                            <p className={styles.title}>Программа Фармаконадзор</p>
-                            <p className={styles.subtitle}>С целью повышения эффективности образовательных программ в
-                                сфере фармаконадзора Universal School of Pharmacovigilance & Medical affairs
-                                предоставляет обучение по системе, разработанной в соответствии с фоновым уровнем знаний
-                                каждого из обучаемых специалистов.</p>
-                            <p className={styles.date}><span>Начало:</span> 10.11.2023</p>
-                            <p className={styles.program}><span>Вебинаров:</span> 3</p>
-                            <p className={styles.price}>500$</p>
+                            <p className={styles.title}>{program.name}</p>
+                            <p className={styles.subtitle}>{program.description}</p>
+                            <p className={styles.date}><span>Начало:</span> {program.start}</p>
+                            <p className={styles.program}><span>Вебинаров:</span> {program.webinarsCount}</p>
+                            <p className={styles.price}>${program.price}</p>
                         </div>
                         <div className={styles.btnBlock}>
                                <MyButton golden>Добавить в корзину</MyButton>
@@ -112,7 +135,7 @@ export const ProgramOverview = () => {
                 <div className={styles.webinars}>
                     <p className={styles.webinarsTitle}>Вебинары в программе</p>
                     <div className={styles.row}>
-                        <WebinarsList webinars={mockWebinars}/>
+                        <WebinarsList programId={23} webinars={program.webbinarrs.data}/>
                     </div>
                 </div>
                 <div className={styles.collapse}>

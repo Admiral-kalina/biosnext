@@ -1,9 +1,29 @@
 .rootOverview {
+  padding-top: 70px;
+
+  .back {
+
+  }
+
+  @media screen and (max-width: 1200px) {
+    .back {
+      margin-top: -50px;
+    }
+  }
+
+
+  @media screen and (max-width: 768px) {
+    padding-top: 70px;
+    .back {
+      margin-top: -20px;
+    }
+  }
 
 }
 
 .hero {
   .overviewRow {
+    padding-top: 37px;
     display: grid;
     grid-template-areas:
     ". description"
@@ -226,6 +246,7 @@
 
 .webinars {
   padding-top: 150px;
+
   .webinarsTitle {
     color: var(--color-white);
     font-size: 60px;
@@ -284,7 +305,7 @@
     line-height: 110%;
   }
 
-  .collapseWrapper{
+  .collapseWrapper {
     padding-top: 20px;
   }
 

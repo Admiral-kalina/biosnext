@@ -23,11 +23,11 @@ const initialState = {
 export const fetchCourses = createAsyncThunk('courses/fetchCourses', async (language = languageFromStorage) => {
     try {
         const [programsList, webinarList] = await Promise.all([
-            strapiApi.get(`/api/courses?populate=*&locale=${language}`),
-            strapiApi.get(`/api/webbinarrs?populate=*&locale=${language}`),
+            strapiApi.get(`/api/courses?populate=*`),
+            strapiApi.get(`/api/webbinarrs?populate=*`),
         ]);
-
-        const globalProgramsByLanguage = findObjectsByLanguage(programsList.data.data, language, false);
+        console.log('IMPORTANT', webinarList)
+        const globalProgramsByLanguage = findObjectsByLanguage(programsList.data.data, language, false, webinarList.data.data);
         const globalWebinarsByLanguage = findObjectsByLanguage(webinarList.data.data, language, false);
 
         return { programsList, webinarList, globalProgramsByLanguage, globalWebinarsByLanguage };

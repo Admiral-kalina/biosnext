@@ -5,6 +5,7 @@ import Container from "../Container/Container";
 import * as styles from "./webinars.module.scss"
 import {WebinarOverview} from "./WebinarOverview/WebinarOverview";
 import {WebinarsList} from "./WebinarList/WebinarsList";
+import Link from "next/link";
 
 const mockWebinars = [
     {
@@ -91,7 +92,9 @@ const Webinars = ({type}) => {
                 :
                 <Container>
                     <div className={styles.root}>
-                        <p className={styles.back}>Услуги</p>
+                        <div className="back_group">
+                            <Link href={'/services'} className="back">Услуги</Link>
+                        </div>
                         <p className={styles.title}>Лекции и вебинары</p>
                         <div className={styles.row}>
                             <WebinarsList webinars={mockWebinars}/>

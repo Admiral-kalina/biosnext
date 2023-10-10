@@ -1,7 +1,22 @@
 // WebinarOverview
 
 .rootOverview {
+  .back {
+    margin: 0 0 0 37px;
+    @media screen and (max-width: 1200px) {
+      margin: 0;
+    }
+    @media screen and (max-width: 1200px) {
+      margin: -20px 0 0 0;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding-top: 70px;
+  }
+
   .overviewRow {
+    padding-top: 37px;
     display: grid;
     grid-template-areas:
     "img description participants"
@@ -297,7 +312,21 @@
 
 
 .descriptionBlock {
-  padding-top: 180px;
+  padding: 180px 0 210px;
+  background-image: url("../../../app/media/images/webinarBg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -120px 275px;
+
+  .descriptionContainer {
+    max-width: 1590px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .rowProgram{
+    padding-top: 120px;
+  }
 
   .row {
     display: grid;
@@ -322,7 +351,8 @@
     font-weight: 300;
     line-height: 130%; /* 26px */
   }
-  .contentProgram{
+
+  .contentProgram {
     margin-top: 65px;
   }
 
@@ -331,21 +361,29 @@
       grid-template-columns: 1fr 1fr;
     }
   }
+  @media screen and (max-width: 1200px){
+    background-position: -435px 404px;
+  }
   @media screen and (max-width: 768px) {
-
-    .title{
+    padding: 64px 0 160px;
+    background-image: url("../../../app/media/images/webinarBgMedium.png");
+    background-position: 0 105%;
+    background-size: contain;
+    .title {
       padding: 0;
     }
     .row {
       grid-template-areas: "text""content";
       grid-template-columns: 1fr;
     }
-    .rowProgram{
-      margin-top: 65px;
+    .rowProgram {
+      padding-top: 65px;
     }
-.content{
-  margin-top: 24px;
-}
-
+    .content {
+      margin-top: 24px;
+    }
+  }
+  @media screen and (max-width: 450px){
+    background-image: url("../../../app/media/images/webinarBgSmall.png");
   }
 }

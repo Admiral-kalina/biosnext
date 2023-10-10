@@ -18,7 +18,7 @@ import icon8 from "../../app/media/images/icon/icon8.svg";
 import icon12 from "../../app/media/images/icon/icon12.svg";
 import icon13 from "../../app/media/images/icon/icon13.svg";
 import icon14 from "../../app/media/images/icon/icon14.svg";
-import user from "../../app/media/images/userGolden.svg";
+import userImg from "../../app/media/images/userGolden.svg";
 import basket from "../../app/media/images/basket.svg";
 
 // styles
@@ -160,7 +160,7 @@ const Header = ({type}) => {
                                     className=""
                                     href={'/home'}
                                 >
-                                    <Image src={user} alt={'home'}/>
+                                    <Image src={userImg} alt={'home'}/>
                                 </Link>
                             </li>
                             <li>
