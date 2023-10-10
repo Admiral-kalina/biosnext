@@ -1,12 +1,13 @@
 import React from 'react';
-import * as styles from "../../Contacts/contacts.module.scss";
 import {Field, Formik} from "formik";
-import MyButton from "../MyButton/MyButton";
 import PhoneInput from "react-phone-number-input";
-import emailjs from '@emailjs/browser'
-import {toast} from "react-toastify";
+
+import sendEmail from "@/helpers/sendEmail";
+
+import MyButton from "../MyButton/MyButton";
 
 import "./contactForm.scss"
+
 
 const Phone = ({field, form, ...props}) => {
     return (
@@ -15,6 +16,7 @@ const Phone = ({field, form, ...props}) => {
             value=""
             name="phone"
             id="phone"
+
             onChange={value => {
                 if (!form.touched[field.name]) form.setFieldTouched(field.name);
                 form.setFieldValue(field.name, value);
@@ -23,16 +25,24 @@ const Phone = ({field, form, ...props}) => {
     );
 };
 
+
 const ContactForm = ({type, isWhite}) => {
     const errorObj = {}
 
     const handleSend = (e, values) => {
         e.preventDefault()
-        // emailjs.sendForm('service_unn8rcc', 'template_3s6yn4c', e.target,'aX38vukXce76LEtYE')
-        toast.success("successfully!", {
-            hideProgressBar: true,
-        });
+
+        const sentBody = `
+                <div>
+                   <p>Name ${values.name}</p>
+                   <p>Phone ${values.phone}</p>
+                   <p>Email ${values.phone}</p>
+                   <p>Them ${values.them}</p>
+                </div>`
+
+        sendEmail(sentBody)
     }
+
     return (
         <div className="contactForm">
             <Formik
@@ -76,7 +86,7 @@ const ContactForm = ({type, isWhite}) => {
                         className={`
                         form 
                         ${type === 'individual' ? 'form_individual' : ''}
-                        ${isWhite? 'form_white': ''}
+                        ${isWhite ? 'form_white' : ''}
                         `}
                         onSubmit={(event) => handleSend(event, values)}
                     >

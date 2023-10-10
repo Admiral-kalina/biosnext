@@ -11,6 +11,8 @@ import {fetchCourses} from "@/features/coursesSlice/coursesSlice";
 import Header from "@/components/Header/Header";
 
 import "../i18n"
+import 'react-toastify/dist/ReactToastify.css';
+import {ToastContainer} from "react-toastify";
 
 export default function RootLayout({children}) {
 
@@ -23,6 +25,8 @@ export default function RootLayout({children}) {
         <body suppressHydrationWarning={true}>
         <Provider store={store}>
         <BrowserRouter>
+            <ToastContainer position="top-right"    autoClose={2000}/>
+
             <MiddleLayout>
                 {children}
             </MiddleLayout>
