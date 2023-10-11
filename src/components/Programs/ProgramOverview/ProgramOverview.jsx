@@ -1,15 +1,12 @@
 import React, {useEffect, useState} from "react";
 import Container from "../../Container/Container";
 import * as styles from "./programOverview.module.scss";
-import logo from "../../../app/media/images/webinar/logo.png";
 import MyButton from "../../UI/MyButton/MyButton";
 import {WebinarsList} from "../../Webinars/WebinarList/WebinarsList";
 import MyCollapse from "../../UI/MyCollapse/MyCollapse";
-import ContactForm from "../../UI/ContactForm/ContactForm";
 import IndividualForm from "../../UI/IndividualForm/IndividualForm";
 import Link from "next/link";
 import {findObjectById} from "@/helpers/findObjectById";
-import { useRouter } from 'next/navigation';
 
 
 const mockWebinars = [
@@ -108,6 +105,10 @@ export const ProgramOverview = ({programs}) => {
     }
     console.log('PR',programs)
 
+    const handleClick = () => {
+
+    }
+
     return (
         <div className={styles.rootOverview}>
             <Container>
@@ -127,7 +128,7 @@ export const ProgramOverview = ({programs}) => {
                             <p className={styles.price}>${program.price}</p>
                         </div>
                         <div className={styles.btnBlock}>
-                               <MyButton golden>Добавить в корзину</MyButton>
+                               <MyButton onClick={handleClick} golden>Добавить в корзину</MyButton>
                         </div>
                     </div>
 
