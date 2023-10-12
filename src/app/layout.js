@@ -13,6 +13,7 @@ import Header from "@/components/Header/Header";
 import "../i18n"
 import 'react-toastify/dist/ReactToastify.css';
 import {ToastContainer} from "react-toastify";
+import {Protector} from "@/helpers/userData";
 
 export default function RootLayout({children}) {
 
@@ -20,17 +21,17 @@ export default function RootLayout({children}) {
     //     return null
     // }
 
+
     return (
         <html lang="en">
         <body suppressHydrationWarning={true}>
         <Provider store={store}>
-        <BrowserRouter>
-            <ToastContainer position="top-right"    autoClose={2000}/>
-
-            <MiddleLayout>
-                {children}
-            </MiddleLayout>
-        </BrowserRouter>
+            <BrowserRouter>
+                <ToastContainer position="top-right" autoClose={2000}/>
+                    <MiddleLayout>
+                        {children}
+                    </MiddleLayout>
+            </BrowserRouter>
         </Provider>
         </body>
         {/*<script type="text/javascript" src="public/main.js"></script>*/}
@@ -46,7 +47,7 @@ const MiddleLayout = ({children}) => {
         dispatch(fetchCourses())
     }, [])
 
-    return(
+    return (
         <>
             {children}
         </>

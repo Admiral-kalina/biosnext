@@ -24,6 +24,7 @@ import union from "../../app/media/images/home/union.svg";
 import laptop from "src/app/media/images/home/laptop.svg";
 import schedule from "src/app/media/images/home/schedule.svg"
 import about from "src/app/media/images/home/about.svg";
+import {removeUserData} from "@/helpers/userData";
 
 
 const navs = [
@@ -50,7 +51,7 @@ const Home = () => {
     const isLoading = user.isLoading && globalCourses.isLoading;
 
     if (isLoading) {
-        return <div>loading</div>
+        return <div>fuck up</div>
     }
 
     const globalProgramsByLanguage = globalCourses.globalCoursesByLanguage.programs;
@@ -61,7 +62,7 @@ const Home = () => {
 
     let programElement
 
-    if (programSearch && userProgramsByLanguage.length && globalProgramsByLanguage.length) {
+    if (programSearch ) {
         programElement = createProgramElement(
             globalProgramsByLanguage,
             userProgramsByLanguage,
@@ -69,7 +70,7 @@ const Home = () => {
         )
     }
 
-    if (webinarSearch && userWebinarsByLanguage.length && globalWebinarsByLanguage.length) {
+    if (webinarSearch) {
         programElement = createProgramElement(
             globalWebinarsByLanguage,
             userWebinarsByLanguage,
@@ -99,7 +100,7 @@ const Home = () => {
                 )}
 
                 <div className={styles.block}>
-                    <div className={styles.blockElement}>
+                    <div onClick={removeUserData} className={styles.blockElement}>
                         <p>ВЫЙТИ</p>
                     </div>
                 </div>

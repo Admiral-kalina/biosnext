@@ -9,6 +9,7 @@ import {Route, Routes} from "react-router-dom";
 import * as styles from "@/components/Home/home.module.scss";
 import AboutUsHome from "@/components/aboutUsHome/aboutUsHome";
 import {useEffect} from "react";
+import {Protector} from "@/helpers/userData";
 
 export default function HomeLayout({children}) {
     useEffect(() => {
@@ -17,6 +18,7 @@ export default function HomeLayout({children}) {
     return (
         <section>
             <Header type={'cabinet'}/>
+            <Protector>
             <div style={{background: "#151515"}}>
                 <Container sizeZero={true}>
                     <Home/>
@@ -59,6 +61,7 @@ export default function HomeLayout({children}) {
                     }/>
                 </Routes>
             </div>
+            </Protector>
             <Footer location='home'/>
         </section>
     )

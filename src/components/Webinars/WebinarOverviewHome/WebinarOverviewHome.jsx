@@ -8,9 +8,18 @@ import MyButton from "../../UI/MyButton/MyButton";
 
 import Image from "next/image";
 import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {addBasketElement} from "@/features/basket/basketSlice";
 
 
 const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
+    const dispatch = useDispatch()
+    const {basket} = useSelector(store => store.basket)
+
+    useEffect(() => {
+        console.log('BASS DATA',basket)
+    })
+
     if (!webinar) {
         return <div>Loading</div>
     }
@@ -18,12 +27,23 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
     const handleBack = () => {
     }
 
+
     let route = '';
 
     if (previousRoute) {
         route = `${previousRoute.pathname}${previousRoute.search}#${hashString}`
     } else {
         route = `/home/${hashString}?#${hashString}`
+    }
+
+
+
+    const handleClick = () => {
+        const payload = {
+            data:webinar,
+            type:'webinars'
+        }
+        dispatch(addBasketElement(payload))
     }
 
 
@@ -94,7 +114,7 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
 
                                 <div className={styles.contentBuy}>
                                     <p className={styles.price}>180$</p>
-                                    <MyButton transparent>Купить</MyButton>
+                                    <MyButton onClick={handleClick} transparent>Купить</MyButton>
                                 </div>
                             </div>
                         }

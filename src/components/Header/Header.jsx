@@ -24,7 +24,8 @@ import basket from "../../app/media/images/basket.svg";
 // styles
 import "./header.scss";
 import Link from "next/link";
-import {changeGlobalCoursesByLanguage, changeGlobalCoursesLanguage} from "@/features/coursesSlice/coursesSlice";
+import {changeGlobalCoursesLanguage} from "@/features/coursesSlice/coursesSlice";
+import {removeUserData} from "@/helpers/userData";
 
 
 const Header = ({type}) => {
@@ -306,7 +307,7 @@ const Header = ({type}) => {
 
                                 </ul>
                                 <ul className={`nav-menu__mobile--exit ${type === 'cabinet' ? '' : 'hidden'}`}>
-                                    <li>
+                                    <li onClick={removeUserData}>
                                         выйти
                                     </li>
                                 </ul>

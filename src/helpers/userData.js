@@ -1,4 +1,6 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
+import {useRouter} from "next/navigation";
+import {redirect} from "next/navigation";
 
 
 export const storeUser = (data) => {
@@ -17,14 +19,19 @@ export const userData = () => {
     return JSON.parse(stringifiedUser || {});
 };
 
-export const Protector = ({children}) => {
-    const {jwt} = userData();
+export const removeUserData = () => {
+    localStorage.removeItem("user");
+    window.location.href = '/';
+}
 
-    // useEffect(() => {
-    //     if (!jwt) {
-    //         navigate("/login");
-    //     }
-    // }, [navigate, jwt]);
+export const Protector = ({children}) => {
+    console.log('PROTECTOR')
+    const {jwt} = userData();
+    useEffect(() => {
+        if (!jwt) {
+            redirect("/login");
+        }
+    }, [redirect, jwt]);
 
     return <>{children}</>;
 };

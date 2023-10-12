@@ -1,7 +1,7 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import axios from "axios";
-import {findObjectsByLanguage} from "../../helpers/findObjectByLanguage";
-import {strapiApi} from "../../api";
+import {findObjectsByLanguage} from "@/helpers/findObjectByLanguage";
+import {strapiApi} from "@/api";
 
 const languageFromStorage = typeof window !== 'undefined' ? localStorage.getItem('language') || 'ru' : 'ru';
 const coursesFromStorage = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('coursesList')) || [] : [];
@@ -76,9 +76,7 @@ const userSlice = createSlice({
             state.user.coursesList = []
             localStorage.setItem('coursesList', JSON.stringify([]))
         },
-        addBasketProgram(state) {
 
-        },
 
     },
     extraReducers: (builder) => {

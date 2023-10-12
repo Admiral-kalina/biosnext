@@ -145,6 +145,7 @@
     height: 820px;
     margin: 0 auto;
 
+
     a {
       padding: 6px 0;
       color: var(--color-white);
@@ -215,6 +216,7 @@
         text-transform: uppercase;
         position: relative;
         padding-left: 36px;
+        cursor: pointer;
         &:before{
           position: absolute;
           left: 0;

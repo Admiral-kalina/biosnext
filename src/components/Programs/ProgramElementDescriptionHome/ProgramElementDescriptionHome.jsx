@@ -12,7 +12,8 @@ const ProgramElementDescriptionHome = ({program}) => {
 
 
     if (!program) {
-        return <div>Loading</div>
+        console.log('ELEMENT',program)
+        return <div></div>
     }
 
     const handleClick = () => {

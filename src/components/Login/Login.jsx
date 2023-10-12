@@ -1,5 +1,6 @@
+"use client"
 import React, {useState} from "react";
-import {Link, navigate} from "gatsby";
+
 import axios from "axios";
 import {toast} from "react-toastify";
 
@@ -7,17 +8,20 @@ import {toast} from "react-toastify";
 import {Field, Formik} from "formik";
 
 //helpers
-import {storeUser} from "../../helpers/userData";
+
 
 //styles
 import * as styles from "./login.module.scss"
 import Container from "../Container/Container";
+import {useRouter} from "next/navigation";
+import {storeUser} from "@/helpers/userData";
 
 
 const initialUser = {password: "", identifier: ""};
 
 const Login = () => {
     const [user, setUser] = useState(initialUser);
+    const router = useRouter();
 
     const handleChange = ({target}) => {
         const {name, value} = target;
@@ -31,19 +35,24 @@ const Login = () => {
     const handleLogin = async (event, values) => {
         event.preventDefault()
         const url = `http://localhost:1337/api/auth/local`;
+
         try {
-            if (values.login && values.password) {
+            console.log('login',values)
+            if (values.identifier && values.password) {
+                console.log('login1')
                 const {data} = await axios.post(url, values);
+                console.log('login2',data)
                 if (data.jwt) {
                     storeUser(data);
-                    toast.success("Logged in successfully!", {
+                    toast.success("Logged is successfully!", {
                         hideProgressBar: true,
                     });
                     setUser(initialUser);
-                    navigate("/home");
+                   router.push('/home')
                 }
             }
         } catch (error) {
+            console.log('Err', error)
             toast.error('login or password don\'t correct', {
                 hideProgressBar: true,
             });

@@ -37,7 +37,8 @@
       width: 24px;
       height: 24px;
     }
-    @media screen and (max-width: 768px){
+
+    @media screen and (max-width: 768px) {
       height: auto;
     }
   }
@@ -238,24 +239,27 @@
         p {
           width: 255px;
           padding-left: 0;
+
           &:before {
             display: none;
           }
         }
       }
-      @media screen and (max-width: 768px){
+      @media screen and (max-width: 768px) {
         p {
           width: 255px;
           padding-left: 0;
+
           &:before {
             display: block;
             left: -32px;
           }
         }
       }
-      @media screen and (max-width: 390px){
+      @media screen and (max-width: 390px) {
         p {
           font-size: 18px;
+
           &:before {
             display: none;
           }
@@ -265,13 +269,27 @@
 
 
     .contentBuy {
-
+      .price {
+        margin: 0 0 35px;
+        text-align: center;
+        color: #F5B335;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 130%; /* 41.6px */
+        text-transform: uppercase;
+      }
     }
 
     @media screen and (max-width: 768px) {
       overflow: auto;
       .contentLectures {
         margin-top: 50px;
+      }
+      .contentBuy {
+        .price {
+          margin: 73px 0 60px;
+        }
       }
     }
   }
