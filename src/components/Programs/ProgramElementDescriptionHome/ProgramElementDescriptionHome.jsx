@@ -1,30 +1,27 @@
-import React, {useEffect} from 'react';
-
-// styles
-import * as styles from "./programElement.module.scss"
-import MyButton from "../../UI/MyButton/MyButton";
-import WebinarListHome from "../../Webinars/WebinarListHome/WebinarListHome";
+import React from 'react';
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {addBasketElement} from "@/features/basket/basketSlice";
+
+// components
+import MyButton from "../../UI/MyButton/MyButton";
+import WebinarListHome from "../../Webinars/WebinarListHome/WebinarListHome";
+
+// helpers
 import {BASKET_TYPES} from "@/helpers/basketData";
+
+// styles
+import * as styles from "./programElement.module.scss"
+
 
 const ProgramElementDescriptionHome = ({program}) => {
     const dispatch = useDispatch();
 
-
-    if (!program) {
-        console.log('ELEMENT', program)
-        return <div></div>
-    }
-
     const handleClick = () => {
-        console.log('Slice click')
-        const payload = {
+        dispatch(addBasketElement({
             data: program,
             type: BASKET_TYPES.PROGRAM
-        }
-        dispatch(addBasketElement(payload))
+        }))
     }
 
     return (
@@ -35,7 +32,7 @@ const ProgramElementDescriptionHome = ({program}) => {
                 </Link>
                 <div className={styles.row}>
                     <div className={styles.webinarsList}>
-                        <WebinarListHome webinars={program.webbinarrs.data}/>
+                        {program && <WebinarListHome webinars={program.webbinarrs.data}/>}
                     </div>
                     <div className={styles.program}>
                         <div className={styles.programTop}>
