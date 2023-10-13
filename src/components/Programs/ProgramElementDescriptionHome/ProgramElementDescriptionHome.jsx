@@ -6,18 +6,25 @@ import MyButton from "../../UI/MyButton/MyButton";
 import WebinarListHome from "../../Webinars/WebinarListHome/WebinarListHome";
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
+import {addBasketElement} from "@/features/basket/basketSlice";
+import {BASKET_TYPES} from "@/helpers/basketData";
 
 const ProgramElementDescriptionHome = ({program}) => {
     const dispatch = useDispatch();
 
 
     if (!program) {
-        console.log('ELEMENT',program)
+        console.log('ELEMENT', program)
         return <div></div>
     }
 
     const handleClick = () => {
-        dispatch()
+        console.log('Slice click')
+        const payload = {
+            data: program,
+            type: BASKET_TYPES.PROGRAM
+        }
+        dispatch(addBasketElement(payload))
     }
 
     return (

@@ -1,62 +1,137 @@
 'use client'
 import React from 'react';
 import {Collapse} from 'antd';
+import "./myCollapse.scss";
+import WebinarDescription from "@/components/Webinars/WebinarDescription/WebinarDescription";
+import {convertExactTime} from "@/helpers/convertTime";
 
-// styles
-import "./myCollapse.scss"
+const {Panel} = Collapse;
+
+const renderWebinar = (webinar, index, flag) => {
+    console.log('Collapse', webinar, flag)
+
+    let data = null;
+    if (flag === 'webinars') {
+        console.log('Collapse 1', webinar, flag)
+        data = webinar
+    } else if (flag === 'programs') {
+        console.log('Collapse 2', webinar, flag)
+        data = webinar.attributes ? webinar.attributes : webinar
+    }
 
 
-const children = (text) => {
-    return (
-        <div className="collapse_content">
-            <span>Критерии уровня:</span>
-
-            {text.map(el =>
-                <p key={el.id}>{el}</p>
-            )}
+    const webinarHeader = <div className='custom-header'>
+        <div className="header-top">
+            <p className='header-top__type'>Вебинар</p>
+            {flag === 'webinars' && <p className='header-top__price'>{data.price} $</p>}
         </div>
-    )
+        <div className="header-bottom">
+            <p className='header-bottom__name'>{data.name}</p>
+        </div>
+    </div>
+
+    console.log('Collapse', data)
+    const exactTime = convertExactTime(data.exactTime)
+
+    return (
+        <Panel header={webinarHeader} key={index + data.name}>
+            <div className="collapse_content">
+                <span>{data.dectriptionTitle}</span>
+                <WebinarDescription/>
+                <div className='collapse_description'>
+                    <p className='date'>{data.date}</p>
+                    <p className='teacher'>{data.teacher}</p>
+                    <p className='duration'><span>{data.duration} минут</span></p>
+                    <p className='exactTime'><span>{exactTime}</span></p>
+                </div>
+            </div>
+        </Panel>
+    );
 }
 
-const items = [
-    {
-        key: '1',
-        label: '1. Beginner (Начальный уровень)',
-        children: children(['Отсутствуют знания о фармаконадзоре', ' Интерес и мотивация к освоению новой специальности в данной сфере.'])
-    },
-    {
-        key: '2',
-        label: '2. Elementary (Элементарный уровень)',
-        children: children(['Присутствует понимание понятия фармаконадзора', ' Опыт в построении системы фармаконадзора', ' Мотивация к развитию и карьерному росту в фармацевтической компании.'])
-    },
-    {
-        key: '3',
-        label: '3. Intermediate (Средний уровень)',
-        children: children(['Знания и опыт работы в фармаконадзоре', ' Способность презентовать и/или оценить систему фармаконадзора', ' Мотивация к развитию и карьерному росту в фармацевтической или смежной отраслях.'])
-    },
-    {
-        key: '4',
-        label: '4. Advanced (Продвинутый уровень)',
-        children: children(['Знание ключевых аспектов фармаконадзора', ' Способность использования риск-ориентированного подхода', ' Готовность к внедрению лучших практик фармаконадзора.'])
-    },
-    {
-        key: '5',
-        label: '5. Extra (Специализированный уровень)',
-        children: children(['Знание ключевых аспектов фармаконадзора', ' Заинтересованность в отдельных, узкоспециализированных темах фармаконадзора', ' Мотивация к освоению и применению трендовых и инновационных направлений фармаконадзора.'])
-    },
+const renderProgram = (program, index, type) => {
+    const webinarPanels = program.webbinarrs.data.map(webinar => renderWebinar(webinar, index, type));
+    console.log('Collapse Program', program)
 
-];
-
-const MyCollapse = () => {
-    const onChange = (key) => {
-    };
-    return (<div className="collapse">
-            <Collapse items={items}  onChange={onChange}/>
+    const programHeader = <div className='custom-header'>
+        <div className="header-top">
+            <p className='header-top__type'>Программа</p>
+            <p className='header-top__price'>{program.price} $</p>
         </div>
-    )
+        <div className="header-bottom">
+            <p className='header-bottom__name'>{program.name}</p>
+        </div>
+    </div>
+
+    return (
+        <Panel header={programHeader} key={index}>
+            {/* If you want each webinar to be its own collapsible panel, use a nested Collapse */}
+            <Collapse>
+                {webinarPanels}
+            </Collapse>
+        </Panel>
+    );
+}
+
+const MyCollapse = ({programs, webinars, type}) => {
+
+    let panels = []
+
+
+    if (type === 'programs') {
+        panels = programs.map((program, index) => renderProgram(program, index, type));
+    } else if (type === 'webinars') {
+        panels = webinars.map((webinar, index) => renderWebinar(webinar, index, type));
+    }
+
+
+    return (
+        <div
+            className={`
+            collapse
+               ${type === 'programs' && 'collapse-programs'}
+               ${type === 'webinars' && 'collapse-webinars'}
+                `
+            }
+        >
+            <Collapse accordion>
+                {panels}
+            </Collapse>
+        </div>
+    );
 };
+
 export default MyCollapse;
 
+
+// const items = [
+//     {
+//         key: '1',
+//         label: '1. Beginner (Начальный уровень)',
+//         children: children(['Отсутствуют знания о фармаконадзоре', ' Интерес и мотивация к освоению новой специальности в данной сфере.'])
+//     },
+//     {
+//         key: '2',
+//         label: '2. Elementary (Элементарный уровень)',
+//         children: children(['Присутствует понимание понятия фармаконадзора', ' Опыт в построении системы фармаконадзора', ' Мотивация к развитию и карьерному росту в фармацевтической компании.'])
+//     },
+//     {
+//         key: '3',
+//         label: '3. Intermediate (Средний уровень)',
+//         children: children(['Знания и опыт работы в фармаконадзоре', ' Способность презентовать и/или оценить систему фармаконадзора', ' Мотивация к развитию и карьерному росту в фармацевтической или смежной отраслях.'])
+//     },
+//     {
+//         key: '4',
+//         label: '4. Advanced (Продвинутый уровень)',
+//         children: children(['Знание ключевых аспектов фармаконадзора', ' Способность использования риск-ориентированного подхода', ' Готовность к внедрению лучших практик фармаконадзора.'])
+//     },
+//     {
+//         key: '5',
+//         label: '5. Extra (Специализированный уровень)',
+//         children: children(['Знание ключевых аспектов фармаконадзора', ' Заинтересованность в отдельных, узкоспециализированных темах фармаконадзора', ' Мотивация к освоению и применению трендовых и инновационных направлений фармаконадзора.'])
+//     },
+//
+// ];
 
 //
 //

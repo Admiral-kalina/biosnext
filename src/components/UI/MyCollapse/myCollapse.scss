@@ -46,7 +46,6 @@
       width: 24px;
       height: 24px;
     }
-
   }
 
   .collapse_content {
@@ -148,3 +147,123 @@
     }
   }
 }
+
+
+
+// program
+.collapse-programs, .collapse-webinars{
+  .ant-collapse-header {
+    background: var(--color-deep-black);
+    border: none !important;
+    border-radius: 0 !important;
+    align-items: center !important;
+    padding: 22px 37px 37px 30px !important;
+
+    .ant-collapse-expand-icon{
+      position: absolute;
+      bottom: 42px;
+      right: 24px;
+    }
+    .anticon {
+      svg {
+        fill: var(--color-golden-yellow);
+        transform: rotate(-90deg);
+        width: 24px;
+        height: 24px;
+      }
+    }
+    .header-top{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &__type{
+        color: rgba(241, 240, 231, 0.40);
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 130%; /* 31.2px */
+        text-transform: capitalize;
+      }
+      &__price{
+        color: #F5B335;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 130%; /* 41.6px */
+        text-transform: uppercase;
+      }
+    }
+    .header-bottom{
+      padding-top: 21px;
+      &__name{
+        color: #F1F0E7;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 130%; /* 41.6px */
+        text-transform: uppercase;
+      }
+    }
+  }
+  .ant-collapse-content-box{
+    padding: 0!important;
+  }
+  .collapse_content{
+    //margin-top: 50px;
+    padding: 29px;
+  }
+  .collapse_description{
+    padding-top: 60px;
+    p{
+      position: relative;
+      margin-top: 24px;
+      padding-left: 36px;
+      color: #F1F0E7;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 130%; /* 31.2px */
+      text-transform: capitalize;
+      &:first-child{
+        margin: 0;
+      }
+      &:before{
+        position: absolute;
+        left: 0px;
+        display: inline-block;
+
+      }
+    }
+
+    span{
+      color: #F1F0E7;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .date{
+      &:before{
+        content: url('../../../app/media/images/calendar.svg');
+      }
+    }
+    .teacher{
+      &:before{
+        content: url('../../../app/media/images/user.svg');
+      }
+    }
+    .duration{
+      &:before{
+        content: url('../../../app/media/images/clock.svg');
+      }
+    }
+    .exactTime{
+      &:before{
+        content: url('../../../app/media/images/clock.svg');
+      }
+    }
+  }
+}
+
+//webinars
+

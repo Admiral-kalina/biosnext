@@ -81,6 +81,8 @@
     }
   }
 
+
+
   .form_individual{
     input {
       color:var(--color-soft-black);
@@ -105,6 +107,37 @@
       &:-webkit-autofill:active{
         -webkit-box-shadow: 0 0 0 45px #F1F0E7 inset !important;
         -webkit-text-fill-color: red;
+      }
+    }
+  }
+
+  .form_basket{
+    margin: 0 auto;
+    .basket-btns{
+      display: flex;
+      column-gap: 40px;
+    }
+    .basket-remove{
+      display: none;
+    }
+    .price{
+      text-align: center;
+      padding-top: 81px;
+      color: #F5B335;
+      font-size: 36px;
+      font-weight: 400;
+    }
+    @media screen and (max-width: 768px){
+      .price{
+        font-size: 30px;
+      }
+    }
+    @media screen and (max-width: 450px){
+      .basket-btns{
+        flex-direction: column-reverse;
+      }
+      .price{
+        font-size: 24px;
       }
     }
   }

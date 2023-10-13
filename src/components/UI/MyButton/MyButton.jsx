@@ -8,12 +8,16 @@ const MyButton = ({
     black,
     transparent,
     golden,
+    fullGolden,
+    goldenTransparent
 }) => {
 
     const clsxStyles = clsx(styles.button, {
         [styles.black]: black,
         [styles.transparent]: transparent,
         [styles.golden]: golden,
+        [styles.fullGolden]: fullGolden,
+        [styles.goldenTransparent]: goldenTransparent
     })
 
     return (

@@ -26,21 +26,22 @@ const Phone = ({field, form, ...props}) => {
 };
 
 
-const ContactForm = ({type, isWhite}) => {
+const ContactForm = ({type, isWhite, location, price, sendData}) => {
     const errorObj = {}
 
     const handleSend = (e, values) => {
         e.preventDefault()
 
         const sentBody = `
-                <div>
-                   <p>Name ${values.name}</p>
-                   <p>Phone ${values.phone}</p>
-                   <p>Email ${values.phone}</p>
-                   <p>Them ${values.them}</p>
-                </div>`
+            <div>
+                <p>Name: ${values.name}</p>
+                <p>Phone: ${values.phone}</p>
+                <p>Email: ${values.email}</p>
+                ${sendData ? `<div>${sendData}</div>` : `<p>Theme: ${values.theme}</p>`}
+            </div>
+        `;
 
-        sendEmail(sentBody)
+        sendEmail(sentBody);
     }
 
     return (
@@ -86,6 +87,7 @@ const ContactForm = ({type, isWhite}) => {
                         className={`
                         form 
                         ${type === 'individual' ? 'form_individual' : ''}
+                        ${location === 'basket' ? 'form_basket' : ''}
                         ${isWhite ? 'form_white' : ''}
                         `}
                         onSubmit={(event) => handleSend(event, values)}
@@ -123,7 +125,7 @@ const ContactForm = ({type, isWhite}) => {
                                 />
                                 <p className="error">{errors.email && touched.email && errors.email}</p>
                             </div>
-                            <div>
+                            <div className='basket-remove'>
                                 <input
                                     className="text24"
                                     type="text"
@@ -137,14 +139,33 @@ const ContactForm = ({type, isWhite}) => {
                                 <p className="error">{errors.them && touched.them && errors.them}</p>
                             </div>
                         </div>
-                        <MyButton
-                            type="submit"
-                            black={type === 'individual'}
-                            golden={type !== 'individual'}
-                        >
-                            Отправить
-                        </MyButton>
-
+                        {location === 'basket'
+                            &&
+                            <p className='price'>Сумма: {price} $</p>
+                        }
+                        {location === 'basket' ?
+                            <div className='basket-btns'>
+                                <MyButton
+                                    goldenTransparent
+                                >
+                                    <p>Отменить</p>
+                                </MyButton>
+                                <MyButton
+                                    type="submit"
+                                    fullGolden
+                                >
+                                    Отправить
+                                </MyButton>
+                            </div>
+                            :
+                            <MyButton
+                                type="submit"
+                                black={type === 'individual'}
+                                golden={type !== 'individual'}
+                            >
+                                Отправить
+                            </MyButton>
+                        }
                     </form>
                 )}
             </Formik>
