@@ -64,9 +64,7 @@ export const findObjectsByLanguage = (jsonResponse, language, isUserData, webina
         }
     });
 
-    if (webinars) {
-        console.log('WVV', matchingObjects)
-    }
+
 
     return matchingObjects;
 };

@@ -25,7 +25,6 @@ export const removeUserData = () => {
 }
 
 export const Protector = ({children}) => {
-    console.log('PROTECTOR')
     const {jwt} = userData();
     useEffect(() => {
         if (!jwt) {

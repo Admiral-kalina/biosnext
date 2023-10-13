@@ -8,14 +8,11 @@ import {convertExactTime} from "@/helpers/convertTime";
 const {Panel} = Collapse;
 
 const renderWebinar = (webinar, index, flag) => {
-    console.log('Collapse', webinar, flag)
 
     let data = null;
     if (flag === 'webinars') {
-        console.log('Collapse 1', webinar, flag)
         data = webinar
     } else if (flag === 'programs') {
-        console.log('Collapse 2', webinar, flag)
         data = webinar.attributes ? webinar.attributes : webinar
     }
 
@@ -30,7 +27,6 @@ const renderWebinar = (webinar, index, flag) => {
         </div>
     </div>
 
-    console.log('Collapse', data)
     const exactTime = convertExactTime(data.exactTime)
 
     return (
@@ -51,7 +47,6 @@ const renderWebinar = (webinar, index, flag) => {
 
 const renderProgram = (program, index, type) => {
     const webinarPanels = program.webbinarrs.data.map(webinar => renderWebinar(webinar, index, type));
-    console.log('Collapse Program', program)
 
     const programHeader = <div className='custom-header'>
         <div className="header-top">

@@ -19,8 +19,6 @@ export const basketSlice = createSlice({
     reducers: {
         addBasketElement(state, action) {
             const {type, data} = action.payload;
-            console.log('Slice', data)
-            console.log('Slice add')
             if (type === BASKET_TYPES.WEBINAR) {
                 state.basket.webinars.push(data);
                 storeBasketData(state.basket.webinars, BASKET_TYPES.WEBINAR)

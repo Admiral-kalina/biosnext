@@ -89,13 +89,10 @@ export const ProgramOverview = ({programs}) => {
 
     useEffect(() =>{
         const search = +window.location.pathname.split('/')[3];
-        console.log('PR1',programs,search)
-        console.log('PR2', findObjectById(programs,search))
         setProgram(findObjectById(programs,search))
     },[programs])
 
 
-    console.log('PR',programs)
 
     if(!program){
 
@@ -103,7 +100,6 @@ export const ProgramOverview = ({programs}) => {
             <p>Loading</p>
         )
     }
-    console.log('PR',programs)
 
     const handleClick = () => {
 

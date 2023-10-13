@@ -12,7 +12,6 @@ import {useSelector} from "react-redux";
 const Programs = ({type}) => {
     const {globalCoursesByLanguage, isLoading, error} = useSelector(store => store.courses);
     const  a = useSelector(store => store.courses);
-    console.log('PR0',a)
     if(isLoading) {
         return (
             <p>loading</p>

@@ -26,7 +26,6 @@ export const WebinarOverview = ({context}) => {
         const currentHash = window.location.hash;
         setHash(currentHash ? currentHash.substring(1).split('=')[1] : '');  // Remove '#' from the beginning
     }, []);
-    console.log('HASH', hash)
     return (
         <div>
             <Container sizeZero>

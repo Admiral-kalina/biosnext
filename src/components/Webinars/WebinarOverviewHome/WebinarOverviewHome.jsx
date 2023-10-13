@@ -14,17 +14,10 @@ import {addBasketElement} from "@/features/basket/basketSlice";
 
 const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
     const dispatch = useDispatch()
-    const {basket} = useSelector(store => store.basket)
 
-    useEffect(() => {
-        console.log('BASS DATA',basket)
-    })
 
     if (!webinar) {
         return <div>Loading</div>
-    }
-
-    const handleBack = () => {
     }
 
 

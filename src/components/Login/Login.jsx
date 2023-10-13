@@ -37,11 +37,8 @@ const Login = () => {
         const url = `http://localhost:1337/api/auth/local`;
 
         try {
-            console.log('login',values)
             if (values.identifier && values.password) {
-                console.log('login1')
                 const {data} = await axios.post(url, values);
-                console.log('login2',data)
                 if (data.jwt) {
                     storeUser(data);
                     toast.success("Logged is successfully!", {

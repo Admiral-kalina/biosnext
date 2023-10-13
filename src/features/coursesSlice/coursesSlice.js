@@ -26,7 +26,6 @@ export const fetchCourses = createAsyncThunk('courses/fetchCourses', async (lang
             strapiApi.get(`/api/courses?populate=*`),
             strapiApi.get(`/api/webbinarrs?populate=*`),
         ]);
-        console.log('IMPORTANT', webinarList)
         const globalProgramsByLanguage = findObjectsByLanguage(programsList.data.data, language, false, webinarList.data.data);
         const globalWebinarsByLanguage = findObjectsByLanguage(webinarList.data.data, language, false);
 

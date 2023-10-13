@@ -5,7 +5,6 @@ import Link from "next/link";
 
 
 export const WebinarsList = ({webinars, programId, isWebinarHome}) => {
-    console.log('WE', webinars)
     const isAttributesExist = webinars[0].attributes
     return (
         <>

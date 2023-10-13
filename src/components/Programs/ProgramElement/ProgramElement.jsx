@@ -7,9 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-
 const ProgramElement = ({programs}) => {
-    console.log('GL11',programs)
     return (
         <>
             {programs.map(program =>
