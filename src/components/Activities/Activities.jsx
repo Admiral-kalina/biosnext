@@ -1,12 +1,16 @@
 'use client'
 import React from 'react';
 
-// styles
-import * as styles from "./activities.module.scss"
+// components
 import Container from "../Container/Container";
 import MyCalendar from "../MyCalendar/MyCalendar";
 import {WebinarsList} from "../Webinars/WebinarList/WebinarsList";
 import IndividualForm from "../UI/IndividualForm/IndividualForm";
+
+// styles
+import * as styles from "./activities.module.scss"
+import {useSelector} from "react-redux";
+
 
 const mockWebinars = [
     {
@@ -84,12 +88,31 @@ const mockWebinars = [
 ]
 
 const Activities = () => {
+    const { globalCoursesByLanguage, isLoading, error } = useSelector(
+        (state) => state.courses
+    );
+
+    if(isLoading){
+        return (
+            <p>loading</p>
+        )
+    }
+
+    if(error){
+        return (
+            <p>{error}</p>
+        )
+    }
+
     return (
         <div className={styles.root}>
             <Container sizeZero>
                 <p className={`${styles.title} text60`}>Мероприятия</p>
                 <div className={styles.calendar}>
-                    <MyCalendar general={true}/>
+                    <MyCalendar
+                        general={true}
+                        globalPrograms={globalCoursesByLanguage.programs}
+                    />
                 </div>
             </Container>
             <div className={styles.webinars}>

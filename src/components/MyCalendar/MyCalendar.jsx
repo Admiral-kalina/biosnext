@@ -1,20 +1,25 @@
 import React, {useRef, useState} from 'react';
-import {Calendar, momentLocalizer} from 'react-big-calendar'
-import moment from 'moment'
+import {Calendar, momentLocalizer} from 'react-big-calendar';
 
-import Event from "./components/Event"
+import 'moment/locale/uk';
+import 'moment/locale/ru';
+import moment from 'moment';
+
+const localizer = momentLocalizer(moment);
+
+import {useSelector} from "react-redux";
+// components
+import Event from "./components/Event";
+import CustomToolbar from "./CustomCalendar";
+
+// helpers
+import {createCalendarEvents} from "@/helpers/createCalendarEvents";
 
 // styles
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./calendar.scss";
-import CustomToolbar from "./CustomCalendar";
 import * as styles from "../Home/home.module.scss";
-import 'moment/locale/uk'
-import 'moment/locale/ru'
-import {createCalendarEvents} from "@/helpers/createCalendarEvents";
-import {useSelector} from "react-redux";
 
-const localizer = momentLocalizer(moment)
 
 const MyCalendar = ({general, userPrograms = [], globalPrograms = []}) => {
     const [isAllRecords, setIsAllRecords] = useState(true)
@@ -24,7 +29,6 @@ const MyCalendar = ({general, userPrograms = [], globalPrograms = []}) => {
     moment.locale(language === 'ua' ? 'uk' : language);
 
     const ref = useRef()
-
 
     const events = createCalendarEvents(isAllRecords ? globalPrograms : userPrograms)
 
