@@ -29,19 +29,12 @@ export const views = {
 };
 
 const CustomToolbar = (props) => {
-    const [isAllPosts, setIsAllPosts] = useState(true)
 
     function navigate(action) {
         const nextDate = new Date(props.date.getFullYear(), props.date.getMonth() + 1)
         const previosDate = new Date(props.date.getFullYear(), props.date.getMonth() - 1)
         props.setDate(action === "NEXT"? nextDate : previosDate)
         props.onNavigate(action);
-    }
-
-
-
-    const handleClick = (bool:boolean) => {
-        setIsAllPosts(bool)
     }
 
 
@@ -70,8 +63,8 @@ const CustomToolbar = (props) => {
                 </button>
             </span>
             <span className="records_block">
-                <button onClick={() => handleClick(true)} className={`${isAllPosts ? "activeRecord" : ""} all-records`}>Все</button>
-                <button onClick={() => handleClick(false)} className={`${isAllPosts ? "" : "activeRecord"} my-records`}>Только мои</button>
+                <button onClick={() => props.handleClick(true)} className={`${props.isAllRecords ? "activeRecord" : ""} all-records`}>Все</button>
+                <button onClick={() => props.handleClick(false)} className={`${props.isAllRecords ? "" : "activeRecord"} my-records`}>Только мои</button>
             </span>
         </div>
     );

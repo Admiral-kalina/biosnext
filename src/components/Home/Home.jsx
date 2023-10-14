@@ -11,7 +11,8 @@ import {usePreviousRoute} from "@/hooks/usePreviousRoute";
 // components
 import AboutUsHome from "@/components/aboutUsHome/aboutUsHome";
 import WebinarOverviewHome from "../Webinars/WebinarOverviewHome/WebinarOverviewHome";
-import ProgramElementDescriptionHome from "@/components/Programs/ProgramElementDescriptionHome/ProgramElementDescriptionHome";
+import ProgramElementDescriptionHome
+    from "@/components/Programs/ProgramElementDescriptionHome/ProgramElementDescriptionHome";
 import WebinarListHome from "../Webinars/WebinarListHome/WebinarListHome";
 import ProgramsListHome from "../Programs/ProgramsListHome/ProgramsListHome";
 import MyCalendar from "../MyCalendar/MyCalendar";
@@ -62,7 +63,7 @@ const Home = () => {
 
     let programElement
 
-    if (programSearch ) {
+    if (programSearch) {
         programElement = createProgramElement(
             globalProgramsByLanguage,
             userProgramsByLanguage,
@@ -77,6 +78,7 @@ const Home = () => {
             webinarSearch
         )
     }
+
 
 
     return (
@@ -109,7 +111,15 @@ const Home = () => {
             <div className={styles.gridContent}>
                 <div className={styles.contentWrapper}>
                     <Routes>
-                        <Route path='/home/schedule/' element={<MyCalendar programs={userProgramsByLanguage}/>}/>
+                        <Route
+                            path='/home/schedule/'
+                            element={
+                                <MyCalendar
+                                    userPrograms={userProgramsByLanguage}
+                                    globalPrograms={globalProgramsByLanguage}
+                                />
+                            }
+                        />
                         <Route path='/home/webinars/' element={
                             <div className={styles.webinarsRow}>
                                 <div className={styles.column}>

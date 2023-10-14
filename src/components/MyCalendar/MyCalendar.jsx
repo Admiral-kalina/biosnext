@@ -11,27 +11,26 @@ import CustomToolbar from "./CustomCalendar";
 import * as styles from "../Home/home.module.scss";
 import 'moment/locale/uk'
 import 'moment/locale/ru'
+import {createCalendarEvents} from "@/helpers/createCalendarEvents";
+import {useSelector} from "react-redux";
 
 const localizer = momentLocalizer(moment)
 
-const MyCalendar = ({general, programs = []}) => {
+const MyCalendar = ({general, userPrograms = [], globalPrograms = []}) => {
+    const [isAllRecords, setIsAllRecords] = useState(true)
+    const {language} = useSelector(state => state.user.user)
     const [date, setDate] = useState(new Date());
 
-    moment.locale("ua");
+    moment.locale(language === 'ua' ? 'uk' : language);
+
     const ref = useRef()
 
-    const events = programs
-        .reduce((acc, curr) => acc.concat(curr.webbinarrs?.data || []), [])
-        .map(item => ({
-            ...item.attributes,
-            start: new Date(),
-            end: new Date(),
-            programLink: "https://codesandbox.io/s/react-big-calendar-example-lrwm4?file=/events.js",
-            eventLink: "https://google.com",
-            topic: "Фармалкология",
-            type: "Вебинар",
-            price: 500
-        }));
+
+    const events = createCalendarEvents(isAllRecords ? globalPrograms : userPrograms)
+
+    const handleClick = (bool) => {
+        setIsAllRecords(bool)
+    }
 
     return (
         <div className={styles.gridCalendar}>
@@ -49,7 +48,14 @@ const MyCalendar = ({general, programs = []}) => {
                     endAccessor="end"
                     components={{
                         event: Event,
-                        toolbar: props => <CustomToolbar {...props} setDate={setDate} date={date}/>,
+                        toolbar: props =>
+                            <CustomToolbar
+                                {...props}
+                                setDate={setDate}
+                                date={date}
+                                isAllRecords={isAllRecords}
+                                handleClick={handleClick}
+                            />,
                     }}
                 />
             </div>

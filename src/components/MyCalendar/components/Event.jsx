@@ -22,7 +22,6 @@ const Event = (props) => {
         type,
     } = props.event;
 
-
     return (
         <div className="calendar_event">
             <p className="event_price">{formatPriceWithCurrency(price)}</p>

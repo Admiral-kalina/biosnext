@@ -24,6 +24,11 @@ const ProgramElementDescriptionHome = ({program}) => {
         }))
     }
 
+    if(!program){
+        return (<p>loading</p>)
+    }
+
+
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
@@ -32,7 +37,7 @@ const ProgramElementDescriptionHome = ({program}) => {
                 </Link>
                 <div className={styles.row}>
                     <div className={styles.webinarsList}>
-                        {program && <WebinarListHome webinars={program.webbinarrs.data}/>}
+                        {program?.webbinarrs && <WebinarListHome webinars={program.webbinarrs.data}/>}
                     </div>
                     <div className={styles.program}>
                         <div className={styles.programTop}>
