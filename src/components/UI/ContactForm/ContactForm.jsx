@@ -7,9 +7,11 @@ import sendEmail from "@/helpers/sendEmail";
 import MyButton from "../MyButton/MyButton";
 
 import "./contactForm.scss"
+import {useDispatch} from "react-redux";
+import {removeBasketElements} from "@/features/basket/basketSlice";
 
 
-const Phone = ({field, form, ...props}) => {
+const Phone = ({field, form}) => {
     return (
         <PhoneInput
             placeholder={'Телефон'}
@@ -27,7 +29,7 @@ const Phone = ({field, form, ...props}) => {
 
 
 const ContactForm = ({type, isWhite, location, price, sendData}) => {
-    const errorObj = {}
+    const dispatch = useDispatch();
 
     const handleSend = (e, values) => {
         e.preventDefault()
@@ -42,6 +44,10 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
         `;
 
         sendEmail(sentBody);
+    }
+
+    const handleRemove = () => {
+    dispatch(removeBasketElements())
     }
 
     return (
@@ -146,6 +152,7 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                         {location === 'basket' ?
                             <div className='basket-btns'>
                                 <MyButton
+                                    onClick={handleRemove}
                                     goldenTransparent
                                 >
                                     <p>Отменить</p>

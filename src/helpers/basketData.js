@@ -62,3 +62,17 @@ export const groupBasketData = (programs = [], webinars = []) => {
         </div>
     `;
 }
+
+export const checkIsBuying = (data, type) => {
+    let storedData = getBasketData()
+    if (type === BASKET_TYPES.PROGRAM) {
+        return storedData.programs.find(program => program.id === data.id)
+    }else {
+        return storedData.webinars.find(webinar => webinar.id === data.id)
+    }
+}
+
+export const removeBaskedData = () => {
+    localStorage.removeItem(BASKET_TYPES.PROGRAM);
+    localStorage.removeItem(BASKET_TYPES.WEBINAR);
+}

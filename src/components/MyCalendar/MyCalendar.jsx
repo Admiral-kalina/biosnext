@@ -30,7 +30,9 @@ const MyCalendar = ({general, userPrograms = [], globalPrograms = []}) => {
 
     const ref = useRef()
 
-    const events = createCalendarEvents(isAllRecords ? globalPrograms : userPrograms)
+    const records = isAllRecords ? globalPrograms : userPrograms;
+
+    const events = createCalendarEvents(records, general)
 
     const handleClick = (bool) => {
         setIsAllRecords(bool)
@@ -51,7 +53,11 @@ const MyCalendar = ({general, userPrograms = [], globalPrograms = []}) => {
                     startAccessor="start"
                     endAccessor="end"
                     components={{
-                        event: Event,
+                        event: props =>
+                            <Event
+                                {...props}
+                                general={general}
+                            />,
                         toolbar: props =>
                             <CustomToolbar
                                 {...props}

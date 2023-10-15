@@ -20,7 +20,9 @@ const Event = (props) => {
         price,
         name,
         type,
+
     } = props.event;
+
 
     return (
         <div className="calendar_event">

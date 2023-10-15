@@ -1,20 +1,18 @@
 "use client"
 import React from 'react';
-
-import Container from "../Container/Container";
+import {useSelector} from "react-redux";
 
 import {ProgramOverview} from "./ProgramOverview/ProgramOverview";
 import {ProgramsList} from "./ProgramsList/ProgramsList";
-import {useSelector} from "react-redux";
-
+import MyLoader from "@/components/UI/MyLoader/MyLoader";
 
 
 const Programs = ({type}) => {
-    const {globalCoursesByLanguage, isLoading, error} = useSelector(store => store.courses);
-    const  a = useSelector(store => store.courses);
+    const {globalCoursesByLanguage, isLoading} = useSelector(store => store.courses);
+
     if(isLoading) {
         return (
-            <p>loading</p>
+           <MyLoader/>
         )
     }
 

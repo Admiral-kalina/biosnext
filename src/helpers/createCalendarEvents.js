@@ -1,4 +1,4 @@
-export const createCalendarEvents = (programs) => {
+export const createCalendarEvents = (programs, general) => {
     return programs
         .reduce((acc, curr) => {
             const programId = curr.id; // Get the programId
@@ -19,9 +19,14 @@ export const createCalendarEvents = (programs) => {
             const programId = item.programId;
             const webinarId = item.id;
 
-            // Use the programId to construct the programLink
-            const programLink = `/home/programs/program/?program=${programId}#programs`;
-            const eventLink = `/home/webinars/webinar/?webinar=${webinarId}#webinars`;
+
+            const programLink = general
+                ? `/services/programs/${programId}`
+                : `/home/programs/program/?program=${programId}#programs`;
+
+            const eventLink = general
+                ? `/services/webinars-and-lectures/${webinarId}`
+                : `/home/webinars/webinar/?webinar=${webinarId}#webinars`;
 
             return {
                 ...data,
@@ -32,7 +37,7 @@ export const createCalendarEvents = (programs) => {
                 topic: "Фармалкология",
                 type: "Вебинар",
                 price: 500,
-                id: item.id,
+                id: webinarId,
             };
         });
 }
