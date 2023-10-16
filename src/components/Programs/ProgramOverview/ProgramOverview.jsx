@@ -34,7 +34,8 @@ export const ProgramOverview = ({programs}) => {
     const handleClick = () => {
         dispatch(addBasketElement({
             data: program,
-            type: BASKET_TYPES.PROGRAM
+            type: BASKET_TYPES.PROGRAM,
+            t
         }))
     }
     return (

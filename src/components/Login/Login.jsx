@@ -15,11 +15,13 @@ import * as styles from "./login.module.scss"
 import Container from "../Container/Container";
 import {useRouter} from "next/navigation";
 import {storeUser} from "@/helpers/userData";
+import {useTranslation} from "react-i18next";
 
 
 const initialUser = {password: "", identifier: ""};
 
 const Login = () => {
+    const {t} = useTranslation();
     const [user, setUser] = useState(initialUser);
     const router = useRouter();
 
@@ -41,7 +43,7 @@ const Login = () => {
                 const {data} = await axios.post(url, values);
                 if (data.jwt) {
                     storeUser(data);
-                    toast.success("Logged is successfully!", {
+                    toast.success(t('toast.login.success'), {
                         hideProgressBar: true,
                     });
                     setUser(initialUser);
@@ -50,7 +52,7 @@ const Login = () => {
             }
         } catch (error) {
             console.log('Err', error)
-            toast.error('login or password don\'t correct', {
+            toast.error(t('toast.login.failed'), {
                 hideProgressBar: true,
             });
         }
@@ -59,7 +61,7 @@ const Login = () => {
     return (
         <Container>
             <div className={styles.root}>
-                <h2 className={styles.title}>Вход в аккаунт</h2>
+                <h2 className={styles.title}>{t('login.accountLogin')}</h2>
                 <Formik
                     initialValues={{identifier: "", password: ""}}
                     validate={values => {
@@ -86,7 +88,7 @@ const Login = () => {
                             <div className={styles.formContainer}>
 
                                 <div className={styles.formBlock}>
-                                    <label className="text40" htmlFor="identifier">Логин*</label>
+                                    <label className="text40" htmlFor="identifier">{t('login.login')}</label>
                                     <input
                                         className="text24"
                                         type="text"
@@ -99,7 +101,7 @@ const Login = () => {
 
                                 </div>
                                 <div className={styles.formBlock}>
-                                    <label className="text40" htmlFor="password">Пароль*</label>
+                                    <label className="text40" htmlFor="password">{t('login.password')}</label>
                                     <input
                                         className="text24"
                                         type="password"
@@ -113,7 +115,8 @@ const Login = () => {
                             </div>
                             <div className={styles.btnBlock}>
                                 <button type="submit" disabled={isSubmitting}>
-                                    Войти
+
+                                    {t('additional.enter')}
                                 </button>
                             </div>
 

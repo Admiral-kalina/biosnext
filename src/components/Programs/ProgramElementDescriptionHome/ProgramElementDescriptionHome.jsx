@@ -23,7 +23,8 @@ const ProgramElementDescriptionHome = ({program}) => {
     const handleClick = () => {
         dispatch(addBasketElement({
             data: program,
-            type: BASKET_TYPES.PROGRAM
+            type: BASKET_TYPES.PROGRAM,
+            t
         }))
     }
 

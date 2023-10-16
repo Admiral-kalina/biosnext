@@ -39,7 +39,8 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
     const handleClick = () => {
         const payload = {
             data:webinar,
-            type:'webinars'
+            type:'webinars',
+            t
         }
         dispatch(addBasketElement(payload))
     }

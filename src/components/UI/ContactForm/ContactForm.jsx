@@ -46,7 +46,7 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
             </div>
         `;
 
-        sendEmail(sentBody);
+        sendEmail(sentBody, t);
     }
 
     const handleRemove = () => {
