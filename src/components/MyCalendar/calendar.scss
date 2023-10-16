@@ -335,7 +335,6 @@
     .btn-prev {
       padding: 0;
     }
-
   }
 }
 
@@ -409,43 +408,20 @@
     }
   }
   @media screen and (max-width: 768px) {
-    .rbc-calendar {
-      height: 1100px;
-    }
-    .rbc-toolbar {
-      margin: 0 auto 0 40px;
-
-    }
-    .rbc-calendar {
-      width: 1060px;
-    }
+    overflow: scroll;
+    max-width: calc(100vw - 15px);
     .rbc-month-view {
-      column-gap: 16px;
-      border: none !important;
-      display: flex;
-      flex-direction: row;
+      padding: 0;
     }
-
-    .rbc-month-header {
-      display: flex;
-      flex-direction: column;
+    .back_block {
+      display: none;
     }
-
-    .rbc-row-content {
-      height: 100%;
-
-      .rbc-row {
-        height: 100%;
-        max-height: 100%;
-        flex-direction: column;
-      }
+    .records_block {
+      padding: 0;
+      white-space: nowrap;
     }
-
-    .rbc-row-bg {
-      row-gap: 16px;
-      display: flex !important;
-      flex-direction: column !important;
-
+    .btn-prev {
+      padding: 0;
     }
   }
 }

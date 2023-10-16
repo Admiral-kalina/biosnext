@@ -339,7 +339,7 @@ const Header = ({type}) => {
                                         <Link href={'/'}><Image src={icon14} alt="telegram"/></Link>
                                     </li>
                                     <li className="nav-menu__mobile--info--place">
-                                        <p>01033, місто Київ, ВУЛИЦЯ ТАРАСІВСЬКА, будинок 4-А, офіс 7</p>
+                                        <p>01033, {t('additional.address')}</p>
                                     </li>
                                     <li className="nav-menu__mobile--info--social-bottom">
                                         <Link href={'/'}><Image src={icon5} alt="mail"/></Link>
