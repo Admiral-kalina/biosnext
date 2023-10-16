@@ -11,6 +11,7 @@ import IndividualForm from "../UI/IndividualForm/IndividualForm";
 import * as styles from "./activities.module.scss"
 import {useSelector} from "react-redux";
 import {useTranslation} from "react-i18next";
+import MyLoader from "@/components/UI/MyLoader/MyLoader";
 
 
 const Activities = () => {
@@ -21,7 +22,7 @@ const Activities = () => {
 
     if(isLoading){
         return (
-            <p>loading</p>
+            <MyLoader/>
         )
     }
 

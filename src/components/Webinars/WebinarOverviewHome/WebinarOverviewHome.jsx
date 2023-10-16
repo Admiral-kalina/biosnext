@@ -11,6 +11,7 @@ import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {addBasketElement} from "@/features/basket/basketSlice";
 import {useTranslation} from "react-i18next";
+import MyLoader from "@/components/UI/MyLoader/MyLoader";
 
 
 const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
@@ -19,7 +20,9 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
 
 
     if (!webinar) {
-        return <div>Loading</div>
+        return (
+            <MyLoader/>
+        )
     }
 
 

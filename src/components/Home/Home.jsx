@@ -27,6 +27,7 @@ import schedule from "src/app/media/images/home/schedule.svg"
 import about from "src/app/media/images/home/about.svg";
 import {removeUserData} from "@/helpers/userData";
 import {useTranslation} from "react-i18next";
+import MyLoader from "@/components/UI/MyLoader/MyLoader";
 
 
 
@@ -55,7 +56,9 @@ const Home = () => {
     const isLoading = user.isLoading && globalCourses.isLoading;
 
     if (isLoading) {
-        return <div>loading</div>
+        return (
+            <MyLoader/>
+        )
     }
 
     const globalProgramsByLanguage = globalCourses.globalCoursesByLanguage.programs;

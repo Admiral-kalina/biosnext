@@ -11,6 +11,7 @@ import {useTranslation} from "react-i18next";
 import {addBasketElement} from "@/features/basket/basketSlice";
 import {BASKET_TYPES} from "@/helpers/basketData";
 import {useDispatch} from "react-redux";
+import MyLoader from "@/components/UI/MyLoader/MyLoader";
 
 
 export const ProgramOverview = ({programs}) => {
@@ -25,9 +26,8 @@ export const ProgramOverview = ({programs}) => {
 
 
     if (!program) {
-
         return (
-            <p>Loading</p>
+            <MyLoader/>
         )
     }
 

@@ -13,6 +13,7 @@ import {BASKET_TYPES} from "@/helpers/basketData";
 // styles
 import * as styles from "./programElement.module.scss"
 import {useTranslation} from "react-i18next";
+import MyLoader from "@/components/UI/MyLoader/MyLoader";
 
 
 const ProgramElementDescriptionHome = ({program}) => {
@@ -27,7 +28,9 @@ const ProgramElementDescriptionHome = ({program}) => {
     }
 
     if(!program){
-        return (<p>loading</p>)
+        return (
+            <MyLoader/>
+        )
     }
 
 
