@@ -12,7 +12,7 @@ const WebinarListHome = ({webinars, isWebinarHome}) => {
 
     const dataToSort = [...webinars];
 
-    const closest = getNearestEventsByKey(dataToSort, "date");
+    const closest = getNearestEventsByKey(dataToSort, "date",3);
 
     return (
             <>

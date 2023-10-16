@@ -30,8 +30,6 @@ import {useTranslation} from "react-i18next";
 
 
 
-
-
 const Home = () => {
     const {t} = useTranslation()
 
@@ -85,9 +83,7 @@ const Home = () => {
     }
 
 
-
     return (
-
         <div className={styles.root}>
             <div className={styles.gridSidebar}>
                 {navs.map(nav =>
