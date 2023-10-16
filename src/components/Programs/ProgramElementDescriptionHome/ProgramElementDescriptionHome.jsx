@@ -12,9 +12,11 @@ import {BASKET_TYPES} from "@/helpers/basketData";
 
 // styles
 import * as styles from "./programElement.module.scss"
+import {useTranslation} from "react-i18next";
 
 
 const ProgramElementDescriptionHome = ({program}) => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
 
     const handleClick = () => {
@@ -33,7 +35,7 @@ const ProgramElementDescriptionHome = ({program}) => {
         <div className={styles.root}>
             <div className={styles.wrapper}>
                 <Link to={'/home/programs/#programs'}>
-                    <p className={styles.back}>Назад к программе</p>
+                    <p className={styles.back}>{t('cabinet.backToProgram')}</p>
                 </Link>
                 <div className={styles.row}>
                     <div className={styles.webinarsList}>
@@ -41,17 +43,17 @@ const ProgramElementDescriptionHome = ({program}) => {
                     </div>
                     <div className={styles.program}>
                         <div className={styles.programTop}>
-                            <p className={styles.section}>Программа</p>
+                            <p className={styles.section}>{t('additional.program')}</p>
                             <p className={styles.name}>{program.name}</p>
-                            <p className={styles.date}><span>Начало:</span> {program.start}</p>
-                            <p className={styles.webinarCount}><span>Вебинаров:</span> {program.webinarsCount}</p>
+                            <p className={styles.date}><span>{t('additional.beginning')}:</span> {program.start}</p>
+                            <p className={styles.webinarCount}><span>{t('additional.webinars')}:</span> {program.webinarsCount}</p>
                         </div>
                         {program.isAcquired ?
                             <></>
                             :
                             <div className={`${styles.programBottom} ${styles.hideOnMobile}`}>
                                 <p className={styles.price}>{program.price} $</p>
-                                <MyButton transparent>Купить Программу</MyButton>
+                                <MyButton transparent>{t('cabinet.buyProgram')}</MyButton>
                             </div>
                         }
 
@@ -61,7 +63,7 @@ const ProgramElementDescriptionHome = ({program}) => {
                         :
                         <div className={`${styles.programBottom} ${styles.showOnMobile}`}>
                             <p className={styles.price}>{program.price} $</p>
-                            <MyButton onClick={handleClick} transparent>Купить Программу</MyButton>
+                            <MyButton onClick={handleClick} transparent>{t('cabinet.buyProgram')}</MyButton>
                         </div>
                     }
                 </div>

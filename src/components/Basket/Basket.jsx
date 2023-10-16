@@ -2,6 +2,10 @@
 import React from 'react';
 import {useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
+import {useTranslation} from "react-i18next";
+
+// helpers
+import {groupBasketData} from "@/helpers/basketData";
 
 // components
 import MyCollapse from "../UI/MyCollapse/MyCollapse";
@@ -12,10 +16,11 @@ import Container from "@/components/Container/Container";
 
 // styles
 import * as styles from "./basket.module.scss"
-import {groupBasketData} from "@/helpers/basketData";
+
 
 
 const Basket = () => {
+    const {t} = useTranslation()
     const {programs, webinars, totalPrice, count} = useSelector(store => store.basket.basket)
     const location = useLocation()
     const hashString = location.hash.substring(1)
@@ -28,9 +33,10 @@ const Basket = () => {
         <div className={styles.root}>
             <Header type={hashString}/>
             <Container>
+
                 <div className={styles.container}>
                     <p className={styles.title}>
-                        {hasItems ? "Оформить заказ" : "Ваша корзина пустая"}
+                        {hasItems ? t('form.title') : t('form.empty')}
                     </p>
                     {programs.length > 0
                         &&

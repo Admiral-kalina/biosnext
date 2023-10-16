@@ -10,9 +10,11 @@ import Image from "next/image";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {addBasketElement} from "@/features/basket/basketSlice";
+import {useTranslation} from "react-i18next";
 
 
 const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
+    const {t} = useTranslation()
     const dispatch = useDispatch()
 
 
@@ -45,20 +47,20 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
             <div className={styles.wrapper}>
                 <Link to={route}>
                     {hashString === 'webinars' ?
-                        <p className={styles.back}> Назад </p>
+                        <p className={styles.back}>{t('cabinet.back')}</p>
                         :
-                        <p className={styles.back}>Назад к программе</p>
+                        <p className={styles.back}>{t('cabinet.backToProgram')}</p>
                     }
                 </Link>
                 <div className={styles.row}>
                     <div className={`${styles.column} ${styles.scrollable}`}>
-                        <p className={styles.section}>Вебинар</p>
+                        <p className={styles.section}>{t('additional.webinar')}</p>
                         <p className={styles.name}>Клинические испытания</p>
                         <div className={`${styles.contentTop} ${styles.showOnPhone}`}>
                             <p className={styles.date}>15.11.2023</p>
                             <p className={styles.teacher}>Андрей Шимко, эксперт GMP/GDP</p>
                             <p className={styles.program}>Фармакология</p>
-                            <p className={styles.time}>30 минут</p>
+                            <p className={styles.time}>30 {t('additional.minutes')}</p>
                             <p className={styles.time}>11:30</p>
                         </div>
                         {/* eslint-disable-next-line react/no-unescaped-entities */}
@@ -76,7 +78,7 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
                             <p className={styles.date}>15.11.2023</p>
                             <p className={styles.teacher}>Андрей Шимко, эксперт GMP/GDP</p>
                             <p className={styles.program}>Фармакология</p>
-                            <p className={styles.time}>30 минут</p>
+                            <p className={styles.time}>30 {t('additional.minutes')}</p>
                             <p className={styles.time}>11:30</p>
                         </div>
                         {webinar.isAcquired ?
@@ -85,19 +87,19 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
                                     <MyButton transparent>
                                         <p
                                             className={styles.youtube}>
-                                            Смотреть на YouTube
+                                            {t('cabinet.watchOnYouTube')}
                                         </p>
                                     </MyButton>
                                     <MyButton transparent>
                                         <p
                                             className={styles.synopsis}>
-                                            Скачать конспект лекции
+                                            {t('cabinet.downloadLecture')}
                                         </p>
                                     </MyButton>
                                     <MyButton transparent>
                                         <p
                                             className={styles.presentation}>
-                                            Скачать презентацию
+                                            {t('cabinet.downloadPresentation')}
                                         </p>
                                     </MyButton>
                                 </div>
@@ -107,7 +109,7 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
 
                                 <div className={styles.contentBuy}>
                                     <p className={styles.price}>180$</p>
-                                    <MyButton onClick={handleClick} transparent>Купить</MyButton>
+                                    <MyButton onClick={handleClick} transparent>{t('cabinet.buy')}</MyButton>
                                 </div>
                             </div>
                         }

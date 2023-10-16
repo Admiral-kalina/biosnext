@@ -9,12 +9,14 @@ import MyButton from "../MyButton/MyButton";
 import "./contactForm.scss"
 import {useDispatch} from "react-redux";
 import {removeBasketElements} from "@/features/basket/basketSlice";
+import {useTranslation} from "react-i18next";
 
 
 const Phone = ({field, form}) => {
+    const {t} = useTranslation()
     return (
         <PhoneInput
-            placeholder={'Телефон'}
+            placeholder={t('form.phone')}
             value=""
             name="phone"
             id="phone"
@@ -29,6 +31,7 @@ const Phone = ({field, form}) => {
 
 
 const ContactForm = ({type, isWhite, location, price, sendData}) => {
+    const {t} = useTranslation()
     const dispatch = useDispatch();
 
     const handleSend = (e, values) => {
@@ -105,7 +108,7 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                                     type="name"
                                     name="name"
                                     id="name"
-                                    placeholder={'Имя'}
+                                    placeholder={t('form.name')}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     value={values.name}
@@ -124,7 +127,7 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                                     type="email"
                                     name="email"
                                     id="email"
-                                    placeholder="E-mail"
+                                    placeholder={t('form.email')}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     value={values.email}
@@ -137,7 +140,7 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                                     type="text"
                                     name="them"
                                     id="them"
-                                    placeholder="Тема вебинара или программа"
+                                    placeholder={t('form.them')}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     value={values.them}
@@ -147,7 +150,7 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                         </div>
                         {location === 'basket'
                             &&
-                            <p className='price'>Сумма: {price} $</p>
+                            <p className='price'>{t('form.amount')}: {price} $</p>
                         }
                         {location === 'basket' ?
                             <div className='basket-btns'>
@@ -155,13 +158,13 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                                     onClick={handleRemove}
                                     goldenTransparent
                                 >
-                                    <p>Отменить</p>
+                                    <p>{t('form.cancel')}</p>
                                 </MyButton>
                                 <MyButton
                                     type="submit"
                                     fullGolden
                                 >
-                                    Отправить
+                                    {t('form.send')}
                                 </MyButton>
                             </div>
                             :
@@ -170,7 +173,7 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                                 black={type === 'individual'}
                                 golden={type !== 'individual'}
                             >
-                                Отправить
+                                {t('form.send')}
                             </MyButton>
                         }
                     </form>

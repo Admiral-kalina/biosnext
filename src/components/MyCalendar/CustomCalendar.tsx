@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {useState} from "react";
+import {useTranslation} from "react-i18next";
 
 
 export interface ICustomTooolbarProps {
@@ -29,7 +30,7 @@ export const views = {
 };
 
 const CustomToolbar = (props) => {
-
+    const {t} = useTranslation();
     function navigate(action) {
         const nextDate = new Date(props.date.getFullYear(), props.date.getMonth() + 1)
         const previosDate = new Date(props.date.getFullYear(), props.date.getMonth() - 1)
@@ -44,7 +45,7 @@ const CustomToolbar = (props) => {
                 <button className='back'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 24 26" fill="none"><path
                         d="M18 1L6 13L18 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-                   <span className='back-text'> Назад</span>
+                   <span className='back-text'> {t('cabinet.back')}</span>
                 </button>
             </span>
             <span className="rbc-btn-group">
@@ -63,8 +64,18 @@ const CustomToolbar = (props) => {
                 </button>
             </span>
             <span className="records_block">
-                <button onClick={() => props.handleClick(true)} className={`${props.isAllRecords ? "activeRecord" : ""} all-records`}>Все</button>
-                <button onClick={() => props.handleClick(false)} className={`${props.isAllRecords ? "" : "activeRecord"} my-records`}>Только мои</button>
+                <button
+                    onClick={() => props.handleClick(true)}
+                    className={`${props.isAllRecords ? "activeRecord" : ""} all-records`}
+                >
+                    {t('cabinet.all')}
+                </button>
+                <button
+                    onClick={() => props.handleClick(false)}
+                    className={`${props.isAllRecords ? "" : "activeRecord"} my-records`}
+                >
+                    {t('cabinet.onlyMy')}
+                </button>
             </span>
         </div>
     );

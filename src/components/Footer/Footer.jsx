@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 
 import logo from "src/app/media/images/logo.png"
@@ -10,10 +11,11 @@ import icon13 from "../../app/media/images/icon/icon13.svg";
 import icon14 from "../../app/media/images/icon/icon14.svg";
 import Image from "next/image";
 import Link from "next/link";
+import {useTranslation} from "react-i18next";
 
 
 const Footer = ({location}) => {
-
+    const {t} = useTranslation();
     return (
         <footer className={`footer ${location==='home'? 'footer_home' : ''}`}>
             <div className="container d-block-md">
@@ -25,7 +27,7 @@ const Footer = ({location}) => {
                             <Link href={'/'}><Image src={icon13} alt="viber"/></Link>
                             <Link href={'/'}><Image src={icon14} alt="telegram"/></Link>
                         </div>
-                        <p>01033, город Киев, Улица Тарасовская, дом 4-А, офис 7</p>
+                        <p>{t('additional.address')}</p>
 
                         <div className="footer__mail">
                             <a href="mailto:info@bioinnova.com.ua">info@bioinnova.com.ua</a>

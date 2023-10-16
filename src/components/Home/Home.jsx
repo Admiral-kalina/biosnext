@@ -26,17 +26,22 @@ import laptop from "src/app/media/images/home/laptop.svg";
 import schedule from "src/app/media/images/home/schedule.svg"
 import about from "src/app/media/images/home/about.svg";
 import {removeUserData} from "@/helpers/userData";
+import {useTranslation} from "react-i18next";
 
 
-const navs = [
-    {id: 0, description: 'Вебинары', path: 'webinars', img: union},
-    {id: 1, description: 'программы', path: 'programs', img: laptop},
-    {id: 2, description: 'расписание', path: 'schedule', img: schedule},
-    {id: 3, description: 'о нас', path: 'about-us', img: about},
-]
+
 
 
 const Home = () => {
+    const {t} = useTranslation()
+
+    const navs = [
+        {id: 0, description: t('cabinet.webinar'), path: 'webinars', img: union},
+        {id: 1, description: t('cabinet.program'), path: 'programs', img: laptop},
+        {id: 2, description: t('cabinet.schedule'), path: 'schedule', img: schedule},
+        {id: 3, description: t('cabinet.aboutUs'), path: 'about-us', img: about},
+    ]
+
     const [searchParams] = useSearchParams();
     const location = useLocation()
     const previousRoute = usePreviousRoute();
@@ -52,7 +57,7 @@ const Home = () => {
     const isLoading = user.isLoading && globalCourses.isLoading;
 
     if (isLoading) {
-        return <div>fuck up</div>
+        return <div>loading</div>
     }
 
     const globalProgramsByLanguage = globalCourses.globalCoursesByLanguage.programs;
@@ -103,7 +108,7 @@ const Home = () => {
 
                 <div className={styles.block}>
                     <div onClick={removeUserData} className={styles.blockElement}>
-                        <p>ВЫЙТИ</p>
+                        <p>{t('header.exit')}</p>
                     </div>
                 </div>
             </div>
@@ -123,13 +128,13 @@ const Home = () => {
                         <Route path='/home/webinars/' element={
                             <div className={styles.webinarsRow}>
                                 <div className={styles.column}>
-                                    <p className={styles.title}>Доступные мне</p>
+                                    <p className={styles.title}>{t('cabinet.availableToMe')}</p>
                                     <div className={styles.content}>
                                         <WebinarListHome isWebinarHome={true} webinars={userWebinarsByLanguage}/>
                                     </div>
                                 </div>
                                 <div className={styles.column}>
-                                    <p className={styles.title}>Ближайшие</p>
+                                    <p className={styles.title}>{t('cabinet.nearest')}</p>
                                     <div className={styles.content}>
                                         <WebinarListHome isWebinarHome={true} webinars={globalWebinarsByLanguage}/>
                                     </div>

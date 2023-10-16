@@ -16,53 +16,66 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams } from 'next/navigation'
 import { useRouter } from 'next/router';
+import {useTranslation} from "react-i18next";
+import {findObjectById} from "@/helpers/findObjectById";
+import MyLoader from "@/components/UI/MyLoader/MyLoader";
 
 
-export const WebinarOverview = ({context}) => {
+export const WebinarOverview = ({webinars}) => {
+    const {t} = useTranslation();
+
+    const [webinar,setWebinar] = useState()
     const [hash, setHash] = useState('');
 
     useEffect(() => {
+        const search = +window.location.pathname.split('/')[3];
+        setWebinar( findObjectById(webinars, search))
         // Assuming you're running in a browser context
         const currentHash = window.location.hash;
         setHash(currentHash ? currentHash.substring(1).split('=')[1] : '');  // Remove '#' from the beginning
-    }, []);
+    }, [webinars]);
+
+    if(!webinar) {
+        return (
+            <MyLoader/>
+        )
+    }
     return (
         <div>
             <Container sizeZero>
-
                 <div className={styles.rootOverview}>
                     <div className={`${styles.back} back_group`}>
-                        <Link href={'/services'} className="back back_white">Услуги</Link>
+                        <Link href={'/services'} className="back back_white">{t('services.services')}</Link>
                         {hash ?
                             <>
-                                <Link href={'/services/programs'} className="back back_white">Программы обучения</Link>
-                                <Link href={`/services/programs/${hash}`} className="back ">Программа</Link>
+                                <Link href={'/services/programs'} className="back back_white">{t('services.training')}</Link>
+                                <Link href={`/services/programs/${hash}`} className="back ">{t('services.program')}</Link>
                             </>
                             :
-                            <Link href={'/services'} className="back">Вебинары</Link>
+                            <Link href={'/services/webinars-and-lectures'} className="back">{t('services.webinars')}</Link>
                         }
                     </div>
                     <div className={styles.overviewRow}>
                         <Image className={styles.image} src={logo} alt=""/>
                         <div className={styles.description}>
-                            <p className={styles.title}>Вебинар №1</p>
-                            <p className={`${styles.name} text60`}>Аспекты фармаконадзора</p>
-                            <p className={styles.date}><span>Дата:</span> 10.11.2023</p>
-                            <p className={styles.teacher}><span>Тренер:</span> Андрей Шимко, эксперт GMP/GDP</p>
-                            <p className={styles.program}><span>Программа:</span> Фармаконадзор</p>
-                            <p className={styles.format}><span>Формат:</span> 1 день; 1,5 часа</p>
-                            <p className={styles.exactTime}><span>Время проведения:</span> 11:00-11:30</p>
+                            <p className={styles.title}>{t('additional.webinar')} №1</p>
+                            <p className={`${styles.name} text60`}>{webinar.name}</p>
+                            <p className={styles.date}><span>{t('additional.data')}:</span> {webinar.date}</p>
+                            <p className={styles.teacher}><span>{t('additional.coach')}:</span> {webinar.teacher}</p>
+                            <p className={styles.program}><span>{t('additional.program')}:</span> {webinar.topic}</p>
+                            <p className={styles.format}><span>{t('additional.format')}:</span> {webinar.format}</p>
+                            <p className={styles.exactTime}><span>{t('additional.exactTime')}:</span> {webinar.exactTime}</p>
 
                         </div>
                         <div className={styles.btnBlock}>
-                            <MyButton golden>Добавить в корзину</MyButton>
+                            <MyButton golden>{t('additional.addToBasket')}</MyButton>
                         </div>
                         <div className={styles.participants}>
-                            <p className={styles.l1}>1 участник</p>
+                            <p className={styles.l1}>{t('additional.oneParticipant')}</p>
                             <p className={styles.r1}>500 ₴</p>
-                            <p className={styles.l2}>2-5 участников</p>
+                            <p className={styles.l2}>{t('additional.fewParticipant')}</p>
                             <p className={styles.r2}>3000 ₴</p>
-                            <p className={styles.l3}>6-10 участников</p>
+                            <p className={styles.l3}>{t('additional.manyParticipant')}</p>
                             <p className={styles.r3}>8000 ₴</p>
                         </div>
                     </div>
@@ -71,20 +84,20 @@ export const WebinarOverview = ({context}) => {
                 <div className={styles.descriptionBlock}>
                  <div className={styles.descriptionContainer}>
                      <div className={styles.row}>
-                         <p className={`${styles.title} text60`}>Описание</p>
+                         <p className={`${styles.title} text60`}>{t('services.description')}</p>
                          <div className={styles.content}>
                              <p className={styles.contentTitle}>
                                  {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                 Вебинар "Аспекты Фармаконадзора" представляет собой обзор ключевых аспектов и основных понятий в области фармаконадзора. Она может быть полезной для студентов медицинских, фармацевтических, исследовательских и связанных с здравоохранением направлений.
+                                 {webinar.dectriptionTitle}
                              </p>
-                             <WebinarDescription/>
+                             <WebinarDescription webinarDescription={webinar.dectriptionSubtitle}/>
                          </div>
 
                      </div>
                      <div className={`${styles.row} ${styles.rowProgram}`}>
-                         <p className={`${styles.title} text60`}>Программа</p>
+                         <p className={`${styles.title} text60`}>{t('services.program')}</p>
                          <div className={styles.content}>
-                             <WebinarDescription type="program"/>
+                             <WebinarDescription type="program" programDescription={webinar.dectriptionProgram}/>
                          </div>
                      </div>
                  </div>

@@ -2,10 +2,13 @@ import * as styles from "../webinars.module.scss";
 
 import React from "react";
 import Link from "next/link";
+import {useTranslation} from "react-i18next";
 
 
 export const WebinarsList = ({webinars, programId, isWebinarHome}) => {
+    const {t} = useTranslation();
     const isAttributesExist = webinars[0].attributes
+
     return (
         <>
             {webinars.map(webinar =>
@@ -13,11 +16,11 @@ export const WebinarsList = ({webinars, programId, isWebinarHome}) => {
                     {isAttributesExist ?
                         <>
                             <div>
-                                <p className={styles.section}>{webinar.attributes.section} №{webinar.id}</p>
+                                <p className={styles.section}>{t('additional.webinar')} №{webinar.id}</p>
                                 <p className={styles.name}>{webinar.attributes.name}</p>
                                 <p className={styles.date}> {webinar.attributes.date}</p>
                                 <p className={styles.teacher}>{webinar.attributes.teacher}</p>
-                                <p className={styles.time}>{webinar.attributes.duration} <span>минут</span></p>
+                                <p className={styles.time}>{webinar.attributes.duration} <span>{t('additional.minutes')}</span></p>
                             </div>
                             <div>
                                 <Link
@@ -29,18 +32,18 @@ export const WebinarsList = ({webinars, programId, isWebinarHome}) => {
 
                                     }
                                 >
-                                    Открыть
+                                    {t('additional.open')}
                                 </Link>
                             </div>
                         </>
                         :
                         <>
                             <div>
-                                <p className={styles.section}>{webinar.section} №{webinar.id}</p>
+                                <p className={styles.section}>{t('additional.webinar')} №{webinar.id}</p>
                                 <p className={styles.name}>{webinar.name}</p>
                                 <p className={styles.date}> {webinar.date}</p>
                                 <p className={styles.teacher}>{webinar.teacher}</p>
-                                <p className={styles.time}>{webinar.duration} <span>минут</span></p>
+                                <p className={styles.time}>{webinar.duration} <span>{t('additional.minutes')}</span></p>
                             </div>
                             <div>
                                 <Link
@@ -52,7 +55,7 @@ export const WebinarsList = ({webinars, programId, isWebinarHome}) => {
 
                                     }
                                 >
-                                    Открыть
+                                    {t('additional.open')}
                                 </Link>
                             </div>
                         </>

@@ -10,8 +10,10 @@ import Clock from "../../../app/media/images/icon/clock.svg";
 import ArrowUpRight from "../../../app/media/images/icon/arrow-up-right.svg";
 
 import "./event.scss";
+import {useTranslation} from "react-i18next";
 
 const Event = (props) => {
+    const {t} = useTranslation();
     const {
         topic,
         eventLink,
@@ -33,19 +35,19 @@ const Event = (props) => {
                     href={programLink}
                     onClick={e => e.stopPropagation()}
                     target="_blank">
-                    Программа:<br/>
+                    {t('additional.program')}:<br/>
                     {topic}
                 </Link>
                 <p className={"event_name"}>
                     {name}
                 </p>
                 <p className="event_type text_darken">
-                    {type}
+                    {t('additional.webinar')}
                 </p>
                 <div className="event_time">
                     <Image src={Clock} alt="Clock"/>
                     <p>
-                        {duration} минут
+                        {duration} {t('additional.minutes')}
                     </p>
                     <Image className="arrow" src={ArrowUpRight} alt={"arrow"}/>
                 </div>

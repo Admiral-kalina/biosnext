@@ -7,7 +7,12 @@ import i18n from "i18next";
 import Image from "next/image"
 import {useDispatch, useSelector} from "react-redux";
 import {changeUserCoursesLanguage, changeUserLanguage} from "@/features/userSlice/userSlice";
+import {useTranslation} from "react-i18next";
+import {changeGlobalCoursesLanguage} from "@/features/coursesSlice/coursesSlice";
+import Link from "next/link";
 
+// helpers
+import {removeUserData} from "@/helpers/userData";
 
 // assets
 import logo from "../../app/media/images/logo.png";
@@ -23,12 +28,13 @@ import basket from "../../app/media/images/basket.svg";
 
 // styles
 import "./header.scss";
-import Link from "next/link";
-import {changeGlobalCoursesLanguage} from "@/features/coursesSlice/coursesSlice";
-import {removeUserData} from "@/helpers/userData";
+
+
+
 
 
 const Header = ({type}) => {
+    const {t} = useTranslation()
     const {language} = useSelector(store => store.user.user)
     const globalCourses = useSelector(store => store.courses.courses);
     const user = useSelector(store => store.user.user.courses);
@@ -80,13 +86,13 @@ const Header = ({type}) => {
         const globalPayload = {
             programs: globalCourses.programs,
             webinars: globalCourses.webinars,
-            language : label
+            language: label
         }
         const userPayload = {
             programs: user.programs,
             webinars: user.webinars,
-            language : label,
-            globalWebinars:globalCourses.webinars,
+            language: label,
+            globalWebinars: globalCourses.webinars,
         }
         dispatch(changeGlobalCoursesLanguage(globalPayload))
         dispatch(changeUserCoursesLanguage(userPayload))
@@ -143,13 +149,13 @@ const Header = ({type}) => {
                 <nav className={`header__nav ${type === 'cabinet' ? 'hidden' : ''}`}>
                     <ul>
                         <li><Link className={`text-uppercase ${endpoint === 'aboutCompany' ? 'active' : ''}`}
-                                  href={'/aboutCompany'}>о компании</Link></li>
+                                  href={'/aboutCompany'}>{t('header.about')}</Link></li>
                         <li><Link className={`text-uppercase ${endpoint === 'services' ? 'active' : ''}`}
-                                  href={'/services'}>услуги</Link></li>
+                                  href={'/services'}>{t('header.services')}</Link></li>
                         <li><Link className={`text-uppercase ${endpoint === 'activities' ? 'active' : ''}`}
-                                  href={'/activities'}>мероприятия</Link></li>
+                                  href={'/activities'}>{t('header.events')}</Link></li>
                         <li><Link className={`text-uppercase ${endpoint === 'contacts' ? 'active' : ''}`}
-                                  href={'/contacts'}>контакты</Link></li>
+                                  href={'/contacts'}>{t('header.contacts')}</Link></li>
                     </ul>
                 </nav>
 
@@ -211,7 +217,7 @@ const Header = ({type}) => {
                                 className={`text-uppercase ${endpoint === '' ? 'active' : ''}`}
                                 href={'/'}
                             >
-                                главная
+                                {t('header.main')}
                             </Link>
                         </li>
                         <li className={type === 'cabinet' ? 'hidden' : ''} onClick={handleMobileClick}>
@@ -219,7 +225,7 @@ const Header = ({type}) => {
                                 className={`text-uppercase ${endpoint === 'aboutCompany' ? 'active' : ''}`}
                                 href={'/aboutCompany'}
                             >
-                                о компании
+                                {t('header.about')}
                             </Link>
                         </li>
                         <li className={type === 'cabinet' ? 'hidden' : ''} onClick={handleMobileClick}>
@@ -227,7 +233,7 @@ const Header = ({type}) => {
                                 className={`text-uppercase ${endpoint === 'services' ? 'active' : ''}`}
                                 href={'/services'}
                             >
-                                услуги
+                                {t('header.services')}
                             </Link>
                         </li>
                         <li className={type === 'cabinet' ? 'hidden' : ''} onClick={handleMobileClick}>
@@ -235,7 +241,7 @@ const Header = ({type}) => {
                                 className={`text-uppercase ${endpoint === 'activities' ? 'active' : ''}`}
                                 href={'/activities'}
                             >
-                                мероприятия
+                                {t('header.events')}
                             </Link>
                         </li>
                         <li className={type === 'cabinet' ? 'hidden' : ''} onClick={handleMobileClick}>
@@ -243,7 +249,7 @@ const Header = ({type}) => {
                                 className={`text-uppercase ${endpoint === 'contacts' ? 'active' : ''}`}
                                 href={'/contacts'}
                             >
-                                контакты
+                                {t('header.contacts')}
                             </Link>
                         </li>
                         <li className={`${type === 'cabinet' ? 'hidden' : ''} liWithImg basket`}
@@ -253,7 +259,7 @@ const Header = ({type}) => {
                                 className={`text-uppercase ${endpoint === 'basket' ? 'active' : ''}`}
                                 href={'/basket'}
                             >
-                                Корзина
+                                {t('header.basket')}
                             </Link>
                         </li>
                         <li className={`${type === 'cabinet' ? 'hidden' : ''} liWithImg account`}
@@ -262,7 +268,7 @@ const Header = ({type}) => {
                                 className={`text-uppercase ${endpoint === 'home' ? 'active' : ''}`}
                                 href={'/home'}
                             >
-                                Аккаунт
+                                {t('header.account')}
                             </Link>
                         </li>
 
@@ -307,8 +313,20 @@ const Header = ({type}) => {
 
                                 </ul>
                                 <ul className={`nav-menu__mobile--exit ${type === 'cabinet' ? '' : 'hidden'}`}>
-                                    <li onClick={removeUserData}>
-                                        выйти
+                                    <li
+                                        onClick={handleMobileClick}
+                                        className='nav-menu__mobile--exit_basket'
+                                    >
+
+                                        <Link
+                                            className={`text-uppercase `}
+                                            href={'/basket#cabinet'}
+                                        >
+                                            {t('header.basket')}
+                                        </Link>
+                                    </li>
+                                    <li className='nav-menu__mobile--exit_exit' onClick={removeUserData}>
+                                        {t('header.exit')}
                                     </li>
                                 </ul>
                                 <ul className="nav-menu__mobile--info">

@@ -10,6 +10,7 @@ import IndividualForm from "../UI/IndividualForm/IndividualForm";
 // styles
 import * as styles from "./activities.module.scss"
 import {useSelector} from "react-redux";
+import {useTranslation} from "react-i18next";
 
 
 const mockWebinars = [
@@ -88,6 +89,7 @@ const mockWebinars = [
 ]
 
 const Activities = () => {
+    const {t} = useTranslation();
     const { globalCoursesByLanguage, isLoading, error } = useSelector(
         (state) => state.courses
     );
@@ -107,7 +109,7 @@ const Activities = () => {
     return (
         <div className={styles.root}>
             <Container sizeZero>
-                <p className={`${styles.title} text60`}>Мероприятия</p>
+                <p className={`${styles.title} text60`}>{t('additional.activities')}</p>
                 <div className={styles.calendar}>
                     <MyCalendar
                         general={true}
@@ -117,7 +119,7 @@ const Activities = () => {
             </Container>
             <div className={styles.webinars}>
                <div className={styles.content}>
-                   <p className={`${styles.title} text60`}>Вебинары</p>
+                   <p className={`${styles.title} text60`}>{t('cabinet.webinar')}</p>
                    <div className={styles.row}>
                        <WebinarsList webinars={mockWebinars}/>
                    </div>

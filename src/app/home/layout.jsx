@@ -10,8 +10,11 @@ import * as styles from "@/components/Home/home.module.scss";
 import AboutUsHome from "@/components/aboutUsHome/aboutUsHome";
 import {useEffect} from "react";
 import {Protector} from "@/helpers/userData";
+import {useTranslation} from "react-i18next";
 
 export default function HomeLayout({children}) {
+    const {t} = useTranslation();
+
     useEffect(() => {
         document.body.style = 'background: rgb(21, 21, 21);';
     })
@@ -27,11 +30,10 @@ export default function HomeLayout({children}) {
                     <Route path='/home/about-us' element={
                         <div className="experienceHome">
                             <section className="experience__wrapper experience__wrapper_home">
-                                <h2 className="experience__title">Доверьтесь опыту и качеству</h2>
+                                <h2 className="experience__title">{t('cabinet.trust')}</h2>
                                 <div className="experience__description">
                                     <p className="experience__text">
-                                        Мы — фармацевтическая компания, которой доверяют миллионы. Доверьтесь нам и позвольте
-                                        нам заботиться о вашем благополучии. Вместе мы создаем будущее здоровья и комфорта.
+                                        {t('cabinet.about')}
                                     </p>
                                     <div className="line__wrapper">
                                         <div className="line"></div>
@@ -41,18 +43,18 @@ export default function HomeLayout({children}) {
                                         <div className="achievements__items">
                                             <div className="achievements__items--value">105</div>
                                             <p className="achievements__description">
-                                                партнеров по всему миру
+                                                {t('cabinet.partners')}
                                             </p>
                                         </div>
                                         <div className="achievements__items">
                                             <div className="achievements__items--value">116</div>
                                             <p className="achievements__description">
-                                                выпущенных препаратов
+                                                {t('cabinet.products')}
                                             </p>
                                         </div>
                                         <div className="achievements__items">
                                             <div className="achievements__items--value">12</div>
-                                            <p>Лет на медицинском рынке</p>
+                                            {t('cabinet.yearsOnMarket')}
                                         </div>
                                     </div>
                                 </div>

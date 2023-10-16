@@ -214,9 +214,25 @@
         font-weight: 500;
         line-height: normal;
         text-transform: uppercase;
-        position: relative;
         padding-left: 36px;
         cursor: pointer;
+      }
+
+      &_basket{
+        position: relative;
+
+        &:after{
+          display: block;
+          content: url("../../../app/media/images/basket.svg");
+          position: absolute;
+          left: 0;
+          top: -5px;
+        }
+      }
+      &_exit{
+        margin-top: 20px;
+        position: relative;
+
         &:before{
           position: absolute;
           left: 0;
