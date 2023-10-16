@@ -8,7 +8,7 @@ import MyButton from "../../UI/MyButton/MyButton";
 
 import Image from "next/image";
 import {Link} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {addBasketElement} from "@/features/basket/basketSlice";
 import {useTranslation} from "react-i18next";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
@@ -26,7 +26,7 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
     }
 
 
-    let route = '';
+    let route = null;
 
     if (previousRoute) {
         route = `${previousRoute.pathname}${previousRoute.search}#${hashString}`

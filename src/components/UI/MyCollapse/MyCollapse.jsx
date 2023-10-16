@@ -3,14 +3,13 @@ import React from 'react';
 import {Collapse} from 'antd';
 import "./myCollapse.scss";
 import WebinarDescription from "@/components/Webinars/WebinarDescription/WebinarDescription";
-import {convertExactTime} from "@/helpers/convertTime";
 import {useTranslation} from "react-i18next";
 
 const {Panel} = Collapse;
 
 const renderWebinar = (webinar, index, flag,t) => {
 
-    let data = null;
+    let data = {};
     if (flag === 'webinars') {
         data = webinar
     } else if (flag === 'programs') {

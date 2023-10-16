@@ -14,8 +14,6 @@ import IndividualForm from "../../UI/IndividualForm/IndividualForm";
 import WebinarDescription from "../WebinarDescription/WebinarDescription";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from 'next/navigation'
-import { useRouter } from 'next/router';
 import {useTranslation} from "react-i18next";
 import {findObjectById} from "@/helpers/findObjectById";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
