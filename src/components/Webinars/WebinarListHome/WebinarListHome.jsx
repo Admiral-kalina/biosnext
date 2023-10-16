@@ -1,24 +1,24 @@
 import React from 'react';
+import {useTranslation} from "react-i18next";
+import {Link} from "react-router-dom";
+
+import {getNearestEventsByKey} from "@/helpers/getNearestEventsByKey";
 
 import * as styles from "../webinars.module.scss";
-
-import {Link} from "react-router-dom";
-import {useTranslation} from "react-i18next";
 
 
 const WebinarListHome = ({webinars, isWebinarHome}) => {
     const {t} = useTranslation();
-    let withoutAttributes = true;
 
-    if (webinars[0]?.attributes && !isWebinarHome){
-        withoutAttributes = false;
-    }
+    const dataToSort = [...webinars];
+
+    const closest = getNearestEventsByKey(dataToSort, "date");
 
     return (
             <>
-                {withoutAttributes?
+                {!(webinars[0]?.attributes && !isWebinarHome)?
                     <>
-                        {webinars.map(webinar =>
+                        {closest.map(webinar =>
                             <div key={webinar.id} className={`${styles.column} ${styles.columnHome}`}>
                                <div>
                                    <p className={styles.section}>{t('additional.webinar')} №{webinar.id}</p>
