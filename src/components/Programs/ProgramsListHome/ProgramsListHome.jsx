@@ -1,12 +1,17 @@
 import React from 'react';
-import ProgramElement from "../ProgramElement/ProgramElement";
+import {useTranslation} from "react-i18next";
+
+import ProgramElementHome from "../ProgramElementHome/ProgramElementHome";
+import {getNearestEventsByKey} from "@/helpers/getNearestEventsByKey";
 
 import * as styles from "./programsListHome.module.scss"
-import ProgramElementHome from "../ProgramElementHome/ProgramElementHome";
-import {useTranslation} from "react-i18next";
+
 
 const ProgramsListHome = ({userPrograms, globalPrograms}) => {
     const {t} = useTranslation()
+    const dataToSort = [...globalPrograms];
+
+    const closest = getNearestEventsByKey(dataToSort, "start");
 
     return (
         <div className={styles.root}>
@@ -16,7 +21,7 @@ const ProgramsListHome = ({userPrograms, globalPrograms}) => {
             </div>
             <p className={`${styles.title} ${styles.titleSoon}`}>{t('cabinet.nearest')}</p>
             <div className={styles.row}>
-                <ProgramElementHome programs={globalPrograms}/>
+                <ProgramElementHome programs={closest}/>
             </div>
         </div>
     );
