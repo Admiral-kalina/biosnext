@@ -19,9 +19,11 @@ import {createCalendarEvents} from "@/helpers/createCalendarEvents";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./calendar.scss";
 import * as styles from "../Home/home.module.scss";
+import {useTranslation} from "react-i18next";
 
 
 const MyCalendar = ({general, userPrograms = [], globalPrograms = []}) => {
+    const {t} = useTranslation()
     const [isAllRecords, setIsAllRecords] = useState(true)
     const {language} = useSelector(state => state.user.user)
     const [date, setDate] = useState(new Date());
@@ -32,7 +34,7 @@ const MyCalendar = ({general, userPrograms = [], globalPrograms = []}) => {
 
     const records = isAllRecords ? globalPrograms : userPrograms;
 
-    const events = createCalendarEvents(records, general)
+    const events = createCalendarEvents(records, general,t)
 
     const handleClick = (bool) => {
         setIsAllRecords(bool)

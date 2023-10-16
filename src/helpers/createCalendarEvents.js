@@ -1,4 +1,4 @@
-export const createCalendarEvents = (programs, general) => {
+export const createCalendarEvents = (programs, general,t) => {
     return programs
         .reduce((acc, curr) => {
             const programId = curr.id; // Get the programId
@@ -27,16 +27,16 @@ export const createCalendarEvents = (programs, general) => {
             const eventLink = general
                 ? `/services/webinars-and-lectures/${webinarId}`
                 : `/home/webinars/webinar/?webinar=${webinarId}#webinars`;
-
+            console.log('QQ',data)
             return {
                 ...data,
                 start: startDate,
                 end: startDate,
                 programLink,
                 eventLink,
-                topic: "Фармалкология",
-                type: "Вебинар",
-                price: 500,
+                topic: data.topic,
+                type: t('additional.webinar'),
+                price:data.price,
                 id: webinarId,
             };
         });
