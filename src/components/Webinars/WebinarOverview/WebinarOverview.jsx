@@ -88,16 +88,18 @@ export const WebinarOverview = ({webinars}) => {
                          <div className={styles.content}>
                              <p className={styles.contentTitle}>
                                  {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                 {webinar.dectriptionTitle}
+                                 {webinar.descriptionTitle}
+                                 {/*{webinar.descriptionSubtitle}*/}
                              </p>
-                             <WebinarDescription webinarDescription={webinar.dectriptionSubtitle}/>
+                             <WebinarDescription
+                                 programTitle={webinar.descriptionSubtitle} webinarDescription={webinar.descriptionWebinar}/>
                          </div>
 
                      </div>
                      <div className={`${styles.row} ${styles.rowProgram}`}>
                          <p className={`${styles.title} text60`}>{t('services.program')}</p>
                          <div className={styles.content}>
-                             <WebinarDescription type="program" programDescription={webinar.dectriptionProgram}/>
+                             <WebinarDescription type="program" programDescription={webinar.descriptionProgram}/>
                          </div>
                      </div>
                  </div>
@@ -109,3 +111,38 @@ export const WebinarOverview = ({webinars}) => {
         </div>
     )
 }
+
+// 1. Понятие и принципы проведения аудита поставщика:
+//     - регуляторные требования и ожидания;
+// - риски, ограничения;
+// - виды аудитов поставщика.
+// 2. Подготовка и проведение:
+//     - источники информации для аудита;
+// - условия и проведение (сфера применения; материально-техническое обеспечение; обмен коммуникациями и документами).
+// 3. Составление отчета аудита:
+//     - регуляторные требования и ожидания;
+// - структура, содержание и объем отчета;
+// - наиболее распространенные ошибки и рекомендации по их предотвращению.
+// 4. Накопленный опыт и выводы.
+//
+//
+
+
+//
+// dectriptionTitle
+//
+//     dectriptionSubtitle
+//
+// dectriptionProgram
+// 1. Понятие и принципы проведения аудита поставщика:
+//     - регуляторные требования и ожидания;
+// - риски, ограничения;
+// - виды аудитов поставщика.
+// 2. Подготовка и проведение:
+//     - источники информации для аудита;
+// - условия и проведение (сфера применения; материально-техническое обеспечение; обмен коммуникациями и документами).
+// 3. Составление отчета аудита:
+//     - регуляторные требования и ожидания;
+// - структура, содержание и объем отчета;
+// - наиболее распространенные ошибки и рекомендации по их предотвращению.
+// 4. Накопленный опыт и выводы.

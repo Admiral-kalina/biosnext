@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
 import * as styles from "./webinarOverview.module.scss";
 import WebinarDescription from "../WebinarDescription/WebinarDescription";
@@ -41,7 +41,7 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
         dispatch(addBasketElement(payload))
     }
 
-
+    console.log('QQ', webinar)
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
@@ -55,31 +55,33 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
                 <div className={styles.row}>
                     <div className={`${styles.column} ${styles.scrollable}`}>
                         <p className={styles.section}>{t('additional.webinar')}</p>
-                        <p className={styles.name}>Клинические испытания</p>
+                        <p className={styles.name}>{webinar.name}</p>
                         <div className={`${styles.contentTop} ${styles.showOnPhone}`}>
-                            <p className={styles.date}>15.11.2023</p>
-                            <p className={styles.teacher}>Андрей Шимко, эксперт GMP/GDP</p>
-                            <p className={styles.program}>Фармакология</p>
-                            <p className={styles.time}>30 {t('additional.minutes')}</p>
-                            <p className={styles.time}>11:30</p>
+                            <p className={styles.date}>{webinar.date}</p>
+                            <p className={styles.teacher}>{webinar.teacher}</p>
+                            <p className={styles.program}>{webinar.topic}</p>
+                            <p className={styles.time}>{webinar.duration} {t('additional.minutes')}</p>
+                            <p className={styles.time}>{webinar.exactTime}</p>
                         </div>
-                        {/* eslint-disable-next-line react/no-unescaped-entities */}
-                        <p className={styles.text}>Вебинар "Аспекты Фармаконадзора" представляет собой обзор ключевых
-                            аспектов и основных понятий в области фармаконадзора. Она может быть полезной для студентов
-                            медицинских, фармацевтических, исследовательских и связанных с здравоохранением
-                            направлений. </p>
+
+                        <p className={styles.text}>
+                            {webinar.descriptionTitle}
+                        </p>
                         <Image src={mockImg} alt="preview"/>
                         <div className={styles.description}>
-                            <WebinarDescription/>
+                            <WebinarDescription
+                                programTitle={webinar.descriptionSubtitle}
+                                webinarDescription={webinar.descriptionWebinar}
+                            />
                         </div>
                     </div>
                     <div className={`${styles.column} ${styles.fixed}`}>
                         <div className={`${styles.contentTop} ${styles.hideOnPhone}`}>
-                            <p className={styles.date}>15.11.2023</p>
-                            <p className={styles.teacher}>Андрей Шимко, эксперт GMP/GDP</p>
-                            <p className={styles.program}>Фармакология</p>
-                            <p className={styles.time}>30 {t('additional.minutes')}</p>
-                            <p className={styles.time}>11:30</p>
+                            <p className={styles.date}>{webinar.date}</p>
+                            <p className={styles.teacher}>{webinar.teacher}</p>
+                            <p className={styles.program}>{webinar.topic}</p>
+                            <p className={styles.time}>{webinar.duration} {t('additional.minutes')}</p>
+                            <p className={styles.time}>{webinar.exactTime} </p>
                         </div>
                         {webinar.isAcquired ?
                             <div className={styles.content}>
@@ -106,9 +108,8 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
                             </div>
                             :
                             <div className={styles.content}>
-
                                 <div className={styles.contentBuy}>
-                                    <p className={styles.price}>180$</p>
+                                    <p className={styles.price}>{webinar.price} $</p>
                                     <MyButton onClick={handleClick} transparent>{t('cabinet.buy')}</MyButton>
                                 </div>
                             </div>

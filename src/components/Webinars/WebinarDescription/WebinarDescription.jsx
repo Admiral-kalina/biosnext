@@ -6,8 +6,7 @@ import gfm from 'remark-gfm';
 import * as styles from "./webinarDesctiption.module.scss";
 
 
-
-const WebinarDescription = ({type,programDescription, webinarDescription}) => {
+const WebinarDescription = ({type, programDescription, programTitle, webinarDescription}) => {
     const [markDown, setMarkdown] = useState('');
 
     useEffect(() => {
@@ -17,16 +16,21 @@ const WebinarDescription = ({type,programDescription, webinarDescription}) => {
             setMarkdown(webinarDescription)
         }
 
-    }, [programDescription,webinarDescription])
+    }, [programDescription, webinarDescription])
 
     return (
         <div className={styles.root}>
-            <ReactMarkdown
-                className={type === 'program' ? styles.program : styles.description}
-                remarkPlugins={[gfm]}
-            >
-                {markDown}
-            </ReactMarkdown>
+            <div className={type === 'program' ? styles.program : styles.description}>
+                {programTitle &&
+                    <p className={styles.programTitle}>{programTitle}</p>
+                }
+                <ReactMarkdown
+                    remarkPlugins={[gfm]}
+                >
+                    {markDown}
+                </ReactMarkdown>
+
+            </div>
         </div>
     );
 };

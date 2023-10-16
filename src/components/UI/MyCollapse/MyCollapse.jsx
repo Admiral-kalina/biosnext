@@ -4,10 +4,11 @@ import {Collapse} from 'antd';
 import "./myCollapse.scss";
 import WebinarDescription from "@/components/Webinars/WebinarDescription/WebinarDescription";
 import {convertExactTime} from "@/helpers/convertTime";
+import {useTranslation} from "react-i18next";
 
 const {Panel} = Collapse;
 
-const renderWebinar = (webinar, index, flag) => {
+const renderWebinar = (webinar, index, flag,t) => {
 
     let data = null;
     if (flag === 'webinars') {
@@ -19,7 +20,7 @@ const renderWebinar = (webinar, index, flag) => {
 
     const webinarHeader = <div className='custom-header'>
         <div className="header-top">
-            <p className='header-top__type'>Вебинар</p>
+            <p className='header-top__type'>{t('additional.webinar')}</p>
             {flag === 'webinars' && <p className='header-top__price'>{data.price} $</p>}
         </div>
         <div className="header-bottom">
@@ -27,30 +28,32 @@ const renderWebinar = (webinar, index, flag) => {
         </div>
     </div>
 
-    const exactTime = convertExactTime(data.exactTime)
-
+    console.log('QQ', data)
     return (
         <Panel header={webinarHeader} key={index + data.name}>
             <div className="collapse_content">
                 <span>{data.dectriptionTitle}</span>
-                <WebinarDescription/>
+                <WebinarDescription   programTitle={data.descriptionSubtitle}
+                                      webinarDescription={data.descriptionWebinar}
+                />
                 <div className='collapse_description'>
                     <p className='date'>{data.date}</p>
                     <p className='teacher'>{data.teacher}</p>
-                    <p className='duration'><span>{data.duration} минут</span></p>
-                    <p className='exactTime'><span>{exactTime}</span></p>
+                    <p className='duration'><span>{data.duration} {t('additional.minutes')}</span></p>
+                    <p className='exactTime'><span>{data.exactTime}</span></p>
                 </div>
             </div>
         </Panel>
     );
 }
 
-const renderProgram = (program, index, type) => {
-    const webinarPanels = program.webbinarrs.data.map(webinar => renderWebinar(webinar, index, type));
+const renderProgram = (program, index, type,t) => {
+
+    const webinarPanels = program.webbinarrs.data.map(webinar => renderWebinar(webinar, index, type,t));
 
     const programHeader = <div className='custom-header'>
         <div className="header-top">
-            <p className='header-top__type'>Программа</p>
+            <p className='header-top__type'>{t('additional.program')}</p>
             <p className='header-top__price'>{program.price} $</p>
         </div>
         <div className="header-bottom">
@@ -69,14 +72,14 @@ const renderProgram = (program, index, type) => {
 }
 
 const MyCollapse = ({programs, webinars, type}) => {
-
+    const {t} = useTranslation()
     let panels = []
 
 
     if (type === 'programs') {
-        panels = programs.map((program, index) => renderProgram(program, index, type));
+        panels = programs.map((program, index) => renderProgram(program, index, type,t));
     } else if (type === 'webinars') {
-        panels = webinars.map((webinar, index) => renderWebinar(webinar, index, type));
+        panels = webinars.map((webinar, index) => renderWebinar(webinar, index, type,t));
     }
 
 
