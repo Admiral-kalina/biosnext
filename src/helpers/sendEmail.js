@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
-import { strapiApi } from "@/api";
 import axios from "axios";
-
+import {t} from "i18next";
 async function sendEmail(body) {
 
     const config = {
@@ -11,7 +10,6 @@ async function sendEmail(body) {
 
     try {
         const response = await axios.post('http://localhost:1337/api/email', config);
-
         if (response && response.status === 200) {
             toast.success(t('toast.message.success'));
         } else {
