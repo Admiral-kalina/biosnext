@@ -14,7 +14,6 @@ const ProgramElement = ({programs}) => {
     const {t} = useTranslation();
 
     const closest = getAllNearestEvents(programs,'start')
-    console.log('QQ', closest)
 
     return (
         <>

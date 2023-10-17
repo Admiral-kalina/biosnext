@@ -9,7 +9,8 @@ const MyButton = ({
     transparent,
     golden,
     fullGolden,
-    goldenTransparent
+    goldenTransparent,
+    ...props
 }) => {
 
     const clsxStyles = clsx(styles.button, {
@@ -23,8 +24,8 @@ const MyButton = ({
     return (
         <button
             onClick={onClick}
-
             className={clsxStyles}
+            {...props}
         >
             {children}
         </button>
