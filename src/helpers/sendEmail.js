@@ -13,9 +13,9 @@ async function sendEmail(body) {
         const response = await axios.post('http://localhost:1337/api/email', config);
 
         if (response && response.status === 200) {
-            toast.success('Message sent successfully!');
+            toast.success(t('toast.message.success'));
         } else {
-            toast.error('Failed to send the message. Please try again later.');
+            toast.error(t('toast.message.failed'));
         }
     } catch (error) {
         toast.error(`An error occurred: ${error.message || 'Unknown error'}`);

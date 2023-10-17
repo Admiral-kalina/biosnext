@@ -20,6 +20,32 @@ i18n
             //en
             en: {
                 translation: {
+                    collapse: {
+                        beginner: 'Beginner level',
+                        elementary: 'Elementary level',
+                        intermediate: 'Intermediate level',
+                        advanced: 'Advanced level',
+                        extra: 'Specialized level',
+                    },
+                    login: {
+                        accountLogin: 'Account Login',
+                        login: 'Login',
+                        password: 'Password',
+                    },
+                    toast: {
+                        message: {
+                            success: 'Message sent successfully!',
+                            failed: 'Failed to send message. Please try again later.'
+                        },
+                        login: {
+                            success: 'Login has been successfully completed!',
+                            failed: 'Login or password is not correct'
+                        },
+                        basket: {
+                            success: 'You have successfully added this product to your cart.',
+                            failed: 'You have already added this product to your cart.'
+                        }
+                    },
                     cabinet: {
                         back: 'Back',
                         all: 'All',
@@ -65,6 +91,7 @@ i18n
                         contacts: 'Contacts',
                         contactsDescription: 'You can send your email address and we will get back to you.',
                         address: 'Kiev city, TARASOVSKAYA STREET, 4-A, office 7',
+                        enter: 'Enter',
                     },
                     header: {
                         about: 'about company',
@@ -122,6 +149,25 @@ i18n
             },//ru
             ru: {
                 translation: {
+                    login: {
+                        accountLogin: 'Вход в аккаунт',
+                        login: 'Логин',
+                        password: 'Пароль',
+                    },
+                    toast: {
+                        message: {
+                            success: 'Сообщение отправлено успешно!',
+                            failed: 'Не удалось отправить сообщение. Пожалуйста, повторите попытку позже'
+                        },
+                        login: {
+                            success: 'Вход в систему успешно завершен!',
+                            failed: 'Логин или пароль не верны'
+                        },
+                        basket: {
+                            success: 'Вы успешно добавили этот товар в корзину',
+                            failed: 'Вы уже добавили этот товар в корзину'
+                        }
+                    },
                     cabinet: {
                         back: 'Назад',
                         all: 'Все',
@@ -170,6 +216,7 @@ i18n
                         contacts: 'Контакты',
                         contactsDescription: 'Вы можете отправить свой електронный адрес и мы свяжемся с вами.',
                         address: 'город Киев, УЛИЦА ТАРАСОВСКАЯ, дом 4-А, офис 7',
+                        enter: 'Войти',
                     },
                     header: {
                         about: 'о компании',
@@ -228,6 +275,32 @@ i18n
             // ua
             ua: {
                 translation: {
+                    collapse: {
+                        beginner: 'Початковий рівень',
+                        elementary: 'Елементарний рівень',
+                        intermediate: 'Середній рівень',
+                        advanced: 'Просунутий рівень',
+                        extra: 'Спеціалізований рівень',
+                    },
+                    login: {
+                        accountLogin: 'Вхід в акаунт',
+                        login: 'Логін',
+                        password: 'Пароль',
+                    },
+                    toast: {
+                        message: {
+                            success: 'Повідомлення відправлено успішно!',
+                            failed: 'Не вдалося надіслати повідомлення. Будь ласка, повторіть спробу пізніше'
+                        },
+                        login: {
+                            success: 'Вхід у систему успішно завершено!',
+                            failed: 'Логін або пароль не вірні'
+                        },
+                        basket: {
+                            success: 'Ви успішно додали цей товар у кошик',
+                            failed: 'Ви вже додали цей товар у кошик'
+                        }
+                    },
                     cabinet: {
                         back: 'Назад',
                         all: 'Усі',
@@ -274,6 +347,7 @@ i18n
                         contacts: 'Контакти',
                         contactsDescription: 'Ви можете надіслати свою електронну адресу і ми зв\'яжемося з вами.',
                         address: 'місто Київ, ВУЛИЦЯ ТАРАСІВСЬКА, будинок 4-А, офіс 7',
+                        enter: 'Увійти',
                     },
                     header: {
                         about: 'про компанію',

@@ -58,18 +58,29 @@
       text-transform: none !important;
     }
 
-    p {
-      color: var(--color-white);
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 200;
+    //p {
+    //  color: var(--color-white);
+    //  font-size: 24px;
+    //  font-style: normal;
+    //  font-weight: 200;
+    //  line-height: 130%;
+    //}
+    .levelTitle {
+      font-size: 32px;
       line-height: 130%;
+      text-transform: uppercase;
+    }
+
+    .levelBody {
+      font-size: 24px;
+      font-weight: 100;
     }
   }
 
   @media screen and (max-width: 1024px) {
     .ant-collapse-header {
       padding: 40px 35px !important;
+
       span {
         font-size: 28px;
       }
@@ -80,17 +91,28 @@
     }
 
     span {
-      font-size: 20px!important;
+      font-size: 20px !important;
     }
+    .collapse_content {
+      p {
+        color: var(--color-white);
+        font-size: 20px !important;
+      }
 
-    p {
-      color: var(--color-white);
-      font-size: 20px!important;
+      .levelTitle {
+        font-size: 18px !important;
+      }
+
+      .levelBody {
+        font-size: 24px;
+        font-weight: 100 !important;
+      }
     }
   }
   @media screen and (max-width: 768px) {
     .ant-collapse-header {
       padding: 32px 20px !important;
+
       span {
         font-size: 24px;
       }
@@ -100,10 +122,10 @@
       padding: 16px 20px 16px 20px !important;
     }
     .anticon {
-        position: relative!important;
-        top: 7px!important;
-        left: 7px!important;
-      }
+      position: relative !important;
+      top: 7px !important;
+      left: 7px !important;
+    }
     .ant-collapse-expand-icon {
       align-self: self-start;
 
@@ -114,44 +136,57 @@
       }
     }
     span {
-      font-size: 18px!important;
+      font-size: 18px !important;
     }
 
     p {
       color: var(--color-white);
-      font-size: 18px!important;
+      font-size: 18px !important;
+    }
+
+    .collapse_content {
+      .levelTitle {
+        font-size: 18px;
+        line-height: 130%;
+        text-transform: uppercase;
+      }
+
+      .levelBody {
+        font-size: 18px;
+        font-weight: 100;
+      }
     }
   }
   @media screen and (max-width: 450px) {
     .anticon {
-      position: relative!important;
-      top:  0px!important;
-      left: 10px!important;
+      position: relative !important;
+      top: 0px !important;
+      left: 10px !important;
     }
     .ant-collapse-header {
       padding: 27px 17px 27px 14px !important;
+
       span {
         font-size: 18px;
       }
     }
     .ant-collapse-content-box {
-      padding: 14px!important;
+      padding: 14px !important;
     }
     span {
-      font-size: 14px!important;
+      font-size: 14px !important;
     }
 
     p {
       color: var(--color-white);
-      font-size: 14px!important;
+      font-size: 14px !important;
     }
   }
 }
 
 
-
 // program
-.collapse-programs, .collapse-webinars{
+.collapse-programs, .collapse-webinars {
   .ant-collapse-header {
     background: var(--color-deep-black);
     border: none !important;
@@ -159,11 +194,12 @@
     align-items: center !important;
     padding: 22px 37px 37px 30px !important;
 
-    .ant-collapse-expand-icon{
+    .ant-collapse-expand-icon {
       position: absolute;
       bottom: 42px;
       right: 24px;
     }
+
     .anticon {
       svg {
         fill: var(--color-golden-yellow);
@@ -172,11 +208,13 @@
         height: 24px;
       }
     }
-    .header-top{
+
+    .header-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      &__type{
+
+      &__type {
         color: rgba(241, 240, 231, 0.40);
         font-size: 24px;
         font-style: normal;
@@ -184,7 +222,8 @@
         line-height: 130%; /* 31.2px */
         text-transform: capitalize;
       }
-      &__price{
+
+      &__price {
         color: #F5B335;
         font-size: 32px;
         font-style: normal;
@@ -193,9 +232,11 @@
         text-transform: uppercase;
       }
     }
-    .header-bottom{
+
+    .header-bottom {
       padding-top: 21px;
-      &__name{
+
+      &__name {
         color: #F1F0E7;
         font-size: 32px;
         font-style: normal;
@@ -205,16 +246,20 @@
       }
     }
   }
-  .ant-collapse-content-box{
-    padding: 0!important;
+
+  .ant-collapse-content-box {
+    padding: 0 !important;
   }
-  .collapse_content{
+
+  .collapse_content {
     //margin-top: 50px;
     padding: 29px;
   }
-  .collapse_description{
+
+  .collapse_description {
     padding-top: 60px;
-    p{
+
+    p {
       position: relative;
       margin-top: 24px;
       padding-left: 36px;
@@ -224,10 +269,12 @@
       font-weight: 300;
       line-height: 130%; /* 31.2px */
       text-transform: capitalize;
-      &:first-child{
+
+      &:first-child {
         margin: 0;
       }
-      &:before{
+
+      &:before {
         position: absolute;
         left: 0px;
         display: inline-block;
@@ -235,35 +282,42 @@
       }
     }
 
-    span{
+    span {
       color: #F1F0E7;
       font-size: 20px;
       font-style: normal;
       font-weight: 500;
       line-height: normal;
     }
-    .date{
-      &:before{
+
+    .date {
+      &:before {
         content: url('../../../app/media/images/calendar.svg');
       }
     }
-    .teacher{
-      &:before{
+
+    .teacher {
+      &:before {
         content: url('../../../app/media/images/user.svg');
       }
     }
-    .duration{
-      &:before{
+
+    .duration {
+      &:before {
         content: url('../../../app/media/images/clock.svg');
       }
     }
-    .exactTime{
-      &:before{
+
+    .exactTime {
+      &:before {
         content: url('../../../app/media/images/clock.svg');
       }
     }
   }
 }
+
+// level
+
 
 //webinars
 

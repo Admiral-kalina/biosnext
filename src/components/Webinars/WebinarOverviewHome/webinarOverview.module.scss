@@ -3,7 +3,7 @@
   overflow: hidden;
 
   .wrapper {
-    margin: 0 35px;
+    margin: 0 27px 0 23px;
     @media screen and (max-width: 1200px) {
       margin: 0 20px;
     }
@@ -16,7 +16,7 @@
   }
 
   .back {
-    margin-top: 24px;
+    margin-top: 44px;
     height: 70px;
     display: inline-block;
     position: relative;
@@ -48,6 +48,7 @@
     grid-template-columns: minmax(1fr, 880px) minmax(1fr, 1fr);
     grid-template-areas: 'scrollable fixed';
     //display: flex;
+    margin-top: -20px;
     column-gap: 65px;
     @media screen and (max-width: 1200px) {
       column-gap: 30px;

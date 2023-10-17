@@ -1,7 +1,7 @@
 .root{
-  margin: 0 5px 0 33px;
+  margin: 0 5px 0 23px;
   .row{
-    padding-top: 24px;
+    padding-top: 25px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: 24px;
@@ -22,10 +22,10 @@
   }
 
   .titleAvailable{
-    padding-top: 21px;
+    padding-top: 31px;
   }
   .titleSoon{
-    padding-top: 48px;
+    padding-top: 31px;
   }
   @media screen and (max-width: 1024px){
     .row{

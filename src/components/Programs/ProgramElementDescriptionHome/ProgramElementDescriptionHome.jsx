@@ -13,6 +13,9 @@ import {BASKET_TYPES} from "@/helpers/basketData";
 // styles
 import * as styles from "./programElement.module.scss"
 import {useTranslation} from "react-i18next";
+import MyLoader from "@/components/UI/MyLoader/MyLoader";
+import {convertDateFormat} from "@/helpers/convertTime";
+import {getAllEventsWithSort} from "@/helpers/getNearestEventsByKey";
 
 
 const ProgramElementDescriptionHome = ({program}) => {
@@ -22,14 +25,18 @@ const ProgramElementDescriptionHome = ({program}) => {
     const handleClick = () => {
         dispatch(addBasketElement({
             data: program,
-            type: BASKET_TYPES.PROGRAM
+            type: BASKET_TYPES.PROGRAM,
+            t
         }))
     }
 
     if(!program){
-        return (<p>loading</p>)
+        return (
+            <MyLoader/>
+        )
     }
 
+    const sortedEventsByDate = getAllEventsWithSort(program.webbinarrs.data, 'date')
 
     return (
         <div className={styles.root}>
@@ -39,13 +46,13 @@ const ProgramElementDescriptionHome = ({program}) => {
                 </Link>
                 <div className={styles.row}>
                     <div className={styles.webinarsList}>
-                        {program?.webbinarrs && <WebinarListHome webinars={program.webbinarrs.data}/>}
+                        {program?.webbinarrs && <WebinarListHome webinars={sortedEventsByDate}/>}
                     </div>
                     <div className={styles.program}>
                         <div className={styles.programTop}>
                             <p className={styles.section}>{t('additional.program')}</p>
                             <p className={styles.name}>{program.name}</p>
-                            <p className={styles.date}><span>{t('additional.beginning')}:</span> {program.start}</p>
+                            <p className={styles.date}><span>{t('additional.beginning')}:</span> {convertDateFormat(program.start)}</p>
                             <p className={styles.webinarCount}><span>{t('additional.webinars')}:</span> {program.webinarsCount}</p>
                         </div>
                         {program.isAcquired ?

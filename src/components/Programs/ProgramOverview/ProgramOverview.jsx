@@ -11,82 +11,9 @@ import {useTranslation} from "react-i18next";
 import {addBasketElement} from "@/features/basket/basketSlice";
 import {BASKET_TYPES} from "@/helpers/basketData";
 import {useDispatch} from "react-redux";
+import MyLoader from "@/components/UI/MyLoader/MyLoader";
+import {convertDateFormat} from "@/helpers/convertTime";
 
-
-const mockWebinars = [
-    {
-        id: 1,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    },
-    {
-        id: 2,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    },
-    {
-        id: 3,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    },
-    {
-        id: 4,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    },
-    {
-        id: 5,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    },
-    {
-        id: 6,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    },
-    {
-        id: 7,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    },
-    {
-        id: 8,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    }
-]
 
 export const ProgramOverview = ({programs}) => {
     const {t} = useTranslation()
@@ -100,16 +27,16 @@ export const ProgramOverview = ({programs}) => {
 
 
     if (!program) {
-
         return (
-            <p>Loading</p>
+            <MyLoader/>
         )
     }
 
     const handleClick = () => {
         dispatch(addBasketElement({
             data: program,
-            type: BASKET_TYPES.PROGRAM
+            type: BASKET_TYPES.PROGRAM,
+            t
         }))
     }
     return (
@@ -126,7 +53,7 @@ export const ProgramOverview = ({programs}) => {
                         <div className={styles.description}>
                             <p className={styles.title}>{program.name}</p>
                             <p className={styles.subtitle}>{program.description}</p>
-                            <p className={styles.date}><span>{t('additional.beginning')}:</span> {program.start}</p>
+                            <p className={styles.date}><span>{t('additional.beginning')}:</span> {convertDateFormat(program.start)}</p>
                             <p className={styles.program}>
                                 <span>{t('additional.webinars')}:</span> {program.webinarsCount}</p>
                             <p className={styles.price}>${program.price}</p>
@@ -147,7 +74,7 @@ export const ProgramOverview = ({programs}) => {
                 <div className={styles.collapse}>
                     <div className={styles.title}>{t('services.levels')}</div>
                     <div className={styles.collapseWrapper}>
-                        <MyCollapse/>
+                        <MyCollapse type={'levels'} program={program}/>
                     </div>
                 </div>
 

@@ -19,20 +19,21 @@ export const basketSlice = createSlice({
     initialState,
     reducers: {
         addBasketElement(state, action) {
-            const {type, data} = action.payload;
+            const {type, data,t} = action.payload;
+            console.log('QQ',t)
             const isCourseExist = checkIsBuying(data, type)
             if (isCourseExist) {
-                toast.error('You have already added this item to your cart.')
+                toast.error(t('toast.basket.failed'))
                 return
             }
             if (type === BASKET_TYPES.WEBINAR) {
                 state.basket.webinars.push(data);
                 storeBasketData(state.basket.webinars, BASKET_TYPES.WEBINAR)
-                toast.success('You have successfully added this item to your cart.')
+                toast.success(t('toast.basket.success'))
             } else if (type === BASKET_TYPES.PROGRAM) {
                 state.basket.programs.push(data);
                 storeBasketData(state.basket.programs, BASKET_TYPES.PROGRAM)
-                toast.success('You have successfully added this item to your cart.')
+                toast.success(t('toast.basket.success'))
             }
             state.basket.count = state.basket.programs.length + state.basket.webinars.length;
         },

@@ -15,9 +15,9 @@ import {useTranslation} from "react-i18next";
 export default function HomeLayout({children}) {
     const {t} = useTranslation();
 
-    useEffect(() => {
-        document.body.style = 'background: rgb(21, 21, 21);';
-    })
+    // useEffect(() => {
+    //     document.body.style = 'background: rgb(21, 21, 21);';
+    // })
     return (
         <section>
             <Header type={'cabinet'}/>
