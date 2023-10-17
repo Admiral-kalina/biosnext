@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {getNearestEventsByKey} from "@/helpers/getNearestEventsByKey";
 
 import * as styles from "../webinars.module.scss";
+import {convertDateFormat} from "@/helpers/convertTime";
 
 
 const WebinarListHome = ({webinars, isWebinarHome}) => {
@@ -23,7 +24,7 @@ const WebinarListHome = ({webinars, isWebinarHome}) => {
                                <div>
                                    <p className={styles.section}>{t('additional.webinar')} №{webinar.id}</p>
                                    <p className={styles.name}>{webinar.name}</p>
-                                   <p className={styles.date}> {webinar.date}</p>
+                                   <p className={styles.date}> {convertDateFormat(webinar.date)}</p>
                                    <p className={styles.teacher}>{webinar.teacher}</p>
                                    <p className={styles.time}>{webinar.duration} <span>{t('additional.minutes')}</span></p>
                                </div>
@@ -44,7 +45,7 @@ const WebinarListHome = ({webinars, isWebinarHome}) => {
                  <div>
                      <p className={styles.section}>{webinar.section} №{webinar.id}</p>
                      <p className={styles.name}>{webinar.attributes.name}</p>
-                     <p className={styles.date}> {webinar.attributes.date}</p>
+                     <p className={styles.date}> {convertDateFormat(webinar.attributes.date)}</p>
                      <p className={styles.teacher}>{webinar.attributes.teacher}</p>
                      <p className={styles.time}>{webinar.attributes.duration} <span>{t('additional.minutes')}</span></p>
                  </div>

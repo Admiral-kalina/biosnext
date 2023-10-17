@@ -20,10 +20,17 @@ i18n
             //en
             en: {
                 translation: {
-                    login:{
-                        accountLogin:'Account Login',
-                        login:'Login',
-                        password:'Password',
+                    collapse: {
+                        beginner: 'Beginner level',
+                        elementary: 'Elementary level',
+                        intermediate: 'Intermediate level',
+                        advanced: 'Advanced level',
+                        extra: 'Specialized level',
+                    },
+                    login: {
+                        accountLogin: 'Account Login',
+                        login: 'Login',
+                        password: 'Password',
                     },
                     toast: {
                         message: {
@@ -84,7 +91,7 @@ i18n
                         contacts: 'Contacts',
                         contactsDescription: 'You can send your email address and we will get back to you.',
                         address: 'Kiev city, TARASOVSKAYA STREET, 4-A, office 7',
-                        enter:'Enter',
+                        enter: 'Enter',
                     },
                     header: {
                         about: 'about company',
@@ -142,10 +149,10 @@ i18n
             },//ru
             ru: {
                 translation: {
-                    login:{
-                        accountLogin:'Вход в аккаунт',
-                        login:'Логин',
-                        password:'Пароль',
+                    login: {
+                        accountLogin: 'Вход в аккаунт',
+                        login: 'Логин',
+                        password: 'Пароль',
                     },
                     toast: {
                         message: {
@@ -209,7 +216,7 @@ i18n
                         contacts: 'Контакты',
                         contactsDescription: 'Вы можете отправить свой електронный адрес и мы свяжемся с вами.',
                         address: 'город Киев, УЛИЦА ТАРАСОВСКАЯ, дом 4-А, офис 7',
-                        enter:'Войти',
+                        enter: 'Войти',
                     },
                     header: {
                         about: 'о компании',
@@ -268,10 +275,17 @@ i18n
             // ua
             ua: {
                 translation: {
-                    login:{
-                        accountLogin:'Вхід в акаунт',
-                        login:'Логін',
-                        password:'Пароль',
+                    collapse: {
+                        beginner: 'Початковий рівень',
+                        elementary: 'Елементарний рівень',
+                        intermediate: 'Середній рівень',
+                        advanced: 'Просунутий рівень',
+                        extra: 'Спеціалізований рівень',
+                    },
+                    login: {
+                        accountLogin: 'Вхід в акаунт',
+                        login: 'Логін',
+                        password: 'Пароль',
                     },
                     toast: {
                         message: {
@@ -333,7 +347,7 @@ i18n
                         contacts: 'Контакти',
                         contactsDescription: 'Ви можете надіслати свою електронну адресу і ми зв\'яжемося з вами.',
                         address: 'місто Київ, ВУЛИЦЯ ТАРАСІВСЬКА, будинок 4-А, офіс 7',
-                        enter:'Увійти',
+                        enter: 'Увійти',
                     },
                     header: {
                         about: 'про компанію',

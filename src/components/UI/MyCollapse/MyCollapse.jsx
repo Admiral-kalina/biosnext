@@ -4,6 +4,8 @@ import {Collapse} from 'antd';
 import "./myCollapse.scss";
 import WebinarDescription from "@/components/Webinars/WebinarDescription/WebinarDescription";
 import {useTranslation} from "react-i18next";
+import LevelCollapse from "@/components/UI/MyCollapse/LevelCollapse";
+import {convertDateFormat} from "@/helpers/convertTime";
 
 const {Panel} = Collapse;
 
@@ -36,7 +38,7 @@ const renderWebinar = (webinar, index, flag,t) => {
                                       webinarDescription={data.descriptionWebinar}
                 />
                 <div className='collapse_description'>
-                    <p className='date'>{data.date}</p>
+                    <p className='date'> {convertDateFormat(data.date)}</p>
                     <p className='teacher'>{data.teacher}</p>
                     <p className='duration'><span>{data.duration} {t('additional.minutes')}</span></p>
                     <p className='exactTime'><span>{data.exactTime}</span></p>
@@ -70,7 +72,8 @@ const renderProgram = (program, index, type,t) => {
     );
 }
 
-const MyCollapse = ({programs, webinars, type}) => {
+
+const MyCollapse = ({programs,program, webinars, type}) => {
     const {t} = useTranslation()
     let panels = []
 
@@ -82,20 +85,30 @@ const MyCollapse = ({programs, webinars, type}) => {
     }
 
 
+
     return (
-        <div
-            className={`
+        <>
+            {type === 'levels'?
+
+                <LevelCollapse program={program}/>
+
+                :
+                <div
+                    className={`
             collapse
                ${type === 'programs' && 'collapse-programs'}
                ${type === 'webinars' && 'collapse-webinars'}
                 `
+                    }
+                >
+                    <Collapse accordion>
+                        {panels}
+                    </Collapse>
+                </div>
             }
-        >
-            <Collapse accordion>
-                {panels}
-            </Collapse>
-        </div>
+        </>
     );
+
 };
 
 export default MyCollapse;

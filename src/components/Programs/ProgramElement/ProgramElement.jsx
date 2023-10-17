@@ -6,18 +6,21 @@ import arrowUpRight from "../../../app/media/images/arrowUpRightSm.svg";
 import Image from "next/image";
 import Link from "next/link";
 import {useTranslation} from "react-i18next";
+import {convertDateFormat} from "@/helpers/convertTime";
 
 
 const ProgramElement = ({programs}) => {
     const {t} = useTranslation();
+    console.log('QQ', programs)
+
     return (
         <>
             {programs.map(program =>
                 <div key={program.id} className={styles.column}>
                     <Link href={`programs/${program.id}`}>
-                        <p className={styles.section}>{program.section}</p>
+                        <p className={styles.section}>{t('additional.program')}</p>
                         <p className={styles.name}>{program.name}</p>
-                        <p className={styles.date}><span>{t('additional.beginning')}:</span> {program.date}</p>
+                        <p className={styles.date}><span>{t('additional.beginning')}:</span> {convertDateFormat(program.start)}</p>
                         <div className={styles.bottom}>
                             <p><span>{t('additional.webinars')}:</span> {program.webinarsCount}</p>
                             <Image src={arrowUpRight} alt="arrowUpRight"/>

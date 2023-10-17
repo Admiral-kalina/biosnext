@@ -14,6 +14,7 @@ import {BASKET_TYPES} from "@/helpers/basketData";
 import * as styles from "./programElement.module.scss"
 import {useTranslation} from "react-i18next";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
+import {convertDateFormat} from "@/helpers/convertTime";
 
 
 const ProgramElementDescriptionHome = ({program}) => {
@@ -49,7 +50,7 @@ const ProgramElementDescriptionHome = ({program}) => {
                         <div className={styles.programTop}>
                             <p className={styles.section}>{t('additional.program')}</p>
                             <p className={styles.name}>{program.name}</p>
-                            <p className={styles.date}><span>{t('additional.beginning')}:</span> {program.start}</p>
+                            <p className={styles.date}><span>{t('additional.beginning')}:</span> {convertDateFormat(program.start)}</p>
                             <p className={styles.webinarCount}><span>{t('additional.webinars')}:</span> {program.webinarsCount}</p>
                         </div>
                         {program.isAcquired ?

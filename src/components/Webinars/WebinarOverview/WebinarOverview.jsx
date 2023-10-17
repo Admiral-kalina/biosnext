@@ -17,6 +17,7 @@ import Link from "next/link";
 import {useTranslation} from "react-i18next";
 import {findObjectById} from "@/helpers/findObjectById";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
+import {convertDateFormat} from "@/helpers/convertTime";
 
 
 export const WebinarOverview = ({webinars}) => {
@@ -58,7 +59,7 @@ export const WebinarOverview = ({webinars}) => {
                         <div className={styles.description}>
                             <p className={styles.title}>{t('additional.webinar')} №1</p>
                             <p className={`${styles.name} text60`}>{webinar.name}</p>
-                            <p className={styles.date}><span>{t('additional.data')}:</span> {webinar.date}</p>
+                            <p className={styles.date}><span>{t('additional.data')}:</span> {convertDateFormat(webinar.date)}</p>
                             <p className={styles.teacher}><span>{t('additional.coach')}:</span> {webinar.teacher}</p>
                             <p className={styles.program}><span>{t('additional.program')}:</span> {webinar.topic}</p>
                             <p className={styles.format}><span>{t('additional.format')}:</span> {webinar.format}</p>

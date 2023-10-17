@@ -12,6 +12,7 @@ import {useDispatch} from "react-redux";
 import {addBasketElement} from "@/features/basket/basketSlice";
 import {useTranslation} from "react-i18next";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
+import {convertDateFormat} from "@/helpers/convertTime";
 
 
 const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
@@ -61,7 +62,7 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
                         <p className={styles.section}>{t('additional.webinar')}</p>
                         <p className={styles.name}>{webinar.name}</p>
                         <div className={`${styles.contentTop} ${styles.showOnPhone}`}>
-                            <p className={styles.date}>{webinar.date}</p>
+                            <p className={styles.date}> {convertDateFormat(webinar.date)}</p>
                             <p className={styles.teacher}>{webinar.teacher}</p>
                             <p className={styles.program}>{webinar.topic}</p>
                             <p className={styles.time}>{webinar.duration} {t('additional.minutes')}</p>
@@ -81,7 +82,7 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
                     </div>
                     <div className={`${styles.column} ${styles.fixed}`}>
                         <div className={`${styles.contentTop} ${styles.hideOnPhone}`}>
-                            <p className={styles.date}>{webinar.date}</p>
+                            <p className={styles.date}> {convertDateFormat(webinar.date)}</p>
                             <p className={styles.teacher}>{webinar.teacher}</p>
                             <p className={styles.program}>{webinar.topic}</p>
                             <p className={styles.time}>{webinar.duration} {t('additional.minutes')}</p>

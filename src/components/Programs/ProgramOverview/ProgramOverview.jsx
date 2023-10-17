@@ -12,6 +12,7 @@ import {addBasketElement} from "@/features/basket/basketSlice";
 import {BASKET_TYPES} from "@/helpers/basketData";
 import {useDispatch} from "react-redux";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
+import {convertDateFormat} from "@/helpers/convertTime";
 
 
 export const ProgramOverview = ({programs}) => {
@@ -52,7 +53,7 @@ export const ProgramOverview = ({programs}) => {
                         <div className={styles.description}>
                             <p className={styles.title}>{program.name}</p>
                             <p className={styles.subtitle}>{program.description}</p>
-                            <p className={styles.date}><span>{t('additional.beginning')}:</span> {program.start}</p>
+                            <p className={styles.date}><span>{t('additional.beginning')}:</span> {convertDateFormat(program.start)}</p>
                             <p className={styles.program}>
                                 <span>{t('additional.webinars')}:</span> {program.webinarsCount}</p>
                             <p className={styles.price}>${program.price}</p>
@@ -73,7 +74,7 @@ export const ProgramOverview = ({programs}) => {
                 <div className={styles.collapse}>
                     <div className={styles.title}>{t('services.levels')}</div>
                     <div className={styles.collapseWrapper}>
-                        <MyCollapse/>
+                        <MyCollapse type={'levels'} program={program}/>
                     </div>
                 </div>
 
