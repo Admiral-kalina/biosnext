@@ -12,6 +12,7 @@ import * as styles from "./activities.module.scss"
 import {useSelector} from "react-redux";
 import {useTranslation} from "react-i18next";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
+import {getAllEventsWithSort} from "@/helpers/getNearestEventsByKey";
 
 
 const Activities = () => {
@@ -32,6 +33,8 @@ const Activities = () => {
         )
     }
 
+    const sortedWebinarsByDate = getAllEventsWithSort(globalCoursesByLanguage.webinars, 'date')
+
     return (
         <div className={styles.root}>
             <Container sizeZero>
@@ -47,7 +50,7 @@ const Activities = () => {
                <div className={styles.content}>
                    <p className={`${styles.title} text60`}>{t('cabinet.webinar')}</p>
                    <div className={styles.row}>
-                       <WebinarsList webinars={globalCoursesByLanguage.webinars}/>
+                       <WebinarsList webinars={sortedWebinarsByDate}/>
                    </div>
                </div>
             </div>

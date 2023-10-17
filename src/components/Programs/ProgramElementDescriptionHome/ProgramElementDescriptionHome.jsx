@@ -15,6 +15,7 @@ import * as styles from "./programElement.module.scss"
 import {useTranslation} from "react-i18next";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
 import {convertDateFormat} from "@/helpers/convertTime";
+import {getAllEventsWithSort} from "@/helpers/getNearestEventsByKey";
 
 
 const ProgramElementDescriptionHome = ({program}) => {
@@ -35,6 +36,7 @@ const ProgramElementDescriptionHome = ({program}) => {
         )
     }
 
+    const sortedEventsByDate = getAllEventsWithSort(program.webbinarrs.data, 'date')
 
     return (
         <div className={styles.root}>
@@ -44,7 +46,7 @@ const ProgramElementDescriptionHome = ({program}) => {
                 </Link>
                 <div className={styles.row}>
                     <div className={styles.webinarsList}>
-                        {program?.webbinarrs && <WebinarListHome webinars={program.webbinarrs.data}/>}
+                        {program?.webbinarrs && <WebinarListHome webinars={sortedEventsByDate}/>}
                     </div>
                     <div className={styles.program}>
                         <div className={styles.programTop}>

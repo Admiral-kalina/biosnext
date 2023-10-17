@@ -159,7 +159,6 @@ const Home = () => {
                             </div>
                         }/>
                         <Route path='/home/programs/:id' element={
-
                             <div className={styles.programDescriptioRow}>
                                 <ProgramElementDescriptionHome program={programElement}/>
                             </div>
@@ -168,8 +167,11 @@ const Home = () => {
                         <Route path='/home/programs/program/webinar' element={
 
                             <div className={styles.programDescriptioRow}>
-                                <WebinarOverviewHome previousRoute={previousRoute} hashString={hashString}
-                                                     webinar={programElement}/>
+                                <WebinarOverviewHome
+                                    previousRoute={previousRoute}
+                                    hashString={hashString}
+                                    webinar={programElement}
+                                />
                             </div>
                         }/>
 

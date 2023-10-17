@@ -1,4 +1,5 @@
 import moment from "moment";
+
 /**
  * This function adds two numbers.
  * @param {array} data - Data array
@@ -6,8 +7,24 @@ import moment from "moment";
  * @param {number} numberOfEvents - number of elements to be returned
  * @returns {array}  - The sum of a and b.
  */
-export const getNearestEventsByKey = (data, key, numberOfEvents = 2) => {
-   return data.sort((a, b) => {
-        return moment(a[key]).isAfter(b[key])? 1 : -1
-    }).slice(0,numberOfEvents);
+
+
+const sortByKeyAfterToday = (data, key) => {
+    const today = moment().startOf('day');
+    return [...data]  // create a shallow copy
+        .filter(event => moment(event[key]).isSameOrAfter(today))
+        .sort((a, b) => moment(a[key]).diff(moment(b[key])));
 }
+
+const sortByKey = (data, key) => {
+    console.log('QQWk',data)
+    return [...data]  // create a shallow copy
+        .sort((a, b) => moment(a[key]).diff(moment(b[key])));
+}
+
+export const getNearestEventsByKey = (data, key, numberOfEvents = 2) =>
+    sortByKeyAfterToday(data, key).slice(0, numberOfEvents);
+
+export const getAllNearestEvents = sortByKeyAfterToday;
+
+export const getAllEventsWithSort = sortByKey;

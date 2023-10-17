@@ -36,11 +36,10 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
     }
 
 
-
     const handleClick = () => {
         const payload = {
-            data:webinar,
-            type:'webinars',
+            data: webinar,
+            type: 'webinars',
             t
         }
         dispatch(addBasketElement(payload))
@@ -92,22 +91,37 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
                             <div className={styles.content}>
                                 <div className={styles.contentLectures}>
                                     <MyButton transparent>
-                                        <p
-                                            className={styles.youtube}>
-                                            {t('cabinet.watchOnYouTube')}
-                                        </p>
+                                        <Link
+                                            to={webinar.youTubeLink}
+                                            target="_blank"
+                                        >
+                                            <p
+                                                className={styles.youtube}>
+                                                {t('cabinet.watchOnYouTube')}
+                                            </p>
+                                        </Link>
                                     </MyButton>
                                     <MyButton transparent>
-                                        <p
-                                            className={styles.synopsis}>
-                                            {t('cabinet.downloadLecture')}
-                                        </p>
+                                        <Link
+                                            to={webinar.lectureNotesLink}
+                                            target="_blank"
+                                        >
+                                            <p
+                                                className={styles.synopsis}>
+                                                {t('cabinet.downloadLecture')}
+                                            </p>
+                                        </Link>
                                     </MyButton>
                                     <MyButton transparent>
-                                        <p
-                                            className={styles.presentation}>
-                                            {t('cabinet.downloadPresentation')}
-                                        </p>
+                                        <Link
+                                            to={webinar.presentationLink}
+                                            target="_blank"
+                                        >
+                                            <p
+                                                className={styles.presentation}>
+                                                {t('cabinet.downloadPresentation')}
+                                            </p>
+                                        </Link>
                                     </MyButton>
                                 </div>
                             </div>

@@ -7,15 +7,18 @@ import Image from "next/image";
 import Link from "next/link";
 import {useTranslation} from "react-i18next";
 import {convertDateFormat} from "@/helpers/convertTime";
+import {getAllNearestEvents} from "@/helpers/getNearestEventsByKey";
 
 
 const ProgramElement = ({programs}) => {
     const {t} = useTranslation();
-    console.log('QQ', programs)
+
+    const closest = getAllNearestEvents(programs,'start')
+    console.log('QQ', closest)
 
     return (
         <>
-            {programs.map(program =>
+            {closest.map(program =>
                 <div key={program.id} className={styles.column}>
                     <Link href={`programs/${program.id}`}>
                         <p className={styles.section}>{t('additional.program')}</p>

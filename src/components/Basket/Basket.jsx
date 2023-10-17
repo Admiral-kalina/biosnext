@@ -52,7 +52,7 @@ const Basket = () => {
                     }
                     {hasItems && (
                         <div className={styles.form}>
-                            <ContactForm price={totalPrice} location={'basket'} sendData={sendData}/>
+                            <ContactForm price={totalPrice} location={'basket'} basketData={sendData}/>
                         </div>
                     )}
                 </div>

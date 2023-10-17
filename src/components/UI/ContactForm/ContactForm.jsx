@@ -1,6 +1,5 @@
 import React from 'react';
 import {Field, Formik} from "formik";
-import PhoneInput from "react-phone-number-input";
 
 import sendEmail from "@/helpers/sendEmail";
 
@@ -10,27 +9,10 @@ import "./contactForm.scss"
 import {useDispatch} from "react-redux";
 import {removeBasketElements} from "@/features/basket/basketSlice";
 import {useTranslation} from "react-i18next";
+import Phone from "@/components/UI/ContactForm/PhoneInput";
 
 
-const Phone = ({field, form}) => {
-    const {t} = useTranslation()
-    return (
-        <PhoneInput
-            placeholder={t('form.phone')}
-            value=""
-            name="phone"
-            id="phone"
-
-            onChange={value => {
-                if (!form.touched[field.name]) form.setFieldTouched(field.name);
-                form.setFieldValue(field.name, value);
-            }}
-        />
-    );
-};
-
-
-const ContactForm = ({type, isWhite, location, price, sendData}) => {
+const ContactForm = ({type, isWhite, location, price, basketData}) => {
     const {t} = useTranslation()
     const dispatch = useDispatch();
 
@@ -42,7 +24,11 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                 <p>Name: ${values.name}</p>
                 <p>Phone: ${values.phone}</p>
                 <p>Email: ${values.email}</p>
-                ${sendData ? `<div>${sendData}</div>` : `<p>Theme: ${values.theme}</p>`}
+                ${basketData ?
+            `<div>${basketData}</div>`
+            :
+            `<p>Theme: ${values.theme}</p>`
+        }
             </div>
         `;
 
@@ -50,7 +36,7 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
     }
 
     const handleRemove = () => {
-    dispatch(removeBasketElements())
+        dispatch(removeBasketElements())
     }
 
     return (
