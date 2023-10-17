@@ -27,7 +27,6 @@ export const createCalendarEvents = (programs, general,t) => {
             const eventLink = general
                 ? `/services/webinars-and-lectures/${webinarId}`
                 : `/home/webinars/webinar/?webinar=${webinarId}#webinars`;
-            console.log('QQ',data)
             return {
                 ...data,
                 start: startDate,

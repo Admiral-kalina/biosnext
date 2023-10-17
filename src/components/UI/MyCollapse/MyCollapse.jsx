@@ -29,7 +29,6 @@ const renderWebinar = (webinar, index, flag,t) => {
         </div>
     </div>
 
-    console.log('QQ', data)
     return (
         <Panel header={webinarHeader} key={index + data.name}>
             <div className="collapse_content">

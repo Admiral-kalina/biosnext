@@ -45,7 +45,6 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
         dispatch(addBasketElement(payload))
     }
 
-    console.log('QQ', webinar)
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>

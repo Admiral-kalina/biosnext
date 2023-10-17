@@ -41,7 +41,6 @@ const ProgramElementDescriptionHome = ({program}) => {
     const sortedEventsByDate = getAllEventsWithSort(program.webbinarrs.data, 'date')
     const isLanguageEnglish = checkLanguage('en')
 
-    console.log('Inner QQ', program)
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>

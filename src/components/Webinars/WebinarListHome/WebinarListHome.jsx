@@ -13,10 +13,8 @@ const WebinarListHome = ({webinars, isWebinarHome, isAvailable, withAttributes})
     const {t} = useTranslation();
 
 
-    console.log('Inner', webinars)
 
     const isLanguageEnglish = checkLanguage()
-    console.log(checkLanguage)
 
     return (
         <>

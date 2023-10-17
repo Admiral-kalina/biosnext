@@ -53,7 +53,6 @@ export const WebinarOverview = ({webinars}) => {
         dispatch(addBasketElement(payload))
     }
 
-    console.log('QQ', webinar)
     return (
         <div>
             <Container sizeZero>

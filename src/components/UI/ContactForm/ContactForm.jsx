@@ -36,7 +36,6 @@ const ContactForm = ({type, isWhite, location, price, basketData}) => {
     const dispatch = useDispatch();
 
     const handleSend = (values) => {
-        console.log('QQ1 Send', values,basketData)
         const sentBody = `
             <div>
                 <p>Name: ${values.name}</p>
@@ -55,7 +54,6 @@ const ContactForm = ({type, isWhite, location, price, basketData}) => {
     }
 
     const onSubmit = (values, actions) => {
-        console.log('QQ1 onSubmit',values)
         handleSend(values)
         actions.resetForm()
     }

@@ -23,7 +23,6 @@ export const getBasketData = () => {
 
     const count = programs.length + webinars.length;
     const totalPrice = getBasketPrice(programs, webinars)
-    console.log('total',totalPrice)
     return {programs, webinars, count, totalPrice}
 };
 

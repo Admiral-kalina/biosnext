@@ -20,7 +20,6 @@ const getBasketData = () => {
 
     const count = programs.length + webinars.length;
     const totalPrice = getBasketPrice(programs, webinars)
-    console.log('total',totalPrice)
     return {programs, webinars, count, totalPrice}
 };
 
@@ -42,7 +41,6 @@ export const basketSlice = createSlice({
     reducers: {
         addBasketElement(state, action) {
             const {type, data,t} = action.payload;
-            console.log('QQ',t)
             const isCourseExist = checkIsBuying(data, type)
             if (isCourseExist) {
                 toast.error(t('toast.basket.failed'))
