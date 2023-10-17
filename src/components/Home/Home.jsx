@@ -28,6 +28,7 @@ import about from "src/app/media/images/home/about.svg";
 import {removeUserData} from "@/helpers/userData";
 import {useTranslation} from "react-i18next";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
+import {getAllEventsWithSort, getNearestEventsByKey} from "@/helpers/getNearestEventsByKey";
 
 
 
@@ -86,6 +87,11 @@ const Home = () => {
     }
 
 
+    const sortedWebinarsByDate = getAllEventsWithSort(userWebinarsByLanguage, 'date')
+    const closestWebinars = getNearestEventsByKey(globalWebinarsByLanguage, "date",3);
+
+
+
     return (
         <div className={styles.root}>
             <div className={styles.gridSidebar}>
@@ -112,6 +118,8 @@ const Home = () => {
                 </div>
             </div>
 
+
+
             <div className={styles.gridContent}>
                 <div className={styles.contentWrapper}>
                     <Routes>
@@ -129,13 +137,13 @@ const Home = () => {
                                 <div className={styles.column}>
                                     <p className={styles.title}>{t('cabinet.availableToMe')}</p>
                                     <div className={styles.content}>
-                                        <WebinarListHome isWebinarHome={true} webinars={userWebinarsByLanguage}/>
+                                        <WebinarListHome isWebinarHome={true} webinars={sortedWebinarsByDate}/>
                                     </div>
                                 </div>
                                 <div className={styles.column}>
                                     <p className={styles.title}>{t('cabinet.nearest')}</p>
                                     <div className={styles.content}>
-                                        <WebinarListHome isWebinarHome={true} webinars={globalWebinarsByLanguage}/>
+                                        <WebinarListHome isWebinarHome={true} webinars={closestWebinars}/>
                                     </div>
                                 </div>
 

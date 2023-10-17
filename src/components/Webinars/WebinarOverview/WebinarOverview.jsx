@@ -18,6 +18,8 @@ import {useTranslation} from "react-i18next";
 import {findObjectById} from "@/helpers/findObjectById";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
 import {convertDateFormat} from "@/helpers/convertTime";
+import {addBasketElement} from "@/features/basket/basketSlice";
+import {useDispatch} from "react-redux";
 
 
 export const WebinarOverview = ({webinars}) => {
@@ -25,6 +27,8 @@ export const WebinarOverview = ({webinars}) => {
 
     const [webinar,setWebinar] = useState()
     const [hash, setHash] = useState('');
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const search = +window.location.pathname.split('/')[3];
@@ -39,6 +43,17 @@ export const WebinarOverview = ({webinars}) => {
             <MyLoader/>
         )
     }
+
+    const handleClick = () => {
+        const payload = {
+            data: webinar,
+            type: 'webinars',
+            t
+        }
+        dispatch(addBasketElement(payload))
+    }
+
+    console.log('QQ', webinar)
     return (
         <div>
             <Container sizeZero>
@@ -57,7 +72,7 @@ export const WebinarOverview = ({webinars}) => {
                     <div className={styles.overviewRow}>
                         <Image className={styles.image} src={logo} alt=""/>
                         <div className={styles.description}>
-                            <p className={styles.title}>{t('additional.webinar')} №1</p>
+                            <p className={styles.title}>{t('additional.webinar')} №{webinar.id}</p>
                             <p className={`${styles.name} text60`}>{webinar.name}</p>
                             <p className={styles.date}><span>{t('additional.data')}:</span> {convertDateFormat(webinar.date)}</p>
                             <p className={styles.teacher}><span>{t('additional.coach')}:</span> {webinar.teacher}</p>
@@ -67,7 +82,7 @@ export const WebinarOverview = ({webinars}) => {
 
                         </div>
                         <div className={styles.btnBlock}>
-                            <MyButton golden>{t('additional.addToBasket')}</MyButton>
+                            <MyButton onClick={handleClick} golden>{t('additional.addToBasket')}</MyButton>
                         </div>
                         <div className={styles.participants}>
                             <p className={styles.l1}>{t('additional.oneParticipant')}</p>
@@ -86,9 +101,7 @@ export const WebinarOverview = ({webinars}) => {
                          <p className={`${styles.title} text60`}>{t('services.description')}</p>
                          <div className={styles.content}>
                              <p className={styles.contentTitle}>
-                                 {/* eslint-disable-next-line react/no-unescaped-entities */}
                                  {webinar.descriptionTitle}
-                                 {/*{webinar.descriptionSubtitle}*/}
                              </p>
                              <WebinarDescription
                                  programTitle={webinar.descriptionSubtitle} webinarDescription={webinar.descriptionWebinar}/>
@@ -110,38 +123,3 @@ export const WebinarOverview = ({webinars}) => {
         </div>
     )
 }
-
-// 1. Понятие и принципы проведения аудита поставщика:
-//     - регуляторные требования и ожидания;
-// - риски, ограничения;
-// - виды аудитов поставщика.
-// 2. Подготовка и проведение:
-//     - источники информации для аудита;
-// - условия и проведение (сфера применения; материально-техническое обеспечение; обмен коммуникациями и документами).
-// 3. Составление отчета аудита:
-//     - регуляторные требования и ожидания;
-// - структура, содержание и объем отчета;
-// - наиболее распространенные ошибки и рекомендации по их предотвращению.
-// 4. Накопленный опыт и выводы.
-//
-//
-
-
-//
-// dectriptionTitle
-//
-//     dectriptionSubtitle
-//
-// dectriptionProgram
-// 1. Понятие и принципы проведения аудита поставщика:
-//     - регуляторные требования и ожидания;
-// - риски, ограничения;
-// - виды аудитов поставщика.
-// 2. Подготовка и проведение:
-//     - источники информации для аудита;
-// - условия и проведение (сфера применения; материально-техническое обеспечение; обмен коммуникациями и документами).
-// 3. Составление отчета аудита:
-//     - регуляторные требования и ожидания;
-// - структура, содержание и объем отчета;
-// - наиболее распространенные ошибки и рекомендации по их предотвращению.
-// 4. Накопленный опыт и выводы.

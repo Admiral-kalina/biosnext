@@ -16,6 +16,7 @@ import {useTranslation} from "react-i18next";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
 import {convertDateFormat} from "@/helpers/convertTime";
 import {getAllEventsWithSort} from "@/helpers/getNearestEventsByKey";
+import {checkLanguage} from "@/helpers/checkLanguage";
 
 
 const ProgramElementDescriptionHome = ({program}) => {
@@ -36,8 +37,11 @@ const ProgramElementDescriptionHome = ({program}) => {
         )
     }
 
-    const sortedEventsByDate = getAllEventsWithSort(program.webbinarrs.data, 'date')
 
+    const sortedEventsByDate = getAllEventsWithSort(program.webbinarrs.data, 'date')
+    const isLanguageEnglish = checkLanguage('en')
+
+    console.log('Inner QQ', program)
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
@@ -46,7 +50,8 @@ const ProgramElementDescriptionHome = ({program}) => {
                 </Link>
                 <div className={styles.row}>
                     <div className={styles.webinarsList}>
-                        {program?.webbinarrs && <WebinarListHome webinars={sortedEventsByDate}/>}
+                        {/*{program?.webbinarrs && <WebinarListHome webinars={sortedEventsByDate}/>}*/}
+                        {program?.webbinarrs && <WebinarListHome withAttributes={isLanguageEnglish} webinars={sortedEventsByDate}/>}
                     </div>
                     <div className={styles.program}>
                         <div className={styles.programTop}>

@@ -17,7 +17,6 @@ const sortByKeyAfterToday = (data, key) => {
 }
 
 const sortByKey = (data, key) => {
-    console.log('QQWk',data)
     return [...data]  // create a shallow copy
         .sort((a, b) => moment(a[key]).diff(moment(b[key])));
 }

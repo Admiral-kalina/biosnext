@@ -312,7 +312,7 @@ i18n
                         availableToMe: 'Доступно для мене',
                         nearest: 'Найближчі',
                         watchOnYouTube: 'Дивитися на YouTube',
-                        downloadLecture: 'Завантажити конспект лекцій',
+                        downloadLecture: 'Завантажити конспект',
                         downloadPresentation: 'Завантажити презентацію',
                         backToProgram: 'Повернутися до програми',
                         open: 'Відкрити',

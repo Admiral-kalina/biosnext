@@ -9,6 +9,7 @@ import Link from "next/link";
 import {useTranslation} from "react-i18next";
 import {useSelector} from "react-redux";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
+import {getAllEventsWithSort, getNearestEventsByKey} from "@/helpers/getNearestEventsByKey";
 
 const mockWebinars = [
     {
@@ -95,6 +96,11 @@ const Webinars = ({type}) => {
             <MyLoader/>
         )
     }
+
+    const sortedWebinarsByDate = getAllEventsWithSort(globalCoursesByLanguage.webinars, 'date')
+
+
+
     return (
         <div>
             {type === 'webinarElement'
@@ -107,7 +113,7 @@ const Webinars = ({type}) => {
                         </div>
                         <p className={styles.title}>{t('services.webinars')}</p>
                         <div className={styles.row}>
-                            <WebinarsList webinars={globalCoursesByLanguage.webinars}/>
+                            <WebinarsList webinars={sortedWebinarsByDate}/>
                         </div>
                     </div>
                 </Container>
