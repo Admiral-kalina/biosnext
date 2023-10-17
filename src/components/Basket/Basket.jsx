@@ -29,6 +29,7 @@ const Basket = () => {
 
     const sendData = groupBasketData(programs,webinars);
 
+    console.log('QQ1wer', sendData)
     return (
         <div className={styles.root}>
             <Header type={hashString}/>

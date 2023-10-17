@@ -31,21 +31,23 @@ const Phone = ({field, form}) => {
 };
 
 
-const ContactForm = ({type, isWhite, location, price, sendData}) => {
-    const {t} = useTranslation()
+const ContactForm = ({type, isWhite, location, price, basketData}) => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
 
     const handleSend = (values) => {
+        console.log('QQ1 Send', values,basketData)
         const sentBody = `
             <div>
                 <p>Name: ${values.name}</p>
                 <p>Phone: ${values.phone}</p>
                 <p>Email: ${values.email}</p>
-                ${sendData ? `<div>${sendData}</div>` : `<p>Theme: ${values.theme}</p>`}
+                ${basketData ? `<div>${basketData}</div>` : `<p>Theme: ${values.them}</p>`}
             </div>
         `;
 
         sendEmail(sentBody);
+        handleRemove()
     }
 
     const handleRemove = () => {
@@ -53,6 +55,7 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
     }
 
     const onSubmit = (values, actions) => {
+        console.log('QQ1 onSubmit',values)
         handleSend(values)
         actions.resetForm()
     }
@@ -68,7 +71,7 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                         `}
                 initialValues={{name: "", phone: "", them   : "", email: ""}}
                 onSubmit={onSubmit}
-                validationSchema={ContactUsForm}
+                validationSchema={ () => ContactUsForm(t, location)}
             >
                 {({
 
@@ -160,6 +163,7 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                                 <MyButton
                                     type="submit"
                                     fullGolden
+                                    onClick={handleSubmit}
                                 >
                                     {t('form.send')}
                                 </MyButton>

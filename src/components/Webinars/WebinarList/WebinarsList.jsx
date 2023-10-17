@@ -8,7 +8,7 @@ import {convertDateFormat} from "@/helpers/convertTime";
 
 export const WebinarsList = ({webinars, programId, isWebinarHome}) => {
     const {t} = useTranslation();
-    const isAttributesExist = webinars[0].attributes
+    const isAttributesExist = webinars[0]?.attributes
 
     return (
         <>

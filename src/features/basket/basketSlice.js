@@ -1,6 +1,28 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {BASKET_TYPES, checkIsBuying, getBasketData, removeBaskedData, storeBasketData} from "@/helpers/basketData";
+import {BASKET_TYPES, checkIsBuying, removeBaskedData, storeBasketData} from "@/helpers/basketData";
 import {toast} from "react-toastify";
+
+const getBasketPrice = (programs, webinars) => {
+    let basketPrice = 0;
+
+    programs.forEach((program) => program.price ? basketPrice += program.price : '');
+    webinars.forEach((webinar) => webinar.price ? basketPrice += webinar.price : '');
+
+    return basketPrice;
+}
+
+const getBasketData = () => {
+    const storedPrograms = JSON.parse(localStorage.getItem("programs") || '[]');
+    const storedWebinars = JSON.parse(localStorage.getItem("webinars") || '[]');
+
+    const programs = storedPrograms.programs || [];
+    const webinars = storedWebinars.webinars || [];
+
+    const count = programs.length + webinars.length;
+    const totalPrice = getBasketPrice(programs, webinars)
+    console.log('total',totalPrice)
+    return {programs, webinars, count, totalPrice}
+};
 
 const {programs, webinars, count, totalPrice} = getBasketData()
 
