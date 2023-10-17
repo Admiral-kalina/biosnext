@@ -1,28 +1,29 @@
 import React from 'react';
 import {Field, Formik} from "formik";
 import PhoneInput from "react-phone-number-input";
-
-import sendEmail from "@/helpers/sendEmail";
+import {useDispatch} from "react-redux";
+import {useTranslation} from "react-i18next";
 
 import MyButton from "../MyButton/MyButton";
 
-import "./contactForm.scss"
-import {useDispatch} from "react-redux";
+import {ContactUsForm} from "@/components/UI/ContactForm/schema";
+import sendEmail from "@/helpers/sendEmail";
 import {removeBasketElements} from "@/features/basket/basketSlice";
-import {useTranslation} from "react-i18next";
 
+
+import "./contactForm.scss"
 
 const Phone = ({field, form}) => {
     const {t} = useTranslation()
     return (
         <PhoneInput
             placeholder={t('form.phone')}
-            value=""
+            value={field.value}
             name="phone"
             id="phone"
-
             onChange={value => {
                 if (!form.touched[field.name]) form.setFieldTouched(field.name);
+                form.validateField(field.name)
                 form.setFieldValue(field.name, value);
             }}
         />
@@ -34,9 +35,7 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
     const {t} = useTranslation()
     const dispatch = useDispatch();
 
-    const handleSend = (e, values) => {
-        e.preventDefault()
-
+    const handleSend = (values) => {
         const sentBody = `
             <div>
                 <p>Name: ${values.name}</p>
@@ -50,36 +49,26 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
     }
 
     const handleRemove = () => {
-    dispatch(removeBasketElements())
+        dispatch(removeBasketElements())
+    }
+
+    const onSubmit = (values, actions) => {
+        handleSend(values)
+        actions.resetForm()
     }
 
     return (
         <div className="contactForm">
             <Formik
-                initialValues={{name: "", phone: "", them: "", email: ""}}
-                // validate={values => {
-                //     const errors = {};
-                //     if (!values.email) {
-                //         errors.email = 'Required';
-                //     } else if (
-                //         !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                //     ) {
-                //         errors.email = 'Invalid email address';
-                //         errorObj.email = 'Invalid email address';
-                //     }
-                //
-                //     if (!values.phone) {
-                //         errors.phone = 'Required';
-                //         errorObj.phone = 'Required';
-                //     }
-                //
-                //     if (!values.name) {
-                //         errors.name = 'Required';
-                //         errorObj.name = 'Required';
-                //     }
-                //
-                //     return errors;
-                // }}
+                className={`
+                        form 
+                        ${type === 'individual' ? 'form_individual' : ''}
+                        ${location === 'basket' ? 'form_basket' : ''}
+                        ${isWhite ? 'form_white' : ''}
+                        `}
+                initialValues={{name: "", phone: "", them   : "", email: ""}}
+                onSubmit={onSubmit}
+                validationSchema={ContactUsForm}
             >
                 {({
 
@@ -89,8 +78,8 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                       handleChange,
                       handleBlur,
                       handleSubmit,
-                      isSubmitting,
-                      /* and other goodies */
+                      validateField
+
                   }) => (
                     <form
                         className={`
@@ -99,7 +88,7 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                         ${location === 'basket' ? 'form_basket' : ''}
                         ${isWhite ? 'form_white' : ''}
                         `}
-                        onSubmit={(event) => handleSend(event, values)}
+                        onSubmit={(event) => event.preventDefault()}
                     >
                         <div className="formContainer">
                             <div>
@@ -109,12 +98,14 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                                     name="name"
                                     id="name"
                                     placeholder={t('form.name')}
-                                    onChange={handleChange}
+                                    onChange={e => {
+                                        handleChange(e)
+                                        validateField("name")
+                                    }}
                                     onBlur={handleBlur}
                                     value={values.name}
                                 />
                                 <p className="error">{errors.name && touched.name && errors.name}</p>
-
                             </div>
                             <div>
                                 <Field name="phone" component={Phone}/>
@@ -128,7 +119,10 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                                     name="email"
                                     id="email"
                                     placeholder={t('form.email')}
-                                    onChange={handleChange}
+                                    onChange={e => {
+                                        handleChange(e)
+                                        validateField("email")
+                                    }}
                                     onBlur={handleBlur}
                                     value={values.email}
                                 />
@@ -141,7 +135,10 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                                     name="them"
                                     id="them"
                                     placeholder={t('form.them')}
-                                    onChange={handleChange}
+                                    onChange={e => {
+                                        handleChange(e)
+                                        validateField("them")
+                                    }}
                                     onBlur={handleBlur}
                                     value={values.them}
                                 />
@@ -169,9 +166,10 @@ const ContactForm = ({type, isWhite, location, price, sendData}) => {
                             </div>
                             :
                             <MyButton
-                                type="submit"
+                                type={"submit"}
                                 black={type === 'individual'}
                                 golden={type !== 'individual'}
+                                onClick={handleSubmit}
                             >
                                 {t('form.send')}
                             </MyButton>

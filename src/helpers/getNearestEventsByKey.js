@@ -7,7 +7,11 @@ import moment from "moment";
  * @returns {array}  - The sum of a and b.
  */
 export const getNearestEventsByKey = (data, key, numberOfEvents = 2) => {
-   return data.sort((a, b) => {
+   return data
+       .filter(event => {
+       return moment(event[key]).isSameOrAfter(moment(new Date()))
+   })
+       .sort((a, b) => {
         return moment(a[key]).isAfter(b[key])? 1 : -1
     }).slice(0,numberOfEvents);
 }

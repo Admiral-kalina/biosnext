@@ -1,5 +1,3 @@
-import webinars from "@/components/Webinars/Webinars";
-
 export const BASKET_TYPES = {
     WEBINAR: 'webinars',
     PROGRAM: 'programs'
