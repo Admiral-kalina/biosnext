@@ -1,12 +1,8 @@
 'use client'
 import React, {useEffect} from 'react';
-// import emailjs from '@emailjs/browser'
 // styles
 import * as styles from "./contacts.module.scss";
 import Container from "../Container/Container";
-import PhoneInput from "react-phone-number-input";
-import {Field, Formik} from "formik";
-import MyButton from "../UI/MyButton/MyButton";
 import ContactForm from "../UI/ContactForm/ContactForm";
 import {scrollToTop} from "../../helpers/scrollToTop";
 import {useTranslation} from "react-i18next";
@@ -21,7 +17,7 @@ const Contacts = () => {
 
     return (
     <div className={styles.root}>
-        <Container>
+        <Container additionalPadding>
             <div className={styles.row}>
                 {/*<div className={`${styles.column} ${styles.columnLeft}`}>*/}
                     <div className={styles.topInfo}>

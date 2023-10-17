@@ -2,7 +2,7 @@
   .container{
     max-width: 1070px;
     width: 100%;
-    padding: 0px 15px 130px;
+    padding: 0 15px 130px;
     margin: 0 auto;
   }
   .title{
@@ -18,5 +18,8 @@
   }
   .form{
     padding-top: 130px;
+  }
+  @media screen and (max-width: 1024px){
+
   }
 }

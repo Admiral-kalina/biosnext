@@ -6,24 +6,18 @@ import Container from "@/components/Container/Container";
 import * as React from "react";
 import "../index.scss"
 import {Route, Routes} from "react-router-dom";
-import * as styles from "@/components/Home/home.module.scss";
-import AboutUsHome from "@/components/aboutUsHome/aboutUsHome";
-import {useEffect} from "react";
 import {Protector} from "@/helpers/userData";
 import {useTranslation} from "react-i18next";
 
 export default function HomeLayout({children}) {
     const {t} = useTranslation();
 
-    // useEffect(() => {
-    //     document.body.style = 'background: rgb(21, 21, 21);';
-    // })
     return (
         <section>
             <Header type={'cabinet'}/>
             <Protector>
             <div style={{background: "#151515"}}>
-                <Container sizeZero={true}>
+                <Container sizeZero={true} additionalPadding>
                     <Home/>
                 </Container>
                 <Routes>

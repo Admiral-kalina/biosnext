@@ -5,7 +5,7 @@ import axios from "axios";
 import {toast} from "react-toastify";
 
 
-import {Field, Formik} from "formik";
+import {Formik} from "formik";
 
 //helpers
 
@@ -47,7 +47,7 @@ const Login = () => {
                         hideProgressBar: true,
                     });
                     setUser(initialUser);
-                   router.push('/home')
+                   router.push('/home/webinars/#webinars')
                 }
             }
         } catch (error) {
@@ -77,7 +77,6 @@ const Login = () => {
                           touched,
                           handleChange,
                           handleBlur,
-                          handleSubmit,
                           isSubmitting,
                           /* and other goodies */
                       }) => (

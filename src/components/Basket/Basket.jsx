@@ -33,7 +33,7 @@ const Basket = () => {
     return (
         <div className={styles.root}>
             <Header type={hashString}/>
-            <Container>
+            <Container additionalPadding>
 
                 <div className={styles.container}>
                     <p className={styles.title}>

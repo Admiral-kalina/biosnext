@@ -122,6 +122,10 @@
   .back {
     display: flex !important;
     border: none !important;
+
+  }
+  .back_block{
+    visibility: hidden;
   }
 
   .back-text {
@@ -153,7 +157,6 @@
   .rbc-header {
     border: none !important;
     color: rgba(241, 240, 231, 0.30);
-    font-family: Inter;
     font-size: 20px;
     font-weight: 300;
     text-transform: capitalize;
@@ -297,6 +300,7 @@
       }
     }
 
+
     .rbc-row-bg {
       row-gap: 16px;
       display: flex !important;
@@ -360,7 +364,6 @@
 
     span {
       color: rgba(241, 240, 231, 0.30);
-      font-family: Inter;
       font-size: 20px;
       font-style: normal;
       font-weight: 400;

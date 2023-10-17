@@ -23,3 +23,9 @@
     padding: 50px 15px 0 15px;
   }
 }
+
+.additionalPadding{
+  @media screen and (max-width: 768px){
+    padding: 80px 15px 0 15px;
+  }
+}

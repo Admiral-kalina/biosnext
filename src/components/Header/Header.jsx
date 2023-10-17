@@ -165,7 +165,7 @@ const Header = ({type}) => {
                             <li>
                                 <Link
                                     className=""
-                                    href={'/home'}
+                                    href={'/home/webinars/#webinars'}
                                 >
                                     <Image src={userImg} alt={'home'}/>
                                 </Link>
@@ -266,7 +266,7 @@ const Header = ({type}) => {
                             onClick={handleMobileClick}>
                             <Link
                                 className={`text-uppercase ${endpoint === 'home' ? 'active' : ''}`}
-                                href={'/home'}
+                                href={'home/webinars/#webinars'}
                             >
                                 {t('header.account')}
                             </Link>
