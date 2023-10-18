@@ -1,5 +1,5 @@
 export const groupLevelCollapseData = (program,t) => {
-    console.log('WW', program)
+
     const items = [
         {
             key: '1',

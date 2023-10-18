@@ -21,7 +21,6 @@ const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars, previou
 
     const isEventBuyInWebinar = userAvailableWebinars.find(el => el.id === webinar.id)
 
-    console.log('Ov', hashString,)
     if (!webinar) {
         return (
             <MyLoader/>
@@ -37,7 +36,6 @@ const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars, previou
         route = `/home/${hashString}?#${hashString}`
     }
 
-    console.log('webinar', webinar)
     const handleClick = () => {
         const payload = {
             data: webinar,

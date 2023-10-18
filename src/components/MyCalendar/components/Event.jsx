@@ -66,7 +66,10 @@ Event.propTypes = {
             programLink: PropTypes.string,
             eventLink: PropTypes.string,
             type: PropTypes.string,
-            date: PropTypes.instanceOf(Date)
+            date: PropTypes.oneOfType([
+                PropTypes.instanceOf(Date),
+                PropTypes.string
+            ])
         })
 };
 

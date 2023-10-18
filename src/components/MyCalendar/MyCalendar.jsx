@@ -20,6 +20,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./calendar.scss";
 import * as styles from "../Home/home.module.scss";
 import {useTranslation} from "react-i18next";
+import {removeDuplicates} from "@/helpers/getNearestEventsByKey";
 
 
 const MyCalendar = ({general, userPrograms = [], globalPrograms = []}) => {
@@ -35,7 +36,7 @@ const MyCalendar = ({general, userPrograms = [], globalPrograms = []}) => {
     const records = isAllRecords ? globalPrograms : userPrograms;
 
     const events = createCalendarEvents(records, general,t)
-
+const eventsWithoutDuplicates = removeDuplicates(events)
     const handleClick = (bool) => {
         setIsAllRecords(bool)
     }
@@ -50,9 +51,10 @@ const MyCalendar = ({general, userPrograms = [], globalPrograms = []}) => {
                     resourceIdAccessor="resourceId"
                     resourceTitleAccessor="resourceTitle"
                     ref={ref}
-                    events={events}
+                    events={eventsWithoutDuplicates}
                     localizer={localizer}
                     startAccessor="start"
+
                     endAccessor="end"
                     components={{
                         event: props =>

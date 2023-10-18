@@ -49,13 +49,10 @@ export const sortProgramWebinars = (programs,webinars, key,withAttributes) => {
                 arr.push({...webinar, isAcquired: true})
             }
         })
-        // if (withAttributes)
-
 
 
     })
 
-    console.log('inner', arr)
 
     const arrWithoutDuplicates = removeDuplicates(arr, 'id')
 return sortByKey(arrWithoutDuplicates,'date')
