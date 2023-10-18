@@ -4,9 +4,9 @@ import {findObjectsByLanguage} from "@/helpers/findObjectByLanguage";
 import {strapiApi} from "@/api";
 import {userData} from "@/helpers/userData";
 
-const languageFromStorage = typeof window !== 'undefined' ? localStorage.getItem('language') || 'ru' : 'ru';
+const languageFromStorage = typeof window !== 'undefined' ? localStorage.getItem('language') || 'ua' : 'ua';
 const coursesFromStorage = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('coursesList')) || [] : [];
-const userFromStorage = userData()
+const userFromStorage = typeof window !== 'undefined' ? userData() : {};
 
 export const fetchUserCourses = createAsyncThunk('courses/fetchCoursesByLanguage', async (language = languageFromStorage) => {
         if (!userFromStorage.id) {
@@ -71,15 +71,15 @@ const userSlice = createSlice({
         },
         changeUserLanguage(state, action) {
             state.user.language = action.payload
-            localStorage.setItem('language', action.payload)
+            typeof window !== 'undefined' ?localStorage.setItem('language', action.payload) :'';
         },
         addUserCurse(state, action) {
             state.user.coursesList = [...state.user.coursesList, action.payload]
-            localStorage.setItem('coursesList', JSON.stringify([...state.user.coursesList]))
+            typeof window !== 'undefined' ?localStorage.setItem('coursesList', JSON.stringify([...state.user.coursesList])) :'';
         },
         removeUserCurse(state) {
             state.user.coursesList = []
-            localStorage.setItem('coursesList', JSON.stringify([]))
+            typeof window !== 'undefined' ?localStorage.setItem('coursesList', JSON.stringify([])) :'';
         },
 
 

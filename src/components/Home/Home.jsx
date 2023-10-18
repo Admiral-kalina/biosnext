@@ -91,7 +91,7 @@ const Home = () => {
 
     const closestWebinars = getNearestEventsByKey(globalWebinarsByLanguage, "date",3);
     const userAvailableWebinars = sortProgramWebinars(userProgramsByLanguage,userWebinarsByLanguage, 'date',isLanguageEnglish)
-
+    console.log('laph',globalCourses )
     return (
         <div className={styles.root}>
             <div className={styles.gridSidebar}>

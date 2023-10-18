@@ -100,7 +100,7 @@ const Webinars = ({type}) => {
     const sortedWebinarsByDate = getAllEventsWithSort(globalCoursesByLanguage.webinars, 'date')
 
 
-
+    console.log('WEb', globalCoursesByLanguage)
     return (
         <div>
             {type === 'webinarElement'

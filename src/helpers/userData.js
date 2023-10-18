@@ -4,18 +4,21 @@ import {redirect} from "next/navigation";
 
 
 export const storeUser = (data) => {
-    localStorage.setItem(
-        "user",
-        JSON.stringify({
-            username: data.user.username,
-            userId:data.user.id,
-            jwt: data.jwt,
-        })
-    );
+    typeof window !== 'undefined' ?
+        localStorage.setItem(
+            "user",
+            JSON.stringify({
+                username: data.user.username,
+                userId: data.user.id,
+                jwt: data.jwt,
+            })
+        )
+        :
+        ''
 };
 
 export const userData = () => {
-    const stringifiedUser = localStorage.getItem("user") || '""';
+    const stringifiedUser = typeof window !== 'undefined' ? localStorage.getItem("user") || '""' : '';
     return JSON.parse(stringifiedUser || {});
 };
 

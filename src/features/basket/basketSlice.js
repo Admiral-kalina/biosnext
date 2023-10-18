@@ -12,8 +12,8 @@ const getBasketPrice = (programs, webinars) => {
 }
 
 const getBasketData = () => {
-    const storedPrograms = JSON.parse(localStorage.getItem("programs") || '[]');
-    const storedWebinars = JSON.parse(localStorage.getItem("webinars") || '[]');
+    const storedPrograms = typeof window !== 'undefined' ?JSON.parse(localStorage.getItem("programs") || '[]') :'';
+    const storedWebinars = typeof window !== 'undefined' ?JSON.parse(localStorage.getItem("webinars") || '[]') :'';
 
     const programs = storedPrograms.programs || [];
     const webinars = storedWebinars.webinars || [];

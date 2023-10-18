@@ -55,7 +55,6 @@ const Header = ({type}) => {
     const ref = useRef();
 
     useEffect(() => {
-
         const queryString = window.location.pathname;
         // const paymentID = queryString.replace(/[^0-9]/g, "");;
         const endpoint = queryString.replace(/[^a-zA-Z0-9 ]/g, "");
@@ -126,6 +125,8 @@ const Header = ({type}) => {
 
         setBurgerState(false);
     }
+
+    console.log('default L', language)
 
     return (
         <header ref={ref}

@@ -1,4 +1,4 @@
-import webinars from "@/components/Webinars/Webinars";
+import {checkWindowExist} from "@/helpers/checkWindowExist";
 
 export const BASKET_TYPES = {
     WEBINAR: 'webinars',
@@ -6,6 +6,7 @@ export const BASKET_TYPES = {
 };
 
 const getBasketPrice = (programs, webinars) => {
+    checkWindowExist()
     let basketPrice = 0;
 
     programs.forEach((program) => program.price ? basketPrice += program.price : '');
@@ -15,8 +16,9 @@ const getBasketPrice = (programs, webinars) => {
 }
 
 export const getBasketData = () => {
-    const storedPrograms = JSON.parse(localStorage.getItem("programs") || '[]');
-    const storedWebinars = JSON.parse(localStorage.getItem("webinars") || '[]');
+    checkWindowExist()
+    const storedPrograms = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("programs") || '[]') :[];
+    const storedWebinars = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("webinars") || '[]') :[];
 
     const programs = storedPrograms.programs || [];
     const webinars = storedWebinars.webinars || [];
@@ -73,6 +75,6 @@ export const checkIsBuying = (data, type) => {
 }
 
 export const removeBaskedData = () => {
-    localStorage.removeItem(BASKET_TYPES.PROGRAM);
-    localStorage.removeItem(BASKET_TYPES.WEBINAR);
+    typeof window !== 'undefined' ? localStorage.removeItem(BASKET_TYPES.PROGRAM): '';
+    typeof window !== 'undefined' ? localStorage.removeItem(BASKET_TYPES.WEBINAR): '';
 }

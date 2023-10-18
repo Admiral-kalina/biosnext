@@ -1,10 +1,10 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import axios from 'axios';
-import { findObjectsByLanguage } from '../../helpers/findObjectByLanguage';
-import { strapiApi } from '../../api';
+import {findObjectsByLanguage} from '../../helpers/findObjectByLanguage';
+import {strapiApi} from '../../api';
 
 const languageFromStorage =
-    typeof window !== 'undefined' ? localStorage.getItem('language') || 'ru' : 'ru';
+    'ru';
 
 const initialState = {
     courses: {
@@ -29,7 +29,7 @@ export const fetchCourses = createAsyncThunk('courses/fetchCourses', async (lang
         const globalProgramsByLanguage = findObjectsByLanguage(programsList.data.data, language, false, webinarList.data.data);
         const globalWebinarsByLanguage = findObjectsByLanguage(webinarList.data.data, language, false);
 
-        return { programsList, webinarList, globalProgramsByLanguage, globalWebinarsByLanguage };
+        return {programsList, webinarList, globalProgramsByLanguage, globalWebinarsByLanguage};
     } catch (error) {
         throw error;
     }
@@ -40,7 +40,7 @@ export const coursesSlice = createSlice({
     initialState,
     reducers: {
         changeGlobalCoursesLanguage(state, action) {
-            const { programs, webinars, language } = action.payload;
+            const {programs, webinars, language} = action.payload;
             state.globalCoursesByLanguage.programs = findObjectsByLanguage(programs, language, false, webinars);
             state.globalCoursesByLanguage.webinars = findObjectsByLanguage(webinars, language, false);
         },
@@ -52,7 +52,7 @@ export const coursesSlice = createSlice({
             })
             .addCase(fetchCourses.fulfilled, (state, action) => {
                 state.isLoading = false;
-                const { programsList, webinarList, globalProgramsByLanguage, globalWebinarsByLanguage } =
+                const {programsList, webinarList, globalProgramsByLanguage, globalWebinarsByLanguage} =
                     action.payload;
                 state.globalCoursesByLanguage.programs = globalProgramsByLanguage;
                 state.globalCoursesByLanguage.webinars = globalWebinarsByLanguage;
@@ -66,6 +66,6 @@ export const coursesSlice = createSlice({
     },
 });
 
-export const { changeGlobalCoursesLanguage } = coursesSlice.actions;
+export const {changeGlobalCoursesLanguage} = coursesSlice.actions;
 
 export default coursesSlice.reducer;

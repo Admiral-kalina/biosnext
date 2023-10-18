@@ -17,9 +17,9 @@ import {Protector} from "@/helpers/userData";
 
 export default function RootLayout({children}) {
 
-    // if (typeof window !== "object") {
-    //     return null
-    // }
+    if (typeof window !== "object") {
+        return null
+    }
 
 
     return (
