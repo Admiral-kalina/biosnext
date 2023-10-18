@@ -44,7 +44,7 @@ const CustomToolbar = (props) => {
             <span className='back_block'>
                 <button className='back'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 24 26" fill="none"><path
-                        d="M18 1L6 13L18 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                        d="M18 1L6 13L18 25" stroke="white" stroke-width="2" strokeLinecap="round"/></svg>
                    <span className='back-text'> {t('cabinet.back')}</span>
                 </button>
             </span>
@@ -55,12 +55,12 @@ const CustomToolbar = (props) => {
 
                 <button className='btn-prev' type="button" onClick={navigate.bind(null, navigateContants.PREVIOUS)}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 24 26" fill="none"><path
-                        d="M18 1L6 13L18 25" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                        d="M18 1L6 13L18 25" stroke="white" stroke-width="2" strokeLinecap="round"/></svg>
                 </button>
                 <span className="rbc-toolbar-label">{props.label}</span>
                 <button className='btn-next' type="button" onClick={navigate.bind(null, navigateContants.NEXT)}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 24 26" fill="none"><path
-                        d="M6 25L18 13L6 1" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                        d="M6 25L18 13L6 1" stroke="white" stroke-width="2" strokeLinecap="round"/></svg>
                 </button>
             </span>
             <span className="records_block">

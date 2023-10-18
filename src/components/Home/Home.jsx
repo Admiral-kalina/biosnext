@@ -28,7 +28,8 @@ import about from "src/app/media/images/home/about.svg";
 import {removeUserData} from "@/helpers/userData";
 import {useTranslation} from "react-i18next";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
-import {getAllEventsWithSort, getNearestEventsByKey} from "@/helpers/getNearestEventsByKey";
+import {getAllEventsWithSort, getNearestEventsByKey, sortProgramWebinars} from "@/helpers/getNearestEventsByKey";
+import {checkLanguage} from "@/helpers/checkLanguage";
 
 
 
@@ -86,11 +87,10 @@ const Home = () => {
         )
     }
 
+    const isLanguageEnglish = checkLanguage('en')
 
-    const sortedWebinarsByDate = getAllEventsWithSort(userWebinarsByLanguage, 'date')
     const closestWebinars = getNearestEventsByKey(globalWebinarsByLanguage, "date",3);
-
-
+    const userAvailableWebinars = sortProgramWebinars(userProgramsByLanguage,userWebinarsByLanguage, 'date',isLanguageEnglish)
 
     return (
         <div className={styles.root}>
@@ -129,6 +129,8 @@ const Home = () => {
                                 <MyCalendar
                                     userPrograms={userProgramsByLanguage}
                                     globalPrograms={globalProgramsByLanguage}
+                                    userAvailableWebinars={userAvailableWebinars}
+                                    globalWebinarsByLanguage={globalWebinarsByLanguage}
                                 />
                             }
                         />
@@ -137,7 +139,7 @@ const Home = () => {
                                 <div className={styles.column}>
                                     <p className={styles.title}>{t('cabinet.availableToMe')}</p>
                                     <div className={styles.content}>
-                                        <WebinarListHome isWebinarHome={true} webinars={sortedWebinarsByDate}/>
+                                        <WebinarListHome isWebinarHome={true} webinars={userAvailableWebinars}/>
                                     </div>
                                 </div>
                                 <div className={styles.column}>
@@ -152,8 +154,8 @@ const Home = () => {
 
                         <Route path='/home/webinars/webinar/' element={
                             <>
-                                <WebinarOverviewHome webinar={programElement} hashString={hashString}
-                                                     previousRoute={previousRoute}/>
+                                {programElement  && <WebinarOverviewHome webinar={programElement} userAvailableWebinars={userAvailableWebinars} hashString={hashString}
+                                                         previousRoute={previousRoute}/>}
                             </>
 
                         }/>
@@ -175,11 +177,13 @@ const Home = () => {
                         <Route path='/home/programs/program/webinar' element={
 
                             <div className={styles.programDescriptioRow}>
+                                {programElement  &&
                                 <WebinarOverviewHome
+                                    userAvailableWebinars={userAvailableWebinars}
                                     previousRoute={previousRoute}
                                     hashString={hashString}
                                     webinar={programElement}
-                                />
+                                />}
                             </div>
                         }/>
 

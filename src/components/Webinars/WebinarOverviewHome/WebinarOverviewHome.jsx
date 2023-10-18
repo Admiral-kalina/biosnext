@@ -15,11 +15,13 @@ import MyLoader from "@/components/UI/MyLoader/MyLoader";
 import {convertDateFormat} from "@/helpers/convertTime";
 
 
-const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
+const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars, previousRoute}) => {
     const {t} = useTranslation()
     const dispatch = useDispatch()
 
+    const isEventBuyInWebinar = userAvailableWebinars.find(el => el.id === webinar.id)
 
+    console.log('Ov', hashString,)
     if (!webinar) {
         return (
             <MyLoader/>
@@ -35,7 +37,7 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
         route = `/home/${hashString}?#${hashString}`
     }
 
-
+    console.log('webinar', webinar)
     const handleClick = () => {
         const payload = {
             data: webinar,
@@ -86,7 +88,7 @@ const WebinarOverviewHome = ({webinar, hashString, previousRoute}) => {
                             <p className={styles.time}>{webinar.duration} {t('additional.minutes')}</p>
                             <p className={styles.time}>{webinar.exactTime} </p>
                         </div>
-                        {webinar.isAcquired ?
+                        {webinar.isAcquired || isEventBuyInWebinar?
                             <div className={styles.content}>
                                 <div className={styles.contentLectures}>
                                     <MyButton transparent>

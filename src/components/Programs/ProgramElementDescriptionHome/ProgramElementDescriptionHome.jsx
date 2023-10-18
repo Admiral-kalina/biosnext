@@ -37,7 +37,6 @@ const ProgramElementDescriptionHome = ({program}) => {
         )
     }
 
-
     const sortedEventsByDate = getAllEventsWithSort(program.webbinarrs.data, 'date')
     const isLanguageEnglish = checkLanguage('en')
 
@@ -64,7 +63,7 @@ const ProgramElementDescriptionHome = ({program}) => {
                             :
                             <div className={`${styles.programBottom} ${styles.hideOnMobile}`}>
                                 <p className={styles.price}>{program.price} $</p>
-                                <MyButton transparent>{t('cabinet.buyProgram')}</MyButton>
+                                <MyButton onClick={handleClick} transparent>{t('cabinet.buyProgram')}</MyButton>
                             </div>
                         }
 
