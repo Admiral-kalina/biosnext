@@ -2,13 +2,18 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import axios from "axios";
 import {findObjectsByLanguage} from "@/helpers/findObjectByLanguage";
 import {strapiApi} from "@/api";
+import {userData} from "@/helpers/userData";
 
 const languageFromStorage = typeof window !== 'undefined' ? localStorage.getItem('language') || 'ru' : 'ru';
 const coursesFromStorage = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('coursesList')) || [] : [];
-
+const userFromStorage = userData()
 
 export const fetchUserCourses = createAsyncThunk('courses/fetchCoursesByLanguage', async (language = languageFromStorage) => {
-        const userResponse = await strapiApi.get(`/api/users/2?populate=*`)
+        if (!userFromStorage.id) {
+            throw new Error("User ID not available."); // This will be caught by the 'rejected' case in the slice.
+        }
+
+        const userResponse = await strapiApi.get(`/api/users/${userFromStorage.id}?populate=*`)
 
 
         const userProgramsIds = userResponse.data.courses.map(course => course.id)

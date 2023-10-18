@@ -16,6 +16,7 @@ import Container from "../Container/Container";
 import {useRouter} from "next/navigation";
 import {storeUser} from "@/helpers/userData";
 import {useTranslation} from "react-i18next";
+import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 
 const initialUser = {password: "", identifier: ""};
@@ -36,7 +37,7 @@ const Login = () => {
 
     const handleLogin = async (event, values) => {
         event.preventDefault()
-        const url = `http://localhost:1337/api/auth/local`;
+        const url = `${process.env.NEXT_PUBLIC_STRAPI_BACKEND}api/auth/local`;
 
         try {
             if (values.identifier && values.password) {
