@@ -3,8 +3,7 @@ import axios from 'axios';
 import {findObjectsByLanguage} from '../../helpers/findObjectByLanguage';
 import {strapiApi} from '../../api';
 
-const languageFromStorage =
-    'ru';
+const languageFromStorage = typeof window !== 'undefined' ? localStorage.getItem('language') || 'ua' : 'ua';
 
 const initialState = {
     courses: {

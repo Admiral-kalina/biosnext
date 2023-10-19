@@ -11,7 +11,7 @@ import Footer from "@/components/Footer/Footer";
 import  "./aboutCompany.scss"
 
 //asset
-import aboutBgMiddle from "../../app/media/images/about/about-bg-middle.png";
+import aboutBgMiddle from "../../app/media/images/about/keyboar.png";
 import aboutBgMiddleMobile from "../../app/media/images/about/about-bg-middle-mobile.png";
 import aboutBgMiddleLines from "../../app/media/images/about/about-bg-middle-lines.png";
 import aboutBgMiddleLinesMobile from "../../app/media/images/about/about-bg-middle-lines-mobile.png";
@@ -66,6 +66,7 @@ const AboutCompany = () => {
                            <picture>
                                <source media="(max-width: 600px)" srcSet={aboutBgMiddleMobile}/>
                                <Image src={aboutBgMiddle} alt="human hands typing on a keyboard"/>
+
                            </picture>
                        </section>
                    </div>

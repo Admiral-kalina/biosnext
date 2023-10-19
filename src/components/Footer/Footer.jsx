@@ -1,7 +1,6 @@
 'use client'
 import React from 'react';
 
-import logo from "src/app/media/images/logo.png"
 import icon5 from "src/app/media/images/icon/icon5.svg"
 import icon6 from "src/app/media/images/icon/icon6.svg"
 import icon7 from "src/app/media/images/icon/icon7.svg"
@@ -12,6 +11,7 @@ import icon14 from "../../app/media/images/icon/icon14.svg";
 import Image from "next/image";
 import Link from "next/link";
 import {useTranslation} from "react-i18next";
+import Logo from "@/app/media/images/logo";
 
 
 const Footer = ({location}) => {
@@ -53,9 +53,8 @@ const Footer = ({location}) => {
 
                     <div className="footer__end">
                         <div className="footer__logo">
-                            <Image
+                            <Logo
                                 className="inline-svg"
-                                src={logo}
                                 alt="Logo Bioscience Innova"
                             />
                         </div>

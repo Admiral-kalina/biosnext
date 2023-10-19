@@ -15,7 +15,6 @@ import Link from "next/link";
 import {removeUserData} from "@/helpers/userData";
 
 // assets
-import logo from "../../app/media/images/logo.png";
 import icon5 from "../../app/media/images/icon/icon5.svg";
 import icon6 from "../../app/media/images/icon/icon6.svg";
 import icon7 from "../../app/media/images/icon/icon7.svg";
@@ -28,6 +27,7 @@ import basket from "../../app/media/images/basket.svg";
 
 // styles
 import "./header.scss";
+import Logo from "@/app/media/images/logo";
 
 
 
@@ -99,31 +99,31 @@ const Header = ({type}) => {
     }
 
     const handleBurgerClick = () => {
-        // let body = document.getElementsByTagName("body")[0];
-        //
-        // if (burgerState) {
-        //     body.style.height = "auto";
-        //     body.style.overflow = "unset";
-        //     body.style.width = "auto";
-        //     body.style.position = "unset";
-        //     setBurgerState(state => !state)
-        // } else {
-        //     body.style.height = "100%";
-        //     body.style.overflow = "hidden";
-        //     body.style.width = "100%";
-        //     body.style.position = "fixed";
-        //     setBurgerState(state => !state)
-        // }
+        let body = document.getElementsByTagName("body")[0];
+
+        if (burgerState) {
+            body.style.height = "auto";
+            body.style.overflow = "unset";
+            body.style.width = "auto";
+            body.style.position = "unset";
+            setBurgerState(state => !state)
+        } else {
+            body.style.height = "100%";
+            body.style.overflow = "hidden";
+            body.style.width = "100%";
+            body.style.position = "fixed";
+            setBurgerState(state => !state)
+        }
     }
 
     const handleMobileClick = () => {
-        // let body = document.getElementsByTagName("body")[0];
-        // body.style.height = "auto";
-        // body.style.overflow = "unset";
-        // body.style.width = "auto";
-        // body.style.position = "unset";
-        //
-        // setBurgerState(false);
+        let body = document.getElementsByTagName("body")[0];
+        body.style.height = "auto";
+        body.style.overflow = "unset";
+        body.style.width = "auto";
+        body.style.position = "unset";
+
+        setBurgerState(false);
     }
 
     console.log('default L', language)
@@ -139,11 +139,7 @@ const Header = ({type}) => {
             <div className="container d-block-md">
                 <div className="header__logo">
                     <Link href='/'>
-                        <Image
-                            className="inline-svg"
-                            src={logo}
-                            alt="Logo Bioscience Innova"
-                        />
+                        <Logo className="inline-svg"/>
                     </Link>
                 </div>
 

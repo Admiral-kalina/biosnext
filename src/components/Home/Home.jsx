@@ -32,7 +32,6 @@ import {getAllEventsWithSort, getNearestEventsByKey, sortProgramWebinars} from "
 import {checkLanguage} from "@/helpers/checkLanguage";
 
 
-
 const Home = () => {
     const {t} = useTranslation()
 
@@ -89,9 +88,11 @@ const Home = () => {
 
     const isLanguageEnglish = checkLanguage('en')
 
-    const closestWebinars = getNearestEventsByKey(globalWebinarsByLanguage, "date",3);
-    const userAvailableWebinars = sortProgramWebinars(userProgramsByLanguage,userWebinarsByLanguage, 'date',isLanguageEnglish)
-    console.log('laph',globalCourses )
+    const closestWebinars = getNearestEventsByKey(globalWebinarsByLanguage, "date", 3);
+    const userAvailableWebinars = sortProgramWebinars(userProgramsByLanguage, userWebinarsByLanguage, 'date', isLanguageEnglish)
+
+    console.log('DD1', user)
+
     return (
         <div className={styles.root}>
             <div className={styles.gridSidebar}>
@@ -117,7 +118,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
 
 
             <div className={styles.gridContent}>
@@ -154,8 +154,11 @@ const Home = () => {
 
                         <Route path='/home/webinars/webinar/' element={
                             <>
-                                {programElement  && <WebinarOverviewHome webinar={programElement} userAvailableWebinars={userAvailableWebinars} hashString={hashString}
-                                                         previousRoute={previousRoute}/>}
+                                    <WebinarOverviewHome
+                                        webinar={programElement}
+                                        userAvailableWebinars={userAvailableWebinars}
+                                        hashString={hashString}
+                                        previousRoute={previousRoute}/>
                             </>
 
                         }/>
@@ -177,13 +180,13 @@ const Home = () => {
                         <Route path='/home/programs/program/webinar' element={
 
                             <div className={styles.programDescriptioRow}>
-                                {programElement  &&
+
                                 <WebinarOverviewHome
                                     userAvailableWebinars={userAvailableWebinars}
                                     previousRoute={previousRoute}
                                     hashString={hashString}
                                     webinar={programElement}
-                                />}
+                                />
                             </div>
                         }/>
 

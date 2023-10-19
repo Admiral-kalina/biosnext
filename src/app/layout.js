@@ -8,7 +8,6 @@ import {store} from "@/store/store";
 import {useEffect} from "react";
 import {fetchUserCourses} from "@/features/userSlice/userSlice";
 import {fetchCourses} from "@/features/coursesSlice/coursesSlice";
-import Header from "@/components/Header/Header";
 
 import "../i18n"
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,9 +16,9 @@ import {Protector} from "@/helpers/userData";
 
 export default function RootLayout({children}) {
 
-    if (typeof document !== "object") {
-        return null
-    }
+    // if (typeof document !== "object") {
+    //     return null
+    // }
 
 
     return (

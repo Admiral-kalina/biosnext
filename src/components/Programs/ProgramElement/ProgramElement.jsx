@@ -19,7 +19,7 @@ const ProgramElement = ({programs}) => {
         <>
             {closest.map(program =>
                 <div key={program.id} className={styles.column}>
-                    <Link href={`programs/${program.id}`}>
+                    <Link href={`/services/programs/${program.id}`}>
                         <p className={styles.section}>{t('additional.program')}</p>
                         <p className={styles.name}>{program.name}</p>
                         <p className={styles.date}><span>{t('additional.beginning')}:</span> {convertDateFormat(program.start)}</p>

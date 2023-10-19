@@ -11,81 +11,6 @@ import {useSelector} from "react-redux";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
 import {getAllEventsWithSort, getNearestEventsByKey} from "@/helpers/getNearestEventsByKey";
 
-const mockWebinars = [
-    {
-        id: 1,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    },
-    {
-        id: 2,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    },
-    {
-        id: 3,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    },
-    {
-        id: 4,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    },
-    {
-        id: 5,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    },
-    {
-        id: 6,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    },
-    {
-        id: 7,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    },
-    {
-        id: 8,
-        keyName: 'webinar',
-        section: 'Вебинар',
-        name: 'Аспекты Фармаконадзора',
-        date: '10.11.2023',
-        teacher: 'Анрей Шимко, эксперт GMP/GDP',
-        duration: 30
-    },
-]
-
 
 const Webinars = ({type}) => {
     const {t} = useTranslation();
@@ -100,7 +25,6 @@ const Webinars = ({type}) => {
     const sortedWebinarsByDate = getAllEventsWithSort(globalCoursesByLanguage.webinars, 'date')
 
 
-    console.log('WEb', globalCoursesByLanguage)
     return (
         <div>
             {type === 'webinarElement'
