@@ -99,31 +99,31 @@ const Header = ({type}) => {
     }
 
     const handleBurgerClick = () => {
-        let body = document.getElementsByTagName("body")[0];
-
-        if (burgerState) {
-            body.style.height = "auto";
-            body.style.overflow = "unset";
-            body.style.width = "auto";
-            body.style.position = "unset";
-            setBurgerState(state => !state)
-        } else {
-            body.style.height = "100%";
-            body.style.overflow = "hidden";
-            body.style.width = "100%";
-            body.style.position = "fixed";
-            setBurgerState(state => !state)
-        }
+        // let body = document.getElementsByTagName("body")[0];
+        //
+        // if (burgerState) {
+        //     body.style.height = "auto";
+        //     body.style.overflow = "unset";
+        //     body.style.width = "auto";
+        //     body.style.position = "unset";
+        //     setBurgerState(state => !state)
+        // } else {
+        //     body.style.height = "100%";
+        //     body.style.overflow = "hidden";
+        //     body.style.width = "100%";
+        //     body.style.position = "fixed";
+        //     setBurgerState(state => !state)
+        // }
     }
 
     const handleMobileClick = () => {
-        let body = document.getElementsByTagName("body")[0];
-        body.style.height = "auto";
-        body.style.overflow = "unset";
-        body.style.width = "auto";
-        body.style.position = "unset";
-
-        setBurgerState(false);
+        // let body = document.getElementsByTagName("body")[0];
+        // body.style.height = "auto";
+        // body.style.overflow = "unset";
+        // body.style.width = "auto";
+        // body.style.position = "unset";
+        //
+        // setBurgerState(false);
     }
 
     console.log('default L', language)
