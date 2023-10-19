@@ -16,7 +16,7 @@ const WebinarDescription = ({type, programDescription, programTitle, webinarDesc
             setMarkdown(webinarDescription)
         }
 
-    }, [programDescription, webinarDescription])
+    }, [programDescription, type, webinarDescription])
 
     return (
         <div className={styles.root}>

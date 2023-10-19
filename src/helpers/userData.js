@@ -27,13 +27,14 @@ export const removeUserData = () => {
     window.location.href = '/';
 }
 
-export const Protector = ({children}) => {
-    const {jwt} = userData();
+export const Protector = ({ children }) => {
+    const { jwt } = userData();
+
     useEffect(() => {
         if (!jwt) {
             redirect("/login");
         }
-    }, [redirect, jwt]);
+    }, [jwt]);
 
     return <>{children}</>;
 };

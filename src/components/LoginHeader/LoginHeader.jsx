@@ -12,6 +12,7 @@ import i18n from "i18next";
 
 import Container from "../Container/Container";
 import {Link} from "react-router-dom";
+import Image from "next/image";
 
 
 const LoginHeader = () => {
@@ -34,9 +35,9 @@ const LoginHeader = () => {
     return (
         <div className={styles.root}>
 
-                <img className={styles.logo} src={logo} alt="logo"/>
+                <Image className={styles.logo} src={logo} alt="logo"/>
                 <ul className={styles.menu}>
-                    <li><img src={basket} alt="basket"/></li>
+                    <li><Image src={basket} alt="basket"/></li>
                     <li
                         onMouseOver={() => handleLanguage(true)}
                         onMouseLeave={() => handleLanguage(false)}

@@ -45,7 +45,7 @@ const MiddleLayout = ({children}) => {
     useEffect(() => {
         dispatch(fetchUserCourses())
         dispatch(fetchCourses())
-    }, [])
+    }, [dispatch])
 
     return (
         <>

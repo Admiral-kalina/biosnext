@@ -1,19 +1,18 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 export const usePreviousRoute = () => {
     const [currentPath, setCurrentPath] = useState(null);
-    const [previousSearch, setPreviousSearch] = useState(null)
+    const [previousSearch, setPreviousSearch] = useState(null);
     const [previousPath, setPreviousPath] = useState(null);
 
     useEffect(() => {
-        if (location.pathname !== currentPath) {
-            setPreviousSearch(location.search)
+        const newPathname = location.pathname;
+        if (newPathname !== currentPath) {
+            setPreviousSearch(location.search);
             setPreviousPath(currentPath);
-            setCurrentPath({pathname:location.pathname , search:location.search});
+            setCurrentPath(newPathname);
         }
-    }, [location.pathname]);
+    }, [currentPath]);
 
-
-
-    return  previousPath
+    return previousPath;
 };
