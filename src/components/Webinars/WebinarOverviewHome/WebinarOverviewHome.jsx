@@ -26,7 +26,7 @@ const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars, previou
             <MyLoader/>
         )
     }
-
+    console.log(webinar, userAvailableWebinars)
 
     let route = null;
 

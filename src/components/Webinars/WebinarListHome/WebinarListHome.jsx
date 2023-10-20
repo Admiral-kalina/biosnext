@@ -7,12 +7,17 @@ import {getAllEventsWithSort, getNearestEventsByKey} from "@/helpers/getNearestE
 import * as styles from "../webinars.module.scss";
 import {convertDateFormat} from "@/helpers/convertTime";
 import {checkLanguage} from "@/helpers/checkLanguage";
+import MyLoader from "@/components/UI/MyLoader/MyLoader";
 
 
 const WebinarListHome = ({webinars, isWebinarHome, isAvailable, withAttributes}) => {
     const {t} = useTranslation();
-
-
+    console.log('WP', Boolean(webinars))
+    if (!webinars.length) {
+        return (
+            <MyLoader/>
+        )
+    }
     console.log('Patronum', webinars)
 
     return (
