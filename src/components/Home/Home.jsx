@@ -62,6 +62,7 @@ const Home = () => {
         )
     }
 
+
     const globalProgramsByLanguage = globalCourses.globalCoursesByLanguage.programs;
     const globalWebinarsByLanguage = globalCourses.globalCoursesByLanguage.webinars;
 
@@ -92,6 +93,7 @@ const Home = () => {
     const userAvailableWebinars = sortProgramWebinars(userProgramsByLanguage, userWebinarsByLanguage, 'date', isLanguageEnglish)
 
     console.log('DD1', user)
+    console.log('DD2',globalCourses)
 
     return (
         <div className={styles.root}>

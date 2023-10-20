@@ -34,45 +34,44 @@ const MyCalendar = ({general, userPrograms = [], globalPrograms = []}) => {
     const ref = useRef()
 
     const records = isAllRecords ? globalPrograms : userPrograms;
-    console.log('Records', records)
 
     const events = createCalendarEvents(records, general,t)
-    // const eventsWithoutDuplicates = removeDuplicates(events)
-    // const handleClick = (bool) => {
-    //     setIsAllRecords(bool)
-    // }
-    // console.log('EVE',events)
+    const eventsWithoutDuplicates = removeDuplicates(events)
+    const handleClick = (bool) => {
+        setIsAllRecords(bool)
+    }
+
     return (
         <div className={styles.gridCalendar}>
             <div className={`calendar ${general ? 'generalCalendar' : ''}`}>
-                {/*<Calendar*/}
-                {/*    selectable*/}
-                {/*    steps={60}*/}
-                {/*    date={date}*/}
-                {/*    resourceIdAccessor="resourceId"*/}
-                {/*    resourceTitleAccessor="resourceTitle"*/}
-                {/*    ref={ref}*/}
-                {/*    events={eventsWithoutDuplicates}*/}
-                {/*    localizer={localizer}*/}
-                {/*    startAccessor="start"*/}
+                <Calendar
+                    selectable
+                    steps={60}
+                    date={date}
+                    resourceIdAccessor="resourceId"
+                    resourceTitleAccessor="resourceTitle"
+                    ref={ref}
+                    events={eventsWithoutDuplicates}
+                    localizer={localizer}
+                    startAccessor="start"
 
-                {/*    endAccessor="end"*/}
-                {/*    components={{*/}
-                {/*        event: props =>*/}
-                {/*            <Event*/}
-                {/*                {...props}*/}
-                {/*                general={general}*/}
-                {/*            />,*/}
-                {/*        toolbar: props =>*/}
-                {/*            <CustomToolbar*/}
-                {/*                {...props}*/}
-                {/*                setDate={setDate}*/}
-                {/*                date={date}*/}
-                {/*                isAllRecords={isAllRecords}*/}
-                {/*                handleClick={handleClick}*/}
-                {/*            />,*/}
-                {/*    }}*/}
-                {/*/>*/}
+                    endAccessor="end"
+                    components={{
+                        event: props =>
+                            <Event
+                                {...props}
+                                general={general}
+                            />,
+                        toolbar: props =>
+                            <CustomToolbar
+                                {...props}
+                                setDate={setDate}
+                                date={date}
+                                isAllRecords={isAllRecords}
+                                handleClick={handleClick}
+                            />,
+                    }}
+                />
             </div>
         </div>
 

@@ -1,6 +1,6 @@
 export const createCalendarEvents = (programs, general, t) => {
     console.log('PE initial',programs)
-    let a = programs
+    return  programs
         .reduce((acc, curr) => {
             const programId = curr.id; // Get the programId
             const dataItems = curr.webbinarrs?.data || [];
@@ -25,8 +25,31 @@ export const createCalendarEvents = (programs, general, t) => {
 
             return acc.concat(itemsWithProgramId);
         }, [])
+        .map(item => {
+            const data = item.attributes || item;
+            const startDate = new Date(data.date);
+
+            const programId = item.programId;
+            const webinarId = item.id;
 
 
-    // console.log('PE', a)
+            const programLink = general
+                ? `/services/programs/${programId}`
+                : `/home/programs/program/?program=${programId}#programs`;
 
+            const eventLink = general
+                ? `/services/webinars-and-lectures/${webinarId}`
+                : `/home/webinars/webinar/?webinar=${webinarId}#webinars`;
+            return {
+                ...data,
+                start: startDate,
+                end: startDate,
+                programLink,
+                eventLink,
+                topic: data.topic,
+                type: t('additional.webinar'),
+                price:data.price,
+                id: webinarId,
+            };
+        });
 }

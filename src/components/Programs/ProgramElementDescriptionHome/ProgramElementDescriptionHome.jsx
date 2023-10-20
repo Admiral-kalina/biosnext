@@ -49,7 +49,7 @@ const ProgramElementDescriptionHome = ({program}) => {
                 </Link>
                 <div className={styles.row}>
                     <div className={styles.webinarsList}>
-                        {/*{program?.webbinarrs && <WebinarListHome webinars={sortedEventsByDate}/>}*/}
+                        {/*{program?.webinarrs && <WebinarListHome webinars={sortedEventsByDate}/>}*/}
                          <WebinarListHome withAttributes={false} webinars={sortedEventsByDate}/>
                     </div>
                     <div className={styles.program}>
