@@ -11,8 +11,4 @@ export const store = configureStore({
         courses: coursesSlice,
         basket: basketSlice,
     },
-    middleware: getDefaultMiddleware =>
-        getDefaultMiddleware({
-            serializableCheck: false,
-        }),
 })

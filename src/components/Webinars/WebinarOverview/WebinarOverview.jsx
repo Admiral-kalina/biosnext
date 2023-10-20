@@ -43,7 +43,7 @@ export const WebinarOverview = ({webinars}) => {
             <MyLoader/>
         )
     }
-
+    console.log('WEB',webinar)
     const handleClick = () => {
         const payload = {
             data: webinar,
@@ -69,7 +69,12 @@ export const WebinarOverview = ({webinars}) => {
                         }
                     </div>
                     <div className={styles.overviewRow}>
-                        <Image className={styles.image} src={logo} alt=""/>
+                        <Image  width={500}
+                                height={700}
+                                className={styles.image}
+                                src={'https://api-bioinnova.onrender.com/uploads/BG_32_7665d8fdc7.png'}
+                                alt="webinarImg"
+                        />
                         <div className={styles.description}>
                             <p className={styles.title}>{t('additional.webinar')} №{webinar.id}</p>
                             <p className={`${styles.name} text60`}>{webinar.name}</p>

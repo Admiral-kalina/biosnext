@@ -15,10 +15,10 @@ import {ToastContainer} from "react-toastify";
 import {Protector} from "@/helpers/userData";
 
 export default function RootLayout({children}) {
-    //
-    // if (typeof document !== "object") {
-    //     return null
-    // }
+
+    if (typeof document !== "object") {
+        return null
+    }
 
 
     return (

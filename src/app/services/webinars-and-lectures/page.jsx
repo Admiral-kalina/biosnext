@@ -3,22 +3,17 @@ import React from "react";
 // components
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import Programs from "@/components/Programs/Programs"
+import Webinars from "@/components/Webinars/Webinars";
 
 
-const ServicesProgramsList = () => {
+const ServicesWebinarsList = (props) => {
     return (
         <div>
             <Header/>
-            <Programs/>
+            <Webinars />
             <Footer/>
         </div>
     );
 };
 
-
-
-
-
-
-export default ServicesProgramsList;
+export default ServicesWebinarsList;
