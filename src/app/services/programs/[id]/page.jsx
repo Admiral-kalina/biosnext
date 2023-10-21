@@ -10,10 +10,8 @@ import {strapiApi} from "@/api";
 
 export const generateStaticParams = async () => {
     const programsList = await strapiApi.get(`/api/courses?populate=*`);
-    console.log('programsList KK',programsList)
-    const ids = programsList.data.data.map(course =>({id:course.id.toString()}))
-    console.log('IDS',ids)
-    return ids
+    return programsList.data.data.map(course =>({id:course.id.toString()}))
+
 }
 
 const ServicesProgramsList = () => {

@@ -22,8 +22,6 @@ import * as styles from "./basket.module.scss"
 const Basket = () => {
     const {t} = useTranslation()
     const {programs, webinars, totalPrice, count} = useSelector(store => store.basket.basket)
-    const location = useLocation()
-    const hashString = location.hash.substring(1)
 
     const hasItems = count > 0;
 
@@ -31,7 +29,6 @@ const Basket = () => {
 
     return (
         <div className={styles.root}>
-            <Header type={hashString}/>
             <Container additionalPadding>
 
                 <div className={styles.container}>

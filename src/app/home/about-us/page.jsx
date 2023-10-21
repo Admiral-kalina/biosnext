@@ -1,4 +1,4 @@
-'use client'
+
 import React from "react";
 
 const AboutUs = () => {
@@ -10,3 +10,4 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
+

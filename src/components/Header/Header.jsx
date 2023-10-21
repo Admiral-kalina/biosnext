@@ -263,7 +263,7 @@ const Header = ({type}) => {
                             onClick={handleMobileClick}>
                             <Link
                                 className={`text-uppercase ${endpoint === 'home' ? 'active' : ''}`}
-                                href={'home/webinars/#webinars'}
+                                href={'home'}
                             >
                                 {t('header.account')}
                             </Link>
