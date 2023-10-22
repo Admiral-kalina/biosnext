@@ -5,7 +5,7 @@ import strapiAxios from "@/api/strapiAxios";
 async function sendEmail(body) {
 
     const config = {
-        to: 'kalinamono@gmail.com',
+        to: 'info@bioinnova.com.ua',
         html:  body
     };
 
