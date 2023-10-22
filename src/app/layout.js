@@ -34,6 +34,7 @@ export default function RootLayout({children}) {
 const MiddleLayout = ({children}) => {
     const dispatch = useDispatch();
     useEffect(() => {
+        console.log('BEREZA TRIGGER')
         dispatch(fetchUserCourses())
         dispatch(fetchCourses())
     }, [dispatch])

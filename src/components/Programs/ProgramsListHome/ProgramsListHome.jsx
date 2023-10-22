@@ -7,11 +7,11 @@ import {getNearestEventsByKey} from "@/helpers/getNearestEventsByKey";
 import * as styles from "./programsListHome.module.scss"
 
 
-const ProgramsListHome = ({userPrograms, globalPrograms}) => {
+const ProgramsListHome = ({userPrograms, closestPrograms}) => {
     const {t} = useTranslation()
-    const dataToSort = [...globalPrograms];
 
-    const closest = getNearestEventsByKey(dataToSort, "start");
+
+
 
     return (
         <div className={styles.root}>
@@ -21,7 +21,7 @@ const ProgramsListHome = ({userPrograms, globalPrograms}) => {
             </div>
             <p className={`${styles.title} ${styles.titleSoon}`}>{t('cabinet.nearest')}</p>
             <div className={styles.row}>
-                <ProgramElementHome programs={closest}/>
+                <ProgramElementHome programs={closestPrograms}/>
             </div>
         </div>
     );

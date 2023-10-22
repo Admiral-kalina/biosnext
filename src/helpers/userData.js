@@ -18,8 +18,8 @@ export const storeUser = (data) => {
 };
 
 export const userData = () => {
-    const stringifiedUser = typeof window !== 'undefined' ? localStorage.getItem("user") || '""' : '';
-    return JSON.parse(stringifiedUser || {});
+    const stringifiedUser = typeof window !== 'undefined' ? localStorage.getItem("user") || '{}' : '{}';
+    return JSON.parse(stringifiedUser);
 };
 
 export const removeUserData = () => {
@@ -31,6 +31,7 @@ export const Protector = ({ children }) => {
     const { jwt } = userData();
 
     useEffect(() => {
+        console.log('JWT',jwt )
         if (!jwt) {
             redirect("/login");
         }

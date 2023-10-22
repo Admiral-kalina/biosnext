@@ -1,12 +1,30 @@
 'use client'
-import React from "react";
+import React, {useEffect} from "react";
+import WebinarOverviewHome from "@/components/Webinars/WebinarOverviewHome/WebinarOverviewHome";
+import useHomeLayoutContext from "@/hooks/useHomeLayoutContext";
+import MyLoader from "@/components/UI/MyLoader/MyLoader";
+import {scrollToTop} from "@/helpers/scrollToTop";
 
-const Webinars = () => {
+const Webinar = () => {
+    const {programElement, userAvailableWebinars, hash, previousRoute} = useHomeLayoutContext()
+    console.log('WB', programElement, userAvailableWebinars)
+
+    useEffect(() => {
+        scrollToTop()
+    }, []);
+
+    if(!programElement){
+        return <MyLoader/>
+    }
     return (
-        <div>
-
-        </div>
+        <>
+            <WebinarOverviewHome
+                webinar={programElement}
+                userAvailableWebinars={userAvailableWebinars}
+                hashString={hash}
+                previousRoute={previousRoute}/>
+        </>
     );
 };
 
-export default Webinars;
+export default Webinar;

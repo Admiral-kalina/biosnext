@@ -7,12 +7,12 @@ import mockImg from "../../../app/media/images/home/webinarMock.png"
 import MyButton from "../../UI/MyButton/MyButton";
 
 import Image from "next/image";
-import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {addBasketElement} from "@/features/basket/basketSlice";
 import {useTranslation} from "react-i18next";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
 import {convertDateFormat} from "@/helpers/convertTime";
+import Link from "next/link";
 
 
 const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars, previousRoute}) => {
@@ -20,7 +20,7 @@ const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars, previou
     const dispatch = useDispatch()
 
     const isEventBuyInWebinar = userAvailableWebinars.find(el => el.id === webinar.id)
-
+    console.log('HASh',hashString)
     if (!webinar) {
         return (
             <MyLoader/>
@@ -48,7 +48,7 @@ const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars, previou
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
-                <Link to={route}>
+                <Link href={route}>
                     {hashString === 'webinars' ?
                         <p className={styles.back}>{t('cabinet.back')}</p>
                         :
@@ -91,7 +91,7 @@ const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars, previou
                                 <div className={styles.contentLectures}>
                                     <MyButton transparent>
                                         <Link
-                                            to={webinar.youTubeLink}
+                                            href={webinar.youTubeLink}
                                             target="_blank"
                                         >
                                             <p
@@ -102,7 +102,7 @@ const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars, previou
                                     </MyButton>
                                     <MyButton transparent>
                                         <Link
-                                            to={webinar.lectureNotesLink}
+                                            href={webinar.lectureNotesLink}
                                             target="_blank"
                                         >
                                             <p
@@ -113,7 +113,7 @@ const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars, previou
                                     </MyButton>
                                     <MyButton transparent>
                                         <Link
-                                            to={webinar.presentationLink}
+                                            href={webinar.presentationLink}
                                             target="_blank"
                                         >
                                             <p

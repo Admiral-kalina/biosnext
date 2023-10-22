@@ -1,6 +1,5 @@
 import React from 'react';
 import {useTranslation} from "react-i18next";
-import {Link} from "react-router-dom";
 
 import {getAllEventsWithSort, getNearestEventsByKey} from "@/helpers/getNearestEventsByKey";
 
@@ -8,16 +7,17 @@ import * as styles from "../webinars.module.scss";
 import {convertDateFormat} from "@/helpers/convertTime";
 import {checkLanguage} from "@/helpers/checkLanguage";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
+import Link from "next/link";
 
 
 const WebinarListHome = ({webinars, isWebinarHome, isAvailable, withAttributes}) => {
     const {t} = useTranslation();
-    console.log('WP', Boolean(webinars))
-    if (!webinars.length) {
-        return (
-            <MyLoader/>
-        )
-    }
+    // console.log('WP', Boolean(webinars))
+    // if (!webinars.length) {
+    //     return (
+    //         <MyLoader/>
+    //     )
+    // }
     console.log('Patronum', webinars)
 
     return (
@@ -36,7 +36,7 @@ const WebinarListHome = ({webinars, isWebinarHome, isAvailable, withAttributes})
                            </div>
                            <div>
                                <Link
-                                   to={`/home/programs/program/webinar/?webinar=${webinar.id}#programs`}
+                                   href={`/home/webinars/webinar/?webinar=${webinar.id}#webinars`}
                                >
                                    {t('additional.open')}
                                </Link>
@@ -58,7 +58,7 @@ const WebinarListHome = ({webinars, isWebinarHome, isAvailable, withAttributes})
                             </div>
                             <div>
                                 <Link
-                                    to={`/home/programs/program/webinar/?webinar=${webinar.id}#programs`}
+                                    href={`/home/webinars/webinar/?webinar=${webinar.id}#webinars`}
                                 >
                                     {t('additional.open')}
                                 </Link>

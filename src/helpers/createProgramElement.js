@@ -4,7 +4,7 @@ import {checkBuying} from "./checkBuying";
 export const createProgramElement = (globalPrograms, userPrograms, search) => {
     let currentObj = findObjectById(globalPrograms, search)
     let isAcquired = checkBuying(userPrograms, search)
-
+    console.log('XX Inner', currentObj)
     if(currentObj){
         return {...currentObj, isAcquired}
     }

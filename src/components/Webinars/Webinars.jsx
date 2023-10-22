@@ -28,7 +28,8 @@ const Webinars = ({type}) => {
     return (
         <div>
             {type === 'webinarElement'
-                ? <WebinarOverview webinars={globalCoursesByLanguage.webinars}/>
+                ?
+                <WebinarOverview webinars={globalCoursesByLanguage.webinars}/>
                 :
                 <Container>
                     <div className={styles.root}>

@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {addBasketElement} from "@/features/basket/basketSlice";
 
@@ -17,6 +16,7 @@ import MyLoader from "@/components/UI/MyLoader/MyLoader";
 import {convertDateFormat} from "@/helpers/convertTime";
 import {getAllEventsWithSort} from "@/helpers/getNearestEventsByKey";
 import {checkLanguage} from "@/helpers/checkLanguage";
+import Link from "next/link";
 
 
 const ProgramElementDescriptionHome = ({program}) => {
@@ -43,7 +43,7 @@ const ProgramElementDescriptionHome = ({program}) => {
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
-                <Link to={'/home/programs/#programs'}>
+                <Link href={'/home/programs/#programs'}>
                     <p className={styles.back}>{t('cabinet.backToProgram')}</p>
                 </Link>
                 <div className={styles.row}>

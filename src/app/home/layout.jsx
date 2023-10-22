@@ -4,91 +4,89 @@ import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import Container from "@/components/Container/Container";
 import * as React from "react";
-import "../index.scss"
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import "../index.scss";
+import union from "@/app/media/images/home/union.svg";
+import laptop from "@/app/media/images/home/laptop.svg";
+import schedule from "@/app/media/images/home/schedule.svg";
+import about from "@/app/media/images/home/about.svg";
 import {useTranslation} from "react-i18next";
-
+import * as styles from "@/components/Home/home.module.scss";
+import Image from "next/image";
+import Link from "next/link";
+import {redirect} from "next/navigation";
+import {Protector, removeUserData} from "@/helpers/userData";
+import {useEffect, useState} from "react";
 
 export default function HomeLayout({children}) {
     const {t} = useTranslation();
+    const [hash, setHash] = useState('');
+    const [navs, setNavs] = useState([]);
 
-    const stringifiedUser = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("user")) || '""' : '';
-    console.log('USFUL',stringifiedUser)
+    const initNavs = () => {
+        const currentHash = location.hash.substring(1);
+        setHash(currentHash);
 
-    // if (typeof document !== "object") {
-    //     return null
-    // }
+        const navItems = [
+            {id: 0, description: t('cabinet.webinar'), path: 'webinars', img: union},
+            {id: 1, description: t('cabinet.program'), path: 'programs', img: laptop},
+            {id: 2, description: t('cabinet.schedule'), path: 'schedule', img: schedule},
+            {id: 3, description: t('cabinet.aboutUs'), path: 'about-us', img: about}
+        ];
 
-    if (!stringifiedUser.jwt) {
-        redirect("/login/");
-    }
+        return navItems.map(nav => ({
+            ...nav,
+            isActive: nav.path === currentHash
+        }));
+    };
 
+    useEffect(() => {
+        setNavs(initNavs());
+    }, []);
+
+
+
+    const handleNavClick = (id) => {
+        setNavs(prevNavs =>
+            prevNavs.map(navItem => ({
+                ...navItem,
+                isActive: navItem.id === id
+            }))
+        );
+    };
 
     return (
-        <section>
-            <Header type={'cabinet'}/>
-            <Container sizeZero={true} additionalPadding>
+        <Protector>
+            <section>
+                <Header type={'cabinet'} />
+                <Container sizeZero={true} additionalPadding>
+                    <div className={styles.root}>
+                        <div className={styles.gridSidebar}>
+                            {navs.map(nav => (
+                                <div key={nav.id} className={`${styles.block} ${nav.isActive ? styles.active : ''}`}>
+                                    <Link scroll={true} onClick={() => handleNavClick(nav.id)} href={`/home/${nav.path}/#${nav.path}`}>
+                                        <div className={styles.blockElement}>
+                                            <Image src={nav.img} alt={laptop} />
+                                            <p>{nav.description}</p>
+                                        </div>
+                                    </Link>
+                                </div>
+                            ))}
+                            <div className={styles.block}>
+                                <div onClick={removeUserData} className={styles.blockElement}>
+                                    <p>{t('header.exit')}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.gridContent}>
+                            <div className={styles.contentWrapper}>
+                                {children}
+                            </div>
+                        </div>
+                    </div>
+                </Container>
+                <Footer location='home' />
+            </section>
+        </Protector>
 
-            </Container>
-
-            <Footer location='home'/>
-        </section>
     )
 }
-
-
-//
-// export default function HomeLayout({children}) {
-//     const {t} = useTranslation();
-//
-//     return (
-//         <section>
-//             <Header type={'cabinet'}/>
-//             <Protector>
-//             <div style={{background: "#151515"}}>
-//                 <Container sizeZero={true} additionalPadding>
-//                     <Home/>
-//                 </Container>
-//                 <Routes>
-//                     <Route path='/home/about-us' element={
-//                         <div className="experienceHome">
-//                             <section className="experience__wrapper experience__wrapper_home">
-//                                 <h2 className="experience__title">{t('cabinet.trust')}</h2>
-//                                 <div className="experience__description">
-//                                     <p className="experience__text">
-//                                         {t('cabinet.about')}
-//                                     </p>
-//                                     <div className="line__wrapper">
-//                                         <div className="line"></div>
-//                                     </div>
-//
-//                                     <div className="achievements-wrapper">
-//                                         <div className="achievements__items">
-//                                             <div className="achievements__items--value">105</div>
-//                                             <p className="achievements__description">
-//                                                 {t('cabinet.partners')}
-//                                             </p>
-//                                         </div>
-//                                         <div className="achievements__items">
-//                                             <div className="achievements__items--value">116</div>
-//                                             <p className="achievements__description">
-//                                                 {t('cabinet.products')}
-//                                             </p>
-//                                         </div>
-//                                         <div className="achievements__items">
-//                                             <div className="achievements__items--value">12</div>
-//                                             {t('cabinet.yearsOnMarket')}
-//                                         </div>
-//                                     </div>
-//                                 </div>
-//                             </section>
-//                         </div>
-//                     }/>
-//                 </Routes>
-//             </div>
-//             </Protector>
-//             <Footer location='home'/>
-//         </section>
-//     )
-// }
-//
