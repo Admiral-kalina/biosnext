@@ -14,14 +14,16 @@ import * as styles from "@/components/Home/home.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import {redirect} from "next/navigation";
-import {Protector, removeUserData} from "@/helpers/userData";
+import {Protector, removeUserData, userData} from "@/helpers/userData";
 import {useEffect, useState} from "react";
+import {fetchUserCourses} from "@/features/userSlice/userSlice";
+import {useDispatch} from "react-redux";
 
 export default function HomeLayout({children}) {
+    const dispatch = useDispatch()
     const {t} = useTranslation();
     const [hash, setHash] = useState('');
     const [navs, setNavs] = useState([]);
-
     const initNavs = () => {
         const currentHash = location.hash.substring(1);
         setHash(currentHash);
@@ -40,6 +42,7 @@ export default function HomeLayout({children}) {
     };
 
     useEffect(() => {
+
         setNavs(initNavs());
     }, []);
 
@@ -58,12 +61,12 @@ export default function HomeLayout({children}) {
         <Protector>
             <section>
                 <Header type={'cabinet'} />
-                <Container sizeZero={true} additionalPadding>
+                <Container background={'#151515'} sizeZero={true} additionalPadding>
                     <div className={styles.root}>
                         <div className={styles.gridSidebar}>
                             {navs.map(nav => (
                                 <div key={nav.id} className={`${styles.block} ${nav.isActive ? styles.active : ''}`}>
-                                    <Link scroll={true} onClick={() => handleNavClick(nav.id)} href={`/home/${nav.path}/#${nav.path}`}>
+                                    <Link scroll={false} onClick={() => handleNavClick(nav.id)} href={`/home/${nav.path}/#${nav.path}`}>
                                         <div className={styles.blockElement}>
                                             <Image src={nav.img} alt={laptop} />
                                             <p>{nav.description}</p>

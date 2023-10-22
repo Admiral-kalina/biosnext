@@ -6,11 +6,15 @@ import MyLoader from "@/components/UI/MyLoader/MyLoader";
 import {scrollToTop} from "@/helpers/scrollToTop";
 
 const Webinar = () => {
+
     useEffect(() => {
         scrollToTop()
     }, []);
+
     const {programElement, userAvailableWebinars, hash, previousRoute} = useHomeLayoutContext()
+
     console.log('WB', programElement, userAvailableWebinars)
+
     if(!programElement){
         return <MyLoader/>
     }

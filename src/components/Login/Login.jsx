@@ -48,7 +48,7 @@ const Login = () => {
                         hideProgressBar: true,
                     });
                     setUser(initialUser);
-                   router.push('/home/webinars/#webinars')
+                    window.location.href = '/home/webinars/#webinars';
                 }
             }
         } catch (error) {

@@ -43,7 +43,6 @@ export const ProgramOverview = ({programs}) => {
     console.log()
     return (
         <div className={styles.rootOverview}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem earum facilis incidunt modi porro quia unde. Asperiores deleniti hic labore neque perferendis, quasi ut voluptatibus. A at blanditiis, consequuntur dolorem, eaque exercitationem hic id impedit libero maiores molestias nulla omnis, perspiciatis quisquam quos ullam voluptatum? Adipisci animi asperiores autem beatae blanditiis dolores dolorum fugit libero maxime minus nulla omnis praesentium quidem, repellendus sint sit suscipit temporibus ullam, ut vero? Accusantium, asperiores, cumque debitis neque non perferendis quia quibusdam repellat reprehenderit similique sit, sunt tempore ullam voluptas voluptates. Accusantium animi doloremque, esse et perspiciatis praesentium quaerat quos tempora tempore vero.
             <Container>
                 <div className={`${styles.back} back_group`}>
                     <Link href={'/services'} className="back back_white">{t('services.services')}</Link>
