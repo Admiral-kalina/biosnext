@@ -1,6 +1,9 @@
-export const createCalendarEvents = (programs, general, t) => {
+const generateEventList = () => {
+
+}
+export const createCalendarEvents = (programs, general, t, userWebinars) => {
     console.log('PE initial',programs)
-    return  programs
+    const eventList =  programs
         .reduce((acc, curr) => {
             const programId = curr.id; // Get the programId
             const dataItems = curr.webbinarrs?.data || [];
@@ -52,4 +55,12 @@ export const createCalendarEvents = (programs, general, t) => {
                 id: webinarId,
             };
         });
+
+    if(userWebinars?.length ){
+        console.log('ITEM LL,', userWebinars)
+        console.log('ITEM,', eventList)
+
+    }
+
+    return eventList
 }

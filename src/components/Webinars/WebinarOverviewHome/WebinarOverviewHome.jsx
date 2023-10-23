@@ -48,7 +48,8 @@ const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars, previou
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
-                <Link href={route}>
+                <Link scroll={false} href={route}>
+
                     {hashString === 'webinars' ?
                         <p className={styles.back}>{t('cabinet.back')}</p>
                         :

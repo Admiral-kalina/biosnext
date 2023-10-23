@@ -21,9 +21,11 @@ import "./calendar.scss";
 import * as styles from "../Home/home.module.scss";
 import {useTranslation} from "react-i18next";
 import {removeDuplicates} from "@/helpers/getNearestEventsByKey";
+import {addToEventsUserEvent} from "@/helpers/addToEventsUserEvent";
+import MyLoader from "@/components/UI/MyLoader/MyLoader";
 
 
-const MyCalendar = ({general, userPrograms = [], globalPrograms = []}) => {
+const MyCalendar = ({general, userPrograms , globalPrograms = [], userAvailableWebinars = []}) => {
     const {t} = useTranslation()
     const [isAllRecords, setIsAllRecords] = useState(true)
     const {language} = useSelector(state => state.user.user)
@@ -32,11 +34,19 @@ const MyCalendar = ({general, userPrograms = [], globalPrograms = []}) => {
     moment.locale(language === 'ua' ? 'uk' : language);
 
     const ref = useRef()
+if(!userPrograms){
+    return (
+        <MyLoader/>
+    )
+}
+    const userProgramEvents = createCalendarEvents(userPrograms, general, t)
 
-    const records = isAllRecords ? globalPrograms : userPrograms;
+    const globalEvents = createCalendarEvents(globalPrograms, general, t)
+    const userEvents = addToEventsUserEvent(userProgramEvents,globalEvents,userAvailableWebinars)
 
-    const events = createCalendarEvents(records, general,t)
-    const eventsWithoutDuplicates = removeDuplicates(events)
+    console.log('TTQ',userEvents)
+    const eventsWithoutDuplicates = isAllRecords? removeDuplicates(globalEvents) :removeDuplicates(userEvents)
+
     const handleClick = (bool) => {
         setIsAllRecords(bool)
     }

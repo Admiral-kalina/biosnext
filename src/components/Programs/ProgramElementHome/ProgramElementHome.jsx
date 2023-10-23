@@ -19,7 +19,7 @@ const ProgramElement = ({programs}) => {
         <>
             {programs.map(program =>
                 <div key={program.id} className={styles.column}>
-                    <Link  href={`/home/programs/program/?program=${program.id}#programs`}>
+                    <Link scroll={false}  href={`/home/programs/program/?program=${program.id}#programs`}>
                         <p className={styles.section}>{t('additional.program')}</p>
                         <p className={styles.name}>{program.name}</p>
                         <p className={styles.date}><span>{t('additional.beginning')}:</span> {convertDateFormat(program.start)}</p>

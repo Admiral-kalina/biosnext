@@ -36,6 +36,7 @@ const WebinarListHome = ({webinars, isWebinarHome, isAvailable, withAttributes})
                            </div>
                            <div>
                                <Link
+                                   scroll={false}
                                    href={`/home/webinars/webinar/?webinar=${webinar.id}#webinars`}
                                >
                                    {t('additional.open')}
@@ -58,6 +59,7 @@ const WebinarListHome = ({webinars, isWebinarHome, isAvailable, withAttributes})
                             </div>
                             <div>
                                 <Link
+                                    scroll={false}
                                     href={`/home/webinars/webinar/?webinar=${webinar.id}#webinars`}
                                 >
                                     {t('additional.open')}

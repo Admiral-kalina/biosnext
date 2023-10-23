@@ -43,7 +43,7 @@ const ProgramElementDescriptionHome = ({program}) => {
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
-                <Link href={'/home/programs/#programs'}>
+                <Link scroll={false} href={'/home/programs/#programs'}>
                     <p className={styles.back}>{t('cabinet.backToProgram')}</p>
                 </Link>
                 <div className={styles.row}>
