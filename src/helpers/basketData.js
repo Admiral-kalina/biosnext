@@ -5,10 +5,8 @@ export const BASKET_TYPES = {
     PROGRAM: 'programs'
 };
 
-const getBasketPrice = (programs, webinars) => {
-    checkWindowExist()
+export const getBasketPrice = (programs, webinars) => {
     let basketPrice = 0;
-
     programs.forEach((program) => program.price ? basketPrice += program.price : '');
     webinars.forEach((webinar) => webinar.price ? basketPrice += webinar.price : '');
 

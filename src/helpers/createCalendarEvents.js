@@ -11,7 +11,7 @@ export const createCalendarEvents = (programs, general, t) => {
                     return {
                         ...item.attributes,
                         programId,
-                        webinarId: item.id
+                        id: item.id
                     }
                 }else{
                     return {
@@ -31,7 +31,7 @@ export const createCalendarEvents = (programs, general, t) => {
 
             const programId = item.programId;
             const webinarId = item.id;
-
+            console.log('ITEM',item)
 
             const programLink = general
                 ? `/services/programs/${programId}`

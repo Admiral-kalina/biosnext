@@ -72,7 +72,7 @@ export const WebinarOverview = ({webinars}) => {
                         <Image  width={700}
                                 height={700}
                                 className={styles.image}
-                                src={'http://drive.google.com/uc?export=view&id=14iBtqkI-hEG-bWxA1a6M3A7uH6vpIchC'}
+                                src={webinar.imageLink}
                                 alt="webinarImg"
                         />
                         <div className={styles.description}>
@@ -127,3 +127,5 @@ export const WebinarOverview = ({webinars}) => {
         </div>
     )
 }
+
+
