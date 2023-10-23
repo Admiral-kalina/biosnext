@@ -20,6 +20,86 @@ i18n
             //en
             en: {
                 translation: {
+                    home: {
+                        hero: {
+                            title1: 'Knowledge is',
+                            title2: 'the key to success',
+                            text1: 'We are an innovative and independent educational platform where you can get innovation, knowledge and answers to complex questions in the field of pharmacovigilance, GMP certification, registration and clinical development in the pharmaceutical industry.',
+                        },
+                        plitc: {
+                            text1: 'Up-to-date and competent materials',
+                            subtext1: 'We provide access to the latest knowledge and practical tools',
+                            text2: 'Expert teachers and leading schools',
+                            subtext2: 'We cooperate with leading international experts in their field',
+                            text3: 'Interactivity and practice',
+                            subtext3: 'Our training includes hands-on assignments, discussions and interactive exercises',
+                        },
+                        about: {
+                            text1: 'About us:',
+                            text2: 'Our mission is to help professionals in the pharmaceutical and related industries make better decisions in the critical business processes',
+                            text3: '105+',
+                            text4: '116+',
+                            text5: '300+',
+                            text6: 'partners around the world',
+                            text7: 'released medicinal products',
+                            text8: 'registration procedures per year',
+                        },
+                        // need to add
+                        coach: {
+                            text1: 'Training from Leading Experts',
+                            text2: 'Our main goal is to provide the needs of the market with the best specialists in their field.<br/>We do this by teaching professionals innovative concepts that they can only get from practicing experts.'
+                        }
+                    },
+                    aboutCompany: {
+                        hero: {
+                            text1: 'Our main goal',
+                            text2: 'We train a culture of safe use of medicines through a universal approach for specialists of different skill levels.',
+                            text3: 'Join us and move forward towards professional growth and improvement.'
+                        },
+                        partner: {
+                            text1: 'Your partner in the world of pharmaceutical education and professional development',
+                            text2: 'Our platform specializes in providing high-quality information resources and training programs for professionals in the fields of pharmacovigilance, GMP certification, registration and clinical development in the pharmaceutical industry.',
+                        },
+                        base: {
+                            text1: 'Our main directions',
+                            text2: 'Registration',
+                            text3: 'Clinical researches',
+                            text4: 'Pharmacovigilance',
+                            text5: 'GMP certification',
+                        },
+                        choose: {
+                            text1: 'Why choose us:',
+                            text2: 'BIOSCIENCE INNOVA is an international team of practicing professionals with successful experience in the regulatory sphere of the pharmaceutical industry in Ukraine since 2008.',
+                            text3: 'To solve complex problems in modern therapy, we involve the best experts in their field from different countries, with whom we have deep long-term cooperation.',
+                        },
+                        advantages: {
+                            text1: 'Our main advantages:',
+                            text2: 'Up-to-date and competent materials',
+                            text3: 'Expert teachers and leading schools',
+                            text4: 'Interactivity and practice',
+                        },
+                        services: {
+                            text1: 'Providing comprehensive services to our partners',
+                            text2: 'Consulting',
+                            text3: 'Receiving our consulting services gives you the opportunity to focus on the core aspects of your business',
+                            text4: 'Training',
+                            text5: 'Training on the platform helps optimize work processes and methods',
+                            text6: 'Audits',
+                            text7: 'Receiving our audit service allows you to diagnose the state of the pharmacovigilance system and registration dossier',
+                            text8: 'Practical courses',
+                            text9: 'Acquiring practical skills is an important tool for improving the skills and career development',
+                        },
+                        topics:{
+                            text1: 'All of our courses and educational programs are designed and taught by an exclusive network of experts internationally recognized by their peers as opinion leaders in their field of expertise.',
+                            text2: 'The training system we practice allows both to master the profession from scratch and improve your knowledge in a narrow specialization.',
+                            text3: 'We are able to make complex scientific and clinical information more accessible to those who are not as well with the field.',
+                        }
+                        // choose:{
+                        //     text1: '',
+                        //     text2: '',
+                        //     text3: '',
+                        // }
+                    },
                     collapse: {
                         beginner: 'Beginner level',
                         elementary: 'Elementary level',
@@ -92,6 +172,8 @@ i18n
                         contactsDescription: 'You can send your email address and we will get back to you.',
                         address: 'Kiev city, TARASOVSKAYA STREET, 4-A, office 7',
                         enter: 'Enter',
+                        enroll:'Enroll',
+                        ourCalendar:'Our Calendar'
                     },
                     header: {
                         about: 'about company',
@@ -159,8 +241,9 @@ i18n
                 translation: {
                     home: {
                         hero: {
-                            text1: 'Знания это ключ к успеху',
-                            text2: 'Мы являемся инновационной и независимой образовательной платформой, на которой можно получить инновации, знания и ответы на сложные вопросы в области фармаконадзора, GMP-сертификации, регистрации и клинического развития в фармацевтической отрасли.',
+                            title1: 'Знания это',
+                            title2: 'ключ к успеху',
+                            text1: 'Мы являемся инновационной и независимой образовательной платформой, на которой можно получить инновации, знания и ответы на сложные вопросы в области фармаконадзора, GMP-сертификации, регистрации и клинического развития в фармацевтической отрасли.',
                         },
                         plitc: {
                             text1: 'Актуальные и компетентные материалы',
@@ -180,6 +263,7 @@ i18n
                             text7: 'выпущенных препаратов',
                             text8: 'регистрационных процедур в год',
                         },
+                        // need to add
                         coach: {
                             text1: 'Обучение от Ведущих Экспертов',
                             text2: 'Наша главная цель это обеспечение потребностей рынка лучшими специалистами в своей области.<br/> Мы делаем это, обучая специалистов инновационным концепциям, которые они могут получить только у практикующих экспертов.'
@@ -303,6 +387,8 @@ i18n
                         contactsDescription: 'Вы можете отправить свой електронный адрес и мы свяжемся с вами.',
                         address: 'город Киев, УЛИЦА ТАРАСОВСКАЯ, дом 4-А, офис 7',
                         enter: 'Войти',
+                        enroll:'Записаться',
+                        ourCalendar:'Наш Календарь',
                     },
                     header: {
                         about: 'о компании',
@@ -348,27 +434,99 @@ i18n
                         emailIsRequired: 'Email обязателен',
                         topicIsRequired: 'Тема обязательна',
                     },
-                    main: {
-                        title1: 'Знания это',
-                        title2: 'ключ к успеху',
-                        subtext: 'Мы являемся инновационной и независимой образовательной платформой, на которой можно получить инновации, знания и ответы на сложные вопросы в области фармаконадзора, GMP-сертификации, регистрации и клинического развития в фармацевтической отрасли.',
-                        box1: {
-                            text1: 'Актуальные и компетентные материалы',
-                            subtext1: 'Мы обеспечиваем доступ к самым современным знаниям и практическим инструмента',
-                            text2: ' Экспертные преподаватели и ведущие школы',
-                            subtext2: 'Мы сотрудничаем с ведущими в своей сфере специалистами международного значения',
-                            text3: 'Интерактивность и практика',
-                            subtext3: 'Наше обучение включает в себя практические задания, дискуссии и интерактивные упражнения',
-                        },
-                        box2: {
-                            text1: 'ГРУППОВЫЕ ТРЕНИНГИ ГРУППОВЫЕ ТРЕНИНГИ ГРУППОВЫЕ ТРЕНИНГИ',
-                        }
-                    }
+                    collapse: {
+                        beginner: 'Начальный уровень',
+                        elementary: 'Элементарный уровень',
+                        intermediate: 'Средний уровень',
+                        advanced: 'Продвинутый уровень',
+                        extra: 'Специализированный уровень',
+                    },
+
                 },
             },
             // ua
             ua: {
                 translation: {
+                    home: {
+                        hero: {
+                            title1: 'Знання це',
+                            title2: 'ключ до успіху',
+                            text1: 'Ми є інноваційною та незалежною освітньою платформою, на якій можна отримати інновації, знання та відповіді на складні питання у сфері фармаконагляду, GMP-сертифікації, реєстрації та клінічного розвитку у фармацевтичній галузі.',
+                        },
+                        plitc: {
+                            text1: 'Актуальні та компетентні матеріали',
+                            subtext1: 'Ми забезпечуємо доступ до найсучасніших знань та практичних інструментів',
+                            text2: 'Експертні викладачі та провідні школи',
+                            subtext2: 'Ми співпрацюємо з провідними у своїй сфері фахівцями міжнародного значення',
+                            text3: 'Інтерактивність та практика',
+                            subtext3: 'Наше навчання включає практичні завдання, дискусії та інтерактивні вправи',
+                        },
+                        about: {
+                            text1: 'Про нас',
+                            text2: 'Наша місія полягає в тому, щоб допомогти фахівцям у фармацевтичній та суміжній галузях приймати більш ефективні рішення в критичних бізнес-процесах.',
+                            text3: '105+',
+                            text4: '116+',
+                            text5: '300+',
+                            text6: 'партнерів по всьому світу',
+                            text7: 'випущених препаратів',
+                            text8: 'реєстраційних процедур на рік',
+                        },
+                        // need to add
+                        coach: {
+                            text1: 'Навчання від Провідних Експертів',
+                            text2: 'Наша головна мета є забезпечення потреб ринку найкращими фахівцями у своїй галузі.<br/>Ми робимо це, навчаючи фахівців інноваційним концепціям, які вони можуть отримати тільки у практикуючих експертів.'
+                        }
+                    },
+                    aboutCompany: {
+                        hero: {
+                            text1: 'Наша головна мета',
+                            text2: 'Ми навчаємо культурі безпечного застосування лікарських засобів шляхом універсального підходу для фахівців різного рівня кваліфікації.',
+                            text3: 'Приєднуйтесь до нас та рухайтеся вперед до професійного зростання та вдосконалення.'
+                        },
+                        partner: {
+                            text1: 'Ваш партнер у світі фармацевтичної освіти та професійного зростання',
+                            text2: 'Наша платформа спеціалізується на наданні високоякісних інформаційних ресурсів та навчальних програм для фахівців у сфері фармаконагляду, GMP-сертифікації, реєстрації та клінічного розвитку у фармацевтичній галузі.',
+                        },
+                        base: {
+                            text1: 'Наші основні напрямки:',
+                            text2: 'Реєстрація',
+                            text3: 'Клінічні дослідження',
+                            text4: 'Фармаконагляд',
+                            text5: 'GMP-сертифікація',
+                        },
+                        choose: {
+                            text1: 'Чому ми:',
+                            text2: 'BIOSCIENCE INNOVA це міжнародна команда практикуючих професіоналів, яка має успішний досвід роботи у регуляторній сфері фармацевтичної галузі України, починаючи з 2008 року.',
+                            text3: 'Для вирішення складних завдань у сучасній терапії нами залучаються найкращі експерти у своїй галузі з різних країн, з якими маємо глибоке багаторічне співробітництво.',
+                        },
+                        advantages: {
+                            text1: 'Наші основні переваги:',
+                            text2: 'Актуальні та компетентні матеріали',
+                            text3: 'Експертні викладачі та провідні школи',
+                            text4: 'Інтерактивність та практика',
+                        },
+                        services: {
+                            text1: 'Надання комплексних послуг своїм партнерам',
+                            text2: 'Консалтинг',
+                            text3: 'Отримання наших консалтингових послуг надає можливість зосередитись на основних аспектах вашого бізнесу',
+                            text4: 'Навчання',
+                            text5: 'Навчання на платформі допомагає оптимізувати робочі процеси та методи',
+                            text6: 'Аудити',
+                            text7: 'Отримання послуги нашого аудиту дозволяє провести діагностику стану системи фармаконагляду, реєстраційного досьє.',
+                            text8: 'Практичні курси',
+                            text9: 'Придбання практичних навичок є важливим інструментом для підвищення кваліфікації.',
+                        },
+                        topics:{
+                            text1: 'Всі наші курси навчання та освітні програми розроблені та викладаються ексклюзивною мережею експертів, визнаних на міжнародному рівні своїми колегами як лідери громадської думки у своїй галузі знань.',
+                            text2: 'Система навчання, яку ми практикуємо, дозволяє як освоїти професію з чистого аркуша, так і вдосконалити свої знання у вузькій спеціалізації.',
+                            text3: 'Ми вміємо робити складну наукову та клінічну інформацію більш доступною для тих, хто не так добре знайомий із цією областю.',
+                        }
+                        // choose:{
+                        //     text1: '',
+                        //     text2: '',
+                        //     text3: '',
+                        // }
+                    },
                     collapse: {
                         beginner: 'Початковий рівень',
                         elementary: 'Елементарний рівень',
@@ -442,6 +600,8 @@ i18n
                         contactsDescription: 'Ви можете надіслати свою електронну адресу і ми зв\'яжемося з вами.',
                         address: 'місто Київ, ВУЛИЦЯ ТАРАСІВСЬКА, будинок 4-А, офіс 7',
                         enter: 'Увійти',
+                        enroll:'Записатися',
+                        ourCalendar:'Наш Календар',
                     },
                     header: {
                         about: 'про компанію',

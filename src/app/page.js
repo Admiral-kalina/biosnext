@@ -42,18 +42,19 @@ export default function Home() {
                    <div className="container d-block-md">
                        <div className="presentation-block">
                            <h1 className="main-title">
-                               {t('main.title1')} <br/>
-                               {t('main.title2')}
+                               {t('home.hero.title1')} <br/>
+                               {t('home.hero.title2')}
                            </h1>
 
                            <section className="presentation-block__description">
                                <p>
+                                   {t('home.hero.text1')}
                                </p>
                                <nav>
-                                   <Link className="btn btn-yellow" href={'/contacts'}>Записаться</Link>
+                                   <Link className="btn btn-yellow" href={'/contacts'}>{t('additional.enroll')}</Link>
 
                                    <div className="btn btn-transparent">
-                                       <Link href={'/activities'}>Наш Календарь</Link>
+                                       <Link href={'/activities'}> {t('additional.ourCalendar')}</Link>
                                        <Link href={'/activities'}><Image src={goldenArrow} alt={'arrow'}/></Link>
                                    </div>
                                </nav>
@@ -64,28 +65,28 @@ export default function Home() {
                            <div className="advantages__items">
                                <div className="advantages__item">
                                    <Image src={icon1} alt="icon1"/>
-                                   <h3>{t('main.box1.text1')}</h3>
+                                   <h3>{t('home.plitc.text1')}</h3>
                                    <p>
-                                       {t('main.box1.subtext1')}
+                                       {t('home.plitc.subtext1')}
                                    </p>
                                </div>
                                <div className="advantages__item">
                                    <Image src={icon2} alt="icon1"/>
-                                   <h3> {t('main.box1.text2')}</h3>
+                                   <h3> {t('home.plitc.text2')}</h3>
                                    <p>
-                                       {t('main.box1.subtext2')}
+                                       {t('home.plitc.subtext2')}
                                    </p>
                                </div>
                                <div className="advantages__item">
                                    <Image src={icon3} alt="icon1"/>
-                                   <h3>{t('main.box1.text3')}</h3>
+                                   <h3>{t('home.plitc.text3')}</h3>
                                    <p>
-                                       {t('main.box1.subtext3')}
+                                       {t('home.plitc.subtext3')}
                                    </p>
                                </div>
                            </div>
                            <div className="advantages__btn">
-                               <Link className="btn btn-yellow" href={'/contacts'}>Записаться</Link>
+                               <Link className="btn btn-yellow" href={'/contacts'}>{t('additional.enroll')}</Link>
                            </div>
                        </section>
                    </div>
@@ -95,17 +96,17 @@ export default function Home() {
                    <div className="marquee-block">
                        <div className="marquee-container">
                            <div className="marquee">
-                               ГРУПОВЫЕ ТРЕНИНГИ ГРУПОВЫЕ ТРЕНИНГИ ГРУПОВЫЕ ТРЕНИНГИ
+                               Universal School of Pharmacovigilance & Medical affairs
                            </div>
                        </div>
                    </div>
 
                    <div className="container d-block-md">
                        <section className="experience__wrapper">
-                           <h2 className="experience__title">О нас</h2>
+                           <h2 className="experience__title">{t('home.about.text1')}</h2>
                            <div className="experience__description">
                                <p className="experience__text">
-                                   Наша миссия заключается в том, чтобы помочь специалистам в фармацевтической и смежной ей отраслях принимать более эффективные решения в критических бизнес-процессах
+                                   {t('home.about.text2')}
                                </p>
                                <div className="line__wrapper">
                                    <div className="line"></div>
@@ -113,20 +114,26 @@ export default function Home() {
 
                                <div className="achievements-wrapper">
                                    <div className="achievements__items">
-                                       <div className="achievements__items--value">105</div>
+                                       <div className="achievements__items--value">
+                                           {t('home.about.text3')}
+                                       </div>
                                        <p className="achievements__description">
-                                           партнеров по всему миру
+                                           {t('home.about.text6')}
                                        </p>
                                    </div>
                                    <div className="achievements__items">
-                                       <div className="achievements__items--value">116</div>
+                                       <div className="achievements__items--value">
+                                           {t('home.about.text4')}
+                                       </div>
                                        <p className="achievements__description">
-                                           выпущенных препаратов
+                                           {t('home.about.text7')}
                                        </p>
                                    </div>
                                    <div className="achievements__items">
-                                       <div className="achievements__items--value">300</div>
-                                       <p>регистрационных процедур в год</p>
+                                       <div className="achievements__items--value">
+                                           {t('home.about.text5')}
+                                       </div>
+                                       <p>   {t('home.about.text8')}</p>
                                    </div>
                                </div>
                            </div>
@@ -134,7 +141,7 @@ export default function Home() {
                    </div>
 
                    <div className="experience__btn">
-                       <Link className="btn btn-yellow" href={'/contacts'}>Записаться</Link>
+                       <Link className="btn btn-yellow" href={'/contacts'}>{t('additional.enroll')}</Link>
                    </div>
 
                    <div className="container d-block-md">
@@ -264,15 +271,15 @@ export default function Home() {
                                <div className="training__items">
                                    <div className="training__items--wrapper">
                                        <h2 className="training__title">
-                                           Обучение от Ведущих Экспертов
+                                           {t('home.coach.text1')}
                                        </h2>
 
                                        <div className="training__subtitle">
                                            <p>
-                                               Наша главная цель это обеспечение потребностей рынка лучшими специалистами в своей области. Мы делаем это, обучая специалистов инновационным концепциям, которые они могут получить только у практикующих экспертов.
+                                               {t('home.coach.text2')}
                                            </p>
                                        </div>
-                                       <Link className="btn btn-yellow" href={'/contacts'}>Записаться</Link>
+                                       <Link className="btn btn-yellow" href={'/contacts'}>{t('additional.enroll')}</Link>
                                    </div>
                                </div>
                            </div>

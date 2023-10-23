@@ -70,7 +70,9 @@ const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars, previou
                         <p className={styles.text}>
                             {webinar.descriptionTitle}
                         </p>
-                        <Image src={mockImg} alt="preview"/>
+                        <div className={styles.imgWrapper}>
+                            <Image priority width={760} height={300} src={webinar.imageLink} alt="preview"/>
+                        </div>
                         <div className={styles.description}>
                             <WebinarDescription
                                 programTitle={webinar.descriptionSubtitle}

@@ -18,27 +18,30 @@ import aboutBgMiddleLinesMobile from "../../app/media/images/about/about-bg-midd
 import checkIcon from "../../app/media/images/check.svg"
 import icon10 from "../../app/media/images/icon/icon10.svg";
 import icon11 from "../../app/media/images/icon/icon11.svg";
+import {useTranslation} from "react-i18next";
 
 
 const AboutCompany = () => {
+    const {t} = useTranslation()
     return (
        <>
            <Header/>
            <main>
+
                <article className="our-goal">
                    <div className="container d-block-md">
                        <div className="our-goal-block">
                            <h1 className="main-title">
-                               Наша главная цель
+                               {t('aboutCompany.hero.text1')}
                            </h1>
 
                            <section className="our-goal-block__description">
                                <p>
-                                   Мы обучаем культуре безопасного применения лекарственных средств путем универсального подхода для специалистов разного уровня квалификации
+                                   {t('aboutCompany.hero.text2')}
                                </p>
 
                                <p>
-                                   Присоединяйтесь к нам и двигайтесь вперед к профессиональному росту и совершенствованию.
+                                   {t('aboutCompany.hero.text3')}
                                </p>
                            </section>
                        </div>
@@ -55,12 +58,9 @@ const AboutCompany = () => {
                    <div className="container d-block-md">
                        <section className="description-block__wrapper">
                            <div className="description-block__description">
-                               <h2 className="description-block__title">Мы инновационная и независимая образовательная
-                                   платформа </h2>
+                               <h2 className="description-block__title"> {t('aboutCompany.partner.text1')}</h2>
                                <p className="description-block__text">
-                                   Здесь можно получить инновации, знания и ответы на сложные вопросы в области
-                                   фармаконадзора, GMP-сертификации, регистрации и клинического развития в фармацевтической
-                                   отрасли
+                                   {t('aboutCompany.partner.text2')}
                                </p>
                            </div>
                            <picture>
@@ -79,21 +79,21 @@ const AboutCompany = () => {
                    <div className="container d-block-md">
                        <div className="main-areas__items">
                            <h2 className="main-areas__title">
-                               Наши основные направления
+                               {t('aboutCompany.base.text1')}
                            </h2>
 
                            <ul className="main-areas__list">
                                <li className="main-areas__list--item">
-                                   Регистрация
+                                   {t('aboutCompany.base.text2')}
                                </li>
                                <li className="main-areas__list--item">
-                                   Клинические исследования
+                                   {t('aboutCompany.base.text3')}
                                </li>
                                <li className="main-areas__list--item">
-                                   Фармаконадзор
+                                   {t('aboutCompany.base.text4')}
                                </li>
                                <li className="main-areas__list--item">
-                                   GMP-сертификация
+                                   {t('aboutCompany.base.text5')}
                                </li>
                            </ul>
                        </div>
@@ -101,14 +101,12 @@ const AboutCompany = () => {
                            {/*<i className="icon-temples"></i>*/}
                            <Image src={icon11} alt="icon"/>
                            <div className="main-areas__mission--items">
-                               <h2 className="main-areas__title">Миссия</h2>
+                               <h2 className="main-areas__title"> {t('aboutCompany.choose.text1')}</h2>
                                <p>
-                                   Помочь специалистам в фармацевтической и смежной ей отраслях принимать более эффективные
-                                   решения в критических бизнес-процессах, влияющих на успех их деятельности
+                                   {t('aboutCompany.choose.text2')}
                                </p>
                                <p>
-                                   Мы делаем это, обучая специалистов инновационным концепциям, которые они могут получить
-                                   только у практикующих экспертов
+                                   {t('aboutCompany.choose.text3')}
                                </p>
                            </div>
                        </section>
@@ -117,21 +115,20 @@ const AboutCompany = () => {
                <article className="medical-affairs">
                    <div className="container d-block-md">
                        <div className="medical-affairs__items">
-                           <h2 className="medical-affairs__title">Universal School of Pharmacovigilance <br/> & Medical affairs</h2>
+                           <h2 className="medical-affairs__title">{t('aboutCompany.advantages.text1')}</h2>
 
                            <ul className="medical-affairs__list">
                                <li>
                                    <Image src={checkIcon} alt="checkIcon"/>
-                                   Изучаем проблемы рынка и определяем их актуальность
+                                   {t('aboutCompany.advantages.text2')}
                                </li>
                                <li>
                                    <Image src={checkIcon} alt="checkIcon"/>
-                                   Собираем лучших экспертов в тематике выявленной проблемы
+                                   {t('aboutCompany.advantages.text3')}
                                </li>
                                <li>
                                    <Image src={checkIcon} alt="checkIcon"/>
-                                   Организовываем и реализуем курсы обучения по критически важным для бизнеса компетенциям,
-                                   характерным для фармацевтической индустрии и смежных отраслей.
+                                   {t('aboutCompany.advantages.text4')}
                                </li>
                            </ul>
                        </div>
@@ -141,43 +138,39 @@ const AboutCompany = () => {
                    <div className="container d-block-md">
                        <div className="services__wrapper">
                            <h2 className="services__title">
-                               Предоставление комплексных услуг своим партнерам
+                               {t('aboutCompany.services.text1')}
                            </h2>
                            <section className="services__items">
                                <div className="services__item">
                                    <h3 className="services__item--title">
-                                       Консалтинг
+                                       {t('aboutCompany.services.text2')}
                                    </h3>
                                    <p>
-                                       Lorem ipsum dolor sit amet consectetur. At vitae nibh etiam mauris egestas convallis
-                                       pharetra pulvinar pharetra.
+                                       {t('aboutCompany.services.text3')}
                                    </p>
                                </div>
                                <div className="services__item">
                                    <h3 className="services__item--title">
-                                       Аудиты
+                                       {t('aboutCompany.services.text6')}
                                    </h3>
                                    <p>
-                                       Lorem ipsum dolor sit amet consectetur. At vitae nibh etiam mauris egestas convallis
-                                       pharetra pulvinar pharetra.
+                                       {t('aboutCompany.services.text7')}
                                    </p>
                                </div>
                                <div className="services__item">
                                    <h3 className="services__item--title">
-                                       Обучение
+                                       {t('aboutCompany.services.text4')}
                                    </h3>
                                    <p>
-                                       Lorem ipsum dolor sit amet consectetur. At vitae nibh etiam mauris egestas convallis
-                                       pharetra pulvinar pharetra.
+                                       {t('aboutCompany.services.text5')}
                                    </p>
                                </div>
                                <div className="services__item">
                                    <h3 className="services__item--title">
-                                       Практические курсы
+                                       {t('aboutCompany.services.text8')}
                                    </h3>
                                    <p>
-                                       Lorem ipsum dolor sit amet consectetur. At vitae nibh etiam mauris egestas convallis
-                                       pharetra pulvinar pharetra.
+                                       {t('aboutCompany.services.text9')}
                                    </p>
                                </div>
                            </section>
@@ -194,35 +187,26 @@ const AboutCompany = () => {
                                    <div className="description__item">
                                        <Image src={icon10} alt="icon"/>
                                        <p>
-                                           Все наши курсы обучения
-                                           и образовательные программы разработаны и преподаются эксклюзивной сетью
-                                           экспертов, признанных на международном уровне своими коллегами как лидеры
-                                           общественного мнения в своей области знаний.
+                                           {t('aboutCompany.topics.text1')}
                                        </p>
                                    </div>
                                    <div className="description__item">
                                        <Image src={icon10} alt="icon"/>
-
                                        <p>
-                                           Практикуемая нами система обучения позволяет как освоить профессию с чистого
-                                           листа, так
-                                           и усовершенствовать свои знания
-                                           в узкой специализации
+                                           {t('aboutCompany.topics.text2')}
                                        </p>
                                    </div>
                                    <div className="description__item">
                                        <Image src={icon10} alt="icon"/>
-
                                        <p>
-                                           Мы умеем делать сложную научную и клиническую информацию более доступной для
-                                           тех, кто не так хорошо знаком с этой областью.
+                                           {t('aboutCompany.topics.text3')}
                                        </p>
                                    </div>
                                </div>
                            </div>
 
 
-                           <Link className="btn btn-yellow" href={'/contacts'}>Записаться</Link>
+                           <Link className="btn btn-yellow" href={'/contacts'}>{t('additional.enroll')}</Link>
                        </div>
                    </div>
                </article>
