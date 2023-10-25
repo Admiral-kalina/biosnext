@@ -6,10 +6,16 @@ import {useSelector,shallowEqual } from "react-redux";
 import {getNearestEventsByKey, sortProgramWebinars} from "@/helpers/getNearestEventsByKey";
 import {checkLanguage} from "@/helpers/checkLanguage";
 import {createProgramElement} from "@/helpers/createProgramElement";
+import {useSearchParams} from "next/navigation";
 
 const useHomeLayoutContext = () => {
+    const searchParams  = useSearchParams();
     const [hash, setHash] = useState(null)
-    const [search, setSearch] = useState(null)
+
+
+    const [programSearch, setProgramSearch] = useState('')
+    const [webinarSearch, setWebinarSearch] = useState('')
+
     const previousRoute = usePreviousRoute();
 
     const user = useSelector(store => store.user,shallowEqual);
@@ -18,9 +24,12 @@ const useHomeLayoutContext = () => {
 
     useEffect(() => {
         const currenHash = location.hash.substring(1)
-        const currentSearch =  Number(location.search.split('=')[1])
         setHash(currenHash)
-        setSearch(currentSearch)
+
+
+        setWebinarSearch(+searchParams.get('webinar'))
+        setProgramSearch(+searchParams.get('program'))
+
     }, [])
 
 
@@ -46,8 +55,8 @@ const useHomeLayoutContext = () => {
     //
     console.log('XX', hash)
     let programElement
-    console.log('XX Group',hash)
-    console.log('XX Group',search)
+
+    console.log('XX Search',webinarSearch)
     console.log('XX Group',globalProgramsByLanguage)
     console.log('XX Group',userProgramsByLanguage)
 
@@ -55,15 +64,15 @@ const useHomeLayoutContext = () => {
         programElement = createProgramElement(
             globalProgramsByLanguage,
             userProgramsByLanguage,
-            search
+            programSearch
         )
     }
-
-    if (hash === 'webinars') {
+    console.log('XX QQ',hash)
+    if (hash === 'webinars' || hash === 'webinarsInProgram') {
         programElement = createProgramElement(
             globalWebinarsByLanguage,
             userWebinarsByLanguage,
-            search
+            webinarSearch
         )
     }
 
@@ -78,6 +87,8 @@ const useHomeLayoutContext = () => {
 
     console.log('QQ',closestWebinars,userAvailableWebinars)
     return {
+        programSearch,
+        webinarSearch,
         previousRoute,
         hash,
         isLanguageEnglish,

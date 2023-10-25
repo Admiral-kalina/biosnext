@@ -15,7 +15,7 @@ import {convertDateFormat} from "@/helpers/convertTime";
 import Link from "next/link";
 
 
-const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars, previousRoute}) => {
+const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars,programSearch, previousRoute}) => {
     const {t} = useTranslation()
     const dispatch = useDispatch()
 
@@ -30,8 +30,8 @@ const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars, previou
 
     let route = null;
 
-    if (previousRoute) {
-        route = `${previousRoute.pathname}${previousRoute.search}#${hashString}`
+    if (programSearch) {
+        route = `/home/programs/program/?program=${programSearch}#programs`
     } else {
         route = `/home/${hashString}?#${hashString}`
     }

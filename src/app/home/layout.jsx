@@ -17,7 +17,7 @@ import {redirect} from "next/navigation";
 import {Protector, removeUserData, userData} from "@/helpers/userData";
 import {useEffect, useState} from "react";
 import {fetchUserCourses} from "@/features/userSlice/userSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 const AboutUsAddition = () => {
     const {t} = useTranslation();
@@ -58,8 +58,10 @@ const AboutUsAddition = () => {
 }
 
 export default function HomeLayout({children}) {
+    const {language} = useSelector(store => store.user.user)
     const dispatch = useDispatch()
     const {t} = useTranslation();
+
     const [hash, setHash] = useState('');
     const [navs, setNavs] = useState([]);
 
@@ -69,21 +71,23 @@ export default function HomeLayout({children}) {
 
         const navItems = [
             {id: 0, description: t('cabinet.webinar'), path: 'webinars', img: union},
-            {id: 1, description: t('cabinet.program'), path: 'programs', img: laptop},
+            {id: 1, description: t('cabinet.program'), path: 'programs',additionalPath: 'webinarsInProgram', img: laptop},
             {id: 2, description: t('cabinet.schedule'), path: 'schedule', img: schedule},
             {id: 3, description: t('cabinet.aboutUs'), path: 'about-us', img: about}
         ];
 
         return navItems.map(nav => ({
             ...nav,
-            isActive: nav.path === currentHash
+            isActive: nav.path === currentHash || currentHash === nav.additionalPath
         }));
     };
 
-    useEffect(() => {
 
+    console.log('LN', language)
+
+    useEffect(() => {
         setNavs(initNavs());
-    }, []);
+    }, [hash,language]);
 
 
 

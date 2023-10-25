@@ -9,6 +9,7 @@ const Program = () => {
     useEffect(() => {
         scrollToTop()
     }, []);
+
     const  {programElement} =  useHomeLayoutContext()
     console.log('XX Element', programElement)
     return (

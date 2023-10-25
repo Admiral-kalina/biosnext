@@ -1,30 +1,36 @@
 'use client'
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import WebinarOverviewHome from "@/components/Webinars/WebinarOverviewHome/WebinarOverviewHome";
 import useHomeLayoutContext from "@/hooks/useHomeLayoutContext";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
 import {scrollToTop} from "@/helpers/scrollToTop";
-
+import { useSearchParams  } from 'next/navigation';
+import {createProgramElement} from "@/helpers/createProgramElement";
 const Webinar = () => {
+    const [hash, setHash] = useState('');
 
-    useEffect(() => {
-        scrollToTop()
-    }, []);
+    const { programElement, userAvailableWebinars, previousRoute,programSearch} = useHomeLayoutContext()
 
-    const {programElement, userAvailableWebinars, hash, previousRoute} = useHomeLayoutContext()
+if (!programElement) {
+    return (
+        <MyLoader/>
+    )
+}
+    console.log('XX QQ LL', programElement)
 
-    console.log('WB', programElement, userAvailableWebinars)
 
-    if(!programElement){
-        return <MyLoader/>
-    }
+
+
+
+
     return (
         <>
-            <WebinarOverviewHome
-                webinar={programElement}
-                userAvailableWebinars={userAvailableWebinars}
-                hashString={hash}
-                previousRoute={previousRoute}/>
+                <WebinarOverviewHome
+                    programSearch={programSearch}
+                    webinar={programElement}
+                    userAvailableWebinars={userAvailableWebinars}
+                    hashString={hash}
+                    previousRoute={previousRoute}/>
         </>
     );
 };

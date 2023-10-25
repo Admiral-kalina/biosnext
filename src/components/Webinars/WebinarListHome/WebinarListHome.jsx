@@ -10,7 +10,7 @@ import MyLoader from "@/components/UI/MyLoader/MyLoader";
 import Link from "next/link";
 
 
-const WebinarListHome = ({webinars, isWebinarHome, isAvailable, withAttributes}) => {
+const WebinarListHome = ({webinars, isWebinarHome,programId, isAvailable, withAttributes}) => {
     const {t} = useTranslation();
     // console.log('WP', Boolean(webinars))
     // if (!webinars.length) {
@@ -18,7 +18,7 @@ const WebinarListHome = ({webinars, isWebinarHome, isAvailable, withAttributes})
     //         <MyLoader/>
     //     )
     // }
-    console.log('Patronum', webinars)
+    console.log('FQQ',programId, webinars)
 
     return (
         <>
@@ -37,7 +37,11 @@ const WebinarListHome = ({webinars, isWebinarHome, isAvailable, withAttributes})
                            <div>
                                <Link
                                    scroll={false}
-                                   href={`/home/webinars/webinar/?webinar=${webinar.id}#webinars`}
+                                   href={ isWebinarHome?
+                                       `/home/webinars/webinar/?webinar=${webinar.id}#webinars`
+                                       :
+                                       `/home/programs/program/webinar/?webinar=${webinar.id}&program=${programId}#webinarsInProgram`
+                               }
                                >
                                    {t('additional.open')}
                                </Link>
@@ -60,7 +64,11 @@ const WebinarListHome = ({webinars, isWebinarHome, isAvailable, withAttributes})
                             <div>
                                 <Link
                                     scroll={false}
-                                    href={`/home/webinars/webinar/?webinar=${webinar.id}#webinars`}
+                                    href={ isWebinarHome?
+                                        `/home/webinars/webinar/?webinar=${webinar.id}#webinars`
+                                        :
+                                        `/home/programs/program/webinar/?webinar=${webinar.id}&program=${programId}#webinarsInProgram`
+                                    }
                                 >
                                     {t('additional.open')}
                                 </Link>
