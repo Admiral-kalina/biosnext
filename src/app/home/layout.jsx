@@ -19,11 +19,50 @@ import {useEffect, useState} from "react";
 import {fetchUserCourses} from "@/features/userSlice/userSlice";
 import {useDispatch} from "react-redux";
 
+const AboutUsAddition = () => {
+    const {t} = useTranslation();
+    return(
+        <div className="experienceHome">
+            <section className="experience__wrapper experience__wrapper_home">
+                <h2 className="experience__title">{t('cabinet.trust')}</h2>
+                <div className="experience__description">
+                    <p className="experience__text">
+                        {t('cabinet.about')}
+                    </p>
+                    <div className="line__wrapper">
+                        <div className="line"></div>
+                    </div>
+
+                    <div className="achievements-wrapper">
+                        <div className="achievements__items">
+                            <div className="achievements__items--value">105</div>
+                            <p className="achievements__description">
+                                {t('cabinet.partners')}
+                            </p>
+                        </div>
+                        <div className="achievements__items">
+                            <div className="achievements__items--value">116</div>
+                            <p className="achievements__description">
+                                {t('cabinet.products')}
+                            </p>
+                        </div>
+                        <div className="achievements__items">
+                            <div className="achievements__items--value">12</div>
+                            {t('cabinet.yearsOnMarket')}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    )
+}
+
 export default function HomeLayout({children}) {
     const dispatch = useDispatch()
     const {t} = useTranslation();
     const [hash, setHash] = useState('');
     const [navs, setNavs] = useState([]);
+
     const initNavs = () => {
         const currentHash = location.hash.substring(1);
         setHash(currentHash);
@@ -56,6 +95,9 @@ export default function HomeLayout({children}) {
             }))
         );
     };
+    const isAboutActive = navs[3]?.isActive
+
+    console.log('HAS    ,', isAboutActive)
 
     return (
         <Protector>
@@ -87,6 +129,11 @@ export default function HomeLayout({children}) {
                         </div>
                     </div>
                 </Container>
+                {isAboutActive?
+               <AboutUsAddition/>
+                    :
+                  <></>
+                }
                 <Footer location='home' />
             </section>
         </Protector>

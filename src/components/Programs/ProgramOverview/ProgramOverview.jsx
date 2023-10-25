@@ -23,7 +23,7 @@ export const ProgramOverview = ({programs}) => {
     useEffect(() => {
         const search = +window.location.pathname.split('/')[3];
         setProgram(findObjectById(programs, search))
-        console.log('Search',search)
+        console.log('Search', search)
     }, [programs])
 
 
@@ -55,7 +55,11 @@ export const ProgramOverview = ({programs}) => {
                         <div className={styles.description}>
                             <p className={styles.title}>{program.name}</p>
                             <p className={styles.subtitle}>{program.description}</p>
-                            <p className={styles.date}><span>{t('additional.beginning')}:</span> {convertDateFormat(program.start)}</p>
+
+                            <a className={styles.anchor} href="#my-anchor">{t('additional.checkLevel')}</a>
+
+                            <p className={styles.date}>
+                                <span>{t('additional.beginning')}:</span> {convertDateFormat(program.start)}</p>
                             <p className={styles.program}>
                                 <span>{t('additional.webinars')}:</span> {program.webinarsCount}</p>
                             <p className={styles.price}>${program.price}</p>
@@ -73,7 +77,7 @@ export const ProgramOverview = ({programs}) => {
                         <WebinarsList programId={program.id} webinars={program.webbinarrs.data}/>
                     </div>
                 </div>
-                <div className={styles.collapse}>
+                <div id="my-anchor" className={styles.collapse}>
                     <div className={styles.title}>{t('services.levels')}</div>
                     <div className={styles.collapseWrapper}>
                         <MyCollapse type={'levels'} program={program}/>

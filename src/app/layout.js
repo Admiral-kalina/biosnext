@@ -14,17 +14,24 @@ import {ToastContainer} from "react-toastify";
 import {Protector} from "@/helpers/userData";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
 import {useTranslation} from "react-i18next";
+import {fetchFeedback} from "@/features/feedback/feedbackSlice";
+import Head from "next/head";
 
 export default function RootLayout({children}) {
 
     return (
         <html lang="en">
-        <body suppressHydrationWarning={true}>
+        <head>
+            <title>Bioscience Innova</title>
+            <link rel="icon" href="/favicon.png" type="image/x-icon"/>
+        </head>
+
+        <body className={'zalupa'} suppressHydrationWarning={true}>
         <Provider store={store}>
-                <ToastContainer position="top-right" autoClose={2000}/>
-                    <MiddleLayout>
-                        {children}
-                    </MiddleLayout>
+            <ToastContainer position="top-right" autoClose={2000}/>
+            <MiddleLayout>
+                {children}
+            </MiddleLayout>
         </Provider>
         </body>
         {/*<script type="text/javascript" src="public/main.js"></script>*/}
@@ -34,7 +41,7 @@ export default function RootLayout({children}) {
 
 
 const MiddleLayout = ({children}) => {
-    const { t, i18n, ready } = useTranslation();
+    const {t, i18n, ready} = useTranslation();
     const [isReady, setIsReady] = useState(false)
 
     const dispatch = useDispatch();
@@ -42,11 +49,12 @@ const MiddleLayout = ({children}) => {
         console.log('BEREZA TRIGGER')
         dispatch(fetchUserCourses())
         dispatch(fetchCourses())
+        dispatch(fetchFeedback())
         setIsReady(ready)
-    }, [dispatch,ready])
+    }, [dispatch, ready])
 
 
-    if(!isReady){
+    if (!isReady) {
         return <MyLoader/>
     }
     return (

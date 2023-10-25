@@ -59,9 +59,7 @@ const AboutCompany = () => {
                        <section className="description-block__wrapper">
                            <div className="description-block__description">
                                <h2 className="description-block__title"> {t('aboutCompany.partner.text1')}</h2>
-                               <p className="description-block__text">
-                                   {t('aboutCompany.partner.text2')}
-                               </p>
+                               <p className="description-block__text">{t('aboutCompany.partner.text2')}</p>
                            </div>
                            <picture>
                                <source media="(max-width: 600px)" srcSet={aboutBgMiddleMobile}/>

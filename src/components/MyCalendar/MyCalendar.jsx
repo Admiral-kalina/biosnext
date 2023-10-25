@@ -25,31 +25,41 @@ import {addToEventsUserEvent} from "@/helpers/addToEventsUserEvent";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
 
 
-const MyCalendar = ({general, userPrograms , globalPrograms = [], userAvailableWebinars = []}) => {
-    const {t} = useTranslation()
-    const [isAllRecords, setIsAllRecords] = useState(true)
-    const {language} = useSelector(state => state.user.user)
+const MyCalendar = ({
+                        general,
+                        userPrograms,
+                        globalPrograms = [],
+                        userAvailableWebinars = [],
+                    }) => {
+    const {t} = useTranslation();
+    const [isAllRecords, setIsAllRecords] = useState(true);
+    const {language} = useSelector((state) => state.user.user);
     const [date, setDate] = useState(new Date());
 
     moment.locale(language === 'ua' ? 'uk' : language);
 
-    const ref = useRef()
-if(!userPrograms){
-    return (
-        <MyLoader/>
-    )
-}
-    const userProgramEvents = createCalendarEvents(userPrograms, general, t)
+    const ref = useRef();
 
-    const globalEvents = createCalendarEvents(globalPrograms, general, t)
-    const userEvents = addToEventsUserEvent(userProgramEvents,globalEvents,userAvailableWebinars)
+    // Conditional rendering for loading
+    const conditionalElement = general?  globalPrograms: userPrograms
+    if (!conditionalElement) {
+        return <MyLoader/>;
+    }
 
-    console.log('TTQ',userEvents)
-    const eventsWithoutDuplicates = isAllRecords? removeDuplicates(globalEvents) :removeDuplicates(userEvents)
+    // Create calendar events
+    const globalEvents = createCalendarEvents(globalPrograms, general, t);
+
+
+    const userProgramEvents = !general ? createCalendarEvents(userPrograms, general, t) : [];
+    const userEvents = !general ? addToEventsUserEvent(userProgramEvents, globalEvents, userAvailableWebinars) : [];
+
+    const eventsWithoutDuplicates = isAllRecords
+        ? removeDuplicates(globalEvents)
+        : removeDuplicates(userEvents);
 
     const handleClick = (bool) => {
-        setIsAllRecords(bool)
-    }
+        setIsAllRecords(bool);
+    };
 
     return (
         <div className={styles.gridCalendar}>

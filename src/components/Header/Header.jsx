@@ -28,6 +28,7 @@ import basket from "../../app/media/images/basket.svg";
 // styles
 import "./header.scss";
 import Logo from "@/app/media/images/logo";
+import {changeFeedbackLanguage} from "@/features/feedback/feedbackSlice";
 
 
 
@@ -38,6 +39,7 @@ const Header = ({type}) => {
     const {language} = useSelector(store => store.user.user)
     const globalCourses = useSelector(store => store.courses.courses);
     const user = useSelector(store => store.user.user.courses);
+    const {feedback} = useSelector(store => store.feedback)
     const [burgerState, setBurgerState] = useState(false)
     const [endpoint, setEndpoint] = useState('')
     const [isScrolled, setIsScrolled] = useState(false)
@@ -49,7 +51,7 @@ const Header = ({type}) => {
         }
 
     }, [burgerState]);
-
+    console.log('FFF',feedback)
     const dispatch = useDispatch()
 
     const ref = useRef();
@@ -93,8 +95,12 @@ const Header = ({type}) => {
             language: label,
             globalWebinars: globalCourses.webinars,
         }
+        const feedbackPayload = {
+            feedback:feedback
+        }
         dispatch(changeGlobalCoursesLanguage(globalPayload))
         dispatch(changeUserCoursesLanguage(userPayload))
+        dispatch(changeFeedbackLanguage(feedbackPayload))
         i18n.changeLanguage(label)
     }
 
@@ -331,18 +337,18 @@ const Header = ({type}) => {
                                         <a href="tel:+38 (095) 382-92-64">+380 95 382 9264</a>
                                     </li>
                                     <li className="nav-menu__mobile--info--social">
-                                        <Link href={'/'}><Image src={icon12} alt="phone"/></Link>
-                                        <Link href={'/'}><Image src={icon13} alt="viber"/></Link>
-                                        <Link href={'/'}><Image src={icon14} alt="telegram"/></Link>
+                                        <a href="viber://chat?number=380953829264"><Image src={icon12} alt="viber" /></a>
+                                        <a href="https://wa.me/380953829264"><Image src={icon13} alt="whatsapp"/></a>
+                                        <a href="https://t.me/+380953829264"><Image src={icon14} alt="telegram"/></a>
                                     </li>
                                     <li className="nav-menu__mobile--info--place">
                                         <p>01033, {t('additional.address')}</p>
                                     </li>
                                     <li className="nav-menu__mobile--info--social-bottom">
-                                        <Link href={'/'}><Image src={icon5} alt="mail"/></Link>
-                                        <Link href={'/'}><Image src={icon6} alt="youtube"/></Link>
-                                        <Link href={'/'}><Image src={icon7} alt="linkedin"/></Link>
-                                        <Link href={'/'}><Image src={icon8} alt="facebook"/></Link>
+                                        <a href="mailto:info@bioinnova.com.ua"><Image src={icon5} alt="icon"/><i className="icon-mail"></i></a>
+                                        <a href="https://www.youtube.com/channel/UC50lJttRfXcbkp8M1byrJ3A"><Image src={icon6} alt="icon"/></a>
+                                        <a href="https://www.linkedin.com/company/bio-innova/?viewAsMember=true"><Image src={icon7} alt="icon"/></a>
+                                        <a href="https://www.facebook.com/profile.php?id=61550967937918"><Image src={icon8} alt="icon"/></a>
                                     </li>
                                 </ul>
                             </li>

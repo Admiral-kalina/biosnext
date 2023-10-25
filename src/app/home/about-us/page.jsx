@@ -11,6 +11,7 @@ const AboutUs = () => {
     return (
         <div className={styles.programDescriptioRow}>
             <AboutUsHome/>
+
         </div>
     );
 };

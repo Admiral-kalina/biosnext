@@ -3,8 +3,7 @@ const generateEventList = () => {
 }
 export const createCalendarEvents = (programs, general, t, userWebinars) => {
     console.log('PE initial',programs)
-    const eventList =  programs
-        .reduce((acc, curr) => {
+    const eventList =  programs?.reduce((acc, curr) => {
             const programId = curr.id; // Get the programId
             const dataItems = curr.webbinarrs?.data || [];
             // Concatenate the data items to the accumulator, adding the programId to each item

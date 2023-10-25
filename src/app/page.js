@@ -27,7 +27,9 @@ import logo5 from "./media/images/icon/logo5.svg";
 
 
 export default function Home() {
-    const {t} = useTranslation()
+
+  const {t} = useTranslation();
+
   return (
    <div>
        <main >
@@ -37,7 +39,6 @@ export default function Home() {
                    <picture className="presentation__bg">
                        <source media="(max-width: 600px)" srcSet={bgTopMobile}/>
                        <Image src={bgTop} alt="background lines"/>
-
                    </picture>
                    <div className="container d-block-md">
                        <div className="presentation-block">
@@ -45,14 +46,12 @@ export default function Home() {
                                {t('home.hero.title1')} <br/>
                                {t('home.hero.title2')}
                            </h1>
-
                            <section className="presentation-block__description">
                                <p>
                                    {t('home.hero.text1')}
                                </p>
                                <nav>
                                    <Link className="btn btn-yellow" href={'/contacts'}>{t('additional.enroll')}</Link>
-
                                    <div className="btn btn-transparent">
                                        <Link href={'/activities'}> {t('additional.ourCalendar')}</Link>
                                        <Link href={'/activities'}><Image src={goldenArrow} alt={'arrow'}/></Link>
@@ -60,7 +59,6 @@ export default function Home() {
                                </nav>
                            </section>
                        </div>
-
                        <section className="advantages">
                            <div className="advantages__items">
                                <div className="advantages__item">

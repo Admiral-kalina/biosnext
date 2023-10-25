@@ -11,58 +11,49 @@ import comma from "../../app//media/images/comma.svg";
 import {useTranslation} from "react-i18next";
 import useHomeLayoutContext from "@/hooks/useHomeLayoutContext";
 import {strapiApi} from "@/api";
-
+import {useSelector} from "react-redux";
+import MyCalendar from "@/components/MyCalendar/MyCalendar";
 
 
 const AboutUsHome = () => {
     const {t} = useTranslation();
+    const {feedbackByLanguage, isLoading, error} = useSelector(state => state.feedback)
 
-    const [feedbacks, setFeedbacks] = useState([]);
-    const [error, setError] = useState(null);
 
-    useEffect(() => {
-        async function getFeedbacks() {
-            try {
-                const response = await strapiApi.get('/api/feedbacks?populate=*');
-                setFeedbacks(response.data); // Assuming response contains data in a 'data' field.
-            } catch (err) {
-                setError(err);
-            }
-        }
+    if (isLoading) {
+        return (
+            <MyCalendar/>
+        )
+    }
+    console.log('FFF 1', feedbackByLanguage)
 
-        getFeedbacks();
-
-        // Optional: If strapiApi.get is cancellable, you can return a cleanup function.
-        // return () => { /* cancel API call */ };
-
-    }, []);
-    console.log('ASSA',feedbacks)
     return (
         <section className={styles.root}>
-            {/*<div className={styles.row}>*/}
-            {/*    <div className={`${styles.column} ${styles.fixed}`}>*/}
-            {/*        <div className={styles.content}>*/}
-            {/*            <p className={styles.title}>*/}
-            {/*                {t('cabinet.studentsSaying')}*/}
-            {/*            </p>*/}
-            {/*            <p className={styles.text}>*/}
-            {/*                {t('cabinet.participantsExperiences')}*/}
-            {/*            </p>*/}
-            {/*            <p className={styles.subtext}>*/}
-            {/*                {t('cabinet.testimonials')}*/}
-            {/*            </p>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*    <div className={`${styles.column} ${styles.scrollable}`}>*/}
-            {/*        {feedbacks?.data?.map(el =>*/}
-            {/*            <div className={styles.content} key={el.id}>*/}
-            {/*                <Image src={comma} alt={'img'}/>*/}
-            {/*                <p className={styles.comment}>{el.attributes.text}</p>*/}
-            {/*                <p className={styles.author}>{el.attributes.userName}</p>*/}
-            {/*            </div>*/}
-            {/*        )}*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+            <div className={styles.row}>
+                <div className={`${styles.column} ${styles.fixed}`}>
+                    <div className={styles.content}>
+                        <p className={styles.title}>
+                            {t('cabinet.studentsSaying')}
+                        </p>
+                        <p className={styles.text}>
+                            {t('cabinet.participantsExperiences')}
+                        </p>
+                        <p className={styles.subtext}>
+                            {t('cabinet.testimonials')}
+                        </p>
+                    </div>
+                </div>
+                <div className={`${styles.column} ${styles.scrollable}`}>
+                    {feedbackByLanguage.map(el =>
+                        <div className={styles.content} key={el.id}>
+                            <Image src={comma} alt={'img'}/>
+                            <p className={styles.comment}>{el.text}</p>
+                            <p className={styles.author}>{el.userName}</p>
+                        </div>
+                    )}
+                </div>
+            </div>
+
         </section>
     );
 };
