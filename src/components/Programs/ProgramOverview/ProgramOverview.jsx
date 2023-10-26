@@ -43,12 +43,13 @@ export const ProgramOverview = ({programs}) => {
     console.log()
     return (
         <div className={styles.rootOverview}>
-            <Container>
+            <Container sizeZero>
                 <div className={`${styles.back} back_group`}>
                     <Link href={'/services'} className="back back_white">{t('services.services')}</Link>
                     <Link href={'/services/programs'} className="back">{t('services.training')}</Link>
                 </div>
                 <div className={styles.hero}>
+                    xcvzxc zvbxc vbnxcbv ncbxnv
                     <div className={styles.overviewRow}>
 
                         {/*<img className={styles.image} src={logo} alt=""/>*/}
