@@ -249,14 +249,6 @@
 		flex-direction: column;
 		justify-content: flex-start;
 
-		@include media-breakpoint-up(lg) {
-			width: clamp(34.938rem, 2.29rem + 52.66vw, 41.75rem);
-		}
-
-		@include media-breakpoint-up(xl) {
-			width: 50%;
-		}
-
 		@include media-breakpoint-up(xxl) {
 			width: auto;
 		}
