@@ -262,6 +262,10 @@
     @include media-breakpoint-up(xl) {
       font-size: clamp(2.75rem, 2.082rem + 1.08vw, 3.375rem);
     }
+
+    @media screen and (max-width: 450px){
+      font-size: 24px;
+    }
   }
   &__text{
     font-size: 22px;
@@ -357,9 +361,13 @@
     @include media-breakpoint-up(xxl) {
       margin-bottom: 300px;
     }
+    @media screen and (max-width: 450px){
+      padding-top: 40px;
+    }
   }
 
   &__title {
+    display: block;
     margin-bottom: 16px;
     line-height: 1.125;
     color: var(--color-soft-black);
@@ -374,6 +382,12 @@
 
     @include media-breakpoint-up(xxl) {
       width: 42%;
+    }
+    @media screen and (max-width: 991px){
+      padding-top: 60px;
+    }
+    @media screen and (max-width: 450px){
+      padding-top:0;
     }
   }
 

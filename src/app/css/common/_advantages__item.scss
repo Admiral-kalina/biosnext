@@ -1,5 +1,5 @@
 .advantages__item {
-	width: 345px;
+	width: 425px;
 	padding: 54px;
 
 	display: flex;
@@ -9,18 +9,27 @@
 
 	background-color: $color-primary-black;
 
+	@media (max-width: 500px) {
+		width: 375px;
+		padding: 20px;
+	}
+
 	@media (max-width: 370px) {
-		width: 235px;
+		width: 275px;
 		padding: 20px;
 	}
 
 	@include media-breakpoint-up(lg) {
+
 		width: 506px;
+		display: block;
 		padding: clamp(1.875rem, -7.547rem + 12.55vw, 3.75rem);
 		row-gap: clamp(1.25rem, 1.009rem + 0.99vw, 1.875rem);
 	}
 
 	img{
+		display: flex;
+		margin: 0 auto;
 		width: 76px;
 		height: 76px;
 		color: $color-primary-yellow;

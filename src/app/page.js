@@ -146,12 +146,10 @@ export default function Home() {
                      <section className="feedback__wrapper">
                        <div className="feedback__wrapper--header">
                          <h2 className="experience__title">
-                           Что говорят о нас наши ученики
+                             {t('feedback.title')}
                          </h2>
                          <p className="experience__text">
-                           Наши участники разделяют свой опыт и впечатления от
-                           прохождения курсов фармацевтики и медицины. Отзывы участников
-                           наших курсов:
+                             {t('feedback.subtitle')}
                          </p>
                        </div>
                        <div className="feedback__wrapper--footer">
@@ -162,13 +160,11 @@ export default function Home() {
                              </div>
                              <div className="feedback__card--descr">
                                <p>
-                                 Невероятное погружение в мир фармацевтики! Курс позволил
-                                 мне разгадать тайны создания лекарств и научил
-                                 анализировать составы. Очень информативно!
+                                   {t('feedback.text1')}
                                </p>
                                <div className="feedback__card--line"></div>
                                <div className="feedback__card--name">
-                                 <p>- Анна С.</p>
+                                 <p>-  {t('feedback.author1')}</p>
                                </div>
                              </div>
                            </div>
@@ -179,13 +175,11 @@ export default function Home() {
                              </div>
                              <div className="feedback__card--descr">
                                <p>
-                                 Теперь могу с уверенностью определять заболевания и
-                                 выбирать наилучшие методы лечения. Благодарю компанию за
-                                 этот опыт!
+                                   {t('feedback.text2')}
                                </p>
                                <div className="feedback__card--line"></div>
                                <div className="feedback__card--name">
-                                 <p>- Дмитрий П.</p>
+                                 <p>- {t('feedback.author1')}</p>
                                </div>
                              </div>
                            </div>
@@ -196,12 +190,11 @@ export default function Home() {
                              </div>
                              <div className="feedback__card--descr">
                                <p>
-                                 Курс открыл глаза на последние технологии и тенденции. Я
-                                 готов к применению передовых методов в своей практике.
+                                   {t('feedback.text3')}
                                </p>
                                <div className="feedback__card--line"></div>
                                <div className="feedback__card--name">
-                                 <p>- Екатерина М.</p>
+                                 <p>- {t('feedback.author3')}</p>
                                </div>
                              </div>
                            </div>
@@ -212,13 +205,11 @@ export default function Home() {
                              </div>
                              <div className="feedback__card--descr">
                                <p>
-                                 Очень впечатлён содержанием курса. Узнал о процессах
-                                 разработки лекарств, которые раньше казались мне
-                                 непонятными.
+                                   {t('feedback.text4')}
                                </p>
                                <div className="feedback__card--line"></div>
                                <div className="feedback__card--name">
-                                 <p>- Алексей К.</p>
+                                 <p>- {t('feedback.author4')}</p>
                                </div>
                              </div>
                            </div>

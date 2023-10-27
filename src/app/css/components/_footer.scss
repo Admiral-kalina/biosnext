@@ -1,4 +1,11 @@
 .footer {
+  a{
+    color: #fff;
+    &:hover{
+      color:var(--color-golden-yellow)
+    }
+
+  }
   position: relative;
   width: 100%;
   padding-top: 37px;
@@ -152,6 +159,12 @@
       display: block;
       padding: 0;
       text-align: center;
+      &_link{
+        padding: 10px 0;
+      }
+      &_text{
+        padding-top: 10px;
+      }
     }
 
     .footer__mail {

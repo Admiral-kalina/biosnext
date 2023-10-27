@@ -12,7 +12,7 @@ i18n
     // for all options read: https://www.i18next.com/overview/configuration-options
     .init({
         debug: true,
-        fallbackLng:  typeof window !== 'undefined' ? localStorage.getItem('language') || 'ua' : 'ua',
+        fallbackLng: typeof window !== 'undefined' ? localStorage.getItem('language') || 'ua' : 'ua',
         interpolation: {
             escapeValue: false, // not needed for react as it escapes by default
         },
@@ -20,6 +20,18 @@ i18n
             //en
             en: {
                 translation: {
+                    feedback: {
+                        title: 'What our students say about us',
+                        subtitle: 'Our participants share their experiences and impressions of their pharmacy and medicine courses. Testimonials from our course participants:',
+                        text1: 'An incredible immersion into the world of pharmaceuticals! The course allowed me to unravel the mysteries of drug creation and taught me how to analyze formulations. Very informative!',
+                        author1: 'Anna S.',
+                        text2: 'Now I can confidently identify diseases and choose the best treatment methods. I thank the company for this experience!',
+                        author2: 'Dmitry P.',
+                        text3: 'The course opened my eyes to the latest technologies and trends. I am ready to apply advanced methods in my practice.',
+                        author3: 'Ekaterina M.',
+                        text4: 'Very impressed with the course content. I learned about the processes of drug development, which previously seemed incomprehensible to me.',
+                        author4: 'Alexey K.',
+                    },
                     home: {
                         hero: {
                             title1: 'Knowledge is',
@@ -89,7 +101,7 @@ i18n
                             text8: 'Practical courses',
                             text9: 'Acquiring practical skills is an important tool for improving the skills and career development',
                         },
-                        topics:{
+                        topics: {
                             text1: 'All of our courses and educational programs are designed and taught by an exclusive network of experts internationally recognized by their peers as opinion leaders in their field of expertise.',
                             text2: 'The training system we practice allows both to master the profession from scratch and improve your knowledge in a narrow specialization.',
                             text3: 'We are able to make complex scientific and clinical information more accessible to those who are not as well with the field.',
@@ -172,16 +184,18 @@ i18n
                         contactsDescription: 'You can send your email address and we will get back to you.',
                         address: 'Kyiv, Tarasivska street, 4-A, office 7',
                         enter: 'Enter',
-                        enroll:'Enroll',
-                        ourCalendar:'Our Calendar',
-                        checkLevel:'Check the level of individual training',
+                        enroll: 'Enroll',
+                        ourCalendar: 'Our Calendar',
+                        checkLevel: 'Check the level of individual training',
+                        publicOffer: 'Public offer',
+                        privacy: 'Privacy policy',
                     },
                     header: {
                         about: 'about company',
                         services: 'services',
                         events: 'events',
                         contacts: 'contacts',
-                        main: 'main',
+                        main: 'Home',
                         basket: 'Shopping cart',
                         account: 'account',
                         exit: 'exit',
@@ -240,6 +254,18 @@ i18n
             },//ru
             ru: {
                 translation: {
+                    feedback: {
+                        title: 'Что говорят о нас наши ученики',
+                        subtitle: 'Наши участники разделяют свой опыт и впечатления от прохождения курсов фармацевтики и медицины. Отзывы участников наших курсов:',
+                        text1: 'Невероятное погружение в мир фармацевтики! Курс позволил мне разгадать тайны создания лекарств и научил анализировать составы. Очень информативно!',
+                        author1: 'Анна С.',
+                        text2: 'Теперь могу с уверенностью определять заболевания и выбирать наилучшие методы лечения. Благодарю компанию за этот опыт!',
+                        author2: 'Дмитрий П.',
+                        text3: 'Курс открыл глаза на последние технологии и тенденции. Я готов к применению передовых методов в своей практике.',
+                        author3: 'Екатерина М.',
+                        text4: 'Очень впечатлён содержанием курса. Узнал о процессах разработки лекарств, которые раньше казались мне непонятными.',
+                        author4: 'Алексей К.',
+                    },
                     home: {
                         hero: {
                             title1: 'Знания это',
@@ -309,7 +335,7 @@ i18n
                             text8: 'ПРАКТИЧЕСКИЕ КУРСЫ',
                             text9: 'Приобретение практических навыков является важным инструментом для повышения квалификации  ',
                         },
-                        topics:{
+                        topics: {
                             text1: 'Все наши курсы обучения и образовательные программы разработаны и преподаются эксклюзивной сетью экспертов, признанных на международном уровне своими коллегами как лидеры общественного мнения в своей области знаний. \n',
                             text2: 'Практикуемая нами система обучения позволяет как освоить профессию с чистого листа, так и усовершенствовать свои знания в узкой специализации.',
                             text3: 'Мы умеем делать сложную научную и клиническую информацию более доступной для тех, кто не так хорошо знаком с этой областью.',
@@ -388,9 +414,11 @@ i18n
                         contactsDescription: 'Вы можете отправить свой електронный адрес и мы свяжемся с вами.',
                         address: 'город Киев, улица Тарасовская, дом 4-А, офис 7',
                         enter: 'Войти',
-                        enroll:'Записаться',
-                        ourCalendar:'Наш Календарь',
-                        checkLevel:'Проверить уровень индивидуальной подготовки',
+                        enroll: 'Записаться',
+                        ourCalendar: 'Наш Календарь',
+                        checkLevel: 'Проверить уровень индивидуальной подготовки',
+                        publicOffer: 'Публичная оферта',
+                        privacy: 'Политика конфиденциальности',
                     },
                     header: {
                         about: 'о компании',
@@ -449,6 +477,18 @@ i18n
             // ua
             ua: {
                 translation: {
+                    feedback: {
+                        title: 'Що говорять про нас наші учні',
+                        subtitle: 'Наші учасники поділяють свій досвід і враження від проходження курсів фармацевтики та медицини. Відгуки учасників наших курсів:',
+                        text1: 'Неймовірне занурення у світ фармацевтики! Курс дозволив мені розгадати таємниці створення ліків і навчив аналізувати склади. Дуже інформативно!',
+                        author1: 'Анна С.',
+                        text2: 'Тепер можу з упевненістю визначати захворювання та обирати найкращі методи лікування. Дякую компанії за цей досвід!',
+                        author2: 'Дмитро П.',
+                        text3: 'Курс відкрив очі на останні технології та тенденції. Я готовий до застосування передових методів у своїй практиці.',
+                        author3: 'Катерина М.',
+                        text4: 'Дуже вражений змістом курсу. Дізнався про процеси розробки ліків, які раніше здавалися мені незрозумілими.',
+                        author4: 'Олексій К.',
+                    },
                     home: {
                         hero: {
                             title1: 'Знання це',
@@ -518,7 +558,7 @@ i18n
                             text8: 'Практичні курси',
                             text9: 'Придбання практичних навичок є важливим інструментом для підвищення кваліфікації.',
                         },
-                        topics:{
+                        topics: {
                             text1: 'Всі наші курси навчання та освітні програми розроблені та викладаються ексклюзивною мережею експертів, визнаних на міжнародному рівні своїми колегами як лідери громадської думки у своїй галузі знань.',
                             text2: 'Система навчання, яку ми практикуємо, дозволяє як освоїти професію з чистого аркуша, так і вдосконалити свої знання у вузькій спеціалізації.',
                             text3: 'Ми вміємо робити складну наукову та клінічну інформацію більш доступною для тих, хто не так добре знайомий із цією областю.',
@@ -602,9 +642,11 @@ i18n
                         contactsDescription: 'Ви можете надіслати свою електронну адресу і ми зв\'яжемося з вами.',
                         address: 'місто Київ, вулиця Тарасівська, будинок 4-А, офіс 7',
                         enter: 'Увійти',
-                        enroll:'Записатися',
-                        ourCalendar:'Наш Календар',
-                        checkLevel:'Перевірити рівень індивідуальної підготовки',
+                        enroll: 'Записатися',
+                        ourCalendar: 'Наш Календар',
+                        checkLevel: 'Перевірити рівень індивідуальної підготовки',
+                        publicOffer: 'Публічна оферта',
+                        privacy: 'Політика конфіденційності',
                     },
                     header: {
                         about: 'про компанію',

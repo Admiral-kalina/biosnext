@@ -26,7 +26,7 @@ export default function RootLayout({children}) {
             <link rel="icon" href="/favicon.png" type="image/x-icon"/>
         </head>
 
-        <body className={'zalupa'} suppressHydrationWarning={true}>
+        <body suppressHydrationWarning={true}>
         <Provider store={store}>
             <ToastContainer position="top-right" autoClose={2000}/>
             <MiddleLayout>

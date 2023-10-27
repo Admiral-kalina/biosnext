@@ -35,19 +35,19 @@ const AboutUsAddition = () => {
 
                     <div className="achievements-wrapper">
                         <div className="achievements__items">
-                            <div className="achievements__items--value">105</div>
+                            <div className="achievements__items--value">105+</div>
                             <p className="achievements__description">
                                 {t('cabinet.partners')}
                             </p>
                         </div>
                         <div className="achievements__items">
-                            <div className="achievements__items--value">116</div>
+                            <div className="achievements__items--value">116+</div>
                             <p className="achievements__description">
                                 {t('cabinet.products')}
                             </p>
                         </div>
                         <div className="achievements__items">
-                            <div className="achievements__items--value">12</div>
+                            <div className="achievements__items--value">12+</div>
                             {t('cabinet.yearsOnMarket')}
                         </div>
                     </div>

@@ -44,6 +44,7 @@ const Header = ({type}) => {
     const [endpoint, setEndpoint] = useState('')
     const [isScrolled, setIsScrolled] = useState(false)
     const [selectedLanguage, setSelectedLanguage] = useState({value: language, label: language});
+
     useEffect(() => {
 
         if (burgerState) {
@@ -51,6 +52,7 @@ const Header = ({type}) => {
         }
 
     }, [burgerState]);
+
     console.log('FFF',feedback)
     const dispatch = useDispatch()
 
@@ -143,7 +145,7 @@ const Header = ({type}) => {
             ${type === 'full' ? 'about-page' : ''}
             `}>
             <div className="container d-block-md">
-                <div className="header__logo">
+                <div className="header__logo" onClick={handleMobileClick}>
                     <Link href='/'>
                         <Logo className="inline-svg"/>
                     </Link>

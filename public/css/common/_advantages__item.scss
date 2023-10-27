@@ -8,7 +8,11 @@
 	row-gap: 20px;
 
 	background-color: $color-primary-black;
-
+	img{
+		width: 100%;
+		margin: 0 auto;
+		display: none;
+	}
 	@media (max-width: 370px) {
 		width: 235px;
 		padding: 20px;

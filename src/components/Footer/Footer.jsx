@@ -42,6 +42,7 @@ const Footer = ({location}) => {
                             <a href="https://www.facebook.com/profile.php?id=61550967937918"><Image src={icon8} alt="icon"/></a>
                         </div>
                         <div className="footer__copyright">
+                            <p>1</p>
                             © all rights reserved
                         </div>
                         <div className="footer__mail">
@@ -62,7 +63,9 @@ const Footer = ({location}) => {
                         </div>
 
                         <div className="footer__copyright">
-                            © all rights reserved
+                           <p className="footer__copyright_link"> <Link target='_blank' href="/public-offer">{t('additional.publicOffer')}</Link></p>
+                            <p className="footer__copyright_link"> <Link target='_blank' href="/policy">{t('additional.privacy')}</Link></p>
+                            <p className="footer__copyright_text">© all rights reserved</p>
                         </div>
                     </div>
                 </div>

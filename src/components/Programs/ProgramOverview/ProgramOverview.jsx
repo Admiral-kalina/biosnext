@@ -49,7 +49,6 @@ export const ProgramOverview = ({programs}) => {
                     <Link href={'/services/programs'} className="back">{t('services.training')}</Link>
                 </div>
                 <div className={styles.hero}>
-                    xcvzxc zvbxc vbnxcbv ncbxnv
                     <div className={styles.overviewRow}>
 
                         {/*<img className={styles.image} src={logo} alt=""/>*/}
