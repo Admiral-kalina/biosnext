@@ -26,24 +26,32 @@ export const WebinarOverview = ({webinars}) => {
     const {t} = useTranslation();
 
     const [webinar,setWebinar] = useState()
-    const [hash, setHash] = useState('');
+    const [programId, setProgramId] = useState('');
+    const [programType, setProgramType] = useState('')
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         const search = +window.location.pathname.split('/')[3];
-        setWebinar( findObjectById(webinars, search))
-        // Assuming you're running in a browser context
+
         const currentHash = window.location.hash;
-        setHash(currentHash ? currentHash.substring(1).split('=')[1] : '');  // Remove '#' from the beginning
+        const hashList = currentHash.split('&')
+
+        const programId = hashList[0].substring(1).split('=')[1];
+        const programType = hashList[1].substring(1).split('=')[1]
+
+        setWebinar( findObjectById(webinars, search))
+        setProgramId(programId);
+        setProgramType(programType)
     }, [webinars]);
+
 
     if(!webinar) {
         return (
             <MyLoader/>
         )
     }
-    console.log('WEB',webinar)
+
     const handleClick = () => {
         const payload = {
             data: webinar,
@@ -59,10 +67,10 @@ export const WebinarOverview = ({webinars}) => {
                 <div className={styles.rootOverview}>
                     <div className={`${styles.back} back_group`}>
                         <Link href={'/services'} className="back back_white">{t('services.services')}</Link>
-                        {hash ?
+                        {programId ?
                             <>
-                                <Link href={'/services/programs'} className="back back_white">{t('services.training')}</Link>
-                                <Link href={`/services/programs/${hash}`} className="back ">{t('services.program')}</Link>
+                                <Link href={`/services/programs#${programType}`} className="back back_white">{t('services.training')}</Link>
+                                <Link href={`/services/programs/${programId}#${programType}`} className="back ">{t('services.program')}</Link>
                             </>
                             :
                             <Link href={'/services/webinars-and-lectures'} className="back">{t('services.webinars')}</Link>

@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 160px 1fr;
   grid-template-areas:  "sidebar main";
-  height: 80vh;
+
   max-height: 700px;
 
   .sideBar {

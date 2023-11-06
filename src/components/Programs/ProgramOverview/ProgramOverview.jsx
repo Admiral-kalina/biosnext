@@ -15,7 +15,7 @@ import MyLoader from "@/components/UI/MyLoader/MyLoader";
 import {convertDateFormat} from "@/helpers/convertTime";
 
 
-export const ProgramOverview = ({programs}) => {
+export const ProgramOverview = ({programs, hash}) => {
     const {t} = useTranslation()
     const [program, setProgram] = useState(null)
     const dispatch = useDispatch();
@@ -33,6 +33,7 @@ export const ProgramOverview = ({programs}) => {
         )
     }
 
+    const isTopicPharma = program.topic === 'Pharmacovigilance'
     const handleClick = () => {
         dispatch(addBasketElement({
             data: program,
@@ -40,13 +41,14 @@ export const ProgramOverview = ({programs}) => {
             t
         }))
     }
-    console.log()
+
+    console.log('PPR1', program)
     return (
         <div className={styles.rootOverview}>
             <Container sizeZero>
                 <div className={`${styles.back} back_group`}>
                     <Link href={'/services'} className="back back_white">{t('services.services')}</Link>
-                    <Link href={'/services/programs'} className="back">{t('services.training')}</Link>
+                    <Link href={`/services/programs#${hash}`} className="back">{t('services.training')}</Link>
                 </div>
                 <div className={styles.hero}>
                     <div className={styles.overviewRow}>
@@ -62,6 +64,10 @@ export const ProgramOverview = ({programs}) => {
                                 <span>{t('additional.beginning')}:</span> {convertDateFormat(program.start)}</p>
                             <p className={styles.program}>
                                 <span>{t('additional.webinars')}:</span> {program.webinarsCount}</p>
+                            {/*TODO*/}
+                            <p className={styles.level}>
+                                <span>Уровень подготовки: </span>{program.levelOfDifficulty}
+                            </p>
                             <p className={styles.price}>${program.price}</p>
                         </div>
                         <div className={styles.btnBlock}>
@@ -73,17 +79,17 @@ export const ProgramOverview = ({programs}) => {
                 <div className={styles.webinars}>
                     <p className={styles.webinarsTitle}>{t('services.webinarsInProgram')}</p>
                     <div className={styles.row}>
-
-                        <WebinarsList programId={program.id} webinars={program.webbinarrs.data}/>
+                        <WebinarsList hash={hash} programId={program.id} webinars={program.webbinarrs.data}/>
                     </div>
                 </div>
-                <div id="my-anchor" className={styles.collapse}>
-                    <div className={styles.title}>{t('services.levels')}</div>
-                    <div className={styles.collapseWrapper}>
-                        <MyCollapse type={'levels'} program={program}/>
+                {isTopicPharma &&
+                    <div id="my-anchor" className={styles.collapse}>
+                        <div className={styles.title}>{t('services.levels')}</div>
+                        <div className={styles.collapseWrapper}>
+                            <MyCollapse type={'levels'} program={program}/>
+                        </div>
                     </div>
-                </div>
-
+                }
             </Container>
             <div className={styles.individualForm}>
                 <IndividualForm isWhite={true} type='individual'/>

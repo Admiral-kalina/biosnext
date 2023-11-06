@@ -6,7 +6,7 @@ import {useTranslation} from "react-i18next";
 import {convertDateFormat} from "@/helpers/convertTime";
 
 
-export const WebinarsList = ({webinars, programId, isWebinarHome}) => {
+export const WebinarsList = ({webinars, programId,hash, isWebinarHome}) => {
     const {t} = useTranslation();
     const isAttributesExist = webinars[0]?.attributes
 
@@ -27,7 +27,7 @@ export const WebinarsList = ({webinars, programId, isWebinarHome}) => {
                                 <Link
                                     href={
                                         programId ?
-                                            `/services/webinars-and-lectures/${webinar.id}#program=${programId}`
+                                            `/services/webinars-and-lectures/${webinar.id}#program=${programId}&#programType=${hash}`
                                             :
                                             `/services/webinars-and-lectures/${webinar.id}`
 
@@ -50,7 +50,7 @@ export const WebinarsList = ({webinars, programId, isWebinarHome}) => {
                                 <Link
                                     href={
                                         programId ?
-                                            `/services/webinars-and-lectures/${webinar.id}#program=${programId}`
+                                            `/services/webinars-and-lectures/${webinar.id}#program=${programId}&#programType=${hash}`
                                             :
                                             `/services/webinars-and-lectures/${webinar.id}`
 

@@ -10,16 +10,18 @@ import {convertDateFormat} from "@/helpers/convertTime";
 import {getAllNearestEvents} from "@/helpers/getNearestEventsByKey";
 
 
-const ProgramElement = ({programs}) => {
+const ProgramElement = ({programs, hash}) => {
     const {t} = useTranslation();
 
-    const closest = getAllNearestEvents(programs,'start')
+    const filteredProgramsByHash = programs.filter(program => program.topic === hash)
+    const closest = getAllNearestEvents(filteredProgramsByHash,'start');
 
+    console.log('PRQQ',filteredProgramsByHash)
     return (
         <>
             {closest.map(program =>
                 <div key={program.id} className={styles.column}>
-                    <Link href={`/services/programs/${program.id}`}>
+                    <Link href={`/services/programs/${program.id}#${hash}`}>
                         <p className={styles.section}>{t('additional.program')}</p>
                         <p className={styles.name}>{program.name}</p>
                         <p className={styles.date}><span>{t('additional.beginning')}:</span> {convertDateFormat(program.start)}</p>

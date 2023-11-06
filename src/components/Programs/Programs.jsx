@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
 
 import {ProgramOverview} from "./ProgramOverview/ProgramOverview";
@@ -9,7 +9,11 @@ import MyLoader from "@/components/UI/MyLoader/MyLoader";
 
 const Programs = ({type}) => {
     const {globalCoursesByLanguage, isLoading} = useSelector(store => store.courses);
+    const [hash, setHash] = useState(null);
 
+    useEffect(() => {
+        setHash(location.hash.substring(1))
+    }, [])
     if(isLoading) {
         return (
            <MyLoader/>
@@ -19,8 +23,8 @@ const Programs = ({type}) => {
     return (
         <div>
             {type === 'programElement'
-                    ? <ProgramOverview programs={globalCoursesByLanguage.programs}/>
-                    : <ProgramsList programs={globalCoursesByLanguage.programs}/>
+                    ? <ProgramOverview hash={hash} programs={globalCoursesByLanguage.programs}/>
+                    : <ProgramsList hash={hash} programs={globalCoursesByLanguage.programs}/>
             }
 
         </div>

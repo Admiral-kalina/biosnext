@@ -102,8 +102,8 @@
       color: var(--color-golden-yellow);
     }
 
-    .date, .program, {
-      margin: 25px 0 0 20px;
+    .date, .program, .level {
+      margin: 16px 0 0 20px;
       padding: 0 0 0 20px;
       position: relative;
       max-width: 425px;
@@ -135,6 +135,12 @@
       }
     }
 
+    .level{
+
+      &:before{
+        content: url("../../../app/media/images/star.svg")
+      }
+    }
 
     @media screen and (max-width: 1500px) {
       margin: 0;

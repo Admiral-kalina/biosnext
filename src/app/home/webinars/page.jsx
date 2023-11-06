@@ -15,12 +15,15 @@ const Webinars = () => {
         scrollToTop()
 
     }, []);
-    const {t} = useTranslation()
-    const  {userAvailableWebinars, closestWebinars} =  useHomeLayoutContext()
+
+    const {t} = useTranslation();
+
+    const {userAvailableWebinars, closestWebinars} =  useHomeLayoutContext()
+
     if(!userAvailableWebinars?.length){
         return <MyLoader/>
     }
-    console.log('MMM',userAvailableWebinars)
+
 
     return (
         <div className={styles.webinarsRow}>
@@ -37,7 +40,7 @@ const Webinars = () => {
                 </div>
             </div>
         </div>
-    );
+  );
 };
 
 export default Webinars;

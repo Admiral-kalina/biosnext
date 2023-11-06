@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Link from "next/link";
 import {useTranslation} from "react-i18next";
 
@@ -10,8 +10,11 @@ import ProgramElement from "../ProgramElement/ProgramElement";
 import * as styles from "../programs.module.scss";
 
 
-export const ProgramsList = ({programs}) => {
-    const {t} = useTranslation()
+export const ProgramsList = ({programs, hash}) => {
+
+    const {t} = useTranslation();
+
+
     return (
         <Container>
             <div className={styles.root}>
@@ -20,7 +23,7 @@ export const ProgramsList = ({programs}) => {
                 </div>
                 <p className={styles.title}>{t('services.training')}</p>
                 <div className={styles.row}>
-                    <ProgramElement programs={programs}/>
+                    <ProgramElement hash={hash} programs={programs}/>
                 </div>
             </div>
         </Container>
