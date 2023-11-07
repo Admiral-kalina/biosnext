@@ -4,17 +4,16 @@
   grid-template-areas:  "sidebar main";
 
   max-height: 700px;
-
-  .sideBar {
-
+  min-height: 700px;
+  @media screen and (max-width: 768px){
+    min-height: auto;
+    max-height: 100%;
   }
 
-  .body {
-
-  }
 
   .gridSidebar {
     max-height: 700px;
+
     margin: 0;
     background: transparent;
     grid-area: sidebar;
