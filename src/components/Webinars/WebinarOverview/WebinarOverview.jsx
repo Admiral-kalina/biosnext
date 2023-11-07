@@ -37,8 +37,8 @@ export const WebinarOverview = ({webinars}) => {
         const currentHash = window.location.hash;
         const hashList = currentHash.split('&')
 
-        const programId = hashList[0].substring(1).split('=')[1];
-        const programType = hashList[1].substring(1).split('=')[1]
+        const programId = hashList[0]?.substring(1)?.split('=')[1];
+        const programType = hashList[1]?.substring(1)?.split('=')[1]
 
         setWebinar( findObjectById(webinars, search))
         setProgramId(programId);
