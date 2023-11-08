@@ -26,12 +26,21 @@
 
   .rbc-date-cell {
     text-align: left;
-
     color: #F5B335;
     font-weight: 300;
     padding: 12px 0 0 17px;
     position: relative;
     z-index: 2;
+
+    @media  screen and (max-width: 768px){
+      button{
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translate(0px, -90%);
+      }
+    }
+
   }
 
   .rbc-toolbar {
@@ -180,6 +189,10 @@
       max-height: 100% !important;
       min-width: 181px !important;
     }
+    @media screen and (max-width: 768px) {
+      max-height: 100% !important;
+      min-width: 288px !important;
+    }
   }
 
 
@@ -193,6 +206,10 @@
     height: 242px;
     border: none !important;
     background: #000000;
+    @media screen and (max-width: 768px){
+      width: 288px;
+      height: 55px;
+    }
   }
 
   .rbc-month-view {
@@ -298,6 +315,12 @@
         width: 100%;
         max-width: 100% !important;
       }
+      @media screen and (max-width: 768px){
+        min-height: 103%;
+        .rbc-row {
+          gap: 0;
+        }
+      }
     }
 
 
@@ -326,6 +349,9 @@
   @media screen and (max-width: 768px) {
     overflow: scroll;
     max-width: calc(100vw - 15px);
+    .rbc-calendar {
+      height: 665px;
+    }
     .rbc-month-view {
       padding: 0;
     }
@@ -467,6 +493,11 @@
     .rbc-event-content {
       height: 100%;
       margin-top: 3px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .rbc-event-content {
+      margin-top:0;
     }
   }
 }
