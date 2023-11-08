@@ -24,7 +24,7 @@ const WebinarListHome = ({webinars, isWebinarHome,programId, isAvailable, withAt
         <>
             {withAttributes ?
                <>
-                   {webinars.map(webinar =>
+                   {webinars?.map(webinar =>
                        <div key={webinar.id} className={styles.column}>
                            <div>
                                <p className={styles.section}>{t('additional.webinar')} № {webinar.id}</p>
@@ -33,6 +33,9 @@ const WebinarListHome = ({webinars, isWebinarHome,programId, isAvailable, withAt
                                <p className={styles.teacher}>{webinar.attributes.teacher}</p>
                                <p className={styles.time}>{webinar.attributes.duration}
                                    <span> {t('additional.minutes')}</span></p>
+                               {webinars?.attributes?.topic !== 'Pharmacovigilance' &&
+                                   <p className={styles.level}>{webinar.attributes.levelOfDifficulty}</p>
+                               }
                            </div>
                            <div>
                                <Link
@@ -52,7 +55,7 @@ const WebinarListHome = ({webinars, isWebinarHome,programId, isAvailable, withAt
                </>
                 :
                 <>
-                    {webinars.map(webinar =>
+                    {webinars?.map(webinar =>
                         <div key={webinar.id} className={styles.column}>
                             <div>
                                 <p className={styles.section}>{t('additional.webinar')} № {webinar.id}</p>
@@ -60,6 +63,9 @@ const WebinarListHome = ({webinars, isWebinarHome,programId, isAvailable, withAt
                                 <p className={styles.date}> {convertDateFormat(webinar.date)}</p>
                                 <p className={styles.teacher}>{webinar.teacher}</p>
                                 <p className={styles.time}>{webinar.duration}<span> {t('additional.minutes')}</span></p>
+                                {webinars?.topic !== 'Pharmacovigilance' &&
+                                    <p className={styles.level}> {webinar.levelOfDifficulty}</p>
+                                }
                             </div>
                             <div>
                                 <Link

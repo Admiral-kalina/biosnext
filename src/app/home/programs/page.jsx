@@ -10,10 +10,10 @@ const Programs = () => {
     useEffect(() => {
         scrollToTop()
     }, []);
-    const {userProgramsByLanguage, closestPrograms} = useHomeLayoutContext()
+    const {userProgramsByLanguage, isLoading,closestPrograms} = useHomeLayoutContext()
     console.log('JJJ', userProgramsByLanguage,closestPrograms)
 
-    if(!userProgramsByLanguage){
+    if(isLoading){
         return <MyLoader/>
     }
     return (

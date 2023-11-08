@@ -44,7 +44,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 37px 45px 40px 40px;
+  padding: 37px 45px 40px 35px;
 
   p {
     padding-top: 24px;
@@ -112,8 +112,19 @@
     }
   }
 
+  .level{
+    margin: 0 0 0 10px;
+    font-size: 20px;
+    &:before {
+      content: url("../../app/media/images/star.svg");
+      position: relative;
+      top: 4.5px;
+      left: -12px;
+    }
+  }
+
   a {
-    margin-top: 64px;
+    margin-top: 36px;
     color: #515151;
     border: 3px solid #515151;
     padding: 22px 0;
@@ -136,7 +147,9 @@
       font-size: 24px;
 
     }
-
+.level{
+  font-size: 20px;
+}
     .date {
       font-size: 20px;
 

@@ -18,9 +18,9 @@ const Webinars = () => {
 
     const {t} = useTranslation();
 
-    const {userAvailableWebinars, closestWebinars} =  useHomeLayoutContext()
+    const {userAvailableWebinars,isLoading, closestWebinars} =  useHomeLayoutContext()
 
-    if(!userAvailableWebinars?.length){
+    if(isLoading){
         return <MyLoader/>
     }
 

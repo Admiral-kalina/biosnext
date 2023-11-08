@@ -52,6 +52,8 @@ export const WebinarOverview = ({webinars}) => {
         )
     }
 
+    const isTopicPharma = webinars.topic === 'Pharmacovigilance'
+
     const handleClick = () => {
         const payload = {
             data: webinar,
@@ -60,7 +62,7 @@ export const WebinarOverview = ({webinars}) => {
         }
         dispatch(addBasketElement(payload))
     }
-
+    console.log('GT',webinar)
     return (
         <div>
             <Container sizeZero>
@@ -91,7 +93,10 @@ export const WebinarOverview = ({webinars}) => {
                             <p className={styles.program}><span>{t('additional.program')}:</span> {webinar.topic}</p>
                             <p className={styles.format}><span>{t('additional.format')}:</span> {webinar.format}</p>
                             <p className={styles.exactTime}><span>{t('additional.exactTime')}:</span> {webinar.exactTime}</p>
-
+                            {/*TODO*/}
+                            {!isTopicPharma &&
+                                <p className={styles.level}><span>Уровень подготовки: </span> {webinar.levelOfDifficulty}</p>
+                            }
                         </div>
                         <div className={styles.btnBlock}>
                             <MyButton onClick={handleClick} golden>{t('additional.addToBasket')}</MyButton>

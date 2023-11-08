@@ -87,6 +87,7 @@ const useHomeLayoutContext = () => {
 
     console.log('QQ',closestWebinars,userAvailableWebinars)
     return {
+        isLoading,
         programSearch,
         webinarSearch,
         previousRoute,

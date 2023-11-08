@@ -172,6 +172,9 @@
         padding: 0 0 0 20px;
         font-size: 22px;
       }
+    .level{
+      font-size: 22px;
+    }
     }
     @media screen and (max-width: 768px) {
 
@@ -191,6 +194,10 @@
       }
 
       span {
+        font-size: 20px;
+      }
+
+      .level{
         font-size: 20px;
       }
       .date, .teacher, .program, .format, .exactTime {

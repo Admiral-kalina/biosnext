@@ -26,6 +26,7 @@ import MyLoader from "@/components/UI/MyLoader/MyLoader";
 
 
 const MyCalendar = ({
+                        isLoading,
                         general,
                         userPrograms,
                         globalPrograms = [],
@@ -42,7 +43,7 @@ const MyCalendar = ({
 
     // Conditional rendering for loading
     const conditionalElement = general?  globalPrograms: userPrograms
-    if (!conditionalElement) {
+    if (isLoading) {
         return <MyLoader/>;
     }
 

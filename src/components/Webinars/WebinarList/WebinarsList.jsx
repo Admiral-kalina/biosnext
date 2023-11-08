@@ -22,6 +22,9 @@ export const WebinarsList = ({webinars, programId,hash, isWebinarHome}) => {
                                 <p className={styles.date}> {convertDateFormat(webinar.attributes.date)}</p>
                                 <p className={styles.teacher}>{webinar.attributes.teacher}</p>
                                 <p className={styles.time}>{webinar.attributes.duration} <span>{t('additional.minutes')}</span></p>
+                                {webinars.attributes.topic !== 'Pharmacovigilance' &&
+                                    <p className={styles.level}> {webinar.attributes.levelOfDifficulty}</p>
+                                }
                             </div>
                             <div>
                                 <Link
@@ -45,6 +48,9 @@ export const WebinarsList = ({webinars, programId,hash, isWebinarHome}) => {
                                 <p className={styles.date}> {convertDateFormat(webinar.date)}</p>
                                 <p className={styles.teacher}>{webinar.teacher}</p>
                                 <p className={styles.time}>{webinar.duration} <span>{t('additional.minutes')}</span></p>
+                                {webinars.topic !== 'Pharmacovigilance' &&
+                                    <p className={styles.level}> {webinar.levelOfDifficulty}</p>
+                                }
                             </div>
                             <div>
                                 <Link

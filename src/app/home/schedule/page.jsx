@@ -13,11 +13,12 @@ const Shedule = () => {
     }, []);
 
 
-    const {userProgramsByLanguage, globalProgramsByLanguage,userAvailableWebinars,globalWebinarsByLanguage,} = useHomeLayoutContext()
+    const {userProgramsByLanguage,isLoading, globalProgramsByLanguage,userAvailableWebinars,globalWebinarsByLanguage} = useHomeLayoutContext()
 
     return (
         <div>
             <MyCalendar
+                isLoading={isLoading}
                 userPrograms={userProgramsByLanguage}
                 globalPrograms={globalProgramsByLanguage}
                 userAvailableWebinars={userAvailableWebinars}

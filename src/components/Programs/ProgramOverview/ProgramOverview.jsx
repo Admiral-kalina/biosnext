@@ -34,6 +34,7 @@ export const ProgramOverview = ({programs, hash}) => {
     }
 
     const isTopicPharma = program.topic === 'Pharmacovigilance'
+
     const handleClick = () => {
         dispatch(addBasketElement({
             data: program,

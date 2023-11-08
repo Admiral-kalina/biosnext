@@ -10,6 +10,7 @@ import {useTranslation} from "react-i18next";
 import {useSelector} from "react-redux";
 import MyLoader from "@/components/UI/MyLoader/MyLoader";
 import {getAllEventsWithSort, getNearestEventsByKey} from "@/helpers/getNearestEventsByKey";
+import IndividualForm from "@/components/UI/IndividualForm/IndividualForm";
 
 
 const Webinars = ({type}) => {
@@ -31,17 +32,22 @@ const Webinars = ({type}) => {
                 ?
                 <WebinarOverview webinars={globalCoursesByLanguage.webinars}/>
                 :
-                <Container>
-                    <div className={styles.root}>
-                        <div className="back_group">
-                            <Link href={'/services'} className="back">{t('services.services')}</Link>
-                        </div>
-                        <p className={styles.title}>{t('services.webinars')}</p>
-                        <div className={styles.row}>
-                            <WebinarsList webinars={sortedWebinarsByDate}/>
-                        </div>
-                    </div>
-                </Container>
+              <>
+                  <Container>
+                      <div className={styles.root}>
+                          <div className="back_group">
+                              <Link href={'/services'} className="back">{t('services.services')}</Link>
+                          </div>
+                          <p className={styles.title}>{t('services.webinars')}</p>
+                          <div className={styles.row}>
+                              <WebinarsList webinars={sortedWebinarsByDate}/>
+                          </div>
+                      </div>
+                  </Container>
+                  <div className={styles.individualForm}>
+                      <IndividualForm isWhite={true} type='individual'/>
+                  </div>
+              </>
             }
         </div>
     );
