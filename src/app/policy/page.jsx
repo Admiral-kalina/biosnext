@@ -5,7 +5,6 @@ import {useSelector} from "react-redux";
 const View = () => {
 
     const {language} = useSelector(state => state.user.user)
-    console.log('Language',language)
 
     return(
         <div>

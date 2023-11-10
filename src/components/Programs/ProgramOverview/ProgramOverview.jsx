@@ -23,7 +23,6 @@ export const ProgramOverview = ({programs, hash}) => {
     useEffect(() => {
         const search = +window.location.pathname.split('/')[3];
         setProgram(findObjectById(programs, search))
-        console.log('Search', search)
     }, [programs])
 
 
@@ -43,7 +42,6 @@ export const ProgramOverview = ({programs, hash}) => {
         }))
     }
 
-    console.log('PPR1', program)
     return (
         <div className={styles.rootOverview}>
             <Container sizeZero>

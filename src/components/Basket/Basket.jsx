@@ -27,7 +27,6 @@ const Basket = () => {
 
 
     const sendData = groupBasketData(programs,webinars);
-    console.log('SSR',totalPrice)
 
     return (
         <div className={styles.root}>

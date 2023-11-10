@@ -45,7 +45,6 @@
 // ];
 //
 // const LevelCollapse = ({program}) => {
-//     console.log('QQ!', program)
 //
 //     return (
 //         <div className="collapse">

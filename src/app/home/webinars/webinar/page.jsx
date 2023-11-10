@@ -7,7 +7,6 @@ import {scrollToTop} from "@/helpers/scrollToTop";
 
 const Webinar = () => {
     const {programElement, userAvailableWebinars, hash, previousRoute} = useHomeLayoutContext()
-    console.log('WB', programElement, userAvailableWebinars)
 
     useEffect(() => {
         scrollToTop()

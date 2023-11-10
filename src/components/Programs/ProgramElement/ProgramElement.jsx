@@ -16,7 +16,6 @@ const ProgramElement = ({programs, hash}) => {
     const filteredProgramsByHash = programs.filter(program => program.topic === hash)
     const closest = getAllNearestEvents(filteredProgramsByHash,'start');
 
-    console.log('PRQQ',filteredProgramsByHash)
     return (
         <>
             {closest.map(program =>

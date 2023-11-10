@@ -18,7 +18,6 @@ const sortByKeyAfterToday = (data, key) => {
 }
 
 export const removeDuplicates = (data) => {
-    console.log('TTQ dupli',data)
     return  data.filter((obj, index, self) =>
             index === self.findIndex((el) => (
                 el.id === obj.id

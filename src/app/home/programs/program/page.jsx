@@ -11,7 +11,6 @@ const Program = () => {
     }, []);
 
     const  {programElement} =  useHomeLayoutContext()
-    console.log('XX Element', programElement)
     return (
         <div className={styles.programDescriptioRow}>
             <ProgramElementDescriptionHome program={programElement}/>

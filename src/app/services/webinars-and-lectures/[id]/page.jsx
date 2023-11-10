@@ -10,9 +10,7 @@ import Webinars from "@/components/Webinars/Webinars";
 
 export const generateStaticParams = async () => {
     const programsList = await strapiApi.get(`/api/webbinarrs?populate=*`);
-    console.log('programsList KK',programsList)
     const ids = programsList.data.data.map(webinar =>({id:webinar.id.toString()}))
-    console.log('IDS WEBINARS',ids)
     return ids
 }
 

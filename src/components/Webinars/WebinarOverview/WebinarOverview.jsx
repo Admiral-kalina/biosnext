@@ -62,7 +62,6 @@ export const WebinarOverview = ({webinars}) => {
         }
         dispatch(addBasketElement(payload))
     }
-    console.log('GT',webinar)
     return (
         <div>
             <Container sizeZero>

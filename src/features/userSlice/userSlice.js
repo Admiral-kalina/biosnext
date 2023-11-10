@@ -9,14 +9,12 @@ const coursesFromStorage = typeof window !== 'undefined' ? JSON.parse(localStora
 const userFromStorage = typeof window !== 'undefined' ? userData() : {};
 
 export const fetchUserCourses = createAsyncThunk('courses/fetchCoursesByLanguage', async (language = languageFromStorage) => {
-    console.log('dispatch Inside',userFromStorage)
         if (!userFromStorage.userId) {
             throw new Error("User ID not available."); // This will be caught by the 'rejected' case in the slice.
         }
 
         const userResponse = await strapiApi.get(`/api/users/${userFromStorage.userId}?populate=*`)
 
-    console.log('BEREZA 1', userResponse)
         const userProgramsIds = userResponse.data.courses.map(course => course.id)
         let userPrograms;
         await axios.all(userProgramsIds.map((id) => strapiApi.get(`/api/courses/${id}?populate=*`))).then(
@@ -33,7 +31,6 @@ export const fetchUserCourses = createAsyncThunk('courses/fetchCoursesByLanguage
 
         const userProgramsByLanguage = findObjectsByLanguage(userPrograms, language, true, globalWebinars.data.data);
         const userWebinarsByLanguage = findObjectsByLanguage(userWebinars, language, true);
-    console.log('BEREZA', userPrograms, userWebinars, userProgramsByLanguage, userWebinarsByLanguage)
 
         return {userPrograms, userWebinars, userProgramsByLanguage, userWebinarsByLanguage}
     }

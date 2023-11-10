@@ -11,7 +11,6 @@ const Programs = () => {
         scrollToTop()
     }, []);
     const {userProgramsByLanguage, isLoading,closestPrograms} = useHomeLayoutContext()
-    console.log('JJJ', userProgramsByLanguage,closestPrograms)
 
     if(isLoading){
         return <MyLoader/>

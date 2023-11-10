@@ -83,7 +83,6 @@ export default function HomeLayout({children}) {
     };
 
 
-    console.log('LN', language)
 
     useEffect(() => {
         setNavs(initNavs());
@@ -101,7 +100,6 @@ export default function HomeLayout({children}) {
     };
     const isAboutActive = navs[3]?.isActive
 
-    console.log('HAS    ,', isAboutActive)
 
     return (
         <Protector>

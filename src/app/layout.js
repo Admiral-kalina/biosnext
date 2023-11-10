@@ -46,7 +46,6 @@ const MiddleLayout = ({children}) => {
 
     const dispatch = useDispatch();
     useLayoutEffect(() => {
-        console.log('BEREZA TRIGGER')
         dispatch(fetchUserCourses())
         dispatch(fetchCourses())
         dispatch(fetchFeedback())

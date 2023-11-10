@@ -37,15 +37,12 @@ const useHomeLayoutContext = () => {
 
     //
 
-    console.log('XX Loader', user.isLoading, globalCourses.isLoading)
     if (isLoading) {
-        console.log('XX Loader Inside')
         return <MyLoader/>
     }
 
     const globalProgramsByLanguage = globalCourses.globalCoursesByLanguage?.programs;
     const globalWebinarsByLanguage = globalCourses.globalCoursesByLanguage?.webinars;
-    console.log('XX',user, globalCourses)
 
 
 
@@ -53,12 +50,8 @@ const useHomeLayoutContext = () => {
     const userWebinarsByLanguage = user.user.userCoursesByLanguage.webinars;
     const userProgramsByLanguage = user.user.userCoursesByLanguage.programs;
     //
-    console.log('XX', hash)
     let programElement
 
-    console.log('XX Search',webinarSearch)
-    console.log('XX Group',globalProgramsByLanguage)
-    console.log('XX Group',userProgramsByLanguage)
 
     if (hash === 'programs') {
         programElement = createProgramElement(
@@ -67,7 +60,6 @@ const useHomeLayoutContext = () => {
             programSearch
         )
     }
-    console.log('XX QQ',hash)
     if (hash === 'webinars' || hash === 'webinarsInProgram') {
         programElement = createProgramElement(
             globalWebinarsByLanguage,
@@ -76,7 +68,6 @@ const useHomeLayoutContext = () => {
         )
     }
 
-    console.log('XX Group',programElement)
 
 
     const isLanguageEnglish = checkLanguage('en')
@@ -85,7 +76,6 @@ const useHomeLayoutContext = () => {
     const closestWebinars = getNearestEventsByKey(globalWebinarsByLanguage, "date", 3);
     const userAvailableWebinars = sortProgramWebinars(userProgramsByLanguage, userWebinarsByLanguage, 'date', isLanguageEnglish)
 
-    console.log('QQ',closestWebinars,userAvailableWebinars)
     return {
         isLoading,
         programSearch,

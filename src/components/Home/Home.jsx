@@ -90,8 +90,6 @@
 //     const closestWebinars = getNearestEventsByKey(globalWebinarsByLanguage, "date", 3);
 //     const userAvailableWebinars = sortProgramWebinars(userProgramsByLanguage, userWebinarsByLanguage, 'date', isLanguageEnglish)
 //
-//     console.log('DD1', user)
-//     console.log('DD2',globalCourses)
 //
 //     return (
 //         <div className={styles.root}>

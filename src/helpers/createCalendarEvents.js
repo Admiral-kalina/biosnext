@@ -2,13 +2,11 @@ const generateEventList = () => {
 
 }
 export const createCalendarEvents = (programs, general, t, userWebinars) => {
-    console.log('PE initial',programs)
     const eventList =  programs?.reduce((acc, curr) => {
             const programId = curr.id; // Get the programId
             const dataItems = curr.webbinarrs?.data || [];
             // Concatenate the data items to the accumulator, adding the programId to each item
             const itemsWithProgramId = dataItems.map(item => {
-                console.log('PE',item)
                 if (item.attributes) {
                     return {
                         ...item.attributes,
@@ -33,7 +31,6 @@ export const createCalendarEvents = (programs, general, t, userWebinars) => {
 
             const programId = item.programId;
             const webinarId = item.id;
-            console.log('ITEM',item)
 
             const programLink = general
                 ? `/services/programs/${programId}`
@@ -56,8 +53,6 @@ export const createCalendarEvents = (programs, general, t, userWebinars) => {
         });
 
     if(userWebinars?.length ){
-        console.log('ITEM LL,', userWebinars)
-        console.log('ITEM,', eventList)
 
     }
 

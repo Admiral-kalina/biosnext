@@ -38,7 +38,6 @@ const Login = () => {
     const handleLogin = async (event, values) => {
         event.preventDefault()
         const url = `${process.env.NEXT_PUBLIC_STRAPI_BACKEND}api/auth/local`;
-        console.log('CLICK')
         try {
             if (values.identifier && values.password) {
                 const {data} = await axios.post(url, values);
@@ -52,7 +51,6 @@ const Login = () => {
                 }
             }
         } catch (error) {
-            console.log('Err', error)
             toast.error(t('toast.login.failed'), {
                 hideProgressBar: true,
             });

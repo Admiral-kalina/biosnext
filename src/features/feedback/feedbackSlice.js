@@ -9,7 +9,6 @@ export const fetchFeedback = createAsyncThunk('feedback/fetchFeedback', async (l
     const feedback = await strapiApi.get(`/api/feedbacks?populate=*`)
 
     const feedbackByLanguage = getFeedbackByLanguage(feedback.data.data, language);
-    console.log('GG',feedbackByLanguage)
     return {feedback,feedbackByLanguage}
 })
 
@@ -34,7 +33,6 @@ const feedbackSlice = createSlice({
             state.isLoading = true
         })
         builder.addCase(fetchFeedback.fulfilled, (state, action) => {
-            console.log('Action', action)
             state.isLoading = false
             state.feedback = action.payload.feedback.data.data;
             state.feedbackByLanguage = action.payload.feedbackByLanguage

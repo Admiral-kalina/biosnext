@@ -53,7 +53,6 @@ const Header = ({type}) => {
 
     }, [burgerState]);
 
-    console.log('FFF',feedback)
     const dispatch = useDispatch()
 
     const ref = useRef();
@@ -134,7 +133,6 @@ const Header = ({type}) => {
         setBurgerState(false);
     }
 
-    console.log('default L', language)
 
     return (
         <header ref={ref}

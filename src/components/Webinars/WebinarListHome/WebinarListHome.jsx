@@ -12,13 +12,13 @@ import Link from "next/link";
 
 const WebinarListHome = ({webinars, isWebinarHome,programId, isAvailable, withAttributes}) => {
     const {t} = useTranslation();
-    // console.log('WP', Boolean(webinars))
+
     // if (!webinars.length) {
     //     return (
     //         <MyLoader/>
     //     )
     // }
-    console.log('FQQ',programId, webinars)
+
 
     return (
         <>

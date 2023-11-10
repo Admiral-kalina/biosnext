@@ -25,7 +25,6 @@ const AboutUsHome = () => {
             <MyCalendar/>
         )
     }
-    console.log('FFF 1', feedbackByLanguage)
 
     return (
         <section className={styles.root}>

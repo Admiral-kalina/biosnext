@@ -31,7 +31,6 @@ export const Protector = ({ children }) => {
     const { jwt } = userData();
 
     useEffect(() => {
-        console.log('JWT',jwt )
         if (!jwt) {
             redirect("/login");
         }

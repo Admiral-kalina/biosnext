@@ -20,13 +20,11 @@ const WebinarOverviewHome = ({webinar, hashString,userAvailableWebinars,programS
     const dispatch = useDispatch()
 
     const isEventBuyInWebinar = userAvailableWebinars.find(el => el.id === webinar.id)
-    console.log('HASh',hashString)
     if (!webinar) {
         return (
             <MyLoader/>
         )
     }
-    console.log(webinar, userAvailableWebinars)
 
     let route = null;
 

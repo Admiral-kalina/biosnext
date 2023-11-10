@@ -16,7 +16,6 @@ if (!programElement) {
         <MyLoader/>
     )
 }
-    console.log('XX QQ LL', programElement)
 
 
 
