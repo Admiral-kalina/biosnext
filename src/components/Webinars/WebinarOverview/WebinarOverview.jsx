@@ -93,9 +93,8 @@ export const WebinarOverview = ({webinars}) => {
                             <p className={styles.program}><span>{t('additional.program')}:</span> {webinar.topic}</p>
                             <p className={styles.format}><span>{t('additional.format')}:</span> {webinar.format}</p>
                             <p className={styles.exactTime}><span>{t('additional.exactTime')}:</span> {webinar.exactTime}</p>
-                            {/*TODO*/}
                             {!isTopicPharma &&
-                                <p className={styles.level}><span>Уровень подготовки: </span> {webinar.levelOfDifficulty}</p>
+                                <p className={styles.level}><span>{t('additional.webinars')} </span> {webinar.levelOfDifficulty}</p>
                             }
                         </div>
                         <div className={styles.btnBlock}>

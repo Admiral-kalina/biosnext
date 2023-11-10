@@ -263,13 +263,14 @@
       font-size: clamp(2.75rem, 2.082rem + 1.08vw, 3.375rem);
     }
 
-    @media screen and (max-width: 450px){
+    @media screen and (max-width: 450px) {
       font-size: 24px;
     }
   }
-  &__text{
+
+  &__text {
     font-size: 22px;
-    @media screen and (max-width: 900px){
+    @media screen and (max-width: 900px) {
       font-size: 18px;
     }
   }
@@ -361,7 +362,7 @@
     @include media-breakpoint-up(xxl) {
       margin-bottom: 300px;
     }
-    @media screen and (max-width: 450px){
+    @media screen and (max-width: 450px) {
       padding-top: 40px;
     }
   }
@@ -383,11 +384,11 @@
     @include media-breakpoint-up(xxl) {
       width: 42%;
     }
-    @media screen and (max-width: 991px){
+    @media screen and (max-width: 991px) {
       padding-top: 60px;
     }
-    @media screen and (max-width: 450px){
-      padding-top:0;
+    @media screen and (max-width: 450px) {
+      padding-top: 0;
     }
   }
 
@@ -397,6 +398,10 @@
     max-width: 890px;
     flex-wrap: wrap;
     gap: 24px;
+
+    a {
+      color: #000;
+    }
 
     li {
       border-radius: 30px;
@@ -477,7 +482,7 @@
         @include media-breakpoint-up(xl) {
           margin-bottom: 36px;
         }
-        @media screen and (max-width: 768px){
+        @media screen and (max-width: 768px) {
           font-size: 18px;
         }
       }
@@ -670,7 +675,9 @@
     flex-direction: column;
     align-items: center;
     gap: 36px;
-
+a{
+  color: #F1F0E7;
+}
     @include media-breakpoint-up(md) {
       width: 75%;
       align-self: flex-end;
@@ -799,10 +806,10 @@
     gap: 20px;
 
     background-color: var(--color-deep-black);
-@media screen and (max-width: 900px){
-  font-size: 20px;
-}
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 900px) {
+      font-size: 20px;
+    }
+    @media screen and (max-width: 768px) {
       font-size: 18px;
     }
     @include media-breakpoint-up(md) {

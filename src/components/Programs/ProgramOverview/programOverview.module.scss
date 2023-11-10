@@ -91,9 +91,12 @@
 
     .anchor{
       display: inline-block;
-      padding-top: 25px;
-      font-size: 32px;
-      color: var(--color-golden-yellow);
+      margin-top: 25px;
+
+      a{
+        font-size: 32px;
+        color: var(--color-golden-yellow);
+      }
     }
 
     .price {
@@ -157,7 +160,10 @@
         font-size: 26px;
       }
       .anchor{
-        font-size: 26px;
+        a{
+          font-size: 26px;
+
+        }
       }
 
       .price {
@@ -219,7 +225,9 @@
         font-size: 18px;
       }
       .anchor{
-        font-size: 18px;
+        a{
+          font-size: 18px;
+        }
       }
       .price {
         font-size: 24px;

@@ -226,6 +226,15 @@
       box-shadow: -20vw 0 0 #202020;
     }
 
+    a{
+      position: relative;
+      height: fit-content;
+      z-index: 10;
+      grid-area: title;
+      cursor: pointer;
+      display: block;
+    }
+
     @media screen and (max-width: 1024px) {
       padding: 85px 0 55px;
       grid-template-columns: 1fr;
@@ -256,8 +265,8 @@
 
 
   .contentTitle {
+    cursor: pointer;
     max-width: 600px;
-    grid-area: title;
     color: #F1B434;
     font-size: 48px;
     font-weight: 400;

@@ -336,21 +336,21 @@ const Header = ({type}) => {
                                 </ul>
                                 <ul className="nav-menu__mobile--info">
                                     <li>
-                                        <a href="tel:+38 (095) 382-92-64">+380 95 382 9264</a>
+                                        <a target='_blank' href="tel:+38 (095) 382-92-64">+380 95 382 9264</a>
                                     </li>
                                     <li className="nav-menu__mobile--info--social">
-                                        <a href="viber://chat?number=380953829264"><Image src={icon12} alt="viber" /></a>
-                                        <a href="https://wa.me/380953829264"><Image src={icon13} alt="whatsapp"/></a>
-                                        <a href="https://t.me/+380953829264"><Image src={icon14} alt="telegram"/></a>
+                                        <a target='_blank' href="viber://chat?number=380953829264"><Image src={icon12} alt="viber" /></a>
+                                        <a target='_blank' href="https://wa.me/380953829264"><Image src={icon13} alt="whatsapp"/></a>
+                                        <a target='_blank' href="https://t.me/+380953829264"><Image src={icon14} alt="telegram"/></a>
                                     </li>
                                     <li className="nav-menu__mobile--info--place">
                                         <p>01033, {t('additional.address')}</p>
                                     </li>
                                     <li className="nav-menu__mobile--info--social-bottom">
-                                        <a href="mailto:info@bioinnova.com.ua"><Image src={icon5} alt="icon"/><i className="icon-mail"></i></a>
-                                        <a href="https://www.youtube.com/channel/UC50lJttRfXcbkp8M1byrJ3A"><Image src={icon6} alt="icon"/></a>
-                                        <a href="https://www.linkedin.com/company/bio-innova/?viewAsMember=true"><Image src={icon7} alt="icon"/></a>
-                                        <a href="https://www.facebook.com/profile.php?id=61550967937918"><Image src={icon8} alt="icon"/></a>
+                                        <a target='_blank' href="mailto:info@bioinnova.com.ua"><Image src={icon5} alt="icon"/><i className="icon-mail"></i></a>
+                                        <a target='_blank' href="https://www.youtube.com/channel/UC50lJttRfXcbkp8M1byrJ3A"><Image src={icon6} alt="icon"/></a>
+                                        <a target='_blank' href="https://www.linkedin.com/company/bio-innova/?viewAsMember=true"><Image src={icon7} alt="icon"/></a>
+                                        <a target='_blank' href="https://www.facebook.com/profile.php?id=61550967937918"><Image src={icon8} alt="icon"/></a>
                                     </li>
                                 </ul>
                             </li>

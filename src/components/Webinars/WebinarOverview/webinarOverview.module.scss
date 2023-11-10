@@ -84,7 +84,6 @@
     }
 
     .date, .teacher, .program, .format, .exactTime, .level {
-
       font-size: 24px;
       color: var(--color-white);
 
@@ -148,8 +147,6 @@
 
     .level{
       padding: 0 0 0 20px;
-      margin: 10px 0 0 20px;
-
       &:before {
         content: url("../../../app/media/images/star.svg");
       }

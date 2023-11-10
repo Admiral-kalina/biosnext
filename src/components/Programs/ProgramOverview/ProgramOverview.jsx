@@ -59,16 +59,19 @@ export const ProgramOverview = ({programs, hash}) => {
                             <p className={styles.title}>{program.name}</p>
                             <p className={styles.subtitle}>{program.description}</p>
                             {isTopicPharma &&
-                                <a className={styles.anchor} href="#my-anchor">{t('additional.checkLevel')}</a>
+                                <div className={styles.anchor}>
+                                    <MyButton  golden goldenAnchor>
+                                        <a  href="#my-anchor">{t('additional.checkLevel')}</a>
+                                    </MyButton>
+                                </div>
                             }
                             <p className={styles.date}>
                                 <span>{t('additional.beginning')}:</span> {convertDateFormat(program.start)}</p>
                             <p className={styles.program}>
                                 <span>{t('additional.webinars')}:</span> {program.webinarsCount}</p>
-                            {/*TODO*/}
                             {isTopicPharma &&
                                 <p className={styles.level}>
-                                    <span>Уровень подготовки: </span>{program.levelOfDifficulty}
+                                    <span>{t('additional.level')} </span>{program.levelOfDifficulty}
                                 </p>
                             }
                             <p className={styles.price}>${program.price}</p>

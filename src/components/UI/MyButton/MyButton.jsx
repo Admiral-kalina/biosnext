@@ -8,6 +8,7 @@ const MyButton = ({
     black,
     transparent,
     golden,
+    goldenAnchor,
     fullGolden,
     goldenTransparent,
     ...props
@@ -18,7 +19,8 @@ const MyButton = ({
         [styles.transparent]: transparent,
         [styles.golden]: golden,
         [styles.fullGolden]: fullGolden,
-        [styles.goldenTransparent]: goldenTransparent
+        [styles.goldenTransparent]: goldenTransparent,
+        [styles.goldenAnchor]:goldenAnchor
     })
 
     return (

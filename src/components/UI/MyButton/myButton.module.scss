@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
   &:hover {
     opacity: .6;
   }
@@ -13,9 +14,10 @@
   font-size: 30px;
   font-weight: 600;
   background-color: var(--color-soft-black);
-  color:var(--color-white) ;
+  color: var(--color-white);
   padding: 20px 40px;
   gap: 40px;
+
   &:hover {
     color: var(--color-golden-yellow);
   }
@@ -44,8 +46,13 @@
   border: 2px solid #F5B335;
 }
 
+.goldenAnchor {
+  padding: 5px;
+  line-height: normal;
+}
 
-.fullGolden{
+
+.fullGolden {
   padding: 20px 40px;
   justify-content: center;
   align-items: center;
@@ -53,23 +60,25 @@
   font-weight: 600;
   gap: 40px;
   color: #202020;
-  background:var(--color-golden-yellow) ;
-  @media screen and (max-width: 768px){
+  background: var(--color-golden-yellow);
+  @media screen and (max-width: 768px) {
     font-size: 24px;
   }
-  @media screen and (max-width: 450px){
+  @media screen and (max-width: 450px) {
     font-size: 20px;
   }
 }
 
-.goldenTransparent{
+.goldenTransparent {
   background: transparent;
   font-size: 30px;
   font-weight: 600;
-  p{
+
+  p {
     position: relative;
     color: #F5B335CC;
-    &:before{
+
+    &:before {
       content: url("../../../app/media/images/arrowGolden.svg");
       width: 24px;
       height: 24px;
@@ -80,18 +89,19 @@
       display: inline-block;
     }
   }
-  @media screen and (max-width: 768px){
+
+  @media screen and (max-width: 768px) {
     font-size: 24px;
-    p{
-      &:before{
+    p {
+      &:before {
         top: 4px;
       }
     }
   }
-  @media screen and (max-width: 450px){
+  @media screen and (max-width: 450px) {
     font-size: 20px;
-    p{
-      &:before{
+    p {
+      &:before {
         top: 3px;
       }
     }

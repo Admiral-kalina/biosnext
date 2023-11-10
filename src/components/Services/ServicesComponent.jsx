@@ -26,40 +26,43 @@ import * as styles from "./services.module.scss";
 const ServicesComponent = () => {
     const {t} = useTranslation()
     const firstContent = [
-        {id: 0, text: 'a. Обеспечение соответствия нормативам и требованиям, уменьшая риск нарушений и штрафов.'},
-        {id: 1, text: 'b. Уменьшение риска медицинских ошибок'},
-        {id: 2, text: 'c. Оптимизация финансовых процессов'},
-        {id: 3, text: 'd. Повышение вашей конкурентноспособности'},
-        {id: 4, text: 'e. Возможность своевременно реагировать на изменения'},
-        {id: 5, text: 'f. Возможность внедрения инноваций'},
+        {id: 0, text: t('servicesTopics.topic1.text1')},
+        {id: 1, text: t('servicesTopics.topic1.text2')},
+        {id: 2, text: t('servicesTopics.topic1.text3')},
+        {id: 3, text: t('servicesTopics.topic1.text4')},
+        {id: 4, text: t('servicesTopics.topic1.text5')},
+        {id: 5, text: t('servicesTopics.topic1.text6')},
     ];
 
     const secondContent = [
-        {id: 0, text: 'a. Наши экспертные знания и опыт'},
-        {id: 1, text: 'b. Объективность'},
-        {id: 2, text: 'c. Новые идеи и подходы к решению проблем'},
-        {id: 3, text: 'd. Уменьшение рисков'},
-        {id: 4, text: 'e. Специализированная экспертиза'},
-        {id: 5, text: 'f. Возможность вашего фокусирования на основной деятельности'},
+        {id: 0, text: t('servicesTopics.topic2.text1')},
+        {id: 1, text: t('servicesTopics.topic2.text2')},
+        {id: 2, text: t('servicesTopics.topic2.text3')},
+        {id: 3, text: t('servicesTopics.topic2.text4')},
+        {id: 4, text: t('servicesTopics.topic2.text5')},
+        {id: 5, text: t('servicesTopics.topic2.text6')},
     ];
+
     const thirdContent = [
-        {id: 0, text: 'a. Знание актуальной информации'},
-        {id: 1, text: 'b. Повышение квалификации'},
-        {id: 2, text: 'c. Улучшение карьерных возможностей'},
-        {id: 3, text: 'd. Повышение эффективности работы'},
-        {id: 4, text: 'e. Сотрудничество и обмен опытом'},
-        {id: 5, text: 'f. Сотрудничество с регуляторами'},
+        {id: 0, text: t('servicesTopics.topic3.text1')},
+        {id: 1, text: t('servicesTopics.topic3.text2')},
+        {id: 2, text: t('servicesTopics.topic3.text3')},
+        {id: 3, text: t('servicesTopics.topic3.text4')},
+        {id: 4, text: t('servicesTopics.topic3.text5')},
+        {id: 5, text: t('servicesTopics.topic3.text6')},
     ];
+
     const fourthContent = [
-        {id: 0, text: 'a. Приобретение практических навыков'},
-        {id: 1, text: 'b. Взаимодействие с опытными экспертами в своей сфере'},
-        {id: 2, text: 'c. Получение всегда актуальной информации'},
-        {id: 3, text: 'd. Закрепление теоретических знаний на практике'},
-        {id: 4, text: 'e. Возможность сотрудничества между участниками'},
-        {id: 5, text: 'f. Сертификация, подтверждающая знания и навыки в сфере фармаконадзора, GMP-сертификации, регистрации и клинического развития в фармацевтической отрасли'},
+        {id: 0, text:t('servicesTopics.topic4.text1')},
+        {id: 1, text:t('servicesTopics.topic4.text2')},
+        {id: 2, text:t('servicesTopics.topic4.text3')},
+        {id: 3, text:t('servicesTopics.topic4.text4')},
+        {id: 4, text:t('servicesTopics.topic4.text5')},
+        {id: 5, text:t('servicesTopics.topic4.text6')},
     ];
+
     return (
-        <div className={styles.root}>
+        <div id="my-anchor" className={styles.root}>
             <Container>
                 <div className={styles.row}>
                     <p className={styles.title}>{t('services.services')}</p>
@@ -67,39 +70,40 @@ const ServicesComponent = () => {
                         <Link href='/services/programs#Pharmacovigilance'>
                             <div className={styles.courseColumn}>
                                 <Image className={styles.logo} src={pharma} alt="pharma"/>
-                                <p className={styles.description}>Фармаконадзор</p>
+                                <p className={styles.description}>{t('servicesTopics.farma')}</p>
                                 <Image className={styles.arrow} src={arrowUpRight} alt="arrowUpRight"/>
                             </div>
                         </Link>
                         <Link href='/services/programs#Registration'>
                             <div className={styles.courseColumn}>
                                 <Image className={styles.logo} src={registration} alt="registration"/>
-                                <p className={styles.description}>Регистрация</p>
+                                <p className={styles.description}>{t('servicesTopics.registration')}</p>
                                 <Image className={styles.arrow} src={arrowUpRight} alt="arrowUpRight"/>
                             </div>
                         </Link>
-                        <Link href='/services/programs#GMP-certification'>
+                        <Link href=''>
                             <div className={styles.courseColumn}>
                                 <Image className={styles.logo} src={gmp} alt="gmp"/>
-                                <p className={styles.description}>GMP - сертификация</p>
+                                <p className={styles.description}>{t('servicesTopics.gmp')}</p>
                                 <Image className={styles.arrow} src={arrowUpRight} alt="arrowUpRight"/>
                             </div>
                         </Link>
                         <Link href='/services/programs#ClinicalTrials'>
                             <div className={styles.courseColumn}>
                                 <Image className={styles.logo} src={clinical} alt="clinical"/>
-                                <p className={styles.description}>Клинические исследования</p>
+                                <p className={styles.description}>{t('servicesTopics.research')}</p>
                                 <Image className={styles.arrow} src={arrowUpRight} alt="arrowUpRight"/>
                             </div>
                         </Link>
                     </div>
                 </div>
-                <div className={styles.addition}>
-                    <p className={styles.additionTitle}>Universal School of Pharmacovigilance & Medical affairs
-                        предоставляет своим партнерам комплексные услуги, имеющие много преимуществ:</p>
 
+                <div className={styles.addition}>
+                       <p className={styles.additionTitle}>{t('servicesTopics.title')}</p>
                     <div className={styles.contentBlock}>
-                        <p className={styles.contentTitle}>Аудиты (системы фармаконадзора, регистрационного досье)</p>
+                        <Link href='/contacts'>
+                        <p className={styles.contentTitle}>{t('servicesTopics.topic1.title')}</p>
+                        </Link>
                         <ul className={styles.contentElements}>
                             {firstContent.map(el =>
                                 <li key={el.id} className={styles.contentElement}>
@@ -112,7 +116,9 @@ const ServicesComponent = () => {
                     </div>
 
                     <div className={`${styles.contentBlock} ${styles.contentBlockDark}`}>
-                        <p className={styles.contentTitle}>Консалтинг</p>
+                        <Link href='/contacts'>
+                            <p className={styles.contentTitle}>{t('servicesTopics.topic2.title')}</p>
+                        </Link>
                         <ul className={styles.contentElements}>
                             {secondContent.map(el =>
                                 <li key={el.id} className={styles.contentElement}>
@@ -125,7 +131,9 @@ const ServicesComponent = () => {
                     </div>
 
                     <div className={`${styles.contentBlock}`}>
-                        <p className={styles.contentTitle}>Обучение</p>
+                        <a  href="#my-anchor">
+                            <p className={styles.contentTitle}>{t('servicesTopics.topic3.title')}</p>
+                        </a>
                         <ul className={styles.contentElements}>
                             {thirdContent.map(el =>
                                 <li key={el.id} className={styles.contentElement}>
@@ -138,7 +146,9 @@ const ServicesComponent = () => {
                     </div>
 
                     <div className={`${styles.contentBlock} ${styles.contentBlockDark}`}>
-                        <p className={styles.contentTitle}>Практические курсы</p>
+                        <Link href='/contacts'>
+                            <p className={styles.contentTitle}>{t('servicesTopics.topic4.title')}</p>
+                        </Link>
                         <ul className={styles.contentElements}>
                             {fourthContent.map(el =>
                                 <li key={el.id} className={styles.contentElement}>

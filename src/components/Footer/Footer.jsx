@@ -21,32 +21,31 @@ const Footer = ({location}) => {
             <div className="container d-block-md">
                 <div className="footer__wrapper">
                     <div className="footer__contacts">
-                        <a href="tel:+380953829264">+380 95 382 9264</a>
+                        <a target='_blank' href="tel:+380953829264">+380 95 382 9264</a>
                         <div className="footer__social_left">
-                            <a href="viber://chat?number=380953829264"><Image src={icon12} alt="viber" /></a>
-                            <a href="https://wa.me/380953829264"><Image src={icon13} alt="whatsapp"/></a>
-                            <a href="https://t.me/+380953829264"><Image src={icon14} alt="telegram"/></a>
+                            <a target='_blank' href="viber://chat?number=380953829264"><Image src={icon12} alt="viber" /></a>
+                            <a target='_blank' href="https://wa.me/380953829264"><Image src={icon13} alt="whatsapp"/></a>
+                            <a target='_blank' href="https://t.me/+380953829264"><Image src={icon14} alt="telegram"/></a>
                         </div>
                         <p>{t('additional.address')}</p>
 
                         <div className="footer__mail">
-                            <a href="mailto:info@bioinnova.com.ua">info@bioinnova.com.ua</a>
+                            <a target='_blank' href="mailto:info@bioinnova.com.ua">info@bioinnova.com.ua</a>
                         </div>
                     </div>
 
                     <div className="footer__center">
                         <div className="footer__social">
-                            <a href="mailto:info@bioinnova.com.ua"><Image src={icon5} alt="icon"/><i className="icon-mail"></i></a>
-                            <a href="https://www.youtube.com/channel/UC50lJttRfXcbkp8M1byrJ3A"><Image src={icon6} alt="icon"/></a>
-                            <a href="https://www.linkedin.com/company/bio-innova/?viewAsMember=true"><Image src={icon7} alt="icon"/></a>
-                            <a href="https://www.facebook.com/profile.php?id=61550967937918"><Image src={icon8} alt="icon"/></a>
+                            <a target='_blank' href="mailto:info@bioinnova.com.ua"><Image src={icon5} alt="icon"/><i className="icon-mail"></i></a>
+                            <a target='_blank' href="https://www.youtube.com/channel/UC50lJttRfXcbkp8M1byrJ3A"><Image src={icon6} alt="icon"/></a>
+                            <a target='_blank' href="https://www.linkedin.com/company/bio-innova/?viewAsMember=true"><Image src={icon7} alt="icon"/></a>
+                            <a target='_blank' href="https://www.facebook.com/profile.php?id=61550967937918"><Image src={icon8} alt="icon"/></a>
                         </div>
                         <div className="footer__copyright">
-                            <p>1</p>
                             © all rights reserved
                         </div>
                         <div className="footer__mail">
-                            <a href="mailto:info@bioinnova.com.ua">info@bioinnova.com.ua</a>
+                            <a target='_blank' href="mailto:info@bioinnova.com.ua">info@bioinnova.com.ua</a>
                         </div>
 
                     </div>
@@ -59,7 +58,7 @@ const Footer = ({location}) => {
                             />
                         </div>
                         <div className="footer__mail">
-                            <a href="mailto:info@bioinnova.com.ua">info@bioinnova.com.ua</a>
+                            <a target='_blank' href="mailto:info@bioinnova.com.ua">info@bioinnova.com.ua</a>
                         </div>
 
                         <div className="footer__copyright">
