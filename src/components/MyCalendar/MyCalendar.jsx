@@ -57,7 +57,6 @@ const MyCalendar = ({
     const eventsWithoutDuplicates = isAllRecords
         ? removeDuplicates(globalEvents)
         : removeDuplicates(userEvents);
-
     const handleClick = (bool) => {
         setIsAllRecords(bool);
     };
