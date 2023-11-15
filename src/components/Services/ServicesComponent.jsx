@@ -82,7 +82,7 @@ const ServicesComponent = () => {
                                 <Image className={styles.arrow} src={arrowUpRight} alt="arrowUpRight"/>
                             </div>
                         </Link>
-                        <Link href=''>
+                        <Link href='/services/programs#GMP-certification'>
                             <div className={styles.courseColumn}>
                                 <Image className={styles.logo} src={gmp} alt="gmp"/>
                                 <p className={styles.description}>{t('servicesTopics.gmp')}</p>
