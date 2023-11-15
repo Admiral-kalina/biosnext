@@ -28,11 +28,6 @@ const Contacts = () => {
                             {t('additional.contactsDescription')}
                         </p>
                     </div>
-                    <div className={styles.bottomInfo}>
-                        <a href="/">email: info@bioinnova.com.ua</a>
-                        <a href="m">+380 95 382 9264</a>
-                        <p> {t('additional.address')}</p>
-                    </div>
                 {/*</div>*/}
                 <div className={`${styles.column} ${styles.columnRight}`}>
                     <ContactForm/>
