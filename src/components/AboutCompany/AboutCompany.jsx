@@ -159,6 +159,7 @@ const AboutCompany = () => {
                                         </p>
                                     </div>
                                 </Link>
+
                                 <Link href='/services'>
                                     <div className="services__item">
                                         <h3 className="services__item--title">
@@ -169,6 +170,7 @@ const AboutCompany = () => {
                                         </p>
                                     </div>
                                 </Link>
+
                                 <Link href='/services'>
                                     <div className="services__item">
                                         <h3 className="services__item--title">

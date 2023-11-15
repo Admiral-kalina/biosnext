@@ -675,9 +675,12 @@
     flex-direction: column;
     align-items: center;
     gap: 36px;
-a{
-  color: #F1F0E7;
-}
+
+    a {
+      margin: 0 auto 0 0;
+      color: #F1F0E7;
+    }
+
     @include media-breakpoint-up(md) {
       width: 75%;
       align-self: flex-end;
