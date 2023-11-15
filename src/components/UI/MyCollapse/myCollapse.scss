@@ -42,9 +42,18 @@
   .anticon {
     svg {
       fill: var(--color-golden-yellow);
-      transform: rotate(-90deg);
+      transform: rotate(90deg);
       width: 24px;
       height: 24px;
+    }
+
+  }
+
+  .ant-collapse-item-active {
+    .anticon {
+      svg {
+        transform: rotate(-90deg)!important;
+      }
     }
   }
 
@@ -74,9 +83,11 @@
     .levelBody {
       font-size: 24px;
       font-weight: 100;
-      ul{
+
+      ul {
         list-style: disc;
-        li{
+
+        li {
           list-style: disc;
           margin-left: 20px;
         }
