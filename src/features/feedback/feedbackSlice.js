@@ -9,6 +9,7 @@ export const fetchFeedback = createAsyncThunk('feedback/fetchFeedback', async (l
     const feedback = await strapiApi.get(`/api/feedbacks?populate=*`)
 
     const feedbackByLanguage = getFeedbackByLanguage(feedback.data.data, language);
+    console.log('QQ 1',feedbackByLanguage)
     return {feedback,feedbackByLanguage}
 })
 
@@ -25,6 +26,7 @@ const feedbackSlice = createSlice({
     reducers: {
         changeFeedbackLanguage(state, action) {
             const {feedback, language} = action.payload;
+            console.log('QQ 2',language, feedback,getFeedbackByLanguage(feedback, language))
             state.feedbackByLanguage = getFeedbackByLanguage(feedback, language);
         },
     },

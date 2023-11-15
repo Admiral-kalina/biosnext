@@ -97,6 +97,7 @@ const Header = ({type}) => {
             globalWebinars: globalCourses.webinars,
         }
         const feedbackPayload = {
+            language:label,
             feedback:feedback
         }
         dispatch(changeGlobalCoursesLanguage(globalPayload))

@@ -4,11 +4,12 @@ import gfm from 'remark-gfm';
 
 // styles
 import * as styles from "./webinarDesctiption.module.scss";
+import {useTranslation} from "react-i18next";
 
 
 const WebinarDescription = ({type, programDescription, programTitle, webinarDescription}) => {
     const [markDown, setMarkdown] = useState('');
-
+    const {t} = useTranslation();
     useEffect(() => {
         if (type === 'program') {
             setMarkdown(programDescription)
@@ -21,8 +22,9 @@ const WebinarDescription = ({type, programDescription, programTitle, webinarDesc
     return (
         <div className={styles.root}>
             <div className={type === 'program' ? styles.program : styles.description}>
-                {programTitle &&
-                    <p className={styles.programTitle}>{programTitle}</p>
+
+                {type !== 'program' &&
+                    <p className={styles.programTitle}>{t('additional.webinarDescribe')}</p>
                 }
                 <ReactMarkdown
                     remarkPlugins={[gfm]}

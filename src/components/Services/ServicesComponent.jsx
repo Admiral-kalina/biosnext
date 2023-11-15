@@ -25,6 +25,7 @@ import * as styles from "./services.module.scss";
 
 const ServicesComponent = () => {
     const {t} = useTranslation()
+
     const firstContent = [
         {id: 0, text: t('servicesTopics.topic1.text1')},
         {id: 1, text: t('servicesTopics.topic1.text2')},
@@ -131,7 +132,7 @@ const ServicesComponent = () => {
                     </div>
 
                     <div className={`${styles.contentBlock}`}>
-                        <a  href="#my-anchor">
+                        <a href="#my-anchor">
                             <p className={styles.contentTitle}>{t('servicesTopics.topic3.title')}</p>
                         </a>
                         <ul className={styles.contentElements}>

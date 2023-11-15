@@ -19,7 +19,7 @@ const AboutUsHome = () => {
     const {t} = useTranslation();
     const {feedbackByLanguage, isLoading, error} = useSelector(state => state.feedback)
 
-
+    console.log('FF',feedbackByLanguage)
     if (isLoading) {
         return (
             <MyCalendar/>

@@ -67,22 +67,45 @@ import ReactMarkdown from "react-markdown";
 import gfm from 'remark-gfm';
 import "./myCollapse.scss";
 
-const LevelCollapse = ({program}) => {
+const LevelCollapse = () => {
     const {t} = useTranslation()
-    const items = groupLevelCollapseData(program, t)
+    const program = [
+        {
+            key: '1',
+            label: `1. Beginner (${t('collapse.beginner')})`,
+            children: `<ul><li>${t('levels.beginner.text1')}</li><li>${t('levels.beginner.text2')}</li></ul>`
+        },
+        {
+            key: '2',
+            label: `2. Elementary (${t('collapse.elementary')})`,
+            children: `<ul><li>${t('levels.elementary.text1')}</li><li>${t('levels.elementary.text2')}</li><li>${t('levels.elementary.text3')}</li></ul>`
+        },
+        {
+            key: '3',
+            label: `3. Intermediate (${t('collapse.intermediate')})`,
+            children: `<ul><li>${t('levels.intermediate.text1')}</li><li>${t('levels.intermediate.text2')}</li><li>${t('levels.intermediate.text3')}</li></ul>`
+        },
+        {
+            key: '4',
+            label: `4. Advanced (${t('collapse.advanced')})`,
+            children: `<ul><li>${t('levels.advanced.text1')}</li><li>${t('levels.advanced.text2')}</li><li>${t('levels.advanced.text3')}</li></ul>`
+        },
+        {
+            key: '5',
+            label: `5. Extra (${t('collapse.extra')})`,
+            children: `<ul><li>${t('levels.specialized.text1')}</li><li>${t('levels.specialized.text2')}</li><li>${t('levels.specialized.text3')}</li></ul>`
+        },
+    ]
+
+    console.log(program.beginner)
+
     return (
         <div className="collapse">
             <Collapse className={'collapse_content'}>
-                {items.map(item => (
+                {program.map(item => (
                     <Panel header={<p className={'levelTitle'}>{item.label}</p>} key={item.key}>
-                        <span>Критерии уровня:</span>
-                        <p className={'levelBody'}>
-                            <ReactMarkdown
-                                remarkPlugins={[gfm]}
-                            >
-                                {item.children}
-                            </ReactMarkdown>
-                        </p>
+                        <span>{t('levels.title')}</span>
+                        <p className={'levelBody'} dangerouslySetInnerHTML={{__html: item.children}}></p>
                     </Panel>
                 ))}
             </Collapse>

@@ -74,6 +74,13 @@
     .levelBody {
       font-size: 24px;
       font-weight: 100;
+      ul{
+        list-style: disc;
+        li{
+          list-style: disc;
+          margin-left: 20px;
+        }
+      }
     }
   }
 

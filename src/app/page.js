@@ -19,11 +19,12 @@ import icon1 from "./media/images/icon/icon1.svg";
 import icon2 from "./media/images/icon/icon2.svg";
 import icon3 from "./media/images/icon/icon3.svg";
 import icon4 from "./media/images/icon/icon4.svg";
-import logo1 from "./media/images/icon/logo1.svg";
-import logo2 from "./media/images/icon/logo2.svg";
-import logo3 from "./media/images/icon/logo3.svg";
-import logo4 from "./media/images/icon/logo4.svg";
-import logo5 from "./media/images/icon/logo5.svg";
+
+import logo1 from "./media/img/logos/logo1.svg";
+import logo2 from "./media/img/logos/logo2.svg";
+import logo3 from "./media/img/logos/logo3.svg";
+import logo4 from "./media/img/logos/logo4.svg";
+import logo5 from "./media/img/logos/logo5.svg";
 
 
 export default function Home() {
