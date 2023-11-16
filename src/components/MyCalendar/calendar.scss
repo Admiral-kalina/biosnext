@@ -55,7 +55,7 @@
       width: calc(100vw - 290px);
 
     }
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 768px) {
       width: calc(100vw - 230px);
     }
   }
@@ -185,10 +185,7 @@
   .rbc-month-row {
     border: none !important;
     min-height: 242px !important;
-    @media screen and (max-width: 1024px) {
-      max-height: 100% !important;
-      min-width: 181px !important;
-    }
+
     @media screen and (max-width: 768px) {
       max-height: 100% !important;
       min-width: 288px !important;
@@ -264,7 +261,7 @@
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 768px) {
     .rbc-calendar {
       padding: 0 7px 0 0;
       height: 1940px;
@@ -424,11 +421,11 @@
       width: calc(100% - 220px);
 
     }
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 768px) {
       width: calc(100vw - 70px);
     }
   }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 768px) {
     .rbc-calendar {
       padding: 0 7px 0 0;
     }
@@ -489,12 +486,7 @@
     height: 100%;
   }
 
-  @media screen and (max-width: 1024px) {
-    .rbc-event-content {
-      height: 100%;
-      margin-top: 3px;
-    }
-  }
+
   @media screen and (max-width: 768px) {
     .rbc-event-content {
       margin-top:0;
