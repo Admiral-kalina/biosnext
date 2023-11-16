@@ -28,10 +28,8 @@ const Footer = ({location}) => {
                             <a target='_blank' href="https://t.me/+380953829264"><Image src={icon14} alt="telegram"/></a>
                         </div>
                         <p>{t('additional.address')}</p>
+                        <a target='_blank' href="mailto:info@bioinnova.com.ua">info@bioinnova.com.ua</a>
 
-                        <div className="footer__mail">
-                            <a target='_blank' href="mailto:info@bioinnova.com.ua">info@bioinnova.com.ua</a>
-                        </div>
                     </div>
 
                     <div className="footer__center">
@@ -44,9 +42,6 @@ const Footer = ({location}) => {
                         <div className="footer__copyright">
                             © all rights reserved
                         </div>
-                        <div className="footer__mail">
-                            <a target='_blank' href="mailto:info@bioinnova.com.ua">info@bioinnova.com.ua</a>
-                        </div>
 
                     </div>
 
@@ -57,9 +52,7 @@ const Footer = ({location}) => {
                                 alt="Logo Bioscience Innova"
                             />
                         </div>
-                        <div className="footer__mail">
-                            <a target='_blank' href="mailto:info@bioinnova.com.ua">info@bioinnova.com.ua</a>
-                        </div>
+
 
                         <div className="footer__copyright">
                            <p className="footer__copyright_link"> <Link target='_blank' href="/public-offer">{t('additional.publicOffer')}</Link></p>
