@@ -17,7 +17,7 @@ const ProgramElement = ({programs}) => {
     const {t} = useTranslation()
     return (
         <>
-            {programs.map(program =>
+            {programs?.map(program =>
                 <div key={program.id} className={styles.column}>
                     <Link scroll={false}  href={`/home/programs/program/?program=${program.id}#programs`}>
                         <p className={styles.section}>{t('additional.program')}</p>
