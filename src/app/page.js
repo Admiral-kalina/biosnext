@@ -180,7 +180,7 @@ export default function Home() {
                                </p>
                                <div className="feedback__card--line"></div>
                                <div className="feedback__card--name">
-                                 <p>- {t('feedback.author1')}</p>
+                                 <p>- {t('feedback.author2')}</p>
                                </div>
                              </div>
                            </div>

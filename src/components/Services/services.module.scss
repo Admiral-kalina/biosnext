@@ -160,7 +160,7 @@
 
   .additionTitle {
     background-color: #202020;
-    font-size: 60px;
+    font-size: 38px;
     font-weight: 600;
     line-height: 130%;
 
@@ -186,13 +186,13 @@
       box-shadow: -20vw 0 0 #202020;
     }
     @media screen and (max-width: 1024px) {
-      font-size: 42px;
-    }
-    @media screen and (max-width: 768px) {
       font-size: 32px;
     }
+    @media screen and (max-width: 768px) {
+      font-size: 26px;
+    }
     @media screen and (max-width: 450px) {
-      font-size: 22px;
+      font-size: 20px;
     }
   }
 
